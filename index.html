@@ -6,12 +6,14 @@
     <title>Welcome to Agentopia</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        /* Previous styles remain the same */
+        /* Base styles */
         body {
             background: linear-gradient(to bottom, #0f172a, #1e293b);
             min-height: 100vh;
             color: #e2e8f0;
         }
+
+        /* Repository card styles */
         .repo-card {
             background: rgba(30, 41, 59, 0.8);
             backdrop-filter: blur(8px);
@@ -23,9 +25,13 @@
             border-color: rgba(148, 163, 184, 0.2);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
+
+        /* Glow and text effects */
         .glow {
             text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
         }
+
+        /* Search input styles */
         .search-input {
             background: rgba(30, 41, 59, 0.8);
             border: 1px solid rgba(148, 163, 184, 0.2);
@@ -34,7 +40,8 @@
             border-color: rgba(56, 189, 248, 0.5);
             box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
         }
-        /* New styles for logo and header alignment */
+
+        /* Logo and header alignment */
         .header-container {
             display: flex;
             align-items: center;
@@ -46,10 +53,63 @@
             height: 60px;
             object-fit: contain;
         }
+
+        /* New documentation section styles */
+        #documentation .repo-card {
+            transition: all 0.3s ease;
+        }
+        #documentation .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Navigation styles */
+        .nav-menu {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            color: #94a3b8;
+        }
+        .nav-link:hover {
+            color: #38bdf8;
+            transform: translateY(-2px);
+        }
+
+        /* Footer styles */
+        footer {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        .social-icon {
+            transition: all 0.3s ease;
+            color: #94a3b8;
+        }
+        .social-icon:hover {
+            color: #38bdf8;
+            transform: scale(1.1);
+        }
     </style>
 </head>
-<body class="p-8">
-    <!-- Header -->
+<body class="pt-24 p-8">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 nav-menu">
+        <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+            <div class="flex items-center">
+                <img src="org-logo.png" alt="Agentopia Logo" class="w-10 h-10 mr-3">
+                <span class="text-xl font-bold text-sky-400">Agentopia</span>
+            </div>
+            <div class="space-x-6">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#documentation" class="nav-link">Docs</a>
+                <a href="#" class="nav-link">Community</a>
+                <a href="https://github.com/agentopia" target="_blank" class="nav-link">GitHub</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
     <div class="max-w-6xl mx-auto mb-12 text-center">
         <div class="header-container mb-4">
             <img src="org-logo.png" alt="Organization Logo" class="org-logo">
@@ -70,13 +130,12 @@
         </div>
     </div>
 
-    <!-- Rest of the content remains the same -->
+    <!-- Repositories Grid -->
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="repoGrid">
         <!-- Repositories will be inserted here -->
     </div>
 
     <script>
-        // JavaScript remains the same
         const ORG_NAME = 'agentopia';
         const EXCLUDED_REPO = 'agentopia.github.io';
 
@@ -133,7 +192,94 @@
             });
         });
 
-        fetchRepos();
+        function setupDocumentationInteractivity() {
+            const docSections = document.querySelectorAll('#documentation > div > div');
+            
+            docSections.forEach(section => {
+                section.addEventListener('click', () => {
+                    // Future: Could open a modal with more detailed content
+                    alert('Detailed content coming soon!');
+                });
+                
+                section.classList.add('cursor-pointer', 'hover:bg-slate-700', 'transition');
+            });
+        }
+
+        // Modify fetchRepos to call setupDocumentationInteractivity
+        fetchRepos().then(() => {
+            setupDocumentationInteractivity();
+        });
     </script>
+
+    <!-- Documentation Section -->
+    <section id="documentation" class="max-w-6xl mx-auto mt-16 p-8">
+        <h2 class="text-4xl font-bold text-sky-400 mb-8 text-center">AI Agent Development Guide</h2>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-slate-800 p-6 rounded-xl repo-card">
+                <h3 class="text-2xl text-sky-300 mb-4">Getting Started</h3>
+                <ul class="text-gray-300 space-y-2">
+                    <li>🚀 What are AI Agents?</li>
+                    <li>🛠 Essential Tools</li>
+                    <li>📚 Learning Resources</li>
+                </ul>
+            </div>
+            
+            <div class="bg-slate-800 p-6 rounded-xl repo-card">
+                <h3 class="text-2xl text-sky-300 mb-4">Development Frameworks</h3>
+                <ul class="text-gray-300 space-y-2">
+                    <li>🤖 Popular Frameworks</li>
+                    <li>🔧 Comparison Guide</li>
+                    <li>🌐 Deployment Strategies</li>
+                </ul>
+            </div>
+            
+            <div class="bg-slate-800 p-6 rounded-xl repo-card">
+                <h3 class="text-2xl text-sky-300 mb-4">Community</h3>
+                <ul class="text-gray-300 space-y-2">
+                    <li>💬 Discussion Forums</li>
+                    <li>🤝 Contribution Guidelines</li>
+                    <li>📢 Upcoming Events</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="max-w-6xl mx-auto mt-16 text-center bg-slate-800 p-12 rounded-xl">
+        <h2 class="text-4xl font-bold text-sky-400 mb-4">Join the AI Agent Revolution</h2>
+        <p class="text-xl text-gray-300 mb-8">
+            Help build the future of intelligent, collaborative AI agents.
+        </p>
+        <div class="flex justify-center space-x-4">
+            <a href="https://github.com/agentopia" 
+               class="bg-sky-600 text-white px-6 py-3 rounded-lg hover:bg-sky-700 transition">
+                Explore Repositories
+            </a>
+            <a href="#" 
+               class="border border-sky-400 text-sky-400 px-6 py-3 rounded-lg hover:bg-sky-900 transition">
+                Contribute Guidelines
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-16 py-12 text-center">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://twitter.com/agentopia" class="social-icon text-2xl">🐦</a>
+                <a href="https://github.com/agentopia" class="social-icon text-2xl">🐙</a>
+                <a href="#" class="social-icon text-2xl">📧</a>
+            </div>
+            <p class="text-gray-400 mb-4">
+                © 2024 Agentopia. Building the future of AI Agents.
+            </p>
+            <div class="space-x-4">
+                <a href="#" class="text-sm text-gray-500 hover:text-sky-400">Privacy Policy</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-sky-400">Terms of Service</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-sky-400">Contact</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
