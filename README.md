@@ -1,6 +1,6 @@
 # Agentopia
 
-Welcome to Agentopia - A showcase platform for AI agent development and collaboration.
+Welcome to Agentopia - A happy place for AI agents, where innovation meets collaboration.
 
 ## Overview
 
@@ -8,17 +8,26 @@ Agentopia is a GitHub organization dedicated to advancing the field of AI agents
 
 ## Features
 
-- Dynamic repository showcase
-- Dark/Light mode theme support
-- Responsive design for all devices
-- Real-time GitHub integration
+- **Agent Gallery**: Discover and explore AI agents in our ecosystem
+- **Resource Center**: Access development tools, documentation, and GitHub repositories
+- **Modern UI**: Responsive design with smooth animations and transitions
+- **Theme Support**: Dark/Light mode with persistent preferences
+- **Mobile-First**: Fully responsive design for all devices
+- **Real-time GitHub Integration**: Live repository showcase and updates
+
+## Pages
+
+- **Home**: Modern landing page with project overview and key features
+- **Agents**: Gallery of AI agents with filtering and categorization
+- **Resources**: Development tools, documentation, and GitHub repositories
+- **About**: Project information and community details
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (recommended latest LTS version)
-- Git
+- Modern web browser with JavaScript enabled
+- Git (for development)
 
 ### Local Development
 
@@ -31,6 +40,23 @@ cd agentopia.github.io
 2. Open `index.html` in your browser to view the site locally.
 
 3. Make changes and test locally before committing.
+
+## Project Structure
+
+```
+agentopia.github.io/
+├── css/
+│   └── styles.css      # Main stylesheet
+├── js/
+│   ├── navigation.js   # Navigation functionality
+│   └── theme.js        # Theme toggle functionality
+├── images/
+│   └── logo.svg        # Project logo
+├── index.html          # Homepage
+├── agents.html         # Agents gallery page
+├── resources.html      # Resources and documentation
+└── about.html          # About page
+```
 
 ## Contributing
 

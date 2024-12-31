@@ -1,0 +1,202 @@
+/* Variables */
+:root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --accent-color: #fbbf24;
+    --accent-gradient: linear-gradient(135deg, #fbbf24, #f97316);
+}
+
+/* Base styles */
+body {
+    background: var(--bg-primary);
+    min-height: 100vh;
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Dark/Light mode styles */
+body.light-mode {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f1f5f9;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+}
+
+/* Logo and header alignment */
+.header-container {
+    padding-top: 2rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navigation */
+.nav-menu {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light-mode .nav-menu {
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+/* Button styles */
+.btn-primary {
+    background: var(--accent-gradient);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.btn-secondary {
+    background: rgba(251, 191, 36, 0.1);
+    color: var(--accent-color);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(251, 191, 36, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(251, 191, 36, 0.2);
+}
+
+/* Grid pattern background */
+.bg-grid-pattern {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+}
+
+/* Floating elements animation */
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floating-elements::before,
+.floating-elements::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(251, 191, 36, 0.1);
+    animation: float 20s infinite linear;
+}
+
+.floating-elements::before {
+    top: 10%;
+    left: 10%;
+    animation-delay: -5s;
+}
+
+.floating-elements::after {
+    bottom: 10%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(100px, 100px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Feature icons */
+.icon-container {
+    font-size: 3rem;
+    background: rgba(251, 191, 36, 0.1);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.icon-container:hover {
+    transform: scale(1.1);
+    background: rgba(251, 191, 36, 0.2);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    
+    .mobile-nav {
+        display: block;
+    }
+    
+    .mobile-menu-panel {
+        background: var(--bg-primary);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .light-mode .mobile-menu-panel {
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-nav {
+        display: none;
+    }
+    
+    .desktop-nav {
+        display: flex;
+    }
+}
