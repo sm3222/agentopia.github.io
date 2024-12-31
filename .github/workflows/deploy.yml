@@ -1,20 +1,28 @@
-name: Deploy to GitHub Pages
+name: CI
 
 on:
   push:
-    branches: [main]
+    branches: 
+      - main
+      - develop
   pull_request:
-    branches: [main]
+    branches: 
+      - main
+      - develop
 
 jobs:
-  build-and-deploy:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+      - name: Validate HTML
+        run: |
+          echo "Add HTML validation steps here"
+          # Future: Add html5validator or similar tool
+
+      - name: Check Links
+        run: |
+          echo "Add link checking steps here"
+          # Future: Add link checker
