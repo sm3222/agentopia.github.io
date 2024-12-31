@@ -7,12 +7,28 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
         /* Base styles */
-        body {
-            background: linear-gradient(to bottom, #0f172a, #1e293b);
-            min-height: 100vh;
-            color: #e2e8f0;
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent-color: #38bdf8;
         }
 
+        body {
+            background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+            min-height: 100vh;
+            color: var(--text-primary);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark/Light mode styles */
+        body.light-mode {
+            background: linear-gradient(to bottom, #f0f4f8, #ffffff);
+            color: #1a202c;
+        }
+
+        /* Existing styles remain the same */
         /* Repository card styles */
         .repo-card {
             background: rgba(30, 41, 59, 0.8);
@@ -90,26 +106,104 @@
             color: #38bdf8;
             transform: scale(1.1);
         }
+
+        /* New theme toggle and mobile navigation styles */
+        .theme-toggle {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle:hover {
+            background: rgba(56, 189, 248, 0.2);
+        }
+
+        /* Mobile responsive navigation */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-nav {
+                display: block;
+            }
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(15, 23, 42, 0.95);
+                z-index: 50;
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .mobile-menu.active {
+                display: flex;
+            }
+            .mobile-menu a, .mobile-menu button {
+                margin: 1rem 0;
+                font-size: 1.5rem;
+                color: var(--text-primary);
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-nav {
+                display: none;
+            }
+            .desktop-nav {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body class="pt-24 p-8">
-    <!-- Navigation Header -->
+    <!-- Navigation Header with Responsive Design -->
     <header class="fixed top-0 left-0 w-full z-50 nav-menu">
-        <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav max-w-6xl mx-auto flex justify-between items-center p-4">
             <div class="flex items-center">
                 <img src="org-logo.png" alt="Agentopia Logo" class="w-10 h-10 mr-3">
                 <span class="text-xl font-bold text-sky-400">Agentopia</span>
             </div>
-            <div class="space-x-6">
+            <div class="space-x-6 flex items-center">
                 <a href="#" class="nav-link">Home</a>
                 <a href="#documentation" class="nav-link">Docs</a>
                 <a href="#" class="nav-link">Community</a>
                 <a href="https://github.com/agentopia" target="_blank" class="nav-link">GitHub</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    🌓 Toggle Theme
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+            <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+                <div class="flex items-center">
+                    <img src="org-logo.png" alt="Agentopia Logo" class="w-10 h-10 mr-3">
+                    <span class="text-xl font-bold text-sky-400">Agentopia</span>
+                </div>
+                <button id="mobile-menu-toggle" class="text-sky-400 text-2xl">☰</button>
+            </div>
+
+            <div id="mobile-menu" class="mobile-menu">
+                <button id="mobile-menu-close" class="absolute top-4 right-4 text-2xl text-sky-400">×</button>
+                <a href="#" class="nav-link">Home</a>
+                <a href="#documentation" class="nav-link">Docs</a>
+                <a href="#" class="nav-link">Community</a>
+                <a href="https://github.com/agentopia" target="_blank" class="nav-link">GitHub</a>
+                <button id="mobile-theme-toggle" class="theme-toggle mt-4">🌓 Toggle Theme</button>
             </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
+    <!-- Existing main content remains the same -->
     <div class="max-w-6xl mx-auto mb-12 text-center">
         <div class="header-container mb-4">
             <img src="org-logo.png" alt="Organization Logo" class="org-logo">
@@ -136,6 +230,54 @@
     </div>
 
     <script>
+        // Theme Toggle Functionality
+        function initThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+            const body = document.body;
+
+            function toggleTheme() {
+                body.classList.toggle('light-mode');
+                
+                // Save theme preference
+                const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+                localStorage.setItem('agentopia-theme', currentTheme);
+            }
+
+            themeToggle.addEventListener('click', toggleTheme);
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+
+            // Restore saved theme
+            const savedTheme = localStorage.getItem('agentopia-theme');
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+            }
+        }
+
+        // Mobile Menu Functionality
+        function initMobileMenu() {
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+            });
+
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Existing script content remains the same
         const ORG_NAME = 'agentopia';
         const EXCLUDED_REPO = 'agentopia.github.io';
 
@@ -205,12 +347,18 @@
             });
         }
 
-        // Modify fetchRepos to call setupDocumentationInteractivity
-        fetchRepos().then(() => {
-            setupDocumentationInteractivity();
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initThemeToggle();
+            initMobileMenu();
+            
+            fetchRepos().then(() => {
+                setupDocumentationInteractivity();
+            });
         });
     </script>
 
+    <!-- Remaining existing content -->
     <!-- Documentation Section -->
     <section id="documentation" class="max-w-6xl mx-auto mt-16 p-8">
         <h2 class="text-4xl font-bold text-sky-400 mb-8 text-center">AI Agent Development Guide</h2>
@@ -230,10 +378,10 @@
                 <ul class="text-gray-300 space-y-2">
                     <li>🤖 Popular Frameworks</li>
                     <li>🔧 Comparison Guide</li>
-                    <li>🌐 Deployment Strategies</li>
+                    <li>🌐 Deployment Strategies
                 </ul>
             </div>
-            
+                
             <div class="bg-slate-800 p-6 rounded-xl repo-card">
                 <h3 class="text-2xl text-sky-300 mb-4">Community</h3>
                 <ul class="text-gray-300 space-y-2">
@@ -244,7 +392,7 @@
             </div>
         </div>
     </section>
-
+        
     <!-- Call to Action Section -->
     <section class="max-w-6xl mx-auto mt-16 text-center bg-slate-800 p-12 rounded-xl">
         <h2 class="text-4xl font-bold text-sky-400 mb-4">Join the AI Agent Revolution</h2>
@@ -253,16 +401,16 @@
         </p>
         <div class="flex justify-center space-x-4">
             <a href="https://github.com/agentopia" 
-               class="bg-sky-600 text-white px-6 py-3 rounded-lg hover:bg-sky-700 transition">
+                class="bg-sky-600 text-white px-6 py-3 rounded-lg hover:bg-sky-700 transition">
                 Explore Repositories
             </a>
             <a href="#" 
-               class="border border-sky-400 text-sky-400 px-6 py-3 rounded-lg hover:bg-sky-900 transition">
+                class="border border-sky-400 text-sky-400 px-6 py-3 rounded-lg hover:bg-sky-900 transition">
                 Contribute Guidelines
             </a>
         </div>
     </section>
-
+        
     <!-- Footer -->
     <footer class="mt-16 py-12 text-center">
         <div class="max-w-6xl mx-auto">
@@ -281,5 +429,3 @@
             </div>
         </div>
     </footer>
-</body>
-</html>
