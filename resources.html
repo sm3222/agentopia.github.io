@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - AI Agentopia</title>
+    <meta name="description" content="Access development resources, documentation, and tools for the AI Agentopia ecosystem.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Add Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="dark-mode">
+    <!-- Navigation will be included via JavaScript -->
+    <div id="nav-placeholder"></div>
+
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center mb-8">Resources</h1>
+
+        <!-- Resource Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- GitHub Repositories -->
+            <section class="bg-gray-800 rounded-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4">GitHub Repositories</h2>
+                <div id="repos-list" class="space-y-4">
+                    <!-- Repositories will be dynamically populated -->
+                </div>
+            </section>
+
+            <!-- Documentation -->
+            <section class="bg-gray-800 rounded-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4">Documentation</h2>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-sky-400 hover:text-sky-300">Getting Started Guide</a></li>
+                    <li><a href="#" class="text-sky-400 hover:text-sky-300">API Reference</a></li>
+                    <li><a href="#" class="text-sky-400 hover:text-sky-300">Best Practices</a></li>
+                </ul>
+            </section>
+
+            <!-- Development Tools -->
+            <section class="bg-gray-800 rounded-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4">Development Tools</h2>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-sky-400 hover:text-sky-300">SDK Downloads</a></li>
+                    <li><a href="#" class="text-sky-400 hover:text-sky-300">CLI Tools</a></li>
+                    <li><a href="#" class="text-sky-400 hover:text-sky-300">Templates</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/repos.js"></script>
+</body>
+</html>
