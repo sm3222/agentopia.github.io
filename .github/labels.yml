@@ -1,0 +1,43 @@
+- name: "type: bug"
+  color: "d73a4a"
+  description: "Something isn't working as expected"
+
+- name: "type: feature"
+  color: "2ea44f"
+  description: "New feature or enhancement request"
+
+- name: "type: docs"
+  color: "0366d6"
+  description: "Documentation related changes"
+
+- name: "priority: high"
+  color: "d73a4a"
+  description: "High priority task requiring immediate attention"
+
+- name: "priority: medium"
+  color: "e4e669"
+  description: "Medium priority task"
+
+- name: "priority: low"
+  color: "2ea44f"
+  description: "Low priority task"
+
+- name: "status: blocked"
+  color: "d73a4a"
+  description: "Task is blocked by other work"
+
+- name: "status: help"
+  color: "e4e669"
+  description: "Extra attention is needed"
+
+- name: "component: ui"
+  color: "6f42c1"
+  description: "Related to user interface"
+
+- name: "component: infra"
+  color: "fd7e14"
+  description: "Related to infrastructure"
+
+- name: "component: content"
+  color: "0366d6"
+  description: "Related to content or documentation"
