@@ -1,0 +1,45 @@
+name: Documentation Update
+description: Suggest improvements to our documentation
+title: "[Docs]: "
+labels: ["type: documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve our documentation!
+  
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Type of documentation
+      description: What type of documentation needs updating?
+      options:
+        - README
+        - Contributing Guidelines
+        - Code Comments
+        - Website Content
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-state
+    attributes:
+      label: Current documentation
+      description: What does the current documentation say?
+    validations:
+      required: true
+
+  - type: textarea
+    id: improvement
+    attributes:
+      label: Suggested improvement
+      description: How should the documentation be improved?
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add any other context about the documentation update here.
