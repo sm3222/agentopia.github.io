@@ -1,0 +1,6 @@
+# These owners will be the default owners for everything in the repo
+* @agentopia
+
+# Specific path owners
+/index.html @agentopia
+/.github/ @agentopia

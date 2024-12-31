@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: 
+      - main
+      - develop
+  pull_request:
+    branches: 
+      - main
+      - develop
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Validate HTML
+        run: |
+          echo "Add HTML validation steps here"
+          # Future: Add html5validator or similar tool
+
+      - name: Check Links
+        run: |
+          echo "Add link checking steps here"
+          # Future: Add link checker
