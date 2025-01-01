@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navHTML = `
     <header class="fixed w-full top-0 z-50 bg-gray-900/80 backdrop-blur-sm">
         <!-- Desktop Navigation -->
-        <nav class="desktop-nav max-w-6xl mx-auto justify-between items-center p-4 hidden md:flex">
+        <nav class="hidden md:flex max-w-6xl mx-auto justify-between items-center p-4">
             <div class="flex items-center">
                 <img src="images/logo.svg" alt="AI Agentopia Logo" class="w-10 h-10 mr-3">
                 <span class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">AI Agentopia</span>
@@ -21,11 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
         </nav>
 
         <!-- Mobile Navigation -->
-        <nav class="mobile-nav md:hidden">
+        <nav class="md:hidden">
             <div class="flex justify-between items-center p-4">
                 <div class="flex items-center">
-                    <img src="images/logo.svg" alt="AI Agentopia Logo" class="w-10 h-10 mr-3">
-                    <span class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">AI Agentopia</span>
+                    <img src="images/logo.svg" alt="AI Agentopia Logo" class="w-10 h-10">
                 </div>
                 <button id="mobile-menu-toggle" class="text-amber-400 text-2xl p-2">☰</button>
             </div>
