@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
     <!-- Primary Meta Tags -->
     <title>AI Agentopia - A Happy Place for AI Agents</title>
     <meta name="title" content="AI Agentopia - A Happy Place for AI Agents">
@@ -24,27 +24,36 @@
     <meta property="twitter:image" content="https://agentopia.github.io/images/og-image.png">
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navigation.css">
     <!-- Add Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
 </head>
-<body class="dark-mode">
+<body>
     <!-- Navigation will be included via JavaScript -->
     <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-sky-900 to-gray-900 dark:from-gray-900 dark:via-sky-900 dark:to-gray-900 light:from-white light:via-sky-100 light:to-white">
         <!-- Background Animation -->
-        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-sky-900 to-gray-900">
+        <div class="absolute inset-0">
             <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
         </div>
 
         <!-- Hero Content -->
         <div class="relative z-10 text-center px-4">
-            <h1 class="text-6xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-8 md:mb-12 leading-normal md:leading-normal text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 py-2">
                 AI Agentopia
             </h1>
-            <p class="text-2xl md:text-3xl text-amber-200 mb-8">A Happy Place for AI Agents</p>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-12">
+            <p class="text-2xl md:text-3xl text-amber-200 dark:text-amber-200 light:text-amber-600 mb-8">A Happy Place for AI Agents</p>
+            <p class="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto mb-12">
                 Discover, create, and collaborate with AI agents in the world's most innovative ecosystem.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
@@ -64,31 +73,31 @@
     </section>
 
     <!-- Features Section -->
-    <section class="py-20 bg-gray-900">
+    <section class="py-20 bg-gray-900 dark:bg-gray-900 light:bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16">Why AI Agentopia?</h2>
+            <h2 class="text-4xl font-bold text-center mb-16 dark:text-white light:text-gray-900">Why Choose AI Agentopia?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <!-- Feature 1 -->
                 <div class="text-center">
                     <div class="icon-container mb-6">🤖</div>
-                    <h3 class="text-2xl font-semibold mb-4">Diverse Agent Ecosystem</h3>
-                    <p class="text-gray-400">
+                    <h3 class="text-2xl font-semibold mb-4 dark:text-white light:text-gray-900">Diverse Agent Ecosystem</h3>
+                    <p class="text-gray-400 dark:text-gray-400 light:text-gray-600">
                         Discover AI agents for every need, from automation to creative tasks.
                     </p>
                 </div>
                 <!-- Feature 2 -->
                 <div class="text-center">
                     <div class="icon-container mb-6">🔄</div>
-                    <h3 class="text-2xl font-semibold mb-4">Seamless Integration</h3>
-                    <p class="text-gray-400">
+                    <h3 class="text-2xl font-semibold mb-4 dark:text-white light:text-gray-900">Seamless Integration</h3>
+                    <p class="text-gray-400 dark:text-gray-400 light:text-gray-600">
                         Easy-to-use APIs and SDKs for quick integration into your projects.
                     </p>
                 </div>
                 <!-- Feature 3 -->
                 <div class="text-center">
                     <div class="icon-container mb-6">👥</div>
-                    <h3 class="text-2xl font-semibold mb-4">Community Driven</h3>
-                    <p class="text-gray-400">
+                    <h3 class="text-2xl font-semibold mb-4 dark:text-white light:text-gray-900">Community Driven</h3>
+                    <p class="text-gray-400 dark:text-gray-400 light:text-gray-600">
                         Join a thriving community of developers and AI enthusiasts.
                     </p>
                 </div>
@@ -96,16 +105,53 @@
         </div>
     </section>
 
+    <!-- Mission & Vision Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 via-sky-900 to-gray-900 dark:from-gray-900 dark:via-sky-900 dark:to-gray-900 light:from-white light:via-sky-100 light:to-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Mission -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Our Mission</h2>
+                    <p class="text-xl text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        AI Agentopia is dedicated to advancing the field of AI agents through open collaboration and innovative development. We believe in creating a vibrant ecosystem where AI agents can thrive and evolve, fostering a community of developers, researchers, and enthusiasts.
+                    </p>
+                </div>
+
+                <!-- Vision -->
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Our Vision</h2>
+                    <p class="text-xl text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        We envision a future where AI agents seamlessly collaborate, learn, and grow together. Through open-source development and community-driven innovation, we're building a platform where:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                        <div class="bg-gray-800/50 dark:bg-gray-800/50 light:bg-gray-100/50 p-6 rounded-lg">
+                            <h3 class="text-2xl font-semibold mb-4 text-amber-400">Innovation</h3>
+                            <p class="text-gray-300 dark:text-gray-300 light:text-gray-700">Pushing the boundaries of what's possible with AI agents through collaborative experimentation.</p>
+                        </div>
+                        <div class="bg-gray-800/50 dark:bg-gray-800/50 light:bg-gray-100/50 p-6 rounded-lg">
+                            <h3 class="text-2xl font-semibold mb-4 text-amber-400">Community</h3>
+                            <p class="text-gray-300 dark:text-gray-300 light:text-gray-700">Building a supportive ecosystem where developers and researchers can share ideas and grow together.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-br from-sky-900 to-gray-900">
+    <section class="py-20 bg-gradient-to-br from-sky-900 to-gray-900 dark:from-sky-900 dark:to-gray-900 light:from-sky-100 light:to-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-8">Ready to Get Started?</h2>
-            <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            <h2 class="text-4xl font-bold mb-8 dark:text-white light:text-gray-900">Ready to Get Started?</h2>
+            <p class="text-xl text-gray-300 dark:text-gray-300 light:text-gray-700 mb-12 max-w-2xl mx-auto">
                 Join us in building the future of AI agents. Create, collaborate, and innovate together.
             </p>
             <div class="flex justify-center gap-4">
-                <a href="/agents.html" class="btn-primary">Browse Agents</a>
-                <a href="https://github.com/Agentopia" target="_blank" class="btn-secondary">View on GitHub</a>
+                <a href="/agents.html" class="btn-primary">
+                    Browse Agents
+                </a>
+                <a href="https://github.com/Agentopia" target="_blank" class="btn-secondary">
+                    View on GitHub
+                </a>
             </div>
         </div>
     </section>
@@ -113,22 +159,52 @@
     <!-- Footer -->
     <footer class="bg-gray-900 py-12">
         <div class="container mx-auto px-4">
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="#" class="social-icon text-2xl">🐦</a>
-                <a href="#" class="social-icon text-2xl">💬</a>
-                <a href="#" class="social-icon text-2xl">📧</a>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- About -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-semibold mb-4 text-amber-400">About Agentopia</h3>
+                    <p class="text-gray-400">
+                        Building the future of AI agents through open collaboration and innovation.
+                    </p>
+                </div>
+                <!-- Quick Links -->
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold mb-4 text-amber-400">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/agents.html" class="text-gray-400 hover:text-amber-400">Agents</a></li>
+                        <li><a href="/resources.html" class="text-gray-400 hover:text-amber-400">Resources</a></li>
+                        <li><a href="https://github.com/Agentopia" class="text-gray-400 hover:text-amber-400">GitHub</a></li>
+                    </ul>
+                </div>
+                <!-- Connect -->
+                <div class="text-center md:text-right">
+                    <h3 class="text-xl font-semibold mb-4 text-amber-400">Connect</h3>
+                    <div class="flex justify-center md:justify-end space-x-4">
+                        <a href="https://github.com/Agentopia" target="_blank" class="text-gray-400 hover:text-amber-400">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p class="text-gray-400 text-center mb-4">
-                2024 AI Agentopia. Building the future of AI Agents.
-            </p>
-            <div class="text-center space-x-4">
-                <a href="#" class="text-sm text-gray-500 hover:text-sky-400">Privacy Policy</a>
-                <a href="#" class="text-sm text-gray-500 hover:text-sky-400">Terms of Service</a>
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-gray-400 text-center mb-4">
+                    2024 AI Agentopia. All rights reserved.
+                </p>
+                <div class="text-center space-x-4">
+                    <a href="https://github.com/Agentopia/agentopia.github.io/blob/main/LICENSE" class="text-sm text-gray-500 hover:text-amber-400">License</a>
+                    <a href="https://github.com/Agentopia/agentopia.github.io/blob/main/CODE_OF_CONDUCT.md" class="text-sm text-gray-500 hover:text-amber-400">Code of Conduct</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/navigation.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Insert navigation
+            document.getElementById('nav-placeholder').innerHTML = navHTML;
+        });
+    </script>
 </body>
 </html>
