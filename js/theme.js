@@ -1,46 +1,56 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get theme toggle buttons
-    const themeToggle = document.getElementById('theme-toggle');
-    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-    const body = document.body;
+    // Theme toggle functionality
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const themeToggles = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemTheme = darkModeMediaQuery.matches ? 'dark' : 'light';
+    const currentTheme = savedTheme || systemTheme;
 
-    // Function to toggle theme
-    function toggleTheme() {
-        body.classList.toggle('light-mode');
-        
-        // Save theme preference
-        const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
-        localStorage.setItem('agentopia-theme', currentTheme);
+    // Apply initial theme
+    setTheme(currentTheme);
 
-        // Update emoji visibility based on theme
-        updateThemeEmojis();
-    }
-
-    // Function to update theme emoji visibility
-    function updateThemeEmojis() {
-        const isLightMode = body.classList.contains('light-mode');
-        document.querySelectorAll('.light-mode-icon').forEach(icon => {
-            icon.style.display = isLightMode ? 'none' : 'inline';
+    // Theme toggle click handler
+    themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
+            setTheme(newTheme);
         });
-        document.querySelectorAll('.dark-mode-icon').forEach(icon => {
-            icon.style.display = isLightMode ? 'inline' : 'none';
-        });
+    });
+
+    // Function to set theme
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            html.classList.add('dark');
+            html.classList.remove('light');
+        } else {
+            html.classList.add('light');
+            html.classList.remove('dark');
+        }
+        localStorage.setItem('theme', theme);
+        updateThemeIcons(theme);
     }
 
-    // Add click event listeners
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-    if (mobileThemeToggle) {
-        mobileThemeToggle.addEventListener('click', toggleTheme);
+    // Update theme toggle icons
+    function updateThemeIcons(theme) {
+        const lightIcons = document.querySelectorAll('.light-mode-icon');
+        const darkIcons = document.querySelectorAll('.dark-mode-icon');
+
+        if (theme === 'dark') {
+            lightIcons.forEach(icon => icon.style.display = 'inline');
+            darkIcons.forEach(icon => icon.style.display = 'none');
+        } else {
+            lightIcons.forEach(icon => icon.style.display = 'none');
+            darkIcons.forEach(icon => icon.style.display = 'inline');
+        }
     }
 
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('agentopia-theme');
-    if (savedTheme === 'light') {
-        body.classList.add('light-mode');
-    }
-
-    // Initial update of theme emojis
-    updateThemeEmojis();
+    // Listen for system theme changes
+    darkModeMediaQuery.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
 });
