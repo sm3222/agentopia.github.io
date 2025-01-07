@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +8,21 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- Add Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
 </head>
 <body class="dark-mode">
     <!-- Navigation will be included via JavaScript -->
     <div id="nav-placeholder"></div>
 
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-4 py-8 pt-32">
         <h1 class="text-4xl font-bold text-center mb-8">AI Agents Gallery</h1>
-        
         <!-- Filters -->
         <div class="mb-8">
             <div class="flex flex-wrap gap-4 justify-center">
@@ -43,7 +50,10 @@
         </div>
     </main>
 
+    <div id="footer-placeholder"></div>
+
     <script src="js/navigation.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/footer.js"></script>
 </body>
 </html>

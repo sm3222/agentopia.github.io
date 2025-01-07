@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repositories - AI Agentopia</title>
+    <meta name="description" content="Explore helpful GitHub repositories for building AI agents in the Agentopia ecosystem.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Add Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="dark-mode">
+    <!-- Navigation will be included via JavaScript -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-16 mb-12 overflow-hidden bg-transparent">
+        <!-- Background layers -->
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800"></div>
+        <div class="absolute inset-0">
+            <svg class="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="2" fill="rgba(251, 191, 36, 0.15)"/>
+                    </pattern>
+                    <pattern id="connections" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(251, 191, 36, 0.1)" stroke-width="1"/>
+                        <path d="M50 0 L50 100 M0 50 L100 50" stroke="rgba(251, 191, 36, 0.07)" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)"/>
+                <rect width="100%" height="100%" fill="url(#connections)"/>
+                <g class="decorative-circles" fill="rgba(251, 191, 36, 0.1)">
+                    <circle cx="20%" cy="30%" r="50"/>
+                    <circle cx="80%" cy="70%" r="70"/>
+                    <circle cx="60%" cy="20%" r="40"/>
+                </g>
+                <g class="connecting-lines" stroke="rgba(251, 191, 36, 0.08)" stroke-width="2">
+                    <path d="M200 180 Q 400 50 600 300"/>
+                    <path d="M800 400 Q 600 500 400 350"/>
+                </g>
+            </svg>
+        </div>
+        
+        <!-- Content -->
+        <div class="container relative mx-auto px-4 z-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200">
+                GitHub Repositories
+            </h1>
+            <p class="text-xl text-center text-gray-300 max-w-3xl mx-auto mb-8">
+                Discover and explore our curated collection of repositories to enhance your AI agent development journey.
+            </p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Repository Cards Container -->
+        <div id="repos-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Repository cards will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <!-- Footer will be included via JavaScript -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/navigation.js"></script>
+    <script src="js/repos.js"></script>
+</body>
+</html>

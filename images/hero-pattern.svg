@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440" height="800" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.5">
+        <!-- Grid pattern -->
+        <path d="M0 80H1440" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M0 160H1440" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M0 240H1440" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M0 320H1440" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M0 400H1440" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M0 480H1440" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M0 560H1440" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M0 640H1440" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M0 720H1440" stroke="currentColor" stroke-opacity="0.1"/>
+        
+        <path d="M80 0V800" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M160 0V800" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M240 0V800" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M320 0V800" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M400 0V800" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M480 0V800" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M560 0V800" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M640 0V800" stroke="currentColor" stroke-opacity="0.1"/>
+        <path d="M720 0V800" stroke="currentColor" stroke-opacity="0.1"/>
+    </g>
+    
+    <!-- Decorative circles -->
+    <circle cx="160" cy="160" r="40" fill="currentColor" fill-opacity="0.05"/>
+    <circle cx="480" cy="320" r="60" fill="currentColor" fill-opacity="0.05"/>
+    <circle cx="720" cy="480" r="80" fill="currentColor" fill-opacity="0.05"/>
+    <circle cx="960" cy="240" r="50" fill="currentColor" fill-opacity="0.05"/>
+    <circle cx="1200" cy="400" r="70" fill="currentColor" fill-opacity="0.05"/>
+</svg>
