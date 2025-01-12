@@ -93,6 +93,11 @@
           "Create branch from: develop",
           "Merge back into: main and develop",
           "Tag with version after merge"
+        ],
+        "local_cleanup": [
+          "Switch to develop: git checkout develop",
+          "Pull latest changes: git pull origin develop",
+          "Delete feature branch: git branch -d [feature-branch-name]"
         ]
       }
     },
