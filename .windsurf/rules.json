@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "rules": {
+    "file_organization": {
+      "allowed_extensions": [".html", ".css", ".js", ".md", ".json", ".png", ".jpg", ".jpeg", ".gif", ".svg"],
+      "structure": {
+        "css": "*.css",
+        "js": "*.js",
+        "images": ["*.png", "*.jpg", "*.jpeg", "*.gif", "*.svg"],
+        "docs": "*.md"
+      }
+    },
+    "code_style": {
+      "html": {
+        "indent_size": 2,
+        "max_line_length": 120,
+        "require_closing_tags": true
+      },
+      "css": {
+        "indent_size": 2,
+        "max_line_length": 80,
+        "property_order": "alphabetical"
+      },
+      "javascript": {
+        "indent_size": 2,
+        "max_line_length": 80,
+        "quotes": "single",
+        "semicolons": true
+      }
+    },
+    "naming_conventions": {
+      "files": "kebab-case",
+      "css_classes": "kebab-case",
+      "js_variables": "camelCase",
+      "js_functions": "camelCase"
+    },
+    "git": {
+      "commit_message_format": "conventional",
+      "branch_strategy": {
+        "main_branches": {
+          "main": {
+            "description": "Production-ready code",
+            "protection": true,
+            "require_review": true
+          },
+          "develop": {
+            "description": "Integration branch for features",
+            "protection": true,
+            "require_review": true
+          }
+        },
+        "feature_branches": {
+          "prefix": "feature/",
+          "source": "develop",
+          "target": "develop",
+          "naming_pattern": "feature/[issue-number]-[brief-description]",
+          "example": "feature/123-add-login-page"
+        },
+        "bugfix_branches": {
+          "prefix": "bugfix/",
+          "source": "develop",
+          "target": "develop",
+          "naming_pattern": "bugfix/[issue-number]-[brief-description]",
+          "example": "bugfix/124-fix-login-validation"
+        },
+        "hotfix_branches": {
+          "prefix": "hotfix/",
+          "source": "main",
+          "target": ["main", "develop"],
+          "naming_pattern": "hotfix/[version]-[brief-description]",
+          "example": "hotfix/1.2.1-fix-security-vulnerability"
+        },
+        "release_branches": {
+          "prefix": "release/",
+          "source": "develop",
+          "target": ["main", "develop"],
+          "naming_pattern": "release/[version]",
+          "example": "release/1.2.0"
+        }
+      },
+      "workflow": {
+        "feature_development": [
+          "Create branch from: develop",
+          "Merge back into: develop",
+          "Naming: feature/[issue-number]-[brief-description]"
+        ],
+        "hotfix_process": [
+          "Create branch from: main",
+          "Merge back into: main and develop",
+          "Tag with version after merge"
+        ],
+        "release_process": [
+          "Create branch from: develop",
+          "Merge back into: main and develop",
+          "Tag with version after merge"
+        ]
+      }
+    },
+    "security": {
+      "required_headers": {
+        "Content-Security-Policy": true,
+        "X-Frame-Options": true,
+        "X-Content-Type-Options": true
+      }
+    },
+    "design_principles": {
+      "accessibility": {
+        "wcag_level": "AA",
+        "required_attributes": {
+          "images": ["alt"],
+          "inputs": ["aria-label", "role"],
+          "buttons": ["aria-label"]
+        },
+        "color_contrast_ratio": "4.5:1"
+      },
+      "responsive_design": {
+        "breakpoints": {
+          "mobile": "320px",
+          "tablet": "768px",
+          "desktop": "1024px"
+        },
+        "required_viewport_meta": true,
+        "mobile_first": true
+      },
+      "user_experience": {
+        "max_load_time": "3s",
+        "interactive_feedback": {
+          "hover_states": true,
+          "loading_states": true,
+          "error_states": true
+        },
+        "animation_duration": {
+          "min": "150ms",
+          "max": "500ms"
+        }
+      },
+      "modern_design": {
+        "spacing_system": {
+          "base_unit": "4px",
+          "scale": [0, 4, 8, 16, 24, 32, 48, 64]
+        },
+        "typography": {
+          "scale_ratio": 1.25,
+          "min_font_size": "16px",
+          "line_height": 1.5
+        }
+      }
+    }
+  }
+}
