@@ -53,15 +53,15 @@
           "prefix": "feature/",
           "source": "develop",
           "target": "develop",
-          "naming_pattern": "feature/[issue-number]-[brief-description]",
-          "example": "feature/123-add-login-page"
+          "naming_pattern": "feature/[descriptive-name]",
+          "example": "feature/add-login-page"
         },
         "bugfix_branches": {
           "prefix": "bugfix/",
           "source": "develop",
           "target": "develop",
-          "naming_pattern": "bugfix/[issue-number]-[brief-description]",
-          "example": "bugfix/124-fix-login-validation"
+          "naming_pattern": "bugfix/[descriptive-name]",
+          "example": "bugfix/fix-login-validation"
         },
         "hotfix_branches": {
           "prefix": "hotfix/",
@@ -82,7 +82,7 @@
         "feature_development": [
           "Create branch from: develop",
           "Merge back into: develop",
-          "Naming: feature/[issue-number]-[brief-description]"
+          "Naming: feature/[descriptive-name]"
         ],
         "hotfix_process": [
           "Create branch from: main",
