@@ -1,0 +1,12 @@
+{
+  "name": "agentopia-website",
+  "version": "1.0.0",
+  "description": "AI Agentopia Website",
+  "scripts": {
+    "build": "tailwindcss -i ./css/input.css -o ./css/styles.css",
+    "watch": "tailwindcss -i ./css/input.css -o ./css/styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
