@@ -44,7 +44,26 @@
       "files": "kebab-case",
       "css_classes": "kebab-case",
       "js_variables": "camelCase",
-      "js_functions": "camelCase"
+      "js_functions": "camelCase",
+      "pr_title": "type: Brief description",
+      "pr_types": ["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore"]
+    },
+    "pull_requests": {
+      "template_location": ".github/pull_request_template.md",
+      "required_sections": ["Description", "Type of Change", "Checklist", "Additional Context"],
+      "title_format": "type: Brief description",
+      "change_types": {
+        "feat": "New feature",
+        "fix": "Bug fix",
+        "docs": "Documentation update",
+        "style": "Code style changes",
+        "refactor": "Code refactoring",
+        "perf": "Performance improvements",
+        "test": "Adding/updating tests",
+        "chore": "Maintenance tasks"
+      },
+      "merge_strategy": "squash",
+      "required_approvals": 1
     },
     "security": {
       "required_headers": {
