@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Desktop Navigation -->
         <nav class="desktop-nav max-w-6xl mx-auto justify-between items-center p-4">
             <a href="/" class="flex items-center hover:opacity-80 transition-opacity">
-                <img src="images/logo.svg" alt="AI Agentopia Logo" class="w-10 h-10 mr-3">
+                <img src="/images/logo.svg" alt="AI Agentopia Logo" class="w-10 h-10 mr-3">
                 <span class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">AI Agentopia</span>
             </a>
             <div class="space-x-6 flex items-center">
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <nav class="mobile-nav">
             <div class="flex justify-between items-center p-4">
                 <a href="/" class="flex items-center">
-                    <img src="images/logo.svg" alt="AI Agentopia Logo" class="w-8 h-8">
+                    <img src="/images/logo.svg" alt="AI Agentopia Logo" class="w-8 h-8">
                     <span class="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 ml-2">AI Agentopia</span>
                 </a>
                 <button id="mobile-menu-toggle" class="text-amber-400 text-2xl p-2">☰</button>
@@ -72,12 +72,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Footer HTML template
 const footerHTML = `
-<footer class="mt-auto bg-gradient-to-b from-gray-900 to-gray-800 border-t border-gray-800">
+<footer class="mt-auto bg-gray-800/90 backdrop-blur-sm border-t border-gray-700">
     <div class="container mx-auto px-4 py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="text-center md:text-left">
                 <div class="flex items-center justify-center md:justify-start mb-3">
-                    <img src="images/logo.svg" alt="AI Agentopia Logo" class="w-6 h-6 mr-2">
+                    <img src="/images/logo.svg" alt="AI Agentopia Logo" class="w-6 h-6 mr-2">
                     <span class="text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">AI Agentopia</span>
                 </div>
                 <p class="text-gray-400 text-sm mb-4">A happy place for all kinds of AI agents.</p>
@@ -106,8 +106,13 @@ const footerHTML = `
                 </ul>
             </div>
         </div>
-        <div class="mt-6 pt-6 border-t border-gray-800 text-center text-xs text-gray-500">
-            <p>&copy; ${new Date().getFullYear()} AI Agentopia. All rights reserved.</p>
+
+        <div class="mt-6 pt-6 border-t border-gray-700 text-center">
+            <p class="text-xs text-gray-500 mb-2">&copy; ${new Date().getFullYear()} AI Agentopia, an BIXORY AI entity. All rights reserved.</p>
+            <div class="flex justify-center gap-4 text-xs text-gray-500">
+                <a href="/privacy-policy.html" class="hover:text-amber-400">Privacy Policy</a>
+                <a href="/terms-of-service.html" class="hover:text-amber-400">Terms of Service</a>
+            </div>
         </div>
     </div>
 </footer>
