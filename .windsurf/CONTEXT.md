@@ -46,6 +46,15 @@
 3. **Merging**:
    - Squash and merge
    - Delete branch after merge
+4. **Release to Main**:
+   - Create PR from develop to main
+   - Use title format: `release: vX.Y.Z - Brief Description`
+   - After merge, create and push git tag:
+     ```bash
+     git tag -a vX.Y.Z -m "Release vX.Y.Z: Description"
+     git push origin vX.Y.Z
+     ```
+   - Create GitHub release from tag
 
 ### Development Phases
 
