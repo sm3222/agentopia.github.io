@@ -1,0 +1,112 @@
+/* Blog specific styles */
+
+/* Blog card hover effects */
+.blog-card {
+    transition: transform 0.3s ease-in-out;
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Blog post metadata */
+.blog-metadata {
+    font-size: 0.875rem;
+    color: #9CA3AF;
+}
+
+/* Category tags */
+.blog-category {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background-color: rgba(251, 191, 36, 0.1);
+    color: #FCD34D;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Read time indicator */
+.read-time {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #9CA3AF;
+}
+
+/* Blog post grid responsive adjustments */
+.blog-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Featured post styling */
+.featured-post {
+    grid-column: 1 / -1;
+    border-width: 2px;
+}
+
+/* Blog post content typography */
+.blog-content h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.blog-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+}
+
+/* Category filter buttons */
+.category-filter {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    background-color: transparent;
+    color: #FCD34D;
+    transition: all 0.3s ease;
+}
+
+.category-filter:hover,
+.category-filter.active {
+    background-color: rgba(251, 191, 36, 0.2);
+}
+
+/* Search input styling */
+.blog-search {
+    background-color: rgba(31, 41, 55, 0.5);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    color: #F3F4F6;
+}
+
+.blog-search::placeholder {
+    color: #9CA3AF;
+}
+
+/* Pagination styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+}
+
+.pagination-item {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    color: #FCD34D;
+    transition: all 0.3s ease;
+}
+
+.pagination-item:hover,
+.pagination-item.active {
+    background-color: rgba(251, 191, 36, 0.2);
+}
