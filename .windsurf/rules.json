@@ -46,73 +46,6 @@
       "js_variables": "camelCase",
       "js_functions": "camelCase"
     },
-    "git": {
-      "commit_message_format": "conventional",
-      "branch_strategy": {
-        "main_branches": {
-          "main": {
-            "description": "Production-ready code",
-            "protection": true,
-            "require_review": true
-          },
-          "develop": {
-            "description": "Integration branch for features",
-            "protection": true,
-            "require_review": true
-          }
-        },
-        "feature_branches": {
-          "prefix": "feature/",
-          "source": "develop",
-          "target": "develop",
-          "naming_pattern": "feature/[descriptive-name]",
-          "example": "feature/add-login-page"
-        },
-        "bugfix_branches": {
-          "prefix": "bugfix/",
-          "source": "develop",
-          "target": "develop",
-          "naming_pattern": "bugfix/[descriptive-name]",
-          "example": "bugfix/fix-login-validation"
-        },
-        "hotfix_branches": {
-          "prefix": "hotfix/",
-          "source": "main",
-          "target": ["main", "develop"],
-          "naming_pattern": "hotfix/[version]-[brief-description]",
-          "example": "hotfix/1.2.1-fix-security-vulnerability"
-        },
-        "release_branches": {
-          "prefix": "release/",
-          "source": "develop",
-          "target": ["main", "develop"],
-          "naming_pattern": "release/[version]",
-          "example": "release/1.2.0"
-        }
-      },
-      "workflow": {
-        "feature_development": [
-          "Create branch from: develop",
-          "Merge back into: develop",
-          "Naming: feature/[descriptive-name]"
-        ],
-        "hotfix_process": [
-          "Create branch from: main",
-          "Merge back into: main and develop",
-          "Tag with version after merge"
-        ],
-        "release_process": [
-          "Create branch from: develop",
-          "Merge back into: main and develop",
-          "Tag with version after merge"
-        ],
-        "local_cleanup": [
-          "Switch to develop: git checkout develop",
-          "Pull latest changes: git pull origin develop",
-          "Delete feature branch: git branch -d [feature-branch-name]"
-        ]
-      }
-    },
     "security": {
       "required_headers": {
         "Content-Security-Policy": true,
@@ -120,7 +53,7 @@
         "X-Content-Type-Options": true
       }
     },
-    "design_principles": {
+    "design_technical_specs": {
       "accessibility": {
         "wcag_level": "AA",
         "required_attributes": {
