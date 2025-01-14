@@ -1,6 +1,18 @@
 {
   "version": 1,
   "rules": {
+    "local_development": {
+      "server": {
+        "type": "python",
+        "command": "python -m http.server 8080",
+        "port": 8080,
+        "kill_command": "taskkill /F /IM python.exe",
+        "restart_steps": [
+          "1. Kill existing Python server: taskkill /F /IM python.exe",
+          "2. Start new server: python -m http.server 8080"
+        ]
+      }
+    },
     "file_organization": {
       "allowed_extensions": [".html", ".css", ".js", ".md", ".json", ".png", ".jpg", ".jpeg", ".gif", ".svg"],
       "structure": {
