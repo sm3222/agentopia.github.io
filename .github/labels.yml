@@ -41,3 +41,19 @@
 - name: "component: content"
   color: "0366d6"
   description: "Related to content or documentation"
+
+- name: "epic"
+  color: "6f42c1"
+  description: "High-level project tracking issue"
+
+- name: "matrix-view"
+  color: "0366d6"
+  description: "Related to matrix view structure"
+
+- name: "showcase-agents"
+  color: "2ea44f"
+  description: "Agent showcase features and implementations"
+
+- name: "core-categories"
+  color: "fd7e14"
+  description: "Core agent categorization system"

@@ -111,6 +111,26 @@
 - Performance optimization
 - Universal usability
 
+## Documentation Structure
+
+### Development Documentation (`/docs`)
+- **Purpose**: Technical documentation for developers and contributors
+- **Format**: Markdown files
+- **Key Files**:
+  - `AGENT-DEVELOPMENT.md`: Comprehensive guide for AI agent development
+  - `CATEGORY-STANDARDS.md`: Standards and requirements for agent categories
+
+### Tools Documentation (`/tools`)
+- **Purpose**: User-facing documentation for platform tools and APIs
+- **Format**: HTML files with TailwindCSS styling
+- **Key Files**:
+  - `getting-started.html`: Initial setup and usage guide
+  - `api-reference.html`: API documentation
+  - `best-practices.html`: Development best practices
+  - `cli.html`: Command-line interface guide
+  - `sdk.html`: Software development kit documentation
+  - `templates.html`: Template usage and customization
+
 ## Session Management
 Each development session should follow this workflow:
 
