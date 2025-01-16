@@ -22,6 +22,33 @@
 
 ## Session History
 
+### Latest Session - 2025-01-15
+**Time**: 20:32 PST
+**Status**: Completed
+**Branch**: docs/update-project-structure
+**Focus**: Project Infrastructure Update
+**Achievements**:
+- Updated project documentation for two-repo strategy
+- Aligned GitHub labels with current needs
+- Released v1.3.0 with infrastructure updates
+- Prepared foundation for Agents page development
+
+**Key Decisions**:
+1. Two-repo Strategy:
+   - Showcase Platform (private, Vercel)
+   - Development Playground (public, GitHub Pages)
+2. Development Priority:
+   - Start with Showcase Platform's Agents page
+   - Then set up Development Playground
+3. Integration Approach:
+   - API-based integration between repos
+   - Use component: agents label for API work
+
+**Next Steps**:
+- Create new feature branch for Agents page
+- Implement static showcase version first
+- Design API contract based on showcase needs
+
 ### Latest Session - 2025-01-13
 **Time**: 22:50 PST
 **Status**: Active
