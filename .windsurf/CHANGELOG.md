@@ -8,12 +8,14 @@
    - [ ] Review CONTEXT.md for project vision and workflow
    - [ ] Review this CHANGELOG.md for recent changes
    - [ ] Check rules.json for technical standards
+   - [ ] Check current version tag (`git tag -l`)
    - [ ] Verify on develop branch
    - [ ] Pull latest changes
 
 2. **End of Session**:
    - [ ] Update this CHANGELOG.md with progress
    - [ ] Create PR if feature complete (follow template in `.github/pull_request_template.md`)
+   - [ ] For release PR: create version tag after merge
    - [ ] After PR merge: checkout develop
    - [ ] Pull latest changes
    - [ ] Delete feature branch

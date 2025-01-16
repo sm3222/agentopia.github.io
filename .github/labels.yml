@@ -1,43 +1,71 @@
-- name: "type: bug"
+- name: "bug"
   color: "d73a4a"
-  description: "Something isn't working as expected"
+  description: "Something isn't working"
 
-- name: "type: feature"
-  color: "2ea44f"
-  description: "New feature or enhancement request"
+- name: "component: agents"
+  color: "fbca04"
+  description: "Agent-related functionality and features"
 
-- name: "type: docs"
-  color: "0366d6"
-  description: "Documentation related changes"
-
-- name: "priority: high"
-  color: "d73a4a"
-  description: "High priority task requiring immediate attention"
-
-- name: "priority: medium"
-  color: "e4e669"
-  description: "Medium priority task"
-
-- name: "priority: low"
-  color: "2ea44f"
-  description: "Low priority task"
-
-- name: "status: blocked"
-  color: "d73a4a"
-  description: "Task is blocked by other work"
-
-- name: "status: help"
-  color: "e4e669"
-  description: "Extra attention is needed"
+- name: "component: infra"
+  color: "7057ff"
+  description: "Infrastructure and system architecture"
 
 - name: "component: ui"
   color: "6f42c1"
-  description: "Related to user interface"
+  description: "User interface and frontend components"
 
-- name: "component: infra"
+- name: "core-categories"
   color: "fd7e14"
-  description: "Related to infrastructure"
+  description: "Fundamental agent classification and organization system"
 
-- name: "component: content"
-  color: "0366d6"
-  description: "Related to content or documentation"
+- name: "documentation"
+  color: "0075ca"
+  description: "Improvements or additions to documentation"
+
+- name: "duplicate"
+  color: "cfd3d7"
+  description: "This issue or pull request already exists"
+
+- name: "enhancement"
+  color: "a2eeef"
+  description: "New feature or request"
+
+- name: "epic"
+  color: "6f42c1"
+  description: "High-level tracking issue that encompasses multiple related features or tasks"
+
+- name: "good first issue"
+  color: "7057ff"
+  description: "Good for newcomers"
+
+- name: "help wanted"
+  color: "008672"
+  description: "Extra attention is needed"
+
+- name: "invalid"
+  color: "e4e669"
+  description: "This doesn't seem right"
+
+- name: "priority: high"
+  color: "d73a4a"
+  description: "Urgent or blocking issues"
+
+- name: "priority: low"
+  color: "0e8a16"
+  description: "Nice to have, can wait"
+
+- name: "priority: medium"
+  color: "fbca04"
+  description: "Important but not urgent"
+
+- name: "question"
+  color: "d876e3"
+  description: "Further information is requested"
+
+- name: "showcase-agents"
+  color: "0e8a16"
+  description: "Agent showcase features and implementations"
+
+- name: "wontfix"
+  color: "ffffff"
+  description: "This will not be worked on"
