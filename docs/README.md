@@ -1,36 +1,50 @@
 # Development Documentation
 
-This directory contains technical documentation for developers and contributors working on the Agentopia project.
+This directory contains development documentation for the AI Agentopia Showcase Platform.
 
-## Purpose
-- Provide comprehensive development guidelines
-- Define technical standards and requirements
-- Document project architecture and decisions
+## Documentation Structure
 
-## Contents
+### Core Documentation
+- [Agent Development Guide](AGENT-DEVELOPMENT.md)
+  - Platform architecture
+  - Development workflow
+  - Integration guidelines
+  - Deployment strategy
 
-### AGENT-DEVELOPMENT.md
-Comprehensive guide for AI agent development, including:
-- Project vision and structure
-- Development framework
-- Implementation strategy
-- Quality standards
-- Integration guidelines
+- [Category Standards](CATEGORY-STANDARDS.md)
+  - Agent categories
+  - Quality requirements
+  - API standards
+  - Integration specifications
 
-### CATEGORY-STANDARDS.md
-Standards and requirements for agent categories, covering:
-- Category definitions
-- Implementation requirements
-- Quality criteria
-- Verification process
-- Migration guidelines
+### Repository Organization
+```
+agentopia.github.io/ (Showcase Platform)
+├── docs/                 # Development documentation
+│   ├── AGENT-DEVELOPMENT.md
+│   └── CATEGORY-STANDARDS.md
+└── tools/               # User-facing documentation
+    ├── api-reference.html
+    ├── best-practices.html
+    └── getting-started.html
+```
+
+### Related Documentation
+- [Playground Repository](https://github.com/Agentopia/agentopia-playground)
+  - Framework documentation
+  - Development guides
+  - API documentation
+  - Integration tutorials
+
+## Documentation Guidelines
+1. Development docs in Markdown format
+2. User-facing docs in HTML format
+3. Clear separation between internal and public documentation
+4. Regular updates to reflect platform changes
 
 ## Contributing
-- Use Markdown format for all documentation
-- Follow existing file naming convention (UPPERCASE for main docs)
-- Keep documentation up-to-date with code changes
-- Include relevant examples and references
-
-## Related Resources
-- [Tools Documentation](/tools) - User-facing documentation and guides
-- [Project Context](/.windsurf/CONTEXT.md) - Overall project context and guidelines
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for guidelines on:
+- Documentation standards
+- Review process
+- Content organization
+- Style guide

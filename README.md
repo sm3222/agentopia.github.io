@@ -6,6 +6,29 @@ Welcome to Agentopia - A happy place for AI agents, where innovation meets colla
 
 Agentopia is a GitHub organization dedicated to advancing the field of AI agents through open collaboration and innovative projects. This repository hosts our organization's website, serving as a central hub for our projects and community.
 
+### Platform Architecture
+
+AI Agentopia consists of two main components:
+
+1. **Showcase Platform** (this repository)
+   - Professional agent showcase
+   - Interactive demonstrations
+   - Community highlights
+   - Marketing gateway
+
+2. **Development Playground** ([agentopia-playground](https://github.com/Agentopia/agentopia-playground))
+   - Open-source agent development
+   - Framework experimentation
+   - Community contributions
+   - Live agent deployment
+
+```mermaid
+graph TD
+    A[Development Playground] -->|API| B[Showcase Platform]
+    B -->|Discovery| C[Users]
+    C -->|Contribution| A
+```
+
 ## Features
 
 - **Agent Gallery**: Discover and explore AI agents in our ecosystem
@@ -14,6 +37,8 @@ Agentopia is a GitHub organization dedicated to advancing the field of AI agents
 - **Theme Support**: Dark/Light mode with persistent preferences
 - **Mobile-First**: Fully responsive design for all devices
 - **Real-time GitHub Integration**: Live repository showcase and updates
+- **API Integration**: Connect showcase platform with playground developments
+- **Live Demonstrations**: Try agents directly in the browser
 
 ## Pages
 
@@ -52,6 +77,11 @@ agentopia.github.io/
 │   └── theme.js        # Theme toggle functionality
 ├── images/
 │   └── logo.svg        # Project logo
+├── docs/
+│   ├── AGENT-DEVELOPMENT.md  # Development guidelines
+│   └── CATEGORY-STANDARDS.md # Agent standards
+├── tools/
+│   └── api-reference.html    # API documentation
 ├── index.html          # Homepage
 ├── agents.html         # Agents gallery page
 ├── resources.html      # Resources and documentation
@@ -75,6 +105,13 @@ We follow a structured branching strategy:
 - `develop` - Integration branch for feature development
 - `feature/*` - Feature branches for new development
 - `hotfix/*` - Hot fixes for production issues
+
+## Development Resources
+
+- [Agent Development Guide](docs/AGENT-DEVELOPMENT.md)
+- [Category Standards](docs/CATEGORY-STANDARDS.md)
+- [API Documentation](tools/api-reference.html)
+- [Best Practices](tools/best-practices.html)
 
 ## License
 
