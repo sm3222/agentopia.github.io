@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navHTML = `
     <header class="fixed w-full top-0 z-50 bg-gray-900/80 backdrop-blur-sm">
         <!-- Desktop Navigation -->
-        <nav class="desktop-nav max-w-6xl mx-auto justify-between items-center p-4">
+        <nav class="desktop-nav hidden md:flex max-w-6xl mx-auto justify-between items-center p-4">
             <a href="/" class="flex items-center hover:opacity-80 transition-opacity">
                 <img src="/images/logo.svg" alt="AI Agentopia Logo" class="w-10 h-10 mr-3">
                 <span class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">AI Agentopia</span>
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </nav>
 
         <!-- Mobile Navigation -->
-        <nav class="mobile-nav">
+        <nav class="mobile-nav md:hidden">
             <div class="flex justify-between items-center p-4">
                 <a href="/" class="flex items-center">
                     <img src="/images/logo.svg" alt="AI Agentopia Logo" class="w-8 h-8">
@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 <button id="mobile-menu-toggle" class="text-amber-400 text-2xl p-2">☰</button>
             </div>
 
-            <div id="mobile-menu" class="hidden">
-                <button id="mobile-menu-close" class="text-3xl">×</button>
-                <div class="flex flex-col space-y-4 text-center px-4">
-                    <a href="/blog.html" class="nav-link border-b border-amber-400/20 pb-2">Blog</a>
-                    <a href="/resources.html" class="nav-link border-b border-amber-400/20 pb-2">Resources</a>
-                    <a href="/agents.html" class="nav-link border-b border-amber-400/20 pb-2">Agents</a>
-                    <a href="https://github.com/Agentopia" class="nav-link" target="_blank">GitHub</a>
+            <div id="mobile-menu" class="hidden bg-gray-900/95 backdrop-blur-sm fixed inset-0 pt-16">
+                <button id="mobile-menu-close" class="absolute top-4 right-4 text-3xl text-amber-400">×</button>
+                <div class="flex flex-col space-y-4 text-center px-4 pt-8">
+                    <a href="/blog.html" class="nav-link text-lg border-b border-amber-400/20 pb-4">Blog</a>
+                    <a href="/resources.html" class="nav-link text-lg border-b border-amber-400/20 pb-4">Resources</a>
+                    <a href="/agents.html" class="nav-link text-lg border-b border-amber-400/20 pb-4">Agents</a>
+                    <a href="https://github.com/Agentopia" class="nav-link text-lg" target="_blank">GitHub</a>
                 </div>
             </div>
         </nav>
@@ -45,34 +45,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Insert navigation
     document.getElementById('nav-placeholder').innerHTML = navHTML;
 
-    // Mobile menu functionality
+    // Mobile menu toggle
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
 
-    mobileMenuToggle.addEventListener('click', () => {
-        mobileMenu.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    });
-
-    mobileMenuClose.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        document.body.style.overflow = '';
-    });
-
-    // Close mobile menu on link click
-    const mobileLinks = mobileMenu.getElementsByTagName('a');
-    Array.from(mobileLinks).forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            document.body.style.overflow = '';
+    if (mobileMenuToggle && mobileMenu && mobileMenuClose) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-    });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    }
 });
 
 // Footer HTML template
 const footerHTML = `
-<footer class="mt-auto bg-gray-800/90 backdrop-blur-sm border-t border-gray-700">
+<footer class="mt-auto bg-gradient-to-b from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-md border-t border-gray-700/50">
     <div class="container mx-auto px-4 py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="text-center md:text-left">
@@ -94,7 +85,8 @@ const footerHTML = `
                 <ul class="space-y-1.5 text-sm text-gray-400">
                     <li><a href="/blog.html" class="hover:text-amber-400">Blog</a></li>
                     <li><a href="/resources.html" class="hover:text-amber-400">Resources</a></li>
-                    <li><a href="/agents.html" class="hover:text-amber-400">AI Agents</a></li>
+                    <li><a href="/agents.html" class="hover:text-amber-400">Agents</a></li>
+                    <li><a href="/docs/AGENT-DEVELOPMENT.html" class="hover:text-amber-400">Documentation</a></li>
                 </ul>
             </div>
             <div class="text-center md:text-right">
@@ -108,7 +100,7 @@ const footerHTML = `
         </div>
 
         <div class="mt-6 pt-6 border-t border-gray-700 text-center">
-            <p class="text-xs text-gray-500 mb-2">&copy; ${new Date().getFullYear()} AI Agentopia, an BIXORY AI entity. All rights reserved.</p>
+            <p class="text-xs text-gray-500 mb-2">&copy; ${new Date().getFullYear()} AI Agentopia, a BIXORY AI entity. All rights reserved.</p>
             <div class="flex justify-center gap-4 text-xs text-gray-500">
                 <a href="/privacy-policy.html" class="hover:text-amber-400">Privacy Policy</a>
                 <a href="/terms-of-service.html" class="hover:text-amber-400">Terms of Service</a>
