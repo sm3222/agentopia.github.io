@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Task Assistant",
+        "category": "Productivity",
+        "type": "regular",
+        "scale": "single",
+        "description": "A personal assistant that helps you manage tasks, schedule meetings, and stay organized.",
+        "rating": 4.5,
+        "reviews": 128,
+        "features": ["Task Management", "Schedule Optimization", "Priority Analysis"],
+        "tags": ["productivity", "organization", "time-management"]
+    },
+    {
+        "id": 2,
+        "name": "Workflow Automator",
+        "category": "Automation",
+        "type": "autonomous",
+        "scale": "single",
+        "description": "An autonomous agent that learns your workflows and automates repetitive tasks.",
+        "rating": 4.8,
+        "reviews": 95,
+        "features": ["Process Automation", "Workflow Optimization", "Integration Support"],
+        "tags": ["automation", "workflow", "integration"]
+    },
+    {
+        "id": 3,
+        "name": "Data Insights Team",
+        "category": "Analytics",
+        "type": "regular",
+        "scale": "multiple",
+        "description": "A team of specialized agents working together to analyze and visualize your data.",
+        "rating": 4.6,
+        "reviews": 156,
+        "features": ["Data Analysis", "Predictive Analytics", "Visual Reports"],
+        "tags": ["analytics", "data", "insights"]
+    },
+    {
+        "id": 4,
+        "name": "DevOps Squad",
+        "category": "Automation",
+        "type": "autonomous",
+        "scale": "multiple",
+        "description": "A self-organizing team of agents that manage your development and deployment pipeline.",
+        "rating": 4.7,
+        "reviews": 83,
+        "features": ["Code Generation", "Code Review", "Optimization"],
+        "tags": ["automation", "coding", "development"]
+    },
+    {
+        "id": 5,
+        "name": "MarketMind Analytics",
+        "category": "Analytics",
+        "type": "regular",
+        "scale": "single",
+        "description": "Analyze market trends and consumer behavior with this powerful analytics agent.",
+        "rating": 4.4,
+        "reviews": 203,
+        "features": ["Market Analysis", "Trend Prediction", "Consumer Insights"],
+        "tags": ["analytics", "market-research", "trends"]
+    },
+    {
+        "id": 6,
+        "name": "FocusForge",
+        "category": "Productivity",
+        "type": "regular",
+        "scale": "single",
+        "description": "Enhance your productivity with AI-powered focus sessions and smart break scheduling.",
+        "rating": 4.3,
+        "reviews": 167,
+        "features": ["Focus Timer", "Break Scheduler", "Progress Tracking"],
+        "tags": ["productivity", "focus", "time-management"]
+    }
+]
