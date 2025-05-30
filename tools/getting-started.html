@@ -1,14 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Getting Started - AI Agentopia</title>
-    <meta name="description" content="Learn how to get started with building AI agents in the Agentopia ecosystem">
+    <meta name="description" content="Learn how to get started with building AI agents in the Agentopia ecosystem. A comprehensive guide for beginners and experienced developers.">
+    <meta name="author" content="AI Agentopia Team">
+    <meta name="keywords" content="AI agents, getting started, development guide, Agentopia, AI development">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Getting Started with AI Agents - Agentopia">
+    <meta property="og:description" content="Learn how to get started with building AI agents in the Agentopia ecosystem.">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-05-15">
+    <meta property="article:author" content="AI Agentopia Team">
+    <meta property="article:section" content="Documentation">
+    <meta property="article:tag" content="Getting Started,Guide,Tutorial">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+    <link rel="manifest" href="../site.webmanifest">
+    
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <!-- Add Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
 </head>
-<body class="dark-mode">
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
     <!-- Navigation will be included via JavaScript -->
     <div id="nav-placeholder"></div>
 
@@ -44,14 +67,576 @@
         </div>
     </section>
 
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-6 py-12 flex-grow">
         <div class="max-w-4xl mx-auto">
-            <div class="prose prose-lg prose-invert mx-auto">
-                <h2>Introduction to Agentopia</h2>
-                <p>Welcome to Agentopia! This guide will help you get started with building your first AI agent...</p>
+
+            <!-- Back to Resources Navigation -->
+            <nav class="text-sm mb-8">
+                <a href="../resources.html" class="text-amber-400 hover:text-amber-300">← Back to Resources</a>
+            </nav>
+
+            <!-- Article Content -->
+            <article class="prose prose-lg prose-invert mx-auto">
+                <!-- Table of Contents -->
+                <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 mb-12">
+                    <h2 class="text-2xl font-bold mb-4">Table of Contents</h2>
+                    <ul class="space-y-2">
+                        <li><a href="#introduction" class="text-amber-400 hover:text-amber-300">Introduction to AI Agents</a></li>
+                        <li><a href="#agent-categories" class="text-amber-400 hover:text-amber-300">Understanding Agent Categories</a></li>
+                        <li><a href="#development-setup" class="text-amber-400 hover:text-amber-300">Development Environment Setup</a></li>
+                        <li><a href="#first-agent" class="text-amber-400 hover:text-amber-300">Building Your First Agent</a></li>
+                        <li><a href="#testing" class="text-amber-400 hover:text-amber-300">Testing and Evaluation</a></li>
+                        <li><a href="#deployment" class="text-amber-400 hover:text-amber-300">Deployment Options</a></li>
+                        <li><a href="#next-steps" class="text-amber-400 hover:text-amber-300">Next Steps</a></li>
+                    </ul>
+                </div>
+
+                <!-- Introduction Section -->
+                <section id="introduction">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Introduction to AI Agents</h2>
+                    <p class="mb-6">Welcome to Agentopia, a comprehensive ecosystem for AI agent development and deployment. This guide will help you understand the fundamentals of AI agents and get you started with building your own.</p>
+                    
+                    <p class="mb-6">AI agents are autonomous or semi-autonomous software entities that can perceive their environment, make decisions, and take actions to achieve specific goals. In the Agentopia ecosystem, we focus on creating a structured approach to agent development with clear categories, standards, and best practices.</p>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">What Makes Agentopia Different</h3>
+                        <p>Agentopia consists of two main components:</p>
+                        <ul class="mt-4">
+                            <li><strong>Showcase Platform</strong> (this website) - A curated collection of production-ready agents with quality verification and enterprise integration capabilities.</li>
+                            <li><strong>Development Playground</strong> - An open-source environment for agent development, experimentation, and community contributions.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Agent Categories Section -->
+                <section id="agent-categories" class="mt-12">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Understanding Agent Categories</h2>
+                    <p class="mb-6">At Agentopia, we classify AI agents into four main categories based on their autonomy level and collaboration capabilities. Understanding these categories will help you determine which type of agent best suits your needs.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <!-- Regular Single Agent -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4 text-amber-400">Regular Single Agent</h3>
+                            <p class="mb-4">A single autonomous unit with direct user interaction, operating under explicit user commands and focused on specific tasks or domains.</p>
+                            <h4 class="font-semibold mb-2">Key Characteristics:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Clear input/output interface</li>
+                                <li>Direct command handling</li>
+                                <li>Task-specific capabilities</li>
+                                <li>User feedback mechanisms</li>
+                            </ul>
+                            <p class="mt-3 text-sm text-gray-400">Examples: Chat assistants, task-specific helpers, specialized tools</p>
+                        </div>
+                        
+                        <!-- Regular Multi-Agent -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4 text-amber-400">Regular Multi-Agent</h3>
+                            <p class="mb-4">Multiple coordinated agents with user-directed collaboration and shared task execution capabilities.</p>
+                            <h4 class="font-semibold mb-2">Key Characteristics:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Inter-agent communication protocol</li>
+                                <li>Role definition for each agent</li>
+                                <li>Coordination mechanisms</li>
+                                <li>Task distribution system</li>
+                            </ul>
+                            <p class="mt-3 text-sm text-gray-400">Examples: Team-based assistants, workflow systems, distributed task handlers</p>
+                        </div>
+                        
+                        <!-- Autonomous Single Agent -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4 text-amber-400">Autonomous Single Agent</h3>
+                            <p class="mb-4">Self-directed single agent with goal-oriented behavior and independent decision-making capabilities.</p>
+                            <h4 class="font-semibold mb-2">Key Characteristics:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Goal setting mechanism</li>
+                                <li>Self-monitoring capabilities</li>
+                                <li>Decision-making framework</li>
+                                <li>Safety constraints</li>
+                            </ul>
+                            <p class="mt-3 text-sm text-gray-400">Examples: Research agents, data analysis agents, autonomous task executors</p>
+                        </div>
+                        
+                        <!-- Autonomous Multi-Agent -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4 text-amber-400">Autonomous Multi-Agent</h3>
+                            <p class="mb-4">Self-organizing agent network with emergent behavior and collective decision-making capabilities.</p>
+                            <h4 class="font-semibold mb-2">Key Characteristics:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Swarm coordination</li>
+                                <li>Distributed decision-making</li>
+                                <li>Collective goal alignment</li>
+                                <li>Network safety protocols</li>
+                            </ul>
+                            <p class="mt-3 text-sm text-gray-400">Examples: Market analysis systems, distributed problem solvers, collaborative researchers</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">Choosing the Right Category</h3>
+                        <p>When deciding which agent category to develop, consider:</p>
+                        <ul class="mt-4">
+                            <li><strong>Task Complexity:</strong> More complex tasks may benefit from multi-agent systems</li>
+                            <li><strong>User Interaction:</strong> How much direct control should users have?</li>
+                            <li><strong>Resource Constraints:</strong> Autonomous agents typically require more resources</li>
+                            <li><strong>Safety Requirements:</strong> Higher autonomy requires more robust safety measures</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Development Environment Setup Section -->
+                <section id="development-setup" class="mt-12">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Development Environment Setup</h2>
+                    <p class="mb-6">Before you start building AI agents, you'll need to set up your development environment. This section will guide you through the essential tools and frameworks used in the Agentopia ecosystem.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4">Prerequisites</h3>
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+                        <ul class="space-y-3">
+                            <li>
+                                <span class="font-semibold">Python 3.8+</span>
+                                <p class="text-sm text-gray-400 mt-1">Most AI agent frameworks require Python 3.8 or newer. We recommend using Python 3.10 for optimal compatibility.</p>
+                            </li>
+                            <li>
+                                <span class="font-semibold">Git</span>
+                                <p class="text-sm text-gray-400 mt-1">For version control and accessing the Agentopia repositories.</p>
+                            </li>
+                            <li>
+                                <span class="font-semibold">Virtual Environment</span>
+                                <p class="text-sm text-gray-400 mt-1">We recommend using venv, conda, or another virtual environment tool to manage dependencies.</p>
+                            </li>
+                            <li>
+                                <span class="font-semibold">Code Editor</span>
+                                <p class="text-sm text-gray-400 mt-1">VSCode, PyCharm, or any editor with good Python support.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-4">Setting Up the Development Playground</h3>
+                    <p class="mb-4">The Agentopia Development Playground provides a standardized environment for agent development. Follow these steps to set it up:</p>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+                        <ol class="space-y-4">
+                            <li>
+                                <span class="font-semibold">1. Clone the Repository</span>
+                                <div class="bg-gray-900 rounded-md p-4 mt-2 overflow-x-auto">
+                                    <code class="text-amber-400">git clone https://github.com/Agentopia/agentopia-playground.git</code>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="font-semibold">2. Create a Virtual Environment</span>
+                                <div class="bg-gray-900 rounded-md p-4 mt-2 overflow-x-auto">
+                                    <code class="text-amber-400">cd agentopia-playground<br>python -m venv venv<br>source venv/bin/activate  # On Windows: venv\Scripts\activate</code>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="font-semibold">3. Install Dependencies</span>
+                                <div class="bg-gray-900 rounded-md p-4 mt-2 overflow-x-auto">
+                                    <code class="text-amber-400">pip install -r requirements.txt</code>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="font-semibold">4. Configure Environment Variables</span>
+                                <div class="bg-gray-900 rounded-md p-4 mt-2 overflow-x-auto">
+                                    <code class="text-amber-400">cp .env.example .env<br># Edit .env file with your API keys and configuration</code>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-4">Supported Frameworks</h3>
+                    <p class="mb-4">The Agentopia ecosystem supports multiple AI agent frameworks, each with its own strengths:</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-4">
+                            <h4 class="font-bold mb-2 text-amber-400">LangChain</h4>
+                            <p class="text-sm">A framework for developing applications powered by language models, with a focus on composability and modularity.</p>
+                        </div>
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-4">
+                            <h4 class="font-bold mb-2 text-amber-400">AutoGen</h4>
+                            <p class="text-sm">Framework for building multi-agent systems with conversational agents that can work together to solve tasks.</p>
+                        </div>
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-4">
+                            <h4 class="font-bold mb-2 text-amber-400">CrewAI</h4>
+                            <p class="text-sm">Specialized in creating collaborative AI agent teams with defined roles and coordination mechanisms.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">Framework Selection Tips</h3>
+                        <ul class="space-y-2">
+                            <li><strong>LangChain:</strong> Best for single agents and straightforward workflows</li>
+                            <li><strong>AutoGen:</strong> Ideal for conversational multi-agent systems</li>
+                            <li><strong>CrewAI:</strong> Excellent for role-based team collaboration</li>
+                        </ul>
+                        <p class="mt-4 text-sm text-gray-400">All frameworks are supported in the Agentopia ecosystem, and you can even mix them as needed for your specific use case.</p>
+                    </div>
+                </section>
+
+                <!-- Building Your First Agent Section -->
+                <section id="first-agent" class="mt-12">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Building Your First Agent</h2>
+                    <p class="mb-6">Now that you understand the different agent categories and have set up your development environment, let's build a simple AI agent. We'll create a Regular Single Agent that can answer questions about a specific topic.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4">Step 1: Define Your Agent's Purpose</h3>
+                    <p class="mb-6">Before writing any code, clearly define what your agent will do. For this example, we'll create a research assistant that can answer questions about AI technology.</p>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+                        <h4 class="font-bold mb-2">Agent Specification</h4>
+                        <ul class="space-y-2">
+                            <li><strong>Name:</strong> ResearchBuddy</li>
+                            <li><strong>Category:</strong> Regular Single Agent</li>
+                            <li><strong>Purpose:</strong> Answer questions about AI technology</li>
+                            <li><strong>Capabilities:</strong> Web search, information synthesis, citation</li>
+                            <li><strong>Input:</strong> Natural language questions</li>
+                            <li><strong>Output:</strong> Comprehensive answers with citations</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-4">Step 2: Create the Agent Structure</h3>
+                    <p class="mb-4">Let's set up the basic structure for our agent using LangChain:</p>
+                    
+                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+                        <pre><code class="text-amber-400">from langchain.agents import Tool, AgentExecutor, create_react_agent
+from langchain.prompts import PromptTemplate
+from langchain.tools import DuckDuckGoSearchRun
+from langchain_openai import ChatOpenAI
+
+# Define the agent class
+class ResearchBuddy:
+    def __init__(self, model_name="gpt-3.5-turbo"):
+        # Initialize the language model
+        self.llm = ChatOpenAI(model_name=model_name)
+        
+        # Set up search tool
+        search_tool = DuckDuckGoSearchRun()
+        
+        # Define tools available to the agent
+        self.tools = [
+            Tool(
+                name="Search",
+                func=search_tool.run,
+                description="Useful for searching the web for information."
+            )
+        ]
+        
+        # Create the agent prompt
+        self.prompt = PromptTemplate.from_template(
+            """You are ResearchBuddy, an AI research assistant specialized in AI technology.
+            Answer the user's questions as helpfully as possible. Use the tools available to you
+            when you need to search for information. Always cite your sources.
+            
+            Question: {input}
+            {agent_scratchpad}
+            """
+        )
+        
+        # Create the agent
+        self.agent = create_react_agent(self.llm, self.tools, self.prompt)
+        self.agent_executor = AgentExecutor(agent=self.agent, tools=self.tools, verbose=True)
+    
+    def answer_question(self, question):
+        """Process a user question and return a researched answer"""
+        response = self.agent_executor.invoke({"input": question})
+        return response["output"]
+</code></pre>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-4">Step 3: Use Your Agent</h3>
+                    <p class="mb-4">Now let's create a simple interface to interact with our agent:</p>
+                    
+                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+                        <pre><code class="text-amber-400">def main():
+    # Initialize the agent
+    research_buddy = ResearchBuddy()
+    
+    print("Welcome to ResearchBuddy! Ask me anything about AI technology.")
+    print("Type 'exit' to quit.")
+    
+    while True:
+        user_input = input("\nQuestion: ")
+        
+        if user_input.lower() == "exit":
+            print("Thank you for using ResearchBuddy!")
+            break
+        
+        try:
+            response = research_buddy.answer_question(user_input)
+            print(f"\nResearchBuddy: {response}")
+        except Exception as e:
+            print(f"Error: {e}")
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-4">Step 4: Test and Iterate</h3>
+                    <p class="mb-4">Test your agent with various questions and refine its behavior based on the results. Consider these aspects:</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-4">
+                            <h4 class="font-bold mb-2 text-amber-400">Response Quality</h4>
+                            <ul class="list-disc pl-5 space-y-1 text-sm">
+                                <li>Are answers accurate?</li>
+                                <li>Is information up-to-date?</li>
+                                <li>Are sources properly cited?</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-4">
+                            <h4 class="font-bold mb-2 text-amber-400">User Experience</h4>
+                            <ul class="list-disc pl-5 space-y-1 text-sm">
+                                <li>Is the response time acceptable?</li>
+                                <li>Are answers easy to understand?</li>
+                                <li>Does the agent handle edge cases?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">Advanced Agent Features</h3>
+                        <p class="mb-4">Once you have a basic agent working, consider enhancing it with these features:</p>
+                        <ul class="space-y-2">
+                            <li><strong>Memory:</strong> Add conversation memory to maintain context</li>
+                            <li><strong>Multiple Tools:</strong> Integrate additional tools like calculators or data analysis</li>
+                            <li><strong>Error Handling:</strong> Improve robustness with better error handling</li>
+                            <li><strong>User Feedback:</strong> Implement a feedback mechanism to improve responses</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Testing and Evaluation Section -->
+                <section id="testing" class="mt-12">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Testing and Evaluation</h2>
+                    <p class="mb-6">Thorough testing is crucial for developing reliable AI agents. This section covers testing methodologies and evaluation metrics for your agents.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4">Testing Methodologies</h3>
+                    <div class="grid md:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h4 class="font-bold mb-2 text-amber-400">Unit Testing</h4>
+                            <p>Test individual components of your agent to ensure they function correctly in isolation.</p>
+                            <div class="mt-4 text-sm text-gray-400">
+                                <p>Example: Test that your search tool returns relevant results for specific queries.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h4 class="font-bold mb-2 text-amber-400">Integration Testing</h4>
+                            <p>Test how components work together within your agent system.</p>
+                            <div class="mt-4 text-sm text-gray-400">
+                                <p>Example: Test that search results are properly incorporated into the agent's responses.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h4 class="font-bold mb-2 text-amber-400">User Testing</h4>
+                            <p>Test the agent with real users to evaluate usability and effectiveness.</p>
+                            <div class="mt-4 text-sm text-gray-400">
+                                <p>Example: Have users interact with your agent and provide feedback on its responses.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-4">Evaluation Metrics</h3>
+                    <p class="mb-4">Use these metrics to quantitatively assess your agent's performance:</p>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full">
+                                <thead>
+                                    <tr class="border-b border-gray-700">
+                                        <th class="py-2 px-4 text-left text-amber-400">Metric</th>
+                                        <th class="py-2 px-4 text-left text-amber-400">Description</th>
+                                        <th class="py-2 px-4 text-left text-amber-400">Measurement</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-700">
+                                        <td class="py-2 px-4 font-medium">Accuracy</td>
+                                        <td class="py-2 px-4">Correctness of information provided</td>
+                                        <td class="py-2 px-4">% of factually correct responses</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-700">
+                                        <td class="py-2 px-4 font-medium">Response Time</td>
+                                        <td class="py-2 px-4">Time taken to generate a response</td>
+                                        <td class="py-2 px-4">Average seconds per response</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-700">
+                                        <td class="py-2 px-4 font-medium">Task Completion</td>
+                                        <td class="py-2 px-4">Ability to complete assigned tasks</td>
+                                        <td class="py-2 px-4">% of successfully completed tasks</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-4 font-medium">User Satisfaction</td>
+                                        <td class="py-2 px-4">User perception of agent quality</td>
+                                        <td class="py-2 px-4">Survey scores (1-5 scale)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">Testing Best Practices</h3>
+                        <ul class="space-y-2">
+                            <li><strong>Create Test Cases:</strong> Develop a diverse set of test cases covering various scenarios</li>
+                            <li><strong>Automated Testing:</strong> Implement automated tests to regularly evaluate your agent</li>
+                            <li><strong>Edge Cases:</strong> Test with unusual or extreme inputs to ensure robustness</li>
+                            <li><strong>Benchmark:</strong> Compare your agent against existing solutions or baseline metrics</li>
+                        </ul>
+                    </div>
+                </section>
                 
-                <!-- Add more content here -->
-            </div>
+                <!-- Deployment Options Section -->
+                <section id="deployment" class="mt-12">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Deployment Options</h2>
+                    <p class="mb-6">Once your agent is tested and ready, you'll need to deploy it for real-world use. Here are the deployment options available in the Agentopia ecosystem.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <!-- Local Deployment -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4 text-amber-400">Local Deployment</h3>
+                            <p class="mb-4">Run your agent locally for personal use or testing.</p>
+                            <h4 class="font-semibold mb-2">Advantages:</h4>
+                            <ul class="list-disc pl-5 space-y-1 mb-4">
+                                <li>Complete control over the environment</li>
+                                <li>No additional hosting costs</li>
+                                <li>Enhanced privacy and security</li>
+                            </ul>
+                            <h4 class="font-semibold mb-2">Implementation:</h4>
+                            <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                                <code class="text-amber-400">python run_agent.py --local</code>
+                            </div>
+                        </div>
+                        
+                        <!-- Cloud Deployment -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4 text-amber-400">Cloud Deployment</h3>
+                            <p class="mb-4">Deploy your agent to cloud platforms for broader accessibility.</p>
+                            <h4 class="font-semibold mb-2">Advantages:</h4>
+                            <ul class="list-disc pl-5 space-y-1 mb-4">
+                                <li>Scalable to handle multiple users</li>
+                                <li>Always available (24/7 uptime)</li>
+                                <li>Accessible from anywhere</li>
+                            </ul>
+                            <h4 class="font-semibold mb-2">Supported Platforms:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>AWS Lambda</li>
+                                <li>Google Cloud Functions</li>
+                                <li>Azure Functions</li>
+                                <li>Heroku</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-4">API Integration</h3>
+                    <p class="mb-4">Expose your agent as an API for integration with other applications:</p>
+                    
+                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+                        <pre><code class="text-amber-400">from flask import Flask, request, jsonify
+from research_buddy import ResearchBuddy
+
+app = Flask(__name__)
+research_buddy = ResearchBuddy()
+
+@app.route('/api/query', methods=['POST'])
+def query_agent():
+    data = request.json
+    question = data.get('question')
+    
+    if not question:
+        return jsonify({'error': 'No question provided'}), 400
+    
+    try:
+        response = research_buddy.answer_question(question)
+        return jsonify({'response': response})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)</code></pre>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">Agentopia Showcase Integration</h3>
+                        <p>Once your agent meets quality standards, you can submit it to the Agentopia Showcase:</p>
+                        <ol class="list-decimal pl-5 space-y-2 mt-4">
+                            <li>Package your agent according to Agentopia standards</li>
+                            <li>Submit a pull request to the Agentopia Showcase repository</li>
+                            <li>Pass the quality verification process</li>
+                            <li>Your agent will be featured on the Agentopia platform</li>
+                        </ol>
+                        <p class="mt-4 text-sm text-gray-400">See the <a href="../docs/CATEGORY-STANDARDS.md" class="text-amber-400 hover:text-amber-300">Category Standards</a> document for detailed submission requirements.</p>
+                    </div>
+                </section>
+                
+                <!-- Next Steps Section -->
+                <section id="next-steps" class="mt-12">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Next Steps</h2>
+                    <p class="mb-6">Now that you've built your first AI agent, here are some ways to continue your journey in the Agentopia ecosystem:</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4 text-amber-400">Advanced Development</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Explore multi-agent systems</li>
+                                <li>Implement advanced reasoning capabilities</li>
+                                <li>Add specialized domain knowledge</li>
+                                <li>Optimize performance and efficiency</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4 text-amber-400">Community Engagement</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Join the Agentopia GitHub community</li>
+                                <li>Contribute to open-source projects</li>
+                                <li>Participate in discussions and forums</li>
+                                <li>Collaborate with other developers</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4 text-amber-400">Learning Resources</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Explore the API documentation</li>
+                                <li>Study advanced agent patterns</li>
+                                <li>Review case studies and examples</li>
+                                <li>Take specialized agent courses</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">Recommended Resources</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Documentation</h4>
+                                <ul class="space-y-1">
+                                    <li><a href="api-reference.html" class="text-amber-400 hover:text-amber-300">API Reference</a></li>
+                                    <li><a href="best-practices.html" class="text-amber-400 hover:text-amber-300">Best Practices Guide</a></li>
+                                    <li><a href="../docs/CATEGORY-STANDARDS.md" class="text-amber-400 hover:text-amber-300">Category Standards</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">External Resources</h4>
+                                <ul class="space-y-1">
+                                    <li><a href="https://github.com/Agentopia" class="text-amber-400 hover:text-amber-300" target="_blank">Agentopia GitHub Organization</a></li>
+                                    <li><a href="https://langchain.com/docs/" class="text-amber-400 hover:text-amber-300" target="_blank">LangChain Documentation</a></li>
+                                    <li><a href="https://python.langchain.com/docs/integrations/platforms/autogen" class="text-amber-400 hover:text-amber-300" target="_blank">AutoGen Documentation</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 text-center">
+                        <h3 class="text-2xl font-bold mb-4">Ready to Build Amazing AI Agents?</h3>
+                        <p class="mb-6">Join the Agentopia community and start creating the next generation of AI agents!</p>
+                        <div class="flex justify-center gap-4">
+                            <a href="https://github.com/Agentopia" target="_blank" class="px-6 py-3 bg-amber-500 text-gray-900 rounded-lg hover:bg-amber-400 transition-colors font-semibold">Join on GitHub</a>
+                            <a href="../agents.html" class="px-6 py-3 bg-gray-700 text-gray-100 rounded-lg hover:bg-gray-600 transition-colors font-semibold">Explore Agents</a>
+                        </div>
+                    </div>
+                </section>
+            </article>
         </div>
     </main>
 
