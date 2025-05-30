@@ -86,7 +86,7 @@ const footerHTML = `
                     <li><a href="/blog.html" class="hover:text-amber-400">Blog</a></li>
                     <li><a href="/resources.html" class="hover:text-amber-400">Resources</a></li>
                     <li><a href="/agents.html" class="hover:text-amber-400">Agents</a></li>
-                    <li><a href="/docs/AGENT-DEVELOPMENT.html" class="hover:text-amber-400">Documentation</a></li>
+                    <li><a href="/tools/getting-started.html" class="hover:text-amber-400">Documentation</a></li>
                 </ul>
             </div>
             <div class="text-center md:text-right">
