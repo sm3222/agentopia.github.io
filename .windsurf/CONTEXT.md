@@ -67,11 +67,12 @@
   - Responsive design
   - Dark/Light mode theme toggle
   - Comprehensive documentation pages
+  - Complete Development Tools documentation (CLI, SDK, Templates)
   - Blog system with dynamic content
   - Consistent UI/UX design system
   - Resource organization
 - **Deployment**: GitHub Pages
-- **Current Version**: v0.3.0
+- **Current Version**: v0.4.0
 
 #### Phase 2: Enhanced Frontend (Next)
 - **Planned Technologies**:
@@ -132,9 +133,9 @@
   - `getting-started.html`: Initial setup and usage guide for building AI agents (Completed)
   - `api-reference.html`: Comprehensive API documentation with authentication, endpoints, and examples (Completed)
   - `best-practices.html`: Development best practices including design principles, security, testing, and performance (Completed)
-  - `cli.html`: Command-line interface guide (Coming Soon)
-  - `sdk.html`: Software development kit documentation (Coming Soon)
-  - `templates.html`: Template usage and customization (Coming Soon)
+  - `cli.html`: Command-line interface guide (Completed)
+  - `sdk.html`: Software development kit documentation (Completed)
+  - `templates.html`: Template usage and customization (Completed)
 
 ## Session Management
 Each development session should follow this workflow:
