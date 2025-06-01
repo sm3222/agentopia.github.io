@@ -43,27 +43,363 @@
         </div>
     </section>
 
-    <main class="container mx-auto px-4 py-8">
+    <!-- Back to Resources Navigation -->
+    <div class="container mx-auto px-6 pt-8">
         <div class="max-w-4xl mx-auto">
-            <div class="prose prose-lg prose-invert mx-auto">
-                <h2>Command Line Interface</h2>
-                <p>Agentopia CLI provides powerful tools for managing your AI agents from the command line...</p>
-                
-                <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
-                    <h3 class="text-xl font-bold text-amber-400 mb-4">Installation</h3>
-                    <pre class="bg-gray-900/50 p-4 rounded"><code>npm install -g @agentopia/cli</code></pre>
-                </div>
+            <nav class="text-sm mb-4">
+                <a href="../resources.html" class="text-amber-400 hover:text-amber-300">← Back to Resources</a>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Table of Contents -->
+    <div class="container mx-auto px-6 py-8">
+        <div class="max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-12">
+            <h2 class="text-2xl font-bold text-amber-400 mb-4">Table of Contents</h2>
+            <ul class="space-y-2">
+                <li>
+                    <a href="#installation" class="text-amber-400 hover:text-amber-300">Installation</a>
+                </li>
+                <li>
+                    <a href="#core-commands" class="text-amber-400 hover:text-amber-300">Core Commands</a>
+                </li>
+                <li>
+                    <a href="#configuration" class="text-amber-400 hover:text-amber-300">Configuration</a>
+                </li>
+                <li>
+                    <a href="#workflows" class="text-amber-400 hover:text-amber-300">Common Workflows</a>
+                </li>
+                <li>
+                    <a href="#plugins" class="text-amber-400 hover:text-amber-300">Plugins & Extensions</a>
+                </li>
+                <li>
+                    <a href="#troubleshooting" class="text-amber-400 hover:text-amber-300">Troubleshooting</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-                <h3>Key Features</h3>
-                <ul>
-                    <li>Quick agent creation and deployment</li>
-                    <li>Automated testing and validation</li>
-                    <li>Configuration management</li>
-                    <li>Performance monitoring</li>
-                </ul>
+    <main class="container mx-auto px-6 py-12 flex-grow">
+        <div class="max-w-4xl mx-auto">
+            <article class="prose prose-lg prose-invert mx-auto">
+                <!-- Introduction -->
+                <p class="lead mb-8">The Agentopia Command Line Interface (CLI) provides a comprehensive set of tools for creating, testing, deploying, and managing AI agents. Whether you're building a simple chatbot or a complex multi-agent system, our CLI streamlines your development workflow.</p>
                 
-                <!-- Add more content here -->
-            </div>
+                <!-- Installation Section -->
+                <section id="installation">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Installation</h2>
+                    <p>The Agentopia CLI can be installed using npm, yarn, or directly from source. Choose the method that works best for your environment.</p>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">Using npm (Recommended)</h3>
+                        <pre class="bg-gray-900/50 p-4 rounded"><code>npm install -g @agentopia/cli</code></pre>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">Using yarn</h3>
+                        <pre class="bg-gray-900/50 p-4 rounded"><code>yarn global add @agentopia/cli</code></pre>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">From Source</h3>
+                        <pre class="bg-gray-900/50 p-4 rounded"><code>git clone https://github.com/agentopia/cli.git
+cd cli
+npm install
+npm link</code></pre>
+                    </div>
+                    
+                    <p>After installation, verify that the CLI is properly installed by running:</p>
+                    <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia --version</code></pre>
+                </section>
+                
+                <!-- Core Commands Section -->
+                <section id="core-commands">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Core Commands</h2>
+                    <p>The Agentopia CLI provides a rich set of commands to help you manage your agent development lifecycle. Here are the most commonly used commands:</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 my-8">
+                        <!-- Create Command -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Create</h3>
+                            <p class="mb-4">Initialize a new agent project with the necessary files and structure.</p>
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>agentopia create my-agent</code></pre>
+                            <p class="mt-4 text-sm text-gray-400">Use the <code>--template</code> flag to specify a template.</p>
+                        </div>
+                        
+                        <!-- Deploy Command -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Deploy</h3>
+                            <p class="mb-4">Deploy your agent to the Agentopia platform or other environments.</p>
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>agentopia deploy</code></pre>
+                            <p class="mt-4 text-sm text-gray-400">Use <code>--env</code> to specify the deployment environment.</p>
+                        </div>
+                        
+                        <!-- Test Command -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Test</h3>
+                            <p class="mb-4">Run automated tests on your agent to validate its behavior.</p>
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>agentopia test</code></pre>
+                            <p class="mt-4 text-sm text-gray-400">Use <code>--watch</code> for continuous testing during development.</p>
+                        </div>
+                        
+                        <!-- Monitor Command -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Monitor</h3>
+                            <p class="mb-4">Track your agent's performance and usage metrics.</p>
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>agentopia monitor</code></pre>
+                            <p class="mt-4 text-sm text-gray-400">Use <code>--dashboard</code> to open the web dashboard.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Command Structure</h3>
+                    <p>Most Agentopia CLI commands follow this general structure:</p>
+                    <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia [command] [subcommand] [options]</code></pre>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">Getting Help</h3>
+                        <p class="mb-4">You can get detailed help for any command by using the <code>--help</code> flag:</p>
+                        <pre class="bg-gray-900/50 p-4 rounded"><code>agentopia --help
+agentopia create --help</code></pre>
+                    </div>
+                </section>
+                <!-- Configuration Section -->
+                <section id="configuration">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Configuration</h2>
+                    <p>The Agentopia CLI can be configured at different levels to customize your development experience. Configuration options can be set globally, per project, or per command execution.</p>
+                    
+                    <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Configuration Files</h3>
+                    <p>Agentopia uses configuration files to store settings. The main configuration files are:</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 my-8">
+                        <!-- Global Config -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Global Config</h3>
+                            <p class="mb-2">Located at <code>~/.agentopia/config.json</code></p>
+                            <p>Contains user-level settings like API keys, default templates, and global preferences.</p>
+                        </div>
+                        
+                        <!-- Project Config -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Project Config</h3>
+                            <p class="mb-2">Located at <code>./agentopia.json</code> in your project directory</p>
+                            <p>Contains project-specific settings like deployment targets, testing parameters, and dependencies.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Sample Configuration</h3>
+                    <p>Here's an example of a project configuration file:</p>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">agentopia.json</h3>
+                        <pre class="bg-gray-900/50 p-4 rounded"><code>{
+  "name": "my-assistant-agent",
+  "version": "1.0.0",
+  "description": "An intelligent assistant agent",
+  "type": "conversational",
+  "deployment": {
+    "target": "agentopia-cloud",
+    "region": "us-west",
+    "resources": {
+      "memory": "standard",
+      "compute": "medium"
+    }
+  },
+  "testing": {
+    "scenarios": "./tests/scenarios",
+    "threshold": 0.85
+  },
+  "dependencies": {
+    "@agentopia/core": "^2.0.0",
+    "@agentopia/tools": "^1.5.0"
+  }
+}</code></pre>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Setting Configuration Values</h3>
+                    <p>You can set configuration values using the <code>config</code> command:</p>
+                    <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia config set api.key YOUR_API_KEY
+agentopia config set --global default.template basic-agent</code></pre>
+                    
+                    <p>To view current configuration:</p>
+                    <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia config list</code></pre>
+                </section>
+                <!-- Common Workflows Section -->
+                <section id="workflows">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Common Workflows</h2>
+                    <p>Here are some common development workflows using the Agentopia CLI:</p>
+                    
+                    <div class="space-y-8 my-8">
+                        <!-- Creating a New Agent -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Creating a New Agent</h3>
+                            <ol class="list-decimal pl-5 space-y-2">
+                                <li>Create a new agent project using a template:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia create my-agent --template conversational</code></pre>
+                                </li>
+                                <li>Navigate to the project directory:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>cd my-agent</code></pre>
+                                </li>
+                                <li>Install dependencies:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>npm install</code></pre>
+                                </li>
+                                <li>Start the development server:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia dev</code></pre>
+                                </li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Testing and Deployment -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Testing and Deployment</h3>
+                            <ol class="list-decimal pl-5 space-y-2">
+                                <li>Run tests to ensure your agent behaves correctly:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia test</code></pre>
+                                </li>
+                                <li>Run performance benchmarks:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia benchmark</code></pre>
+                                </li>
+                                <li>Deploy to staging environment:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia deploy --env staging</code></pre>
+                                </li>
+                                <li>Promote to production after verification:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia promote staging production</code></pre>
+                                </li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Monitoring and Maintenance -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Monitoring and Maintenance</h3>
+                            <ol class="list-decimal pl-5 space-y-2">
+                                <li>View agent performance metrics:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia monitor --dashboard</code></pre>
+                                </li>
+                                <li>Check agent logs:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia logs --env production --tail</code></pre>
+                                </li>
+                                <li>Update agent dependencies:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia update</code></pre>
+                                </li>
+                                <li>Rollback to previous version if needed:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia rollback production</code></pre>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+                <!-- Plugins & Extensions Section -->
+                <section id="plugins">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Plugins & Extensions</h2>
+                    <p>The Agentopia CLI supports a plugin system that allows you to extend its functionality. Plugins can add new commands, enhance existing ones, or integrate with third-party services.</p>
+                    
+                    <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Installing Plugins</h3>
+                    <p>You can install plugins using the <code>plugin</code> command:</p>
+                    <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia plugin install @agentopia/plugin-aws</code></pre>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 my-8">
+                        <!-- Popular Plugins -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Popular Plugins</h3>
+                            <ul class="space-y-2">
+                                <li><code>@agentopia/plugin-aws</code> - AWS integration for deployment</li>
+                                <li><code>@agentopia/plugin-azure</code> - Azure integration</li>
+                                <li><code>@agentopia/plugin-analytics</code> - Enhanced analytics</li>
+                                <li><code>@agentopia/plugin-llm</code> - Additional LLM providers</li>
+                                <li><code>@agentopia/plugin-vector-db</code> - Vector database integrations</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Creating Plugins -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Creating Your Own Plugins</h3>
+                            <p>You can create custom plugins to extend the CLI functionality:</p>
+                            <ol class="list-decimal pl-5 space-y-2">
+                                <li>Create a new plugin project:
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia plugin:create my-plugin</code></pre>
+                                </li>
+                                <li>Implement your plugin logic</li>
+                                <li>Publish to npm or use locally</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Managing Plugins</h3>
+                    <p>View installed plugins:</p>
+                    <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia plugin list</code></pre>
+                    
+                    <p>Update plugins:</p>
+                    <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia plugin update</code></pre>
+                    
+                    <p>Remove a plugin:</p>
+                    <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia plugin uninstall @agentopia/plugin-aws</code></pre>
+                </section>
+                
+                <!-- Troubleshooting Section -->
+                <section id="troubleshooting">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Troubleshooting</h2>
+                    <p>If you encounter issues with the Agentopia CLI, here are some common problems and their solutions:</p>
+                    
+                    <div class="space-y-8 my-8">
+                        <!-- Common Issues -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Installation Issues</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-amber-300">Problem: Permission errors during installation</h4>
+                                    <p class="mt-2">Solution: Try installing with administrator privileges or use the <code>--user</code> flag:</p>
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>npm install -g @agentopia/cli --user</code></pre>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-amber-300">Problem: Command not found after installation</h4>
+                                    <p class="mt-2">Solution: Ensure the npm global bin directory is in your PATH, or try:</p>
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>npm link @agentopia/cli</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Deployment Issues -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Deployment Issues</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-amber-300">Problem: Authentication failures</h4>
+                                    <p class="mt-2">Solution: Verify your API keys and credentials:</p>
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia auth:verify</code></pre>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-amber-300">Problem: Deployment timeouts</h4>
+                                    <p class="mt-2">Solution: Check your network connection and try increasing the timeout:</p>
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>agentopia deploy --timeout 120</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Debug Mode -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Debug Mode</h3>
+                            <p>For detailed debugging information, run any command with the <code>--debug</code> flag:</p>
+                            <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia deploy --debug</code></pre>
+                            
+                            <p>Generate a diagnostic report:</p>
+                            <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia doctor</code></pre>
+                            
+                            <p>This will analyze your environment and configuration, and suggest fixes for common issues.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">Getting Help</h3>
+                        <p>If you're still experiencing issues, you can:</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Check the <a href="#" class="text-amber-400 hover:text-amber-300">official documentation</a> for detailed guides</li>
+                            <li>Join our <a href="#" class="text-amber-400 hover:text-amber-300">community Discord</a> for real-time help</li>
+                            <li>Open an issue on <a href="https://github.com/agentopia/cli/issues" class="text-amber-400 hover:text-amber-300">GitHub</a></li>
+                            <li>Run <code>agentopia support</code> to generate a support ticket with diagnostic information</li>
+                        </ul>
+                    </div>
+                </section>
+                
+            </article>
         </div>
     </main>
 
@@ -71,5 +407,31 @@
     <div id="footer-placeholder"></div>
 
     <script src="../js/navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Insert navigation and footer
+            document.getElementById('nav-placeholder').innerHTML = navHTML;
+            document.getElementById('footer-placeholder').innerHTML = footerHTML;
+            
+            // Initialize mobile menu toggle
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Initialize theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('light-mode');
+                    document.body.classList.toggle('dark-mode');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

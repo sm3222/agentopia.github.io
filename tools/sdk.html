@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDK Downloads - AI Agentopia</title>
-    <meta name="description" content="Download official SDKs for the Agentopia platform">
+    <title>SDK - AI Agentopia</title>
+    <meta name="description" content="Official SDKs for integrating Agentopia into your applications">
     <link rel="stylesheet" href="../css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -18,7 +18,6 @@
         <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800"></div>
         <div class="absolute inset-0">
             <svg class="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
-                <!-- Same SVG pattern -->
                 <defs>
                     <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
                         <circle cx="2" cy="2" r="2" fill="rgba(251, 191, 36, 0.15)"/>
@@ -36,22 +35,1075 @@
         <!-- Content -->
         <div class="container relative mx-auto px-4 z-10">
             <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200">
-                SDK Downloads
+                SDK
             </h1>
             <p class="text-xl text-center text-gray-300 max-w-3xl mx-auto mb-8">
-                Official SDKs for multiple programming languages
+                Official Software Development Kits for multiple programming languages
             </p>
         </div>
     </section>
 
-    <main class="container mx-auto px-4 py-8">
+    <!-- Back to Resources Navigation -->
+    <div class="container mx-auto px-6 pt-8">
         <div class="max-w-4xl mx-auto">
-            <div class="prose prose-lg prose-invert mx-auto">
-                <h2>Available SDKs</h2>
-                <p>Choose from our collection of official SDKs to integrate Agentopia into your projects...</p>
+            <nav class="text-sm mb-4">
+                <a href="../resources.html" class="text-amber-400 hover:text-amber-300">← Back to Resources</a>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Table of Contents -->
+    <div class="container mx-auto px-6 py-8">
+        <div class="max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-12">
+            <h2 class="text-2xl font-bold text-amber-400 mb-4">Table of Contents</h2>
+            <ul class="space-y-2">
+                <li>
+                    <a href="#overview" class="text-amber-400 hover:text-amber-300">Overview</a>
+                </li>
+                <li>
+                    <a href="#installation" class="text-amber-400 hover:text-amber-300">Installation</a>
+                </li>
+                <li>
+                    <a href="#quickstart" class="text-amber-400 hover:text-amber-300">Quick Start</a>
+                </li>
+                <li>
+                    <a href="#core-concepts" class="text-amber-400 hover:text-amber-300">Core Concepts</a>
+                </li>
+                <li>
+                    <a href="#api-reference" class="text-amber-400 hover:text-amber-300">API Reference</a>
+                </li>
+                <li>
+                    <a href="#examples" class="text-amber-400 hover:text-amber-300">Examples</a>
+                </li>
+                <li>
+                    <a href="#troubleshooting" class="text-amber-400 hover:text-amber-300">Troubleshooting</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-6 py-12 flex-grow">
+        <div class="max-w-4xl mx-auto">
+            <article class="prose prose-lg prose-invert mx-auto">
+                <!-- Introduction -->
+                <p class="lead mb-8">The Agentopia SDK provides a comprehensive set of tools and libraries for integrating AI agents into your applications. Available for multiple programming languages, our SDKs make it easy to create, deploy, and manage intelligent agents within your software ecosystem.</p>
+                <!-- Overview Section -->
+                <section id="overview">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Overview</h2>
+                    <p>The Agentopia SDK is designed to provide developers with a powerful yet intuitive interface for building AI-powered applications. Our SDKs are available for multiple programming languages, ensuring you can integrate Agentopia's capabilities into your preferred tech stack.</p>
+                    
+                    <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Available SDKs</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 my-8">
+                        <!-- JavaScript SDK -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <svg class="w-8 h-8 mr-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+                                </svg>
+                                <h3 class="text-xl font-bold text-amber-400">JavaScript</h3>
+                            </div>
+                            <p>Perfect for web applications, Node.js backends, and browser-based agents.</p>
+                            <div class="mt-4">
+                                <a href="#installation" class="text-amber-400 hover:text-amber-300 text-sm">View Installation →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Python SDK -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <svg class="w-8 h-8 mr-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+                                </svg>
+                                <h3 class="text-xl font-bold text-amber-400">Python</h3>
+                            </div>
+                            <p>Ideal for data science, machine learning, and backend services.</p>
+                            <div class="mt-4">
+                                <a href="#installation" class="text-amber-400 hover:text-amber-300 text-sm">View Installation →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Java SDK -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <svg class="w-8 h-8 mr-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.93.828-.93-3.514 1.21-5.775 4.373-2.456 3.308 9.05-2.904 14.772-1.305 14.79-2.404M9.292 13.21s-2.679.635-3.307.634c-3.161-.001-3.18-1.126-1.161-1.906 1.67-.647 3.518-.57 5.113-.37 1.647.206 2.201 1.033 2.201 1.033l-2.846.609M17.131 17.427c4.756-2.472 2.558-4.855 1.023-4.538.374-.052.709-.1 1.023-.143 2.399-.902 5.732 2.178-2.101 3.863-1.017.225-1.945.388-1.945.388s.081-.128 0-.388M14.654 0s2.463 2.464-2.335 6.255c-3.858 3.05-3.88 4.471 0 6.919-2.64-2.374-4.585-4.47-3.281-6.42 1.916-2.867 7.22-4.264 5.616-6.754M9.665 23.221c4.56.292 11.571-.162 11.743-2.318 0 0-.319.817-3.772 1.466-3.895.732-8.696.647-11.555.177 0 0 .583.483 3.584.675"/>
+                                </svg>
+                                <h3 class="text-xl font-bold text-amber-400">Java</h3>
+                            </div>
+                            <p>For enterprise applications and Android development.</p>
+                            <div class="mt-4">
+                                <a href="#installation" class="text-amber-400 hover:text-amber-300 text-sm">View Installation →</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 my-8">
+                        <!-- Go SDK -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <svg class="w-8 h-8 mr-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M1.811 10.231c-.047 0-.058-.023-.035-.059l.246-.315c.023-.035.081-.058.128-.058h4.172c.046 0 .058.035.035.07l-.199.303c-.023.036-.082.07-.117.07zM.047 11.306c-.047 0-.059-.023-.035-.058l.245-.316c.023-.035.082-.058.129-.058h5.328c.047 0 .07.035.058.07l-.093.28c-.012.047-.058.07-.105.07zm2.828 1.075c-.047 0-.059-.035-.035-.07l.163-.292c.023-.035.07-.07.117-.07h2.337c.047 0 .07.035.07.082l-.023.28c0 .047-.047.082-.082.082zm12.129-2.36c-.736.187-1.239.327-1.963.514-.176.046-.187.058-.34-.117-.174-.199-.303-.327-.548-.444-.737-.362-1.45-.257-2.115.175-.795.514-1.204 1.274-1.192 2.22.011.935.654 1.706 1.577 1.835.795.105 1.46-.175 1.987-.77.105-.13.198-.27.315-.434H10.47c-.245 0-.304-.152-.222-.35.152-.362.432-.97.596-1.274a.315.315 0 01.292-.187h4.253c-.023.316-.023.631-.07.947a4.983 4.983 0 01-.958 2.29c-.841 1.11-1.94 1.8-3.33 1.986-1.145.152-2.209-.07-3.143-.77-.865-.655-1.356-1.52-1.484-2.595-.152-1.274.222-2.419.993-3.424.83-1.086 1.928-1.776 3.272-2.02 1.098-.2 2.15-.07 3.096.571.62.41 1.063.97 1.356 1.648.07.105.023.164-.117.2m3.868 6.461c-1.064-.024-2.034-.328-2.852-1.029a3.665 3.665 0 01-1.262-2.255c-.21-1.32.152-2.489.947-3.529.853-1.122 1.881-1.706 3.272-1.95 1.192-.21 2.314-.095 3.33.595.923.63 1.496 1.484 1.648 2.605.198 1.578-.257 2.863-1.344 3.962-.771.783-1.718 1.273-2.805 1.495-.315.06-.63.07-.934.106zm2.78-4.72c-.011-.153-.011-.27-.034-.387-.21-1.157-1.274-1.81-2.384-1.554-1.087.245-1.788.935-2.045 2.033-.21.912.234 1.835 1.075 2.21.643.28 1.285.244 1.905-.07.923-.48 1.425-1.228 1.484-2.233z"/>
+                                </svg>
+                                <h3 class="text-xl font-bold text-amber-400">Go</h3>
+                            </div>
+                            <p>For high-performance microservices and cloud applications.</p>
+                            <div class="mt-4">
+                                <a href="#installation" class="text-amber-400 hover:text-amber-300 text-sm">View Installation →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- C# SDK -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <svg class="w-8 h-8 mr-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0zM9.426 7.12a5.55 5.55 0 011.985.38v1.181a4.5 4.5 0 00-2.25-.566 3.439 3.439 0 00-2.625 1.087 4.099 4.099 0 00-1.012 2.906 3.9 3.9 0 00.945 2.754 3.217 3.217 0 002.482 1.023 4.657 4.657 0 002.464-.634l-.004 1.08a5.543 5.543 0 01-2.625.555 4.211 4.211 0 01-3.228-1.297 4.793 4.793 0 01-1.212-3.409 5.021 5.021 0 011.365-3.663 4.631 4.631 0 013.473-1.392 5.55 5.55 0 01.12-.004zm5.863.155h.836l.084 4.287c.008.668.023 1.176.225 1.176.084 0 .49-.642 1.192-1.907l2.289-3.558h.961l-2.532 3.956a57.9 57.9 0 01-1.353 1.979c-.266.37-.452.59-.557.66a.442.442 0 01-.258.073c-.225 0-.368-.18-.428-.536a8.665 8.665 0 01-.09-1.413l-.086-4.193h.961l-.228.114z"/>
+                                </svg>
+                                <h3 class="text-xl font-bold text-amber-400">C#</h3>
+                            </div>
+                            <p>For .NET applications, Unity games, and Windows development.</p>
+                            <div class="mt-4">
+                                <a href="#installation" class="text-amber-400 hover:text-amber-300 text-sm">View Installation →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Ruby SDK -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <svg class="w-8 h-8 mr-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.156.083c3.033.525 3.893 2.598 3.829 4.77L24 4.822 22.635 22.71 4.89 23.926h-.016C3.433 23.864.15 23.729 0 19.139l1.645-3 2.819 6.586.503 1.172 2.805-9.144-.03.033.016-.03 3.921 7.776.928 1.585 3.809-12.221.503-1.596 2.929 10.321.243.899 4.151-19.141-.18-.15zm-9.909 15.039l-.299.048-.183-.037-.019-.189.169-.63.144.193.189.626z"/>
+                                </svg>
+                                <h3 class="text-xl font-bold text-amber-400">Ruby</h3>
+                            </div>
+                            <p>For Ruby on Rails applications and web services.</p>
+                            <div class="mt-4">
+                                <a href="#installation" class="text-amber-400 hover:text-amber-300 text-sm">View Installation →</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Key Features</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 my-8">
+                        <!-- Feature 1 -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Agent Management</h3>
+                            <p>Create, configure, and deploy AI agents with just a few lines of code. Manage agent lifecycle, state, and interactions.</p>
+                        </div>
+                        
+                        <!-- Feature 2 -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Tool Integration</h3>
+                            <p>Connect your agents to external tools, APIs, and data sources with built-in adapters and custom tool definitions.</p>
+                        </div>
+                        
+                        <!-- Feature 3 -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Memory & Knowledge</h3>
+                            <p>Implement persistent memory for your agents with vector storage, knowledge retrieval, and context management.</p>
+                        </div>
+                        
+                        <!-- Feature 4 -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Multi-Agent Orchestration</h3>
+                            <p>Build complex systems with multiple cooperating agents, message passing, and workflow coordination.</p>
+                        </div>
+                    </div>
+                </section>
                 
-                <!-- Add more content here -->
-            </div>
+                <!-- Installation Section -->
+                <section id="installation">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Installation</h2>
+                    <p>Choose your preferred programming language and follow the installation instructions below:</p>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">JavaScript / Node.js</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-amber-300 mb-2">NPM</h4>
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>npm install @agentopia/sdk</code></pre>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-amber-300 mb-2">Yarn</h4>
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>yarn add @agentopia/sdk</code></pre>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-amber-300 mb-2">Browser</h4>
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>&lt;script src="https://cdn.agentopia.ai/sdk/latest/agentopia.min.js"&gt;&lt;/script&gt;</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">Python</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-amber-300 mb-2">pip</h4>
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>pip install agentopia</code></pre>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-amber-300 mb-2">Poetry</h4>
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>poetry add agentopia</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">Java</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-amber-300 mb-2">Maven</h4>
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>&lt;dependency&gt;
+    &lt;groupId&gt;ai.agentopia&lt;/groupId&gt;
+    &lt;artifactId&gt;agentopia-sdk&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-amber-300 mb-2">Gradle</h4>
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>implementation 'ai.agentopia:agentopia-sdk:1.0.0'</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">Go</h3>
+                        <pre class="bg-gray-900/50 p-4 rounded"><code>go get github.com/agentopia/sdk-go</code></pre>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">C#</h3>
+                        <pre class="bg-gray-900/50 p-4 rounded"><code>dotnet add package Agentopia.SDK</code></pre>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">Ruby</h3>
+                        <pre class="bg-gray-900/50 p-4 rounded"><code>gem install agentopia</code></pre>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">API Key Setup</h3>
+                        <p>After installation, you'll need to configure your API key:</p>
+                        
+                        <div class="mt-4 space-y-4">
+                            <div>
+                                <h4 class="font-bold text-amber-300 mb-2">JavaScript</h4>
+                                <pre class="bg-gray-900/50 p-4 rounded"><code>const agentopia = require('@agentopia/sdk');
+agentopia.configure({
+  apiKey: 'your-api-key'
+});</code></pre>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-bold text-amber-300 mb-2">Python</h4>
+                                <pre class="bg-gray-900/50 p-4 rounded"><code>import agentopia
+
+agentopia.api_key = "your-api-key"</code></pre>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-bold text-amber-300 mb-2">Environment Variables (All SDKs)</h4>
+                                <pre class="bg-gray-900/50 p-4 rounded"><code>AGENTOPIA_API_KEY=your-api-key</code></pre>
+                            </div>
+                        </div>
+                        
+                        <p class="mt-4">You can obtain an API key from the <a href="#" class="text-amber-400 hover:text-amber-300">Agentopia Dashboard</a> after creating an account.</p>
+                    </div>
+                </section>
+                <!-- Quick Start Section -->
+                <section id="quickstart">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Quick Start</h2>
+                    <p>Get started with Agentopia SDK in minutes. This quick start guide will help you create your first AI agent.</p>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">JavaScript Example</h3>
+                        <pre class="bg-gray-900/50 p-4 rounded"><code>// Import the SDK
+const { Agent, Tool } = require('@agentopia/sdk');
+
+// Configure API key
+const agentopia = require('@agentopia/sdk');
+agentopia.configure({
+  apiKey: 'your-api-key'
+});
+
+// Define a custom tool
+const weatherTool = new Tool({
+  name: 'get_weather',
+  description: 'Get the current weather for a location',
+  parameters: {
+    location: {
+      type: 'string',
+      description: 'The city and state, e.g. San Francisco, CA'
+    }
+  },
+  execute: async ({ location }) => {
+    // In a real app, you would call a weather API here
+    return `It's currently sunny and 72°F in ${location}`;
+  }
+});
+
+// Create an agent
+const assistant = new Agent({
+  name: 'Weather Assistant',
+  description: 'I help users check the weather',
+  tools: [weatherTool],
+  model: 'gpt-4'
+});
+
+// Start a conversation
+async function main() {
+  const response = await assistant.chat({
+    messages: [
+      { role: 'user', content: 'What\'s the weather like in Seattle?' }
+    ]
+  });
+  
+  console.log(response.content);
+}
+
+main();</code></pre>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">Python Example</h3>
+                        <pre class="bg-gray-900/50 p-4 rounded"><code>import agentopia
+from agentopia import Agent, Tool
+
+# Configure API key
+agentopia.api_key = "your-api-key"
+
+# Define a custom tool
+def get_weather(location: str) -> str:
+    """Get the current weather for a location"""
+    # In a real app, you would call a weather API here
+    return f"It's currently sunny and 72°F in {location}"
+
+weather_tool = Tool(
+    name="get_weather",
+    description="Get the current weather for a location",
+    function=get_weather
+)
+
+# Create an agent
+assistant = Agent(
+    name="Weather Assistant",
+    description="I help users check the weather",
+    tools=[weather_tool],
+    model="gpt-4"
+)
+
+# Start a conversation
+response = assistant.chat(
+    messages=[
+        {"role": "user", "content": "What's the weather like in Seattle?"}
+    ]
+)
+
+print(response.content)</code></pre>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Next Steps</h3>
+                    <p>After getting your first agent running, you can:</p>
+                    <ul class="list-disc pl-5 space-y-2 my-4">
+                        <li>Add more sophisticated tools to enhance your agent's capabilities</li>
+                        <li>Implement memory to give your agent context awareness</li>
+                        <li>Create multi-agent systems for complex tasks</li>
+                        <li>Deploy your agent to production environments</li>
+                    </ul>
+                    <p>Explore the <a href="#core-concepts" class="text-amber-400 hover:text-amber-300">Core Concepts</a> section to learn more about these features.</p>
+                </section>
+                
+                <!-- Core Concepts Section -->
+                <section id="core-concepts">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Core Concepts</h2>
+                    <p>Understanding these core concepts will help you build more powerful and flexible agent-based applications.</p>
+                    
+                    <div class="space-y-8 my-8">
+                        <!-- Agents -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Agents</h3>
+                            <p>Agents are the central building blocks in Agentopia. An agent is an AI-powered entity that can:</p>
+                            <ul class="list-disc pl-5 space-y-2 my-4">
+                                <li>Process natural language inputs</li>
+                                <li>Use tools to interact with external systems</li>
+                                <li>Maintain context through memory</li>
+                                <li>Make decisions based on goals and constraints</li>
+                            </ul>
+                            
+                            <div class="mt-4">
+                                <h4 class="font-bold text-amber-300 mb-2">Creating an Agent</h4>
+                                <pre class="bg-gray-900/50 p-4 rounded"><code>// JavaScript
+const agent = new Agent({
+  name: 'Customer Support',
+  description: 'I help users with product questions',
+  model: 'gpt-4',
+  tools: [searchKnowledgeBase, createTicket],
+  memory: new VectorMemory()
+});</code></pre>
+                            </div>
+                        </div>
+                        
+                        <!-- Tools -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Tools</h3>
+                            <p>Tools enable agents to perform actions in the real world or access external information. A tool consists of:</p>
+                            <ul class="list-disc pl-5 space-y-2 my-4">
+                                <li>A name and description</li>
+                                <li>Parameter definitions</li>
+                                <li>An execution function</li>
+                            </ul>
+                            
+                            <div class="mt-4">
+                                <h4 class="font-bold text-amber-300 mb-2">Creating a Tool</h4>
+                                <pre class="bg-gray-900/50 p-4 rounded"><code># Python
+search_tool = Tool(
+    name="search_database",
+    description="Search the product database for information",
+    parameters={
+        "query": {
+            "type": "string",
+            "description": "The search query"
+        },
+        "limit": {
+            "type": "integer",
+            "description": "Maximum number of results",
+            "default": 5
+        }
+    },
+    function=search_database_function
+)</code></pre>
+                            </div>
+                        </div>
+                        
+                        <!-- Memory -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Memory</h3>
+                            <p>Memory systems allow agents to retain information across interactions. Agentopia supports several memory types:</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 my-4">
+                                <div class="bg-gray-900/50 p-4 rounded">
+                                    <h4 class="font-bold text-amber-300">Conversation Memory</h4>
+                                    <p class="text-sm">Stores the history of interactions with users</p>
+                                </div>
+                                <div class="bg-gray-900/50 p-4 rounded">
+                                    <h4 class="font-bold text-amber-300">Vector Memory</h4>
+                                    <p class="text-sm">Semantic storage for knowledge retrieval</p>
+                                </div>
+                                <div class="bg-gray-900/50 p-4 rounded">
+                                    <h4 class="font-bold text-amber-300">Structured Memory</h4>
+                                    <p class="text-sm">Stores information in defined schemas</p>
+                                </div>
+                                <div class="bg-gray-900/50 p-4 rounded">
+                                    <h4 class="font-bold text-amber-300">Episodic Memory</h4>
+                                    <p class="text-sm">Records sequences of events and experiences</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <h4 class="font-bold text-amber-300 mb-2">Implementing Memory</h4>
+                                <pre class="bg-gray-900/50 p-4 rounded"><code>// JavaScript
+const memory = new VectorMemory({
+  collection: 'customer-support',
+  embedModel: 'text-embedding-ada-002'
+});
+
+// Add information to memory
+await memory.add({
+  content: 'Our return policy allows returns within 30 days of purchase.',
+  metadata: { category: 'policy', topic: 'returns' }
+});
+
+// Query memory
+const results = await memory.search('How long do I have to return items?');
+</code></pre>
+                            </div>
+                        </div>
+                        
+                        <!-- Multi-Agent Systems -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Multi-Agent Systems</h3>
+                            <p>Complex problems often require multiple specialized agents working together. Agentopia provides:</p>
+                            
+                            <ul class="list-disc pl-5 space-y-2 my-4">
+                                <li>Agent orchestration for coordinating multiple agents</li>
+                                <li>Message passing between agents</li>
+                                <li>Role-based agent definitions</li>
+                                <li>Workflow management for complex processes</li>
+                            </ul>
+                            
+                            <div class="mt-4">
+                                <h4 class="font-bold text-amber-300 mb-2">Creating a Multi-Agent System</h4>
+                                <pre class="bg-gray-900/50 p-4 rounded"><code># Python
+from agentopia import AgentTeam, Agent
+
+# Create specialized agents
+researcher = Agent(name="Researcher", ...)
+writer = Agent(name="Writer", ...)
+editor = Agent(name="Editor", ...)
+
+# Create a team
+content_team = AgentTeam(
+    name="Content Creation Team",
+    agents=[researcher, writer, editor],
+    workflow={
+        "start": "researcher",
+        "transitions": {
+            "researcher": {"next": "writer", "condition": "research_complete"},
+            "writer": {"next": "editor", "condition": "draft_complete"},
+            "editor": {"next": "end", "condition": "editing_complete"}
+        }
+    }
+)
+
+# Run the team on a task
+result = content_team.execute("Create an article about AI agents")</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- API Reference Section -->
+                <section id="api-reference">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">API Reference</h2>
+                    <p>This section provides a reference for the main classes and methods in the Agentopia SDK. For complete documentation, visit our <a href="#" class="text-amber-400 hover:text-amber-300">API Documentation</a>.</p>
+                    
+                    <div class="space-y-8 my-8">
+                        <!-- Agent Class -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Agent Class</h3>
+                            <p>The core class for creating and managing AI agents.</p>
+                            
+                            <div class="mt-4">
+                                <h4 class="font-bold text-amber-300 mb-2">Constructor</h4>
+                                <pre class="bg-gray-900/50 p-4 rounded"><code>new Agent({
+  name: string,              // Agent name
+  description: string,       // Agent description
+  model: string,             // LLM model to use (e.g., 'gpt-4')
+  tools?: Tool[],            // Array of tools
+  memory?: Memory,           // Memory system
+  systemPrompt?: string,     // Custom system prompt
+  temperature?: number,      // Temperature for generation (0-1)
+  maxTokens?: number,        // Maximum tokens in response
+  options?: object           // Additional options
+})</code></pre>
+                            </div>
+                            
+                            <div class="mt-6">
+                                <h4 class="font-bold text-amber-300 mb-2">Methods</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="font-semibold text-amber-200">chat(options)</h5>
+                                        <p class="text-sm mb-2">Send a message to the agent and get a response.</p>
+                                        <pre class="bg-gray-900/50 p-4 rounded"><code>agent.chat({
+  messages: [{ role: 'user', content: string }],
+  stream?: boolean,
+  tools?: Tool[],
+  toolChoice?: string | object
+})</code></pre>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-semibold text-amber-200">addTool(tool)</h5>
+                                        <p class="text-sm mb-2">Add a tool to the agent.</p>
+                                        <pre class="bg-gray-900/50 p-4 rounded"><code>agent.addTool(new Tool({...}))</code></pre>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-semibold text-amber-200">removeTool(toolName)</h5>
+                                        <p class="text-sm mb-2">Remove a tool from the agent.</p>
+                                        <pre class="bg-gray-900/50 p-4 rounded"><code>agent.removeTool('tool_name')</code></pre>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-semibold text-amber-200">setMemory(memory)</h5>
+                                        <p class="text-sm mb-2">Set or replace the agent's memory system.</p>
+                                        <pre class="bg-gray-900/50 p-4 rounded"><code>agent.setMemory(new VectorMemory({...}))</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tool Class -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Tool Class</h3>
+                            <p>Define tools that agents can use to perform actions or retrieve information.</p>
+                            
+                            <div class="mt-4">
+                                <h4 class="font-bold text-amber-300 mb-2">Constructor</h4>
+                                <pre class="bg-gray-900/50 p-4 rounded"><code>new Tool({
+  name: string,              // Tool name (must be unique)
+  description: string,       // Tool description
+  parameters: object,        // JSON Schema for parameters
+  execute: function,         // Function to execute
+  required?: boolean,        // Whether tool is required
+  options?: object           // Additional options
+})</code></pre>
+                            </div>
+                            
+                            <div class="mt-6">
+                                <h4 class="font-bold text-amber-300 mb-2">Methods</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="font-semibold text-amber-200">execute(params)</h5>
+                                        <p class="text-sm mb-2">Execute the tool with the given parameters.</p>
+                                        <pre class="bg-gray-900/50 p-4 rounded"><code>const result = await tool.execute({ param1: 'value1' })</code></pre>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-semibold text-amber-200">validate(params)</h5>
+                                        <p class="text-sm mb-2">Validate parameters against the tool's schema.</p>
+                                        <pre class="bg-gray-900/50 p-4 rounded"><code>const isValid = tool.validate({ param1: 'value1' })</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Memory Classes -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Memory Classes</h3>
+                            <p>Classes for implementing different types of memory systems.</p>
+                            
+                            <div class="mt-4 space-y-6">
+                                <div>
+                                    <h4 class="font-bold text-amber-300 mb-2">ConversationMemory</h4>
+                                    <pre class="bg-gray-900/50 p-4 rounded"><code>new ConversationMemory({
+  maxMessages?: number,      // Maximum messages to store
+  summarizeThreshold?: number, // When to summarize history
+  options?: object           // Additional options
+})</code></pre>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-bold text-amber-300 mb-2">VectorMemory</h4>
+                                    <pre class="bg-gray-900/50 p-4 rounded"><code>new VectorMemory({
+  collection: string,        // Collection name
+  embedModel?: string,       // Embedding model to use
+  dimensions?: number,       // Vector dimensions
+  similarity?: string,       // Similarity metric
+  options?: object           // Additional options
+})</code></pre>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-bold text-amber-300 mb-2">StructuredMemory</h4>
+                                    <pre class="bg-gray-900/50 p-4 rounded"><code>new StructuredMemory({
+  schema: object,            // JSON Schema for data
+  storage?: string,          // Storage backend
+  options?: object           // Additional options
+})</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- AgentTeam Class -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">AgentTeam Class</h3>
+                            <p>Create and manage multi-agent systems.</p>
+                            
+                            <div class="mt-4">
+                                <h4 class="font-bold text-amber-300 mb-2">Constructor</h4>
+                                <pre class="bg-gray-900/50 p-4 rounded"><code>new AgentTeam({
+  name: string,              // Team name
+  agents: Agent[],           // Array of agents
+  workflow?: object,         // Workflow definition
+  supervisor?: Agent,        // Supervisor agent
+  options?: object           // Additional options
+})</code></pre>
+                            </div>
+                            
+                            <div class="mt-6">
+                                <h4 class="font-bold text-amber-300 mb-2">Methods</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="font-semibold text-amber-200">execute(task)</h5>
+                                        <p class="text-sm mb-2">Execute a task using the agent team.</p>
+                                        <pre class="bg-gray-900/50 p-4 rounded"><code>const result = await team.execute('Analyze this data and create a report')</code></pre>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-semibold text-amber-200">addAgent(agent, role)</h5>
+                                        <p class="text-sm mb-2">Add an agent to the team with a specific role.</p>
+                                        <pre class="bg-gray-900/50 p-4 rounded"><code>team.addAgent(new Agent({...}), 'researcher')</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Examples Section -->
+                <section id="examples">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Examples</h2>
+                    <p>Explore these examples to learn how to implement common agent patterns and use cases.</p>
+                    
+                    <div class="space-y-8 my-8">
+                        <!-- Example 1 -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Customer Support Agent</h3>
+                            <p class="mb-4">Create a customer support agent that can answer questions and create support tickets.</p>
+                            
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>// JavaScript
+const { Agent, Tool, VectorMemory } = require('@agentopia/sdk');
+
+// Create knowledge base tool
+const knowledgeBaseTool = new Tool({
+  name: 'search_knowledge_base',
+  description: 'Search the knowledge base for information',
+  parameters: {
+    query: {
+      type: 'string',
+      description: 'The search query'
+    }
+  },
+  execute: async ({ query }) => {
+    // In a real app, search your knowledge base
+    return 'Information about: ' + query;
+  }
+});
+
+// Create ticket creation tool
+const createTicketTool = new Tool({
+  name: 'create_support_ticket',
+  description: 'Create a support ticket for issues that cannot be resolved',
+  parameters: {
+    issue: {
+      type: 'string',
+      description: 'Description of the issue'
+    },
+    priority: {
+      type: 'string',
+      enum: ['low', 'medium', 'high'],
+      description: 'Ticket priority'
+    }
+  },
+  execute: async ({ issue, priority }) => {
+    // In a real app, create a ticket in your system
+    return `Ticket created with issue: ${issue} and priority: ${priority}`;
+  }
+});
+
+// Create memory system
+const memory = new VectorMemory({
+  collection: 'support-knowledge',
+  embedModel: 'text-embedding-ada-002'
+});
+
+// Add knowledge to memory
+await memory.add({
+  content: 'Our return policy allows returns within 30 days of purchase with receipt.',
+  metadata: { category: 'policy', topic: 'returns' }
+});
+
+await memory.add({
+  content: 'Premium support is available 24/7 for enterprise customers.',
+  metadata: { category: 'support', topic: 'premium' }
+});
+
+// Create the support agent
+const supportAgent = new Agent({
+  name: 'Support Assistant',
+  description: 'I help customers with product questions and issues',
+  model: 'gpt-4',
+  tools: [knowledgeBaseTool, createTicketTool],
+  memory: memory,
+  systemPrompt: `You are a helpful customer support agent. 
+  Always be polite and professional.
+  Search the knowledge base before answering.
+  Create a support ticket only if you cannot resolve the issue.`
+});
+
+// Start a conversation
+const response = await supportAgent.chat({
+  messages: [
+    { role: 'user', content: 'What is your return policy?' }
+  ]
+});</code></pre>
+                        </div>
+                        
+                        <!-- Example 2 -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Data Analysis Team</h3>
+                            <p class="mb-4">Create a multi-agent system for analyzing data and generating reports.</p>
+                            
+                            <pre class="bg-gray-900/50 p-4 rounded"><code># Python
+from agentopia import Agent, Tool, AgentTeam
+
+# Create specialized agents
+data_processor = Agent(
+    name="Data Processor",
+    description="I clean and prepare data for analysis",
+    model="gpt-4",
+    tools=[
+        Tool(name="load_data", function=load_data_function),
+        Tool(name="clean_data", function=clean_data_function)
+    ]
+)
+
+analyst = Agent(
+    name="Data Analyst",
+    description="I analyze data and identify patterns",
+    model="gpt-4",
+    tools=[
+        Tool(name="analyze_data", function=analyze_data_function),
+        Tool(name="create_visualization", function=create_visualization_function)
+    ]
+)
+
+report_writer = Agent(
+    name="Report Writer",
+    description="I create comprehensive reports based on analysis",
+    model="gpt-4",
+    tools=[
+        Tool(name="generate_report", function=generate_report_function)
+    ]
+)
+
+# Create the team
+analysis_team = AgentTeam(
+    name="Data Analysis Team",
+    agents=[data_processor, analyst, report_writer],
+    workflow={
+        "start": "data_processor",
+        "transitions": {
+            "data_processor": {"next": "analyst", "condition": "data_prepared"},
+            "analyst": {"next": "report_writer", "condition": "analysis_complete"},
+            "report_writer": {"next": "end", "condition": "report_generated"}
+        }
+    }
+)
+
+# Execute a data analysis task
+result = analysis_team.execute(
+    "Analyze the sales data for Q2 2025 and create a comprehensive report"
+)</code></pre>
+                        </div>
+                        
+                        <!-- Example 3 -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Web Research Agent</h3>
+                            <p class="mb-4">Create an agent that can search the web and summarize information.</p>
+                            
+                            <pre class="bg-gray-900/50 p-4 rounded"><code>// JavaScript
+const { Agent, Tool } = require('@agentopia/sdk');
+
+// Create web search tool
+const searchTool = new Tool({
+  name: 'web_search',
+  description: 'Search the web for information',
+  parameters: {
+    query: {
+      type: 'string',
+      description: 'The search query'
+    },
+    num_results: {
+      type: 'integer',
+      description: 'Number of results to return',
+      default: 5
+    }
+  },
+  execute: async ({ query, num_results }) => {
+    // In a real app, use a search API
+    return `Search results for: ${query} (${num_results} results)`;
+  }
+});
+
+// Create webpage reader tool
+const readPageTool = new Tool({
+  name: 'read_webpage',
+  description: 'Read the content of a webpage',
+  parameters: {
+    url: {
+      type: 'string',
+      description: 'The URL of the webpage to read'
+    }
+  },
+  execute: async ({ url }) => {
+    // In a real app, fetch and parse the webpage
+    return `Content from: ${url}`;
+  }
+});
+
+// Create the research agent
+const researchAgent = new Agent({
+  name: 'Research Assistant',
+  description: 'I help with web research and summarization',
+  model: 'gpt-4',
+  tools: [searchTool, readPageTool],
+  systemPrompt: `You are a research assistant.
+  When asked to research a topic:
+  1. Search the web for relevant information
+  2. Read the most promising webpages
+  3. Synthesize the information into a comprehensive summary
+  4. Cite your sources`
+});
+
+// Start a research task
+const response = await researchAgent.chat({
+  messages: [
+    { role: 'user', content: 'Research the latest developments in quantum computing' }
+  ]
+});</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-8">
+                        <h3 class="text-xl font-bold text-amber-400 mb-4">More Examples</h3>
+                        <p>Explore our GitHub repository for more examples:</p>
+                        <ul class="list-disc pl-5 space-y-2 my-4">
+                            <li><a href="#" class="text-amber-400 hover:text-amber-300">E-commerce Shopping Assistant</a></li>
+                            <li><a href="#" class="text-amber-400 hover:text-amber-300">Content Creation Workflow</a></li>
+                            <li><a href="#" class="text-amber-400 hover:text-amber-300">Personal Finance Advisor</a></li>
+                            <li><a href="#" class="text-amber-400 hover:text-amber-300">Healthcare Triage System</a></li>
+                            <li><a href="#" class="text-amber-400 hover:text-amber-300">Educational Tutoring Agent</a></li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- Troubleshooting Section -->
+                <section id="troubleshooting">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Troubleshooting</h2>
+                    <p>Common issues and their solutions when working with the Agentopia SDK.</p>
+                    
+                    <div class="space-y-8 my-8">
+                        <!-- Common Issues -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Authentication Issues</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-amber-300">Problem: API key not recognized</h4>
+                                    <p class="mt-2">Solution: Verify that you're using a valid API key and that it's properly configured:</p>
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>// Check if your API key is properly set
+console.log(agentopia.getConfig().apiKey.substring(0, 5) + '...');
+
+// Ensure you're using the latest SDK version
+npm list @agentopia/sdk</code></pre>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-bold text-amber-300">Problem: Rate limit exceeded</h4>
+                                    <p class="mt-2">Solution: Implement retry logic with exponential backoff:</p>
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>const { retryWithBackoff } = require('@agentopia/sdk/utils');
+
+const response = await retryWithBackoff(
+  () => agent.chat({ messages: [...] }),
+  {
+    maxRetries: 5,
+    initialDelay: 1000,
+    maxDelay: 10000
+  }
+);</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tool Execution Issues -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Tool Execution Issues</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-amber-300">Problem: Tool not being used by agent</h4>
+                                    <p class="mt-2">Solution: Improve tool description and ensure it's properly registered:</p>
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>// Make tool descriptions more specific
+const tool = new Tool({
+  name: 'search_database',
+  description: 'Search the product database for specific product information including price, availability, and specifications',
+  // Rest of tool definition
+});
+
+// Explicitly tell the agent to use the tool
+const response = await agent.chat({
+  messages: [...],
+  toolChoice: 'search_database'  // Or 'auto' to let the agent decide
+});</code></pre>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-bold text-amber-300">Problem: Tool execution errors</h4>
+                                    <p class="mt-2">Solution: Implement proper error handling in your tool functions:</p>
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>const tool = new Tool({
+  // Tool definition
+  execute: async (params) => {
+    try {
+      // Tool implementation
+      return result;
+    } catch (error) {
+      // Return a user-friendly error message
+      return `Unable to complete operation: ${error.message}`;
+    }
+  }
+});</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Memory Issues -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Memory Issues</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-amber-300">Problem: Agent not remembering context</h4>
+                                    <p class="mt-2">Solution: Verify memory configuration and check for token limits:</p>
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>// Check if memory is properly configured
+console.log(agent.memory.getStats());
+
+// Implement conversation summarization for long interactions
+const memory = new ConversationMemory({
+  maxMessages: 20,
+  summarizeThreshold: 15,
+  summarizeFunction: async (messages) => {
+    // Create a summary of the conversation
+    return summary;
+  }
+});</code></pre>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-bold text-amber-300">Problem: Vector memory retrieval issues</h4>
+                                    <p class="mt-2">Solution: Adjust similarity settings and check embedding quality:</p>
+                                    <pre class="bg-gray-900/50 p-4 rounded my-2"><code>// Adjust vector memory settings
+const memory = new VectorMemory({
+  collection: 'knowledge-base',
+  embedModel: 'text-embedding-ada-002',
+  similarity: 'cosine',
+  minSimilarity: 0.75,  // Increase threshold for better matches
+  maxResults: 5
+});</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Getting Help -->
+                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-amber-400 mb-4">Getting Help</h3>
+                            <p>If you're still experiencing issues, you can:</p>
+                            <ul class="list-disc pl-5 space-y-2 my-4">
+                                <li>Check our <a href="#" class="text-amber-400 hover:text-amber-300">comprehensive documentation</a></li>
+                                <li>Join our <a href="#" class="text-amber-400 hover:text-amber-300">community Discord</a> for real-time support</li>
+                                <li>Open an issue on <a href="#" class="text-amber-400 hover:text-amber-300">GitHub</a></li>
+                                <li>Contact our <a href="#" class="text-amber-400 hover:text-amber-300">support team</a> for enterprise customers</li>
+                            </ul>
+                            
+                            <div class="mt-6 p-4 bg-amber-400/10 border border-amber-400/30 rounded-lg">
+                                <h4 class="font-bold text-amber-300 mb-2">Diagnostic Tool</h4>
+                                <p>Use our diagnostic tool to identify common issues:</p>
+                                <pre class="bg-gray-900/50 p-4 rounded my-2"><code>// JavaScript
+const { diagnose } = require('@agentopia/sdk/utils');
+
+// Run diagnostics
+const report = await diagnose({
+  checkAuth: true,
+  checkConnectivity: true,
+  checkModels: true,
+  verbose: true
+});
+
+console.log(report);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+            </article>
         </div>
     </main>
 
@@ -59,5 +1111,31 @@
     <div id="footer-placeholder"></div>
 
     <script src="../js/navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Insert navigation and footer
+            document.getElementById('nav-placeholder').innerHTML = navHTML;
+            document.getElementById('footer-placeholder').innerHTML = footerHTML;
+            
+            // Initialize mobile menu toggle
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Initialize theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('light-mode');
+                    document.body.classList.toggle('dark-mode');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
