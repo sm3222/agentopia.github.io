@@ -1,6 +1,26 @@
 [
     {
         "id": 1,
+        "name": "Data Analyzer Bot",
+        "category": "Analytics",
+        "type": "regular",
+        "scale": "single",
+        "description": "A mockup AI agent for analyzing data.",
+        "rating": 5,
+        "reviews": 0,
+        "features": [
+            "Data Analysis",
+            "Summary Generation",
+            "Demo Agent"
+        ],
+        "tags": [
+            "analytics",
+            "demo",
+            "data"
+        ]
+    },
+    {
+        "id": 1,
         "name": "Task Assistant",
         "category": "Productivity",
         "type": "regular",
@@ -8,8 +28,16 @@
         "description": "A personal assistant that helps you manage tasks, schedule meetings, and stay organized.",
         "rating": 4.5,
         "reviews": 128,
-        "features": ["Task Management", "Schedule Optimization", "Priority Analysis"],
-        "tags": ["productivity", "organization", "time-management"]
+        "features": [
+            "Task Management",
+            "Schedule Optimization",
+            "Priority Analysis"
+        ],
+        "tags": [
+            "productivity",
+            "organization",
+            "time-management"
+        ]
     },
     {
         "id": 2,
@@ -20,8 +48,16 @@
         "description": "An autonomous agent that learns your workflows and automates repetitive tasks.",
         "rating": 4.8,
         "reviews": 95,
-        "features": ["Process Automation", "Workflow Optimization", "Integration Support"],
-        "tags": ["automation", "workflow", "integration"]
+        "features": [
+            "Process Automation",
+            "Workflow Optimization",
+            "Integration Support"
+        ],
+        "tags": [
+            "automation",
+            "workflow",
+            "integration"
+        ]
     },
     {
         "id": 3,
@@ -32,8 +68,16 @@
         "description": "A team of specialized agents working together to analyze and visualize your data.",
         "rating": 4.6,
         "reviews": 156,
-        "features": ["Data Analysis", "Predictive Analytics", "Visual Reports"],
-        "tags": ["analytics", "data", "insights"]
+        "features": [
+            "Data Analysis",
+            "Predictive Analytics",
+            "Visual Reports"
+        ],
+        "tags": [
+            "analytics",
+            "data",
+            "insights"
+        ]
     },
     {
         "id": 4,
@@ -44,8 +88,16 @@
         "description": "A self-organizing team of agents that manage your development and deployment pipeline.",
         "rating": 4.7,
         "reviews": 83,
-        "features": ["Code Generation", "Code Review", "Optimization"],
-        "tags": ["automation", "coding", "development"]
+        "features": [
+            "Code Generation",
+            "Code Review",
+            "Optimization"
+        ],
+        "tags": [
+            "automation",
+            "coding",
+            "development"
+        ]
     },
     {
         "id": 5,
@@ -56,8 +108,16 @@
         "description": "Analyze market trends and consumer behavior with this powerful analytics agent.",
         "rating": 4.4,
         "reviews": 203,
-        "features": ["Market Analysis", "Trend Prediction", "Consumer Insights"],
-        "tags": ["analytics", "market-research", "trends"]
+        "features": [
+            "Market Analysis",
+            "Trend Prediction",
+            "Consumer Insights"
+        ],
+        "tags": [
+            "analytics",
+            "market-research",
+            "trends"
+        ]
     },
     {
         "id": 6,
@@ -68,7 +128,15 @@
         "description": "Enhance your productivity with AI-powered focus sessions and smart break scheduling.",
         "rating": 4.3,
         "reviews": 167,
-        "features": ["Focus Timer", "Break Scheduler", "Progress Tracking"],
-        "tags": ["productivity", "focus", "time-management"]
+        "features": [
+            "Focus Timer",
+            "Break Scheduler",
+            "Progress Tracking"
+        ],
+        "tags": [
+            "productivity",
+            "focus",
+            "time-management"
+        ]
     }
 ]

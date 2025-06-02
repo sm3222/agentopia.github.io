@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Detail | Agentopia</title>
+  <link href="../css/styles.css" rel="stylesheet">
+  <!-- Tailwind CSS CDN for full utility support -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen">
+  <div class="max-w-2xl mx-auto py-8 px-4">
+    <a href="../agents.html" class="text-amber-600 hover:underline flex items-center mb-4">&larr; Back to Agents</a>
+    <div id="agent-detail" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+      <div class="flex items-center space-x-4 mb-4">
+        <img id="agent-icon" src="" alt="Agent Icon" class="w-16 h-16 rounded-full border border-gray-200 dark:border-gray-700" style="display:none;" />
+        <div>
+          <h1 id="agent-name" class="text-2xl font-bold text-gray-900 dark:text-white"></h1>
+          <p id="agent-category" class="text-sm text-amber-600"></p>
+        </div>
+      </div>
+      <p id="agent-description" class="mb-4 text-gray-700 dark:text-gray-200"></p>
+      <div class="flex flex-wrap gap-2 mb-4" id="agent-tags"></div>
+      <div class="mb-4">
+        <h2 class="font-semibold text-lg mb-2 text-gray-800 dark:text-gray-100">Features</h2>
+        <ul id="agent-features" class="list-disc pl-5 text-gray-700 dark:text-gray-200"></ul>
+      </div>
+      <div id="setup-section" class="mb-4"></div>
+      <form id="config-form" class="mb-4"></form>
+      <div class="flex gap-4 mt-6">
+        <a id="demo-link" href="#" target="_blank" class="hidden text-amber-600 hover:underline">Live Demo</a>
+        <a id="source-link" href="#" target="_blank" class="hidden text-gray-600 dark:text-gray-300 hover:underline">Source Code</a>
+      </div>
+    </div>
+  </div>
+  <script src="../js/agent-detail.js"></script>
+</body>
+</html>
