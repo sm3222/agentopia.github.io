@@ -1,5 +1,39 @@
 # AI Agents Platform Development Strategy
 
+## Vision & Roadmap
+
+### Vision
+
+Agentopia aims to build a robust, flexible, and community-driven ecosystem for AI agent development. Our goal is to make it easy for anyone—developers and non-developers alike—to create, share, and deploy AI agents using a variety of frameworks and tools. We want Agentopia to be the go-to platform for discovering, experimenting with, and integrating AI agents, supporting both local and cloud-based workflows.
+
+Key principles:
+- **Framework Agnostic:** Support for multiple agent-building frameworks (e.g., LangChain, AutoGen, CrewAI, and no-code tools), with a standard interface for easy integration.
+- **Scalable & Modular:** Agents can be run locally first, with a clear path to migrate or deploy them to the cloud as the ecosystem grows.
+- **Open & Extensible:** Easy integration of open-source agents and frameworks, with clear contribution guidelines and a welcoming community.
+- **User-Friendly:** Agents are organized and discoverable by category, with intuitive navigation from the portal to category and agent detail pages.
+- **Data-Driven:** Agent metadata and configuration are managed via structured manifest files, enabling automation and future enhancements.
+
+### Roadmap
+
+#### **Phase 1: Local Agent Development & Showcase (Current)**
+- Develop a static, responsive web portal for browsing and discovering agents.
+- Build a local-first agent development playground, supporting multiple frameworks.
+- Organize agents by category, with each agent described by a manifest (metadata, framework, instructions).
+- Provide templates and testing environments for agent development.
+- Establish clear contribution guidelines and community standards.
+
+#### **Phase 2: Enhanced Frontend & Dynamic Integration**
+- Add dynamic features to the portal (e.g., live GitHub repo fetching, documentation and agent search).
+- Enable launching agents directly from the portal, with support for both local and remote/cloud execution.
+- Improve user experience with interactive API examples and advanced documentation.
+- Expand framework support and adapters for new agent-building tools.
+
+#### **Phase 3: Cloud-Ready & Full-Stack Expansion**
+- Develop backend services for cloud-based agent hosting and management.
+- Integrate authentication, database, and API layers for scalable deployments.
+- Enable users to deploy, manage, and share agents in the cloud through Agentopia.
+- Continue to grow the open-source agent library and foster community innovation.
+
 ## Overview
 Building a comprehensive AI Agents ecosystem consisting of two key components:
 1. A curated showcase platform (agentopia.github.io)
@@ -173,7 +207,25 @@ graph LR
    - Security assessment
    - Integration readiness
 
+## Milestone Update: Planning Docs v0.1.0 (2025-06-01)
+
+- Completed first round of core planning documents for Agentopia agent ecosystem:
+  - System Architecture
+  - Agent Manifest Standard
+  - Repository Structure
+  - Integration Workflow
+  - Open-Source Integration Guide
+- Each doc now includes versioning (v0.1.0) and last updated date.
+- This milestone establishes a clear, modular foundation for agent development, integration, and community contributions.
+
 ## References
 - Project Epic: #[Epic issue number]
 - Project Board: AI Agentopia
 - Documentation: [Category Standards](docs/category-standards.md)
+- [Planning & Architecture Docs](./agent-development-planning/)
+    - [System Architecture](./agent-development-planning/architecture.md)
+    - [Agent Manifest Standard](./agent-development-planning/agent-manifest.md)
+    - [Repository Structure](./agent-development-planning/repo-structure.md)
+    - [Integration Workflow](./agent-development-planning/integration-workflow.md)
+    - [Open-Source Integration Guide](./agent-development-planning/open-source-integration.md)
+    - [Vision & Roadmap](./agent-development-planning/vision-roadmap.md)

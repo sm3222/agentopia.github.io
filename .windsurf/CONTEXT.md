@@ -137,6 +137,16 @@
   - `sdk.html`: Software development kit documentation (Completed)
   - `templates.html`: Template usage and customization (Completed)
 
+## Milestone: Planning Docs v0.1.0 (2025-06-01)
+- Completed and versioned all foundational planning documents for Agentopia agent ecosystem:
+  - architecture.md
+  - agent-manifest.md
+  - repo-structure.md
+  - integration-workflow.md
+  - open-source-integration.md
+- These docs define architecture, standards, workflows, and best practices for agent development and integration.
+- Next: Review, refine, and iterate as the project evolves.
+
 ## Session Management
 Each development session should follow this workflow:
 
