@@ -1,38 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agent Detail | Agentopia</title>
+  <meta name="description" content="Explore AI agent details, setup instructions, and configuration options.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  
   <link href="../css/styles.css" rel="stylesheet">
   <!-- Tailwind CSS CDN for full utility support -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Add Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    .loading {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+    }
+    .loaded {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease-in-out, visibility 0s linear;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'primary': {
+              50: '#fff9eb',
+              100: '#ffefc7',
+              200: '#ffdc89',
+              300: '#ffc34a',
+              400: '#ffad1e',
+              500: '#f98c06',
+              600: '#dd6502',
+              700: '#b74306',
+              800: '#94340c',
+              900: '#7a2c0d',
+              950: '#461502',
+            },
+          },
+          typography: (theme) => ({
+            dark: {
+              css: {
+                color: theme('colors.gray.300'),
+                h1: { color: theme('colors.gray.100') },
+                h2: { color: theme('colors.gray.100') },
+                h3: { color: theme('colors.gray.100') },
+                strong: { color: theme('colors.gray.100') },
+                code: { color: theme('colors.primary.400') },
+                blockquote: {
+                  color: theme('colors.gray.300'),
+                  borderLeftColor: theme('colors.gray.700'),
+                }
+              }
+            }
+          })
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 min-h-screen">
-  <div class="max-w-2xl mx-auto py-8 px-4">
-    <a href="../agents.html" class="text-amber-600 hover:underline flex items-center mb-4">&larr; Back to Agents</a>
-    <div id="agent-detail" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-      <div class="flex items-center space-x-4 mb-4">
-        <img id="agent-icon" src="" alt="Agent Icon" class="w-16 h-16 rounded-full border border-gray-200 dark:border-gray-700" style="display:none;" />
-        <div>
-          <h1 id="agent-name" class="text-2xl font-bold text-gray-900 dark:text-white"></h1>
-          <p id="agent-category" class="text-sm text-amber-600"></p>
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen flex flex-col">
+  <!-- Navigation will be included via JavaScript -->
+  <div id="nav-placeholder"></div>
+
+  <!-- Breadcrumb Navigation -->
+  <nav class="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center space-x-3 py-3 text-gray-600 dark:text-gray-400 text-sm">
+        <a href="../index.html" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">Home</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <a href="../agents.html" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">Agents</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span id="breadcrumb-agent-name" class="text-gray-800 dark:text-gray-200"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div id="agent-hero" class="bg-white dark:bg-gray-800 py-6 border-b border-gray-200 dark:border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-4">
+        <div id="agent-emoji" class="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-4xl md:text-5xl bg-amber-50 dark:bg-gray-700 rounded-xl shadow-lg border border-amber-100 dark:border-gray-600"></div>
+        <div class="flex-1 text-center md:text-left">
+          <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-3">
+            <h1 id="agent-name" class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white"></h1>
+            <div class="flex items-center justify-center md:justify-start gap-2">
+              <span id="agent-category" class="px-2.5 py-0.5 text-sm font-medium bg-amber-100 dark:bg-gray-700 text-amber-800 dark:text-amber-300 rounded-full border border-amber-200 dark:border-gray-600"></span>
+              <span id="agent-version" class="px-2 py-0.5 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md border border-gray-200 dark:border-gray-600"></span>
+            </div>
+          </div>
+          <p id="agent-description" class="mt-2 text-base text-gray-600 dark:text-gray-300 max-w-3xl"></p>
+          <div class="mt-3 flex flex-wrap gap-2 justify-center md:justify-start" id="agent-tags"></div>
+          <div class="mt-4 flex flex-wrap gap-3 justify-center md:justify-start">
+            <a id="demo-link" href="#" target="_blank" class="hidden px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg transition-all duration-300 flex items-center shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Try Demo
+            </a>
+            <a id="source-link" href="#" target="_blank" class="hidden px-5 py-2.5 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-white font-medium rounded-lg transition-all duration-300 flex items-center border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+              View Source
+            </a>
+            <a href="../agents.html" class="px-5 py-2.5 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-white font-medium rounded-lg transition-all duration-300 flex items-center border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+              </svg>
+              Back to Agents
+            </a>
+          </div>
         </div>
-      </div>
-      <p id="agent-description" class="mb-4 text-gray-700 dark:text-gray-200"></p>
-      <div class="flex flex-wrap gap-2 mb-4" id="agent-tags"></div>
-      <div class="mb-4">
-        <h2 class="font-semibold text-lg mb-2 text-gray-800 dark:text-gray-100">Features</h2>
-        <ul id="agent-features" class="list-disc pl-5 text-gray-700 dark:text-gray-200"></ul>
-      </div>
-      <div id="setup-section" class="mb-4"></div>
-      <form id="config-form" class="mb-4"></form>
-      <div class="flex gap-4 mt-6">
-        <a id="demo-link" href="#" target="_blank" class="hidden text-amber-600 hover:underline">Live Demo</a>
-        <a id="source-link" href="#" target="_blank" class="hidden text-gray-600 dark:text-gray-300 hover:underline">Source Code</a>
       </div>
     </div>
   </div>
+
+  <!-- Previous/Next Navigation -->
+  <div class="bg-gray-50 dark:bg-gray-800 border-t border-b border-gray-200 dark:border-gray-700 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center">
+        <button id="prev-agent" class="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span>Previous Agent</span>
+        </button>
+        <button id="next-agent" class="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+          <span>Next Agent</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div id="main-content" class="loaded max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Sidebar Navigation -->
+      <div class="lg:w-64 flex-shrink-0">
+        <div class="sticky top-24 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <nav class="flex flex-col sidebar-nav">
+            <a href="#overview" class="nav-link px-4 py-3 border-l-4 border-primary-600 bg-primary-50 dark:bg-primary-900/20 font-medium text-primary-600 dark:text-primary-400">Detailed Description</a>
+            <a href="#key-details" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Key Details</a>
+            <a href="#features" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Features</a>
+            <a href="#setup" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Setup Instructions</a>
+            <a href="#configuration" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Configuration</a>
+            <a href="#use-cases" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Use Cases</a>
+            <a href="#requirements" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Requirements</a>
+            <a href="#roadmap" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Roadmap</a>
+            <a href="#llm-privacy" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">LLM & Privacy</a>
+            <a href="#docker" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Docker Info</a>
+          </nav>
+        </div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="flex-1">
+        <!-- Detailed Description Section -->
+        <section id="overview" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8 animate__animated animate__fadeIn">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Detailed Description
+          </h2>
+          <div id="agent-long-description" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300">
+            <!-- JS will populate this with rendered markdown -->
+          </div>
+        </section>
+
+        <!-- Key Details Section -->
+        <section id="key-details" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            Key Details
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+              <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Author</h3>
+              <p id="detail-agent-author" class="text-gray-800 dark:text-gray-200 font-semibold"></p>
+            </div>
+            <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+              <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Version</h3>
+              <p id="detail-agent-version" class="text-gray-800 dark:text-gray-200 font-semibold"></p>
+            </div>
+            <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+              <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Deployment Status</h3>
+              <p id="detail-agent-deployment-status" class="text-gray-800 dark:text-gray-200 font-semibold"></p>
+            </div>
+            <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+              <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Agent Type</h3>
+              <p id="detail-agent-type" class="text-gray-800 dark:text-gray-200 font-semibold"></p>
+            </div>
+            <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+              <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Scale</h3>
+              <p id="detail-agent-scale" class="text-gray-800 dark:text-gray-200 font-semibold"></p>
+            </div>
+            <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+              <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Entry Point</h3>
+              <p id="detail-agent-entry-point" class="text-gray-800 dark:text-gray-200 font-semibold"></p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section id="features" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+            </svg>
+            Features
+          </h2>
+          <ul id="agent-features" class="grid grid-cols-1 md:grid-cols-2 gap-4"></ul>
+        </section>
+        
+        <!-- Setup Instructions Section -->
+        <section id="setup" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            Setup Instructions
+          </h2>
+          <div id="setup-section" class="prose dark:prose-invert max-w-none bg-gray-50 dark:bg-gray-700/30 p-6 rounded-lg"></div>
+          <div class="mt-6 flex space-x-4">
+            <a id="demo-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500" style="display: none;">
+              <svg class="-ml-1 mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+              </svg>
+              Try Demo
+            </a>
+            <a id="source-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:bg-gray-600" style="display: none;">
+              <svg class="-ml-1 mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+              View Source
+            </a>
+          </div>
+        </section>
+        
+        <!-- Configuration Section -->
+        <section id="configuration" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+            </svg>
+            Configuration
+          </h2>
+          <form id="config-form" class="space-y-6 bg-gray-50 dark:bg-gray-700/30 p-6 rounded-lg"></form>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            Use Cases
+          </h2>
+          <ul id="agent-use-cases" class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+            <!-- JS will populate this -->
+          </ul>
+        </section>
+
+        <!-- Requirements Section -->
+        <section id="requirements" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Requirements
+          </h2>
+          <ul id="agent-requirements" class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+            <!-- JS will populate this -->
+          </ul>
+        </section>
+
+        <!-- Roadmap Features Section -->
+        <section id="roadmap" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13V7m0 13a1 1 0 001.447.894L15 20M9 7a1 1 0 011.447-.894L15 4m6 9v1.382a1 1 0 01-.553.894L15 18m-6-4l6-4"></path></svg>
+            Roadmap Features
+          </h2>
+          <ul id="agent-roadmap-features" class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+            <!-- JS will populate this -->
+          </ul>
+        </section>
+
+        <!-- LLM Dependency & Privacy Section -->
+        <section id="llm-privacy" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            LLM Dependency & Privacy
+          </h2>
+          <div id="llm-dependency-details" class="mb-6">
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">LLM Dependency</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg">
+              <div>
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Type:</p>
+                <p id="llm-type" class="text-gray-800 dark:text-gray-200"></p>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400">API Key Env Var:</p>
+                <p id="llm-api-key-env-var" class="text-gray-800 dark:text-gray-200"></p>
+              </div>
+              <div class="md:col-span-2">
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Model Recommendation:</p>
+                <p id="llm-model-recommendation" class="text-gray-800 dark:text-gray-200"></p>
+              </div>
+              <div class="md:col-span-2">
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Notes:</p>
+                <div id="llm-notes-content" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1">
+                  <!-- JS will populate this -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="privacy-considerations-details">
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">Privacy Considerations</h3>
+            <div id="privacy-considerations-content" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg">
+              <!-- JS will populate this -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Docker Information Section -->
+        <section id="docker" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+            Docker Information
+          </h2>
+          <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg space-y-4">
+            <div>
+              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Image Name:</p>
+              <p id="docker-image-name" class="text-gray-800 dark:text-gray-200 font-mono"></p>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Pull Instructions:</p>
+              <div id="docker-pull-instructions-content" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1">
+                <!-- JS will populate this -->
+              </div>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Run Instructions:</p>
+              <div id="docker-run-instructions-content" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1">
+                <!-- JS will populate this -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <!-- Footer will be included via JavaScript -->
+  <div id="footer-placeholder" class="mt-auto"></div>
+  
+  <!-- Scripts -->
+  <script>
+    console.log('Inline script executed');
+  </script>
+  <script src="../js/navigation.js"></script>
   <script src="../js/agent-detail.js"></script>
 </body>
 </html>

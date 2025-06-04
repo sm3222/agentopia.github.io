@@ -1,6 +1,6 @@
 ---
-Version: 0.1.0
-Last Updated: 2025-06-01
+Version: 0.2.0
+Last Updated: 2025-06-02
 ---
 
 # Agentopia System Architecture
@@ -72,7 +72,13 @@ graph TD
   - User-facing website for discovering, filtering, and learning about agents.
   - Entry point for launching or downloading agents.
 - **Features:**  
-  - Agent gallery, category pages, and agent detail pages.
+  - Agent gallery with dynamic filtering and search.
+  - Comprehensive agent detail pages with:
+    - Dynamic content loading and smooth transitions
+    - Setup instructions with markdown rendering
+    - Configuration form with persistence
+    - Demo and source code links
+    - Responsive sidebar navigation
   - Links to launch/download agents (local or cloud).
   - Dynamic integration with registry API (future).
 

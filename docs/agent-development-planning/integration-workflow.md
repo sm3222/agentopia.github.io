@@ -1,6 +1,6 @@
 ---
-Version: 0.1.0
-Last Updated: 2025-06-01
+Version: 0.2.0
+Last Updated: 2025-06-02
 ---
 
 # Agent Integration Workflow
@@ -22,6 +22,11 @@ This document outlines the step-by-step process for integrating new AI agents in
 
 ## 2. Manifest Validation
 - Ensure the manifest includes all required fields (id, name, description, version, framework, entry_point, category, labels, requirements, launch, inputs/outputs, documentation, maintainer, license).
+- Include optional fields for enhanced portal integration:
+  - `demo_url`: Link to live demo if available
+  - `source_url`: Link to source code repository
+  - `config_fields`: Configuration options with field types and defaults
+  - `setup_instructions`: Markdown-formatted setup guide
 - Validate the manifest using a schema validator (if available).
 - Check that dependencies and launch instructions are correct and reproducible.
 
@@ -43,10 +48,16 @@ This document outlines the step-by-step process for integrating new AI agents in
 ---
 
 ## 5. Syncing with the Portal Repo
-- Once merged, the agent’s manifest and metadata should be synced to the showcase portal repo.
-  - **Manual:** Copy manifest or summary data to the portal repo’s dataset.
+- Once merged, the agent's manifest and metadata should be synced to the showcase portal repo.
+  - **Manual:** Copy manifest or summary data to the portal repo's dataset.
   - **Automated:** Use a script or GitHub Action to fetch and update agent data in the portal.
-- Confirm that the portal displays the new/updated agent correctly in the gallery, category, and detail pages.
+- Verify the agent detail page displays correctly:
+  - Hero section with emoji, name, category, and description
+  - Setup instructions render properly in markdown
+  - Configuration form shows all fields with correct types
+  - Demo and source links work if provided
+  - Sidebar navigation functions properly
+- Confirm that the portal displays the new/updated agent correctly in the gallery and category pages.
 
 ---
 

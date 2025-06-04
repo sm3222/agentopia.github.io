@@ -48,16 +48,39 @@ function getAgentManifests(agentsDir) {
                 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
                 // Map manifest fields to portal format
                 agents.push({
-                    id: idx + 1,
+                    id: idx + 1, // This ID might get overridden if a manual entry with same name exists
                     name: manifest.name || folder,
+                    emoji: manifest.emoji || '🤖', // Added emoji
+                    version: manifest.version || '0.1.0', // Added version
+                    author: manifest.author || 'Agentopia Team', // Added author
                     category: manifest.category || 'Uncategorized',
                     type: manifest.type || 'regular',
                     scale: manifest.scale || 'single',
                     description: manifest.description || '',
-                    rating: 5.0,
-                    reviews: 0,
+                    // setupInstructions is handled below to prioritize structured 'setup_instructions'
+                    configFields: manifest.configFields || [], // Added configFields
                     features: manifest.features || ['Demo Agent'],
-                    tags: manifest.tags || ['demo']
+                    tags: manifest.tags || ['demo'],
+                    demoUrl: manifest.demoUrl || '#', // Added demoUrl
+                    sourceUrl: manifest.sourceUrl || '#', // Added sourceUrl
+                    // Default rating and reviews, can be overridden by manual entries if needed
+                    rating: manifest.rating !== undefined ? manifest.rating : 5.0, 
+                    reviews: manifest.reviews !== undefined ? manifest.reviews : 0,
+                    // New fields from comprehensive schema (preserving snake_case from source manifest)
+                    long_description: manifest.long_description || manifest.description || '',
+                    entry_point: manifest.entry_point || null,
+                    deployment_status: manifest.deployment_status || 'N/A',
+                    use_cases: manifest.use_cases || [],
+                    requirements: manifest.requirements || [],
+                    roadmap_features: manifest.roadmap_features || [],
+                    llm_dependency: manifest.llm_dependency || null,
+                    privacy_considerations: manifest.privacy_considerations || '',
+                    docker_info: manifest.docker_info || null,
+                    // Ensure setup_instructions (if structured) is carried over correctly
+                    // The agent-detail.js expects 'setupInstructions' (camelCase) if it's a simple string from older manifests
+                    // or a structured object (which might be snake_case 'setup_instructions' in source manifest)
+                    // For now, let's assume source manifest uses 'setup_instructions' for the structured object
+                    setup_instructions: manifest.setup_instructions || manifest.setupInstructions || '' // Prioritize structured, fallback to simple
                 });
             } catch (e) {
                 console.warn('Could not parse', manifestPath, e);
