@@ -12,6 +12,7 @@ The Agent Manifest is a structured metadata file (YAML or JSON) that describes e
 ---
 
 ## Goals
+
 - **Framework-Agnostic:** Support agents built with any framework (LangChain, AutoGen, CrewAI, no-code, etc.).
 - **Discoverability:** Enable the portal and registry to display, filter, and search agents by category, capability, and more.
 - **Automation-Ready:** Provide all information needed to automate launching, testing, and integrating agents.
@@ -55,6 +56,7 @@ license: MIT
 ---
 
 ## Required Fields
+
 - `id`: Unique identifier for the agent
 - `name`: Human-readable name
 - `description`: Short summary of what the agent does
@@ -73,6 +75,7 @@ license: MIT
 ---
 
 ## Optional Fields
+
 - `example_usage`: Example command or API call
 - `test_script`: Script for automated testing
 - `icon`: Path or URL to agent icon
@@ -82,6 +85,7 @@ license: MIT
 ---
 
 ## Best Practices
+
 - Keep manifests up to date as agents evolve.
 - Use clear, descriptive names and categories.
 - Provide thorough documentation links.
@@ -90,6 +94,7 @@ license: MIT
 ---
 
 ## Future Extensions
+
 - Support for multi-modal agents (audio, video, etc.)
 - Internationalization/localization fields
 - Security and compliance metadata
@@ -97,6 +102,7 @@ license: MIT
 ---
 
 ## References
+
 - [Sample Agent Manifests](https://github.com/Agentopia/agent-playground/tree/main/agents)
 - [OpenAPI Specification](https://swagger.io/specification/)
 - [Home Assistant Manifest Example](https://developers.home-assistant.io/docs/creating_integration_manifest/)

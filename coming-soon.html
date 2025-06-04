@@ -1,128 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
     <title>Coming Soon - AI Agentopia</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
         }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
+        50% {
+          transform: translateY(-15px);
         }
+      }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            25% { transform: translateY(-10px) translateX(5px); }
-            50% { transform: translateY(0) translateX(10px); }
-            75% { transform: translateY(10px) translateX(5px); }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
         }
+        50% {
+          opacity: 0.6;
+        }
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0);
         }
-        
-        .logo-bounce {
-            animation: bounce 2s ease-in-out infinite;
+        25% {
+          transform: translateY(-10px) translateX(5px);
         }
-        
-        .text-pulse {
-            animation: pulse 2s ease-in-out infinite;
+        50% {
+          transform: translateY(0) translateX(10px);
         }
+        75% {
+          transform: translateY(10px) translateX(5px);
+        }
+      }
 
-        .gradient-text {
-            background: linear-gradient(to right, #fbbf24, #f59e0b);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        .hexagon {
-            position: absolute;
-            width: 100px;
-            height: 115px;
-            background: linear-gradient(to right, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.1));
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            opacity: 0.3;
-        }
+      .logo-bounce {
+        animation: bounce 2s ease-in-out infinite;
+      }
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(251, 191, 36, 0.3);
-            border-radius: 50%;
-        }
+      .text-pulse {
+        animation: pulse 2s ease-in-out infinite;
+      }
 
-        .floating {
-            animation: float 8s ease-in-out infinite;
-        }
+      .gradient-text {
+        background: linear-gradient(to right, #fbbf24, #f59e0b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
 
-        .rotating {
-            animation: rotate 20s linear infinite;
-        }
+      .hexagon {
+        position: absolute;
+        width: 100px;
+        height: 115px;
+        background: linear-gradient(to right, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.1));
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        opacity: 0.3;
+      }
 
-        #background-pattern {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: -1;
-        }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(251, 191, 36, 0.3);
+        border-radius: 50%;
+      }
+
+      .floating {
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .rotating {
+        animation: rotate 20s linear infinite;
+      }
+
+      #background-pattern {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: -1;
+      }
     </style>
-</head>
-<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+  </head>
+  <body class="bg-gray-900 min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
     <!-- Background Pattern -->
     <div id="background-pattern"></div>
 
     <!-- Main Content -->
     <div class="text-center relative z-10">
-        <img src="images/logo.svg" alt="AI Agentopia Logo" class="w-32 h-32 mx-auto mb-8 logo-bounce">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6">
-            <span class="gradient-text text-pulse">AI Agentopia</span>
-        </h1>
-        <div class="space-y-6">
-            <h2 class="text-3xl text-amber-400 font-semibold">Coming Soon!</h2>
-            <p class="text-gray-300 text-lg max-w-md mx-auto">We're working hard to bring you something amazing. Stay tuned!</p>
-            <a href="/" class="inline-block mt-8 px-8 py-3 bg-amber-500 text-gray-900 rounded-lg hover:bg-amber-400 transition-colors font-semibold">
-                Return Home
-            </a>
-        </div>
+      <img src="images/logo.svg" alt="AI Agentopia Logo" class="w-32 h-32 mx-auto mb-8 logo-bounce" />
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">
+        <span class="gradient-text text-pulse">AI Agentopia</span>
+      </h1>
+      <div class="space-y-6">
+        <h2 class="text-3xl text-amber-400 font-semibold">Coming Soon!</h2>
+        <p class="text-gray-300 text-lg max-w-md mx-auto">
+          We're working hard to bring you something amazing. Stay tuned!
+        </p>
+        <a
+          href="/"
+          class="inline-block mt-8 px-8 py-3 bg-amber-500 text-gray-900 rounded-lg hover:bg-amber-400 transition-colors font-semibold"
+        >
+          Return Home
+        </a>
+      </div>
     </div>
 
     <script>
-        // Create background pattern
-        const background = document.getElementById('background-pattern');
-        
-        // Add hexagons
-        for (let i = 0; i < 15; i++) {
-            const hexagon = document.createElement('div');
-            hexagon.className = 'hexagon floating';
-            hexagon.style.left = `${Math.random() * 100}%`;
-            hexagon.style.top = `${Math.random() * 100}%`;
-            hexagon.style.animationDelay = `${Math.random() * 5}s`;
-            background.appendChild(hexagon);
-        }
+      // Create background pattern
+      const background = document.getElementById("background-pattern");
 
-        // Add particles
-        for (let i = 0; i < 30; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle floating';
-            particle.style.left = `${Math.random() * 100}%`;
-            particle.style.top = `${Math.random() * 100}%`;
-            particle.style.animationDelay = `${Math.random() * 5}s`;
-            background.appendChild(particle);
-        }
+      // Add hexagons
+      for (let i = 0; i < 15; i++) {
+        const hexagon = document.createElement("div");
+        hexagon.className = "hexagon floating";
+        hexagon.style.left = `${Math.random() * 100}%`;
+        hexagon.style.top = `${Math.random() * 100}%`;
+        hexagon.style.animationDelay = `${Math.random() * 5}s`;
+        background.appendChild(hexagon);
+      }
+
+      // Add particles
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement("div");
+        particle.className = "particle floating";
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        background.appendChild(particle);
+      }
     </script>
-</body>
+  </body>
 </html>

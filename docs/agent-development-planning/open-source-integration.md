@@ -12,6 +12,7 @@ This guide explains how to discover, evaluate, and integrate open-source AI agen
 ---
 
 ## 1. Discovery & Evaluation
+
 - Identify promising open-source agents or frameworks (e.g., from GitHub, Hugging Face, LangChainHub).
 - Evaluate:
   - Project activity and maintenance
@@ -22,6 +23,7 @@ This guide explains how to discover, evaluate, and integrate open-source AI agen
 ---
 
 ## 2. Technical Integration
+
 - Fork or clone the open-source repo as needed.
 - Add the agent or framework to the playground repo under `agents/` or `adapters/`.
 - If required, wrap the agent with an adapter to conform to the Agentopia manifest/interface standard (see [Agent Manifest Standard](./agent-manifest.md)).
@@ -32,6 +34,7 @@ This guide explains how to discover, evaluate, and integrate open-source AI agen
 ---
 
 ## 3. Attribution & Licensing
+
 - Respect original licenses and attribution requirements.
 - Clearly state the origin of the integrated agent/framework in the README and manifest.
 - If required, include license files from the original project.
@@ -40,6 +43,7 @@ This guide explains how to discover, evaluate, and integrate open-source AI agen
 ---
 
 ## 4. Documentation & Community
+
 - Update the agent’s README to include:
   - Original authors and links
   - Description of integration or adaptation steps
@@ -49,6 +53,7 @@ This guide explains how to discover, evaluate, and integrate open-source AI agen
 ---
 
 ## 5. Contribution Workflow
+
 - Open a PR to add the integrated agent/framework to the playground repo.
 - Clearly describe the source, license, and any changes in the PR description.
 - Tag maintainers for review and feedback.
@@ -57,6 +62,7 @@ This guide explains how to discover, evaluate, and integrate open-source AI agen
 ---
 
 ## Best Practices
+
 - Favor well-maintained, permissively licensed projects.
 - Use adapters/wrappers to minimize invasive changes.
 - Keep attribution and documentation clear for transparency.
@@ -65,6 +71,7 @@ This guide explains how to discover, evaluate, and integrate open-source AI agen
 ---
 
 ## References
+
 - [Agent Manifest Standard](./agent-manifest.md)
 - [Integration Workflow](./integration-workflow.md)
 - [Choose an open source license](https://choosealicense.com/)

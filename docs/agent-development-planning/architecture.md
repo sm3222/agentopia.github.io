@@ -50,28 +50,31 @@ graph TD
 ## Key Components
 
 ### 1. Agent Playground (Development Repository)
-- **Purpose:**  
+
+- **Purpose:**
   - Houses all agent source code, manifests, and framework adapters.
   - Supports both code-based and no-code agent frameworks.
-- **Features:**  
+- **Features:**
   - Modular agent folders with manifest files.
   - Adapters/wrappers for each supported framework.
   - Local test and launch scripts.
 
 ### 2. Agent Registry (Metadata/API Layer)
-- **Purpose:**  
+
+- **Purpose:**
   - Central store for agent metadata, categories, tags, and manifest info.
   - Powers search, filtering, and organization in the portal.
-- **Features:**  
+- **Features:**
   - Structured metadata (YAML/JSON).
   - API endpoints for agent discovery (future).
   - Category and tag indexing.
 
 ### 3. Showcase Portal (Static/Dynamic Website)
-- **Purpose:**  
+
+- **Purpose:**
   - User-facing website for discovering, filtering, and learning about agents.
   - Entry point for launching or downloading agents.
-- **Features:**  
+- **Features:**
   - Agent gallery with dynamic filtering and search.
   - Comprehensive agent detail pages with:
     - Dynamic content loading and smooth transitions
@@ -83,9 +86,10 @@ graph TD
   - Dynamic integration with registry API (future).
 
 ### 4. Cloud Services (Future Expansion)
-- **Purpose:**  
+
+- **Purpose:**
   - Enable cloud-based agent hosting, management, and sharing.
-- **Features:**  
+- **Features:**
   - Agent hosting and execution.
   - API gateway for agent access.
   - User authentication and management.
@@ -94,19 +98,23 @@ graph TD
 
 ## Data & Integration Flow
 
-1. **Agent Creation:**  
+1. **Agent Creation:**
+
    - New agents are added to the playground repo, each with a manifest file describing metadata, framework, and launch instructions.
 
-2. **Registration:**  
+2. **Registration:**
+
    - The agent manifest is registered in the Agent Registry (manually or via automation).
 
-3. **Discovery:**  
+3. **Discovery:**
+
    - The Showcase Portal queries the registry to display agents in the gallery, category, and detail pages.
 
-4. **Launch/Download:**  
+4. **Launch/Download:**
+
    - Users can launch agents locally (via provided scripts) or, in the future, directly in the cloud.
 
-5. **Cloud Expansion:**  
+5. **Cloud Expansion:**
    - Cloud services will enable scalable, managed agent execution and user management.
 
 ---

@@ -1,215 +1,238 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Templates - AI Agentopia</title>
-    <meta name="description" content="Starter templates and boilerplates for AI agent development">
-    <link rel="stylesheet" href="../css/styles.css">
+    <meta name="description" content="Starter templates and boilerplates for AI agent development" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="dark-mode">
+  </head>
+  <body class="dark-mode">
     <!-- Navigation will be included via JavaScript -->
     <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="relative pt-24 pb-16 mb-12 overflow-hidden bg-transparent">
-        <!-- Background layers -->
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800"></div>
-        <div class="absolute inset-0">
-            <svg class="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                        <circle cx="2" cy="2" r="2" fill="rgba(251, 191, 36, 0.15)"/>
-                    </pattern>
-                    <pattern id="connections" width="100" height="100" patternUnits="userSpaceOnUse">
-                        <path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(251, 191, 36, 0.1)" stroke-width="1"/>
-                        <path d="M50 0 L50 100 M0 50 L100 50" stroke="rgba(251, 191, 36, 0.07)" stroke-width="1"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)"/>
-                <rect width="100%" height="100%" fill="url(#connections)"/>
-            </svg>
-        </div>
-        
-        <!-- Content -->
-        <div class="container relative mx-auto px-4 z-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200">
-                Templates
-            </h1>
-            <p class="text-xl text-center text-gray-300 max-w-3xl mx-auto mb-8">
-                Jump-start your development with our curated collection of starter templates
-            </p>
-        </div>
+      <!-- Background layers -->
+      <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800"></div>
+      <div class="absolute inset-0">
+        <svg class="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="2" fill="rgba(251, 191, 36, 0.15)" />
+            </pattern>
+            <pattern id="connections" width="100" height="100" patternUnits="userSpaceOnUse">
+              <path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(251, 191, 36, 0.1)" stroke-width="1" />
+              <path d="M50 0 L50 100 M0 50 L100 50" stroke="rgba(251, 191, 36, 0.07)" stroke-width="1" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+          <rect width="100%" height="100%" fill="url(#connections)" />
+        </svg>
+      </div>
+
+      <!-- Content -->
+      <div class="container relative mx-auto px-4 z-10">
+        <h1
+          class="text-4xl md:text-5xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200"
+        >
+          Templates
+        </h1>
+        <p class="text-xl text-center text-gray-300 max-w-3xl mx-auto mb-8">
+          Jump-start your development with our curated collection of starter templates
+        </p>
+      </div>
     </section>
 
     <!-- Back to Resources Navigation -->
     <div class="container mx-auto px-6 pt-8">
-        <div class="max-w-4xl mx-auto">
-            <nav class="text-sm mb-4">
-                <a href="../resources.html" class="text-amber-400 hover:text-amber-300">← Back to Resources</a>
-            </nav>
-        </div>
+      <div class="max-w-4xl mx-auto">
+        <nav class="text-sm mb-4">
+          <a href="../resources.html" class="text-amber-400 hover:text-amber-300">← Back to Resources</a>
+        </nav>
+      </div>
     </div>
-    
+
     <!-- Table of Contents -->
     <div class="container mx-auto px-6 py-8">
-        <div class="max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-12">
-            <h2 class="text-2xl font-bold text-amber-400 mb-4">Table of Contents</h2>
-            <ul class="space-y-2">
-                <li>
-                    <a href="#getting-started" class="text-amber-400 hover:text-amber-300">Getting Started with Templates</a>
-                </li>
-                <li>
-                    <a href="#template-types" class="text-amber-400 hover:text-amber-300">Available Template Types</a>
-                </li>
-                <li>
-                    <a href="#customization" class="text-amber-400 hover:text-amber-300">Template Customization</a>
-                </li>
-                <li>
-                    <a href="#best-practices" class="text-amber-400 hover:text-amber-300">Best Practices</a>
-                </li>
-                <li>
-                    <a href="#custom-templates" class="text-amber-400 hover:text-amber-300">Creating Custom Templates</a>
-                </li>
-            </ul>
-        </div>
+      <div class="max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-12">
+        <h2 class="text-2xl font-bold text-amber-400 mb-4">Table of Contents</h2>
+        <ul class="space-y-2">
+          <li>
+            <a href="#getting-started" class="text-amber-400 hover:text-amber-300">Getting Started with Templates</a>
+          </li>
+          <li>
+            <a href="#template-types" class="text-amber-400 hover:text-amber-300">Available Template Types</a>
+          </li>
+          <li>
+            <a href="#customization" class="text-amber-400 hover:text-amber-300">Template Customization</a>
+          </li>
+          <li>
+            <a href="#best-practices" class="text-amber-400 hover:text-amber-300">Best Practices</a>
+          </li>
+          <li>
+            <a href="#custom-templates" class="text-amber-400 hover:text-amber-300">Creating Custom Templates</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    
-    <main class="container mx-auto px-4 py-8">
-        <div class="max-w-4xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                <!-- Basic Agent Template -->
-                <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-amber-400/50 transition-colors duration-300">
-                    <h3 class="text-xl font-bold text-amber-400 mb-3">Basic Agent Template</h3>
-                    <p class="text-gray-300 mb-4">A minimal starter template for creating a simple AI agent.</p>
-                    <a href="#" class="inline-flex items-center text-amber-400 hover:text-amber-300">
-                        View Template
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
 
-                <!-- Multi-Agent System -->
-                <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-amber-400/50 transition-colors duration-300">
-                    <h3 class="text-xl font-bold text-amber-400 mb-3">Multi-Agent System</h3>
-                    <p class="text-gray-300 mb-4">Template for building complex systems with multiple cooperating agents.</p>
-                    <a href="#" class="inline-flex items-center text-amber-400 hover:text-amber-300">
-                        View Template
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
+    <main class="container mx-auto px-4 py-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <!-- Basic Agent Template -->
+          <div
+            class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-amber-400/50 transition-colors duration-300"
+          >
+            <h3 class="text-xl font-bold text-amber-400 mb-3">Basic Agent Template</h3>
+            <p class="text-gray-300 mb-4">A minimal starter template for creating a simple AI agent.</p>
+            <a href="#" class="inline-flex items-center text-amber-400 hover:text-amber-300">
+              View Template
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Multi-Agent System -->
+          <div
+            class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-amber-400/50 transition-colors duration-300"
+          >
+            <h3 class="text-xl font-bold text-amber-400 mb-3">Multi-Agent System</h3>
+            <p class="text-gray-300 mb-4">Template for building complex systems with multiple cooperating agents.</p>
+            <a href="#" class="inline-flex items-center text-amber-400 hover:text-amber-300">
+              View Template
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="prose prose-lg prose-invert mx-auto">
+          <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">
+            Getting Started with Templates
+          </h2>
+          <p>
+            Agentopia templates provide pre-configured project structures to accelerate your agent development. Choose a
+            template that best fits your needs and use our CLI tool to create a new project in minutes.
+          </p>
+
+          <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Using Templates with CLI</h3>
+          <p>The easiest way to use our templates is through the Agentopia CLI:</p>
+
+          <pre
+            class="bg-gray-900/50 p-4 rounded my-6"
+          ><code>agentopia create my-project --template basic-agent</code></pre>
+
+          <p>This command creates a new project called "my-project" using the "basic-agent" template.</p>
+
+          <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Available Template Types</h3>
+
+          <div class="space-y-6 my-8">
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+              <h4 class="text-xl font-bold text-amber-400 mb-3">Basic Agent Template</h4>
+              <p class="mb-4">
+                A minimal starter template for creating a simple AI agent with essential functionality.
+              </p>
+
+              <h5 class="font-bold text-amber-300 mb-2">Features:</h5>
+              <ul class="list-disc pl-5 space-y-2 mb-4">
+                <li>Single agent architecture</li>
+                <li>Basic tool integration</li>
+                <li>Simple conversation handling</li>
+                <li>Environment configuration</li>
+              </ul>
+
+              <h5 class="font-bold text-amber-300 mb-2">Best for:</h5>
+              <p>Beginners and simple use cases where you need a standalone agent with minimal complexity.</p>
+
+              <div class="mt-4">
+                <pre
+                  class="bg-gray-900/50 p-4 rounded"
+                ><code>agentopia create my-agent --template basic-agent</code></pre>
+              </div>
             </div>
 
-            <div class="prose prose-lg prose-invert mx-auto">
-                <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Getting Started with Templates</h2>
-                <p>Agentopia templates provide pre-configured project structures to accelerate your agent development. Choose a template that best fits your needs and use our CLI tool to create a new project in minutes.</p>
-                
-                <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Using Templates with CLI</h3>
-                <p>The easiest way to use our templates is through the Agentopia CLI:</p>
-                
-                <pre class="bg-gray-900/50 p-4 rounded my-6"><code>agentopia create my-project --template basic-agent</code></pre>
-                
-                <p>This command creates a new project called "my-project" using the "basic-agent" template.</p>
-                
-                <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Available Template Types</h3>
-                
-                <div class="space-y-6 my-8">
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                        <h4 class="text-xl font-bold text-amber-400 mb-3">Basic Agent Template</h4>
-                        <p class="mb-4">A minimal starter template for creating a simple AI agent with essential functionality.</p>
-                        
-                        <h5 class="font-bold text-amber-300 mb-2">Features:</h5>
-                        <ul class="list-disc pl-5 space-y-2 mb-4">
-                            <li>Single agent architecture</li>
-                            <li>Basic tool integration</li>
-                            <li>Simple conversation handling</li>
-                            <li>Environment configuration</li>
-                        </ul>
-                        
-                        <h5 class="font-bold text-amber-300 mb-2">Best for:</h5>
-                        <p>Beginners and simple use cases where you need a standalone agent with minimal complexity.</p>
-                        
-                        <div class="mt-4">
-                            <pre class="bg-gray-900/50 p-4 rounded"><code>agentopia create my-agent --template basic-agent</code></pre>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                        <h4 class="text-xl font-bold text-amber-400 mb-3">Multi-Agent System</h4>
-                        <p class="mb-4">Template for building complex systems with multiple cooperating agents.</p>
-                        
-                        <h5 class="font-bold text-amber-300 mb-2">Features:</h5>
-                        <ul class="list-disc pl-5 space-y-2 mb-4">
-                            <li>Multiple specialized agents</li>
-                            <li>Agent orchestration</li>
-                            <li>Inter-agent communication</li>
-                            <li>Workflow management</li>
-                            <li>Shared knowledge base</li>
-                        </ul>
-                        
-                        <h5 class="font-bold text-amber-300 mb-2">Best for:</h5>
-                        <p>Complex tasks that benefit from division of labor and specialized agent roles.</p>
-                        
-                        <div class="mt-4">
-                            <pre class="bg-gray-900/50 p-4 rounded"><code>agentopia create my-mas --template multi-agent</code></pre>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                        <h4 class="text-xl font-bold text-amber-400 mb-3">Web Assistant</h4>
-                        <p class="mb-4">Template for creating web-based AI assistants with a modern UI.</p>
-                        
-                        <h5 class="font-bold text-amber-300 mb-2">Features:</h5>
-                        <ul class="list-disc pl-5 space-y-2 mb-4">
-                            <li>Responsive chat interface</li>
-                            <li>Real-time streaming responses</li>
-                            <li>File upload capabilities</li>
-                            <li>Conversation history</li>
-                            <li>Customizable UI components</li>
-                        </ul>
-                        
-                        <h5 class="font-bold text-amber-300 mb-2">Best for:</h5>
-                        <p>Customer-facing applications where a polished user interface is important.</p>
-                        
-                        <div class="mt-4">
-                            <pre class="bg-gray-900/50 p-4 rounded"><code>agentopia create my-assistant --template web-assistant</code></pre>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                        <h4 class="text-xl font-bold text-amber-400 mb-3">API Service</h4>
-                        <p class="mb-4">Template for building AI-powered API services and microservices.</p>
-                        
-                        <h5 class="font-bold text-amber-300 mb-2">Features:</h5>
-                        <ul class="list-disc pl-5 space-y-2 mb-4">
-                            <li>RESTful API endpoints</li>
-                            <li>Authentication and rate limiting</li>
-                            <li>Request validation</li>
-                            <li>OpenAPI documentation</li>
-                            <li>Containerization support</li>
-                        </ul>
-                        
-                        <h5 class="font-bold text-amber-300 mb-2">Best for:</h5>
-                        <p>Backend services and applications that need to expose AI capabilities via API.</p>
-                        
-                        <div class="mt-4">
-                            <pre class="bg-gray-900/50 p-4 rounded"><code>agentopia create my-api --template api-service</code></pre>
-                        </div>
-                    </div>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Template Customization</h3>
-                <p>All templates can be customized to fit your specific requirements:</p>
-                
-                <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-6">
-                    <h4 class="text-xl font-bold text-amber-400 mb-3">Configuration Options</h4>
-                    <p>Each template includes a <code>config.json</code> file where you can adjust settings:</p>
-                    
-                    <pre class="bg-gray-900/50 p-4 rounded my-4"><code>{
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+              <h4 class="text-xl font-bold text-amber-400 mb-3">Multi-Agent System</h4>
+              <p class="mb-4">Template for building complex systems with multiple cooperating agents.</p>
+
+              <h5 class="font-bold text-amber-300 mb-2">Features:</h5>
+              <ul class="list-disc pl-5 space-y-2 mb-4">
+                <li>Multiple specialized agents</li>
+                <li>Agent orchestration</li>
+                <li>Inter-agent communication</li>
+                <li>Workflow management</li>
+                <li>Shared knowledge base</li>
+              </ul>
+
+              <h5 class="font-bold text-amber-300 mb-2">Best for:</h5>
+              <p>Complex tasks that benefit from division of labor and specialized agent roles.</p>
+
+              <div class="mt-4">
+                <pre
+                  class="bg-gray-900/50 p-4 rounded"
+                ><code>agentopia create my-mas --template multi-agent</code></pre>
+              </div>
+            </div>
+
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+              <h4 class="text-xl font-bold text-amber-400 mb-3">Web Assistant</h4>
+              <p class="mb-4">Template for creating web-based AI assistants with a modern UI.</p>
+
+              <h5 class="font-bold text-amber-300 mb-2">Features:</h5>
+              <ul class="list-disc pl-5 space-y-2 mb-4">
+                <li>Responsive chat interface</li>
+                <li>Real-time streaming responses</li>
+                <li>File upload capabilities</li>
+                <li>Conversation history</li>
+                <li>Customizable UI components</li>
+              </ul>
+
+              <h5 class="font-bold text-amber-300 mb-2">Best for:</h5>
+              <p>Customer-facing applications where a polished user interface is important.</p>
+
+              <div class="mt-4">
+                <pre
+                  class="bg-gray-900/50 p-4 rounded"
+                ><code>agentopia create my-assistant --template web-assistant</code></pre>
+              </div>
+            </div>
+
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+              <h4 class="text-xl font-bold text-amber-400 mb-3">API Service</h4>
+              <p class="mb-4">Template for building AI-powered API services and microservices.</p>
+
+              <h5 class="font-bold text-amber-300 mb-2">Features:</h5>
+              <ul class="list-disc pl-5 space-y-2 mb-4">
+                <li>RESTful API endpoints</li>
+                <li>Authentication and rate limiting</li>
+                <li>Request validation</li>
+                <li>OpenAPI documentation</li>
+                <li>Containerization support</li>
+              </ul>
+
+              <h5 class="font-bold text-amber-300 mb-2">Best for:</h5>
+              <p>Backend services and applications that need to expose AI capabilities via API.</p>
+
+              <div class="mt-4">
+                <pre
+                  class="bg-gray-900/50 p-4 rounded"
+                ><code>agentopia create my-api --template api-service</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Template Customization</h3>
+          <p>All templates can be customized to fit your specific requirements:</p>
+
+          <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-6">
+            <h4 class="text-xl font-bold text-amber-400 mb-3">Configuration Options</h4>
+            <p>Each template includes a <code>config.json</code> file where you can adjust settings:</p>
+
+            <pre class="bg-gray-900/50 p-4 rounded my-4"><code>{
   "agent": {
     "name": "My Custom Agent",
     "description": "A specialized agent for my use case",
@@ -226,15 +249,15 @@
     "capacity": 1000
   }
 }</code></pre>
-                    
-                    <p>You can modify these settings to customize your agent's behavior without changing the code structure.</p>
-                </div>
-                
-                <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-6">
-                    <h4 class="text-xl font-bold text-amber-400 mb-3">Adding Custom Tools</h4>
-                    <p>Extend your agent's capabilities by adding custom tools:</p>
-                    
-                    <pre class="bg-gray-900/50 p-4 rounded my-4"><code>// JavaScript example
+
+            <p>You can modify these settings to customize your agent's behavior without changing the code structure.</p>
+          </div>
+
+          <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 my-6">
+            <h4 class="text-xl font-bold text-amber-400 mb-3">Adding Custom Tools</h4>
+            <p>Extend your agent's capabilities by adding custom tools:</p>
+
+            <pre class="bg-gray-900/50 p-4 rounded my-4"><code>// JavaScript example
 const { Tool } = require('@agentopia/sdk');
 
 const weatherTool = new Tool({
@@ -254,50 +277,57 @@ const weatherTool = new Tool({
 
 // Add to your agent
 agent.addTool(weatherTool);</code></pre>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Best Practices</h3>
-                
-                <div class="space-y-4 my-6">
-                    <div class="bg-gray-900/50 p-4 rounded">
-                        <h4 class="font-bold text-amber-300 mb-2">Keep Configuration Separate</h4>
-                        <p>Store environment-specific settings in <code>.env</code> files and configuration in dedicated config files.</p>
-                    </div>
-                    
-                    <div class="bg-gray-900/50 p-4 rounded">
-                        <h4 class="font-bold text-amber-300 mb-2">Modular Tool Design</h4>
-                        <p>Create small, focused tools that do one thing well rather than complex multi-purpose tools.</p>
-                    </div>
-                    
-                    <div class="bg-gray-900/50 p-4 rounded">
-                        <h4 class="font-bold text-amber-300 mb-2">Test Agent Behaviors</h4>
-                        <p>Write tests for your agent's behaviors to ensure consistent responses across different inputs.</p>
-                    </div>
-                    
-                    <div class="bg-gray-900/50 p-4 rounded">
-                        <h4 class="font-bold text-amber-300 mb-2">Version Control</h4>
-                        <p>Use git to track changes to your agent project and collaborate with others.</p>
-                    </div>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Creating Custom Templates</h3>
-                <p>You can create your own templates for reuse across projects:</p>
-                
-                <ol class="list-decimal pl-5 space-y-2 my-4">
-                    <li>Create a project with your desired structure and configuration</li>
-                    <li>Remove environment-specific files and credentials</li>
-                    <li>Add template placeholders using <code>{{variable_name}}</code> syntax</li>
-                    <li>Create a <code>template.json</code> file with metadata and variable definitions</li>
-                    <li>Use the CLI to register your custom template:</li>
-                </ol>
-                
-                <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia template register ./my-custom-template</code></pre>
-                
-                <p>Once registered, you can use your custom template just like the built-in ones:</p>
-                
-                <pre class="bg-gray-900/50 p-4 rounded my-4"><code>agentopia create new-project --template my-custom-template</code></pre>
+          </div>
+
+          <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Best Practices</h3>
+
+          <div class="space-y-4 my-6">
+            <div class="bg-gray-900/50 p-4 rounded">
+              <h4 class="font-bold text-amber-300 mb-2">Keep Configuration Separate</h4>
+              <p>
+                Store environment-specific settings in <code>.env</code> files and configuration in dedicated config
+                files.
+              </p>
             </div>
+
+            <div class="bg-gray-900/50 p-4 rounded">
+              <h4 class="font-bold text-amber-300 mb-2">Modular Tool Design</h4>
+              <p>Create small, focused tools that do one thing well rather than complex multi-purpose tools.</p>
+            </div>
+
+            <div class="bg-gray-900/50 p-4 rounded">
+              <h4 class="font-bold text-amber-300 mb-2">Test Agent Behaviors</h4>
+              <p>Write tests for your agent's behaviors to ensure consistent responses across different inputs.</p>
+            </div>
+
+            <div class="bg-gray-900/50 p-4 rounded">
+              <h4 class="font-bold text-amber-300 mb-2">Version Control</h4>
+              <p>Use git to track changes to your agent project and collaborate with others.</p>
+            </div>
+          </div>
+
+          <h3 class="text-2xl font-bold text-amber-400 mt-8 mb-4">Creating Custom Templates</h3>
+          <p>You can create your own templates for reuse across projects:</p>
+
+          <ol class="list-decimal pl-5 space-y-2 my-4">
+            <li>Create a project with your desired structure and configuration</li>
+            <li>Remove environment-specific files and credentials</li>
+            <li>Add template placeholders using <code>{{variable_name}}</code> syntax</li>
+            <li>Create a <code>template.json</code> file with metadata and variable definitions</li>
+            <li>Use the CLI to register your custom template:</li>
+          </ol>
+
+          <pre
+            class="bg-gray-900/50 p-4 rounded my-4"
+          ><code>agentopia template register ./my-custom-template</code></pre>
+
+          <p>Once registered, you can use your custom template just like the built-in ones:</p>
+
+          <pre
+            class="bg-gray-900/50 p-4 rounded my-4"
+          ><code>agentopia create new-project --template my-custom-template</code></pre>
         </div>
+      </div>
     </main>
 
     <!-- Footer will be included via JavaScript -->
@@ -305,30 +335,30 @@ agent.addTool(weatherTool);</code></pre>
 
     <script src="../js/navigation.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Insert navigation and footer
-            document.getElementById('nav-placeholder').innerHTML = navHTML;
-            document.getElementById('footer-placeholder').innerHTML = footerHTML;
-            
-            // Initialize mobile menu toggle
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            if (mobileMenuToggle && mobileMenu) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-            
-            // Initialize theme toggle
-            const themeToggle = document.getElementById('theme-toggle');
-            if (themeToggle) {
-                themeToggle.addEventListener('click', function() {
-                    document.body.classList.toggle('light-mode');
-                    document.body.classList.toggle('dark-mode');
-                });
-            }
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Insert navigation and footer
+        document.getElementById("nav-placeholder").innerHTML = navHTML;
+        document.getElementById("footer-placeholder").innerHTML = footerHTML;
+
+        // Initialize mobile menu toggle
+        const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        if (mobileMenuToggle && mobileMenu) {
+          mobileMenuToggle.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+          });
+        }
+
+        // Initialize theme toggle
+        const themeToggle = document.getElementById("theme-toggle");
+        if (themeToggle) {
+          themeToggle.addEventListener("click", function () {
+            document.body.classList.toggle("light-mode");
+            document.body.classList.toggle("dark-mode");
+          });
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

@@ -1,184 +1,217 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resources - AI Agentopia</title>
-    <meta name="description" content="Access development resources, documentation, and tools for the AI Agentopia ecosystem.">
-    
+    <meta
+      name="description"
+      content="Access development resources, documentation, and tools for the AI Agentopia ecosystem."
+    />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
-    <link rel="manifest" href="site.webmanifest">
-    
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <link rel="stylesheet" href="css/styles.css" />
     <!-- Add Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+  </head>
+  <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
     <!-- Navigation will be included via JavaScript -->
     <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="relative pt-24 pb-16 mb-12 overflow-hidden bg-transparent">
-        <!-- Background layers -->
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800"></div>
-        <div class="absolute inset-0">
-            <svg class="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                        <circle cx="2" cy="2" r="2" fill="rgba(251, 191, 36, 0.15)"/>
-                    </pattern>
-                    <!-- Connection lines -->
-                    <pattern id="connections" width="100" height="100" patternUnits="userSpaceOnUse">
-                        <path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(251, 191, 36, 0.1)" stroke-width="1"/>
-                        <path d="M50 0 L50 100 M0 50 L100 50" stroke="rgba(251, 191, 36, 0.07)" stroke-width="1"/>
-                    </pattern>
-                </defs>
-                <!-- Base pattern -->
-                <rect width="100%" height="100%" fill="url(#grid)"/>
-                <!-- Connections overlay -->
-                <rect width="100%" height="100%" fill="url(#connections)"/>
-                <!-- Large decorative elements -->
-                <g class="decorative-circles" fill="rgba(251, 191, 36, 0.1)">
-                    <circle cx="20%" cy="30%" r="50"/>
-                    <circle cx="80%" cy="70%" r="70"/>
-                    <circle cx="60%" cy="20%" r="40"/>
-                </g>
-                <!-- Connecting lines -->
-                <g class="connecting-lines" stroke="rgba(251, 191, 36, 0.08)" stroke-width="2">
-                    <path d="M200 180 Q 400 50 600 300"/>
-                    <path d="M800 400 Q 600 500 400 350"/>
-                </g>
-            </svg>
+      <!-- Background layers -->
+      <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800"></div>
+      <div class="absolute inset-0">
+        <svg class="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="2" fill="rgba(251, 191, 36, 0.15)" />
+            </pattern>
+            <!-- Connection lines -->
+            <pattern id="connections" width="100" height="100" patternUnits="userSpaceOnUse">
+              <path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(251, 191, 36, 0.1)" stroke-width="1" />
+              <path d="M50 0 L50 100 M0 50 L100 50" stroke="rgba(251, 191, 36, 0.07)" stroke-width="1" />
+            </pattern>
+          </defs>
+          <!-- Base pattern -->
+          <rect width="100%" height="100%" fill="url(#grid)" />
+          <!-- Connections overlay -->
+          <rect width="100%" height="100%" fill="url(#connections)" />
+          <!-- Large decorative elements -->
+          <g class="decorative-circles" fill="rgba(251, 191, 36, 0.1)">
+            <circle cx="20%" cy="30%" r="50" />
+            <circle cx="80%" cy="70%" r="70" />
+            <circle cx="60%" cy="20%" r="40" />
+          </g>
+          <!-- Connecting lines -->
+          <g class="connecting-lines" stroke="rgba(251, 191, 36, 0.08)" stroke-width="2">
+            <path d="M200 180 Q 400 50 600 300" />
+            <path d="M800 400 Q 600 500 400 350" />
+          </g>
+        </svg>
+      </div>
+      <!-- Content -->
+      <div class="container relative mx-auto px-4 z-10">
+        <h1
+          class="text-4xl md:text-5xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200"
+        >
+          Resources & Documentation
+        </h1>
+        <p class="text-xl text-center text-gray-300 max-w-3xl mx-auto mb-8">
+          Explore our comprehensive collection of resources, tools, and documentation to help you build amazing AI
+          agents.
+        </p>
+        <div class="flex justify-center">
+          <input
+            type="text"
+            placeholder="Search resources..."
+            class="w-full max-w-xl px-4 py-2 rounded-lg bg-gray-700/50 backdrop-blur-sm border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent"
+            id="resource-search"
+          />
         </div>
-        <!-- Content -->
-        <div class="container relative mx-auto px-4 z-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200">
-                Resources & Documentation
-            </h1>
-            <p class="text-xl text-center text-gray-300 max-w-3xl mx-auto mb-8">
-                Explore our comprehensive collection of resources, tools, and documentation to help you build amazing AI agents.
-            </p>
-            <div class="flex justify-center">
-                <input type="text" 
-                       placeholder="Search resources..." 
-                       class="w-full max-w-xl px-4 py-2 rounded-lg bg-gray-700/50 backdrop-blur-sm border border-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent"
-                       id="resource-search">
-            </div>
-        </div>
+      </div>
     </section>
 
     <main class="container mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold text-center mb-8">Resources</h1>
+      <h1 class="text-4xl font-bold text-center mb-8">Resources</h1>
 
-        <!-- Resource Categories -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- GitHub Repositories -->
-            <a href="github-repos.html" class="block">
-                <section class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 hover:border-amber-400/50 transition-colors duration-300">
-                    <h2 class="text-2xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent">GitHub Repositories</h2>
-                    <p class="text-gray-300 text-lg mb-4">Explore helpful repositories for building happy AI Agents. Discover tools, frameworks, and examples to enhance your agent development journey.</p>
-                    <div class="flex items-center text-amber-400">
-                        <span>Browse repositories</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </div>
-                </section>
-            </a>
+      <!-- Resource Categories -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- GitHub Repositories -->
+        <a href="github-repos.html" class="block">
+          <section
+            class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 hover:border-amber-400/50 transition-colors duration-300"
+          >
+            <h2
+              class="text-2xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent"
+            >
+              GitHub Repositories
+            </h2>
+            <p class="text-gray-300 text-lg mb-4">
+              Explore helpful repositories for building happy AI Agents. Discover tools, frameworks, and examples to
+              enhance your agent development journey.
+            </p>
+            <div class="flex items-center text-amber-400">
+              <span>Browse repositories</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </section>
+        </a>
 
-            <!-- Documentation -->
-            <section class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 hover:border-amber-400/50 transition-colors duration-300">
-                <h2 class="text-2xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent">Documentation</h2>
-                <ul class="space-y-4">
-                    <li>
-                        <a href="tools/getting-started.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-semibold mb-1 text-amber-400">Getting Started Guide</h3>
-                                    <p class="text-sm text-gray-400">Learn the basics of building AI agents</p>
-                                </div>
-                                <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tools/api-reference.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-semibold mb-1 text-amber-400">API Reference</h3>
-                                    <p class="text-sm text-gray-400">Complete API documentation and examples</p>
-                                </div>
-                                <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tools/best-practices.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-semibold mb-1 text-amber-400">Best Practices</h3>
-                                    <p class="text-sm text-gray-400">Guidelines for building effective agents</p>
-                                </div>
-                                <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </section>
+        <!-- Documentation -->
+        <section
+          class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 hover:border-amber-400/50 transition-colors duration-300"
+        >
+          <h2
+            class="text-2xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent"
+          >
+            Documentation
+          </h2>
+          <ul class="space-y-4">
+            <li>
+              <a href="tools/getting-started.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="font-semibold mb-1 text-amber-400">Getting Started Guide</h3>
+                    <p class="text-sm text-gray-400">Learn the basics of building AI agents</p>
+                  </div>
+                  <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="tools/api-reference.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="font-semibold mb-1 text-amber-400">API Reference</h3>
+                    <p class="text-sm text-gray-400">Complete API documentation and examples</p>
+                  </div>
+                  <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="tools/best-practices.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="font-semibold mb-1 text-amber-400">Best Practices</h3>
+                    <p class="text-sm text-gray-400">Guidelines for building effective agents</p>
+                  </div>
+                  <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
 
-            <!-- Development Tools -->
-            <section class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 hover:border-amber-400/50 transition-colors duration-300">
-                <h2 class="text-2xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent">Development Tools</h2>
-                <ul class="space-y-4">
-                    <li>
-                        <a href="tools/sdk.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-semibold mb-1 text-amber-400">SDK Downloads</h3>
-                                    <p class="text-sm text-gray-400">Official SDKs for multiple languages</p>
-                                </div>
-                                <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tools/cli.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-semibold mb-1 text-amber-400">CLI Tools</h3>
-                                    <p class="text-sm text-gray-400">Command-line tools for automation</p>
-                                </div>
-                                <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tools/templates.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-semibold mb-1 text-amber-400">Templates</h3>
-                                    <p class="text-sm text-gray-400">Starter templates and boilerplates</p>
-                                </div>
-                                <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </section>
-        </div>
+        <!-- Development Tools -->
+        <section
+          class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 hover:border-amber-400/50 transition-colors duration-300"
+        >
+          <h2
+            class="text-2xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent"
+          >
+            Development Tools
+          </h2>
+          <ul class="space-y-4">
+            <li>
+              <a href="tools/sdk.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="font-semibold mb-1 text-amber-400">SDK Downloads</h3>
+                    <p class="text-sm text-gray-400">Official SDKs for multiple languages</p>
+                  </div>
+                  <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="tools/cli.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="font-semibold mb-1 text-amber-400">CLI Tools</h3>
+                    <p class="text-sm text-gray-400">Command-line tools for automation</p>
+                  </div>
+                  <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="tools/templates.html" class="block text-gray-300 hover:text-amber-400 transition-colors">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="font-semibold mb-1 text-amber-400">Templates</h3>
+                    <p class="text-sm text-gray-400">Starter templates and boilerplates</p>
+                  </div>
+                  <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
     </main>
 
     <!-- Footer will be included via JavaScript -->
@@ -186,5 +219,5 @@
 
     <script src="js/navigation.js"></script>
     <script src="js/theme.js"></script>
-</body>
+  </body>
 </html>

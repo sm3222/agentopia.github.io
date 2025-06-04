@@ -6,7 +6,7 @@ on:
       - main
       - develop
     paths:
-      - '.github/labels.yml'
+      - ".github/labels.yml"
   workflow_dispatch:
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - uses: micnncim/action-label-syncer@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

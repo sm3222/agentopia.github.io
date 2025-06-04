@@ -1,30 +1,32 @@
 // GitHub API integration
 async function fetchAgentopiaRepos() {
-    try {
-        const response = await fetch('https://api.github.com/orgs/Agentopia/repos');
-        if (!response.ok) {
-            throw new Error('Failed to fetch repositories');
-        }
-        const repos = await response.json();
-        displayRepos(repos);
-    } catch (error) {
-        console.error('Error fetching repositories:', error);
-        displayError();
+  try {
+    const response = await fetch("https://api.github.com/orgs/Agentopia/repos");
+    if (!response.ok) {
+      throw new Error("Failed to fetch repositories");
     }
+    const repos = await response.json();
+    displayRepos(repos);
+  } catch (error) {
+    console.error("Error fetching repositories:", error);
+    displayError();
+  }
 }
 
 function displayRepos(repos) {
-    const reposContainer = document.getElementById('repos-container');
-    if (!reposContainer) return;
+  const reposContainer = document.getElementById("repos-container");
+  if (!reposContainer) return;
 
-    // Sort repos by stars (most starred first)
-    repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+  // Sort repos by stars (most starred first)
+  repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
 
-    reposContainer.innerHTML = repos.map(repo => `
+  reposContainer.innerHTML = repos
+    .map(
+      (repo) => `
         <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-amber-400/50 transition-colors duration-300">
             <a href="${repo.html_url}" target="_blank" class="block">
                 <h3 class="text-xl font-bold text-amber-400 mb-3">${repo.name}</h3>
-                <p class="text-gray-300 mb-4 line-clamp-2">${repo.description || 'No description available'}</p>
+                <p class="text-gray-300 mb-4 line-clamp-2">${repo.description || "No description available"}</p>
                 <div class="flex items-center space-x-4 text-sm text-gray-400">
                     <span class="flex items-center">
                         <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -42,14 +44,16 @@ function displayRepos(repos) {
                 </div>
             </a>
         </div>
-    `).join('');
+    `,
+    )
+    .join("");
 }
 
 function displayError() {
-    const reposContainer = document.getElementById('repos-container');
-    if (!reposContainer) return;
+  const reposContainer = document.getElementById("repos-container");
+  if (!reposContainer) return;
 
-    reposContainer.innerHTML = `
+  reposContainer.innerHTML = `
         <div class="col-span-full text-center p-8">
             <div class="text-red-400 mb-2">Failed to load repositories</div>
             <p class="text-gray-400">Please try again later</p>
@@ -58,4 +62,4 @@ function displayError() {
 }
 
 // Initialize when the document is ready
-document.addEventListener('DOMContentLoaded', fetchAgentopiaRepos);
+document.addEventListener("DOMContentLoaded", fetchAgentopiaRepos);

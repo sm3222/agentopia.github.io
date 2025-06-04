@@ -11,6 +11,7 @@ Agentopia is a GitHub organization dedicated to advancing the field of AI agents
 AI Agentopia consists of two main components:
 
 1. **Showcase Platform** (this repository)
+
    - Professional agent showcase
    - Interactive demonstrations
    - Community highlights
@@ -63,6 +64,7 @@ graph TD
 ### Local Development
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/Agentopia/agentopia.github.io.git
 cd agentopia.github.io

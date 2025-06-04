@@ -1,6 +1,7 @@
 # Agentopia Project Context
 
 ## Project Overview
+
 - **Name**: Agentopia GitHub Pages
 - **Type**: Organization Showcase Website
 - **Primary Purpose**: Display and organize Agentopia's GitHub repositories
@@ -9,6 +10,7 @@
 ## Development Workflow
 
 ### Git Strategy
+
 - **Main Branches**:
   - `main`: Production-ready code
   - `develop`: Integration branch for features
@@ -35,6 +37,7 @@
      - Example: `release/1.2.0`
 
 ### Pull Request Process
+
 1. **Creating PR**:
    - Follow PR template in `.github/pull_request_template.md`
    - Title format: `type: Brief description`
@@ -59,6 +62,7 @@
 ### Development Phases
 
 #### Phase 1: Static Site (Current)
+
 - **Technologies**:
   - HTML5
   - Tailwind CSS
@@ -75,6 +79,7 @@
 - **Current Version**: v0.4.0
 
 #### Phase 2: Enhanced Frontend (Next)
+
 - **Planned Technologies**:
   - Jekyll/Ruby for blog features
   - React with TypeScript
@@ -89,6 +94,7 @@
   - Improved user interactions
 
 #### Phase 3: Full-Stack Implementation
+
 - **Planned Technologies**:
   - Backend services
   - Database integration
@@ -99,18 +105,21 @@
 ## Design Principles
 
 ### Clean, Modern Web Design
+
 - Consistent spacing and typography system
 - Clear visual hierarchy
 - Modern, minimalist aesthetic
 - Thoughtful use of whitespace
 
 ### User Experience & Interactivity
+
 - Immediate visual feedback on interactions
 - Smooth, purposeful animations
 - Clear loading and error states
 - Intuitive navigation patterns
 
 ### Responsive & Accessible Design
+
 - Mobile-first development approach
 - WCAG AA compliance
 - Semantic HTML structure
@@ -120,6 +129,7 @@
 ## Documentation Structure
 
 ### Development Documentation (`/docs`)
+
 - **Purpose**: Technical documentation for developers and contributors
 - **Format**: Markdown files
 - **Key Files**:
@@ -127,6 +137,7 @@
   - `CATEGORY-STANDARDS.md`: Standards and requirements for agent categories
 
 ### Tools Documentation (`/tools`)
+
 - **Purpose**: User-facing documentation for platform tools and APIs
 - **Format**: HTML files with TailwindCSS styling
 - **Key Files**:
@@ -138,6 +149,7 @@
   - `templates.html`: Template usage and customization (Completed)
 
 ## Milestone: Planning Docs v0.1.0 (2025-06-01)
+
 - Completed and versioned all foundational planning documents for Agentopia agent ecosystem:
   - architecture.md
   - agent-manifest.md
@@ -148,20 +160,24 @@
 - Next: Review, refine, and iterate as the project evolves.
 
 ## Session Management
+
 Each development session should follow this workflow:
 
 ### Start of Session
+
 1. Review this CONTEXT.md for project vision and workflow
 2. Review CHANGELOG.md for recent changes and status
 3. Check rules.json for technical standards
 4. Pull latest changes and verify correct branch
 
 ### End of Session
+
 1. Update CHANGELOG.md with progress
 2. Follow git workflow for PRs and branch cleanup
 3. Document any new technical decisions
 
 ## File Responsibilities
+
 - **CONTEXT.md**: Project vision, phases, workflows, and principles
 - **CHANGELOG.md**: Session history and project status tracking
 - **rules.json**: Technical specifications and standards
