@@ -175,9 +175,10 @@
                 class="pl-6 pr-10 py-2 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300 appearance-none cursor-pointer min-w-[160px]"
               >
                 <option value="">All Categories</option>
-                <option value="productivity">Productivity</option>
-                <option value="automation">Automation</option>
-                <option value="analytics">Analytics</option>
+                <option value="data-analysis-research">Data Analysis & Research</option>
+                <option value="productivity-organization">Productivity & Organization</option>
+                <option value="automation-utilities">Automation & Utilities</option>
+                <option value="creative-content-design">Creative Content & Design</option>
               </select>
               <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -250,10 +251,10 @@
     <section id="categories" class="py-12 md:py-16 bg-gray-800">
       <div class="container mx-auto px-4">
         <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-100">Browse by Category</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <!-- Productivity Card -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <!-- Productivity & Organization Card -->
           <a
-            href="coming-soon.html"
+            href="agents.html?category=productivity-organization"
             class="group relative bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl"
           >
             <div
@@ -262,14 +263,14 @@
               <span class="text-6xl transform transition-transform duration-300 group-hover:scale-110">🚀</span>
             </div>
             <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2 text-gray-100">Productivity</h3>
-              <p class="text-gray-400">Boost your efficiency with AI-powered productivity tools and workflows.</p>
+              <h3 class="text-xl font-semibold mb-2 text-gray-100">Productivity & Organization</h3>
+              <p class="text-gray-400">Organize your work and boost efficiency with AI-powered tools.</p>
             </div>
           </a>
 
-          <!-- Automation Card -->
+          <!-- Automation & Utilities Card -->
           <a
-            href="coming-soon.html"
+            href="agents.html?category=automation-utilities"
             class="group relative bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl"
           >
             <div
@@ -278,16 +279,14 @@
               <span class="text-6xl transform transition-transform duration-300 group-hover:scale-110">⚡</span>
             </div>
             <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2 text-gray-100">Automation</h3>
-              <p class="text-gray-400">
-                Automate repetitive tasks and streamline your workflow with intelligent agents.
-              </p>
+              <h3 class="text-xl font-semibold mb-2 text-gray-100">Automation & Utilities</h3>
+              <p class="text-gray-400">Automate tasks, access helpful utilities, and streamline workflows.</p>
             </div>
           </a>
 
-          <!-- Analytics Card -->
+          <!-- Data Analysis & Research Card -->
           <a
-            href="coming-soon.html"
+            href="agents.html?category=data-analysis-research"
             class="group relative bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl"
           >
             <div
@@ -296,8 +295,24 @@
               <span class="text-6xl transform transition-transform duration-300 group-hover:scale-110">📊</span>
             </div>
             <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2 text-gray-100">Analytics</h3>
-              <p class="text-gray-400">Gain insights and make data-driven decisions with analytics agents.</p>
+              <h3 class="text-xl font-semibold mb-2 text-gray-100">Data Analysis & Research</h3>
+              <p class="text-gray-400">Analyze data, conduct research, and gain valuable insights.</p>
+            </div>
+          </a>
+
+          <!-- Creative Content & Design Card -->
+          <a
+            href="agents.html?category=creative-content-design"
+            class="group relative bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center transition-all duration-300 group-hover:from-gray-700 group-hover:to-gray-600"
+            >
+              <span class="text-6xl transform transition-transform duration-300 group-hover:scale-110">🎨</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-gray-100">Creative Content & Design</h3>
+              <p class="text-gray-400">Unleash creativity with AI tools for design, writing, and content generation.</p>
             </div>
           </a>
         </div>
@@ -322,6 +337,22 @@
         const sortByFilter = document.getElementById("sortFilter");
         const searchButton = document.getElementById("searchButton");
         const clearFiltersButton = document.getElementById("clearFiltersButton");
+
+        // Check for category query parameter and set filter
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryFromUrl = urlParams.get('category');
+        if (categoryFromUrl) {
+          // Ensure the category from URL is a valid option before setting
+          // This check can be more robust if options are dynamically populated before this script runs
+          // For now, we assume categoryFilter might not have its options yet, 
+          // but populateFilters will run soon. The value will be picked up by filterAndRenderAgents.
+          const validCategories = ["data-analysis-research", "productivity-organization", "automation-utilities", "creative-content-design"];
+          if (validCategories.includes(categoryFromUrl)) {
+            categoryFilter.value = categoryFromUrl;
+          } else {
+            console.warn(`Category '${categoryFromUrl}' from URL is not a valid filter option.`);
+          }
+        }
 
         // Initialize visit counts from localStorage
         function getVisitCount(agentId) {
@@ -450,7 +481,7 @@
             }
             allAgents = await response.json();
             populateFilters(allAgents);
-            renderAgents(allAgents); // Initial render of all agents
+            filterAndRenderAgents(); // Apply initial filters (including from URL) and render
             updateFiltersVisibility(); // Update filter visibility based on loaded data
           } catch (error) {
             console.error("Could not fetch or parse agents data:", error);

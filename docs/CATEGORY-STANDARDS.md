@@ -14,12 +14,10 @@ The Agentopia platform uses a multi-faceted approach to classify agents, primari
 *   **Type**: `string`
 *   **Requirement**: Required
 *   **Allowed Values** (as defined in `agent-manifest.schema.json`):
-    *   `"Productivity & Organization"`
-    *   `"Content Creation & Design"`
     *   `"Data Analysis & Research"`
+    *   `"Productivity & Organization"`
     *   `"Automation & Utilities"`
-    *   `"Education & Learning"`
-    *   `"Business & Finance"`
+    *   `"Creative Content & Design"`
 *   **Example**: `"Data Analysis & Research"`
 
 ### 2. `subcategory` (Granular Function)

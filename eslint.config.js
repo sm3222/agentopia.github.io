@@ -33,13 +33,13 @@ export default [
 
   // 4. Specific configuration for Node.js scripts (like sync-agents.js)
   {
-    files: ["js/sync-agents.js"], // Target your Node.js script(s)
+    files: ["js/sync-agents.cjs"], // Target your Node.js script(s)
     languageOptions: {
       globals: {
         ...globals.node, // Define Node.js-specific global variables (process, require, etc.)
       },
       // If sync-agents.js uses CommonJS (require/module.exports) uncomment the next line:
-      // sourceType: "commonjs",
+      sourceType: "commonjs",
     },
   },
 

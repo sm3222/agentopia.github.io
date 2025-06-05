@@ -29,7 +29,7 @@ description: "An AI agent that helps users gather and summarize research papers.
 version: 1.0.0
 framework: langchain
 entry_point: main.py
-category: research
+category: Data Analysis & Research
 labels:
   - summarization
   - search
@@ -63,7 +63,7 @@ license: MIT
 - `version`: Agent version (semantic versioning recommended)
 - `framework`: Framework or tool used (e.g., langchain, autogen, custom)
 - `entry_point`: File or script to run the agent
-- `category`: Main category (e.g., research, productivity, creative)
+- `category`: Main category (e.g., Data Analysis & Research, Productivity & Organization, Creative Content & Design, Automation & Utilities)
 - `labels`: List of tags/capabilities
 - `requirements`: List of dependencies (pip, npm, etc.)
 - `launch`: How to launch/run the agent (CLI, API, GUI, etc.)
