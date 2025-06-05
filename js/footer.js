@@ -1,7 +1,7 @@
 // Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Create footer HTML content
-    const footerContent = `
+document.addEventListener("DOMContentLoaded", function () {
+  // Create footer HTML content
+  const footerContent = `
     <footer class="bg-gray-900 py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -44,35 +44,35 @@ document.addEventListener('DOMContentLoaded', function() {
     </footer>
     `;
 
-    // Function to inject footer
-    function injectFooter() {
-        // Get or create footer placeholder
-        let footerPlaceholder = document.getElementById('footer-placeholder');
-        if (!footerPlaceholder) {
-            footerPlaceholder = document.createElement('div');
-            footerPlaceholder.id = 'footer-placeholder';
-            document.body.appendChild(footerPlaceholder);
-        }
-
-        // Insert the footer content
-        footerPlaceholder.innerHTML = footerContent;
-
-        // Fix relative paths based on current page location
-        const currentPath = window.location.pathname;
-        const depth = (currentPath.match(/\//g) || []).length - 1;
-        const prefix = depth > 0 ? '../'.repeat(depth) : './';
-
-        // Update all relative links in the footer
-        footerPlaceholder.querySelectorAll('a[href]').forEach(link => {
-            const href = link.getAttribute('href');
-            if (!href || href.startsWith('http') || href.startsWith('#')) return;
-            link.href = prefix + href;
-        });
+  // Function to inject footer
+  function injectFooter() {
+    // Get or create footer placeholder
+    let footerPlaceholder = document.getElementById("footer-placeholder");
+    if (!footerPlaceholder) {
+      footerPlaceholder = document.createElement("div");
+      footerPlaceholder.id = "footer-placeholder";
+      document.body.appendChild(footerPlaceholder);
     }
 
-    // Try to inject footer immediately
-    injectFooter();
+    // Insert the footer content
+    footerPlaceholder.innerHTML = footerContent;
 
-    // Retry after a short delay if the first attempt fails
-    setTimeout(injectFooter, 100);
+    // Fix relative paths based on current page location
+    const currentPath = window.location.pathname;
+    const depth = (currentPath.match(/\//g) || []).length - 1;
+    const prefix = depth > 0 ? "../".repeat(depth) : "./";
+
+    // Update all relative links in the footer
+    footerPlaceholder.querySelectorAll("a[href]").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("http") || href.startsWith("#")) return;
+      link.href = prefix + href;
+    });
+  }
+
+  // Try to inject footer immediately
+  injectFooter();
+
+  // Retry after a short delay if the first attempt fails
+  setTimeout(injectFooter, 100);
 });

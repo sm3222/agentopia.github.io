@@ -11,6 +11,7 @@ Agentopia is a GitHub organization dedicated to advancing the field of AI agents
 AI Agentopia consists of two main components:
 
 1. **Showcase Platform** (this repository)
+
    - Professional agent showcase
    - Interactive demonstrations
    - Community highlights
@@ -32,6 +33,12 @@ graph TD
 ## Features
 
 - **Agent Gallery**: Discover and explore AI agents in our ecosystem
+- **Agent Detail Pages**:
+  - Dynamic content loading with smooth transitions
+  - Interactive setup instructions with markdown support
+  - Configurable agent settings with local storage persistence
+  - Responsive sidebar navigation
+  - Demo and source code integration
 - **Resource Center**: Access development tools, documentation, and GitHub repositories
 - **Modern UI**: Responsive design with smooth animations and transitions
 - **Theme Support**: Dark/Light mode with persistent preferences
@@ -57,6 +64,7 @@ graph TD
 ### Local Development
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/Agentopia/agentopia.github.io.git
 cd agentopia.github.io
@@ -74,7 +82,8 @@ agentopia.github.io/
 │   └── styles.css      # Main stylesheet
 ├── js/
 │   ├── navigation.js   # Navigation functionality
-│   └── theme.js        # Theme toggle functionality
+│   ├── theme.js        # Theme toggle functionality
+│   └── agent-detail.js # Agent detail page functionality
 ├── images/
 │   └── logo.svg        # Project logo
 ├── docs/

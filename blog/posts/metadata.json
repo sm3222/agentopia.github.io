@@ -1,46 +1,46 @@
 {
-    "posts": [
-        {
-            "id": "getting-started-with-ai-agents",
-            "title": "Getting Started with AI Agents",
-            "description": "A comprehensive guide to understanding and implementing AI agents in your projects. Learn about the fundamentals, best practices, and real-world applications.",
-            "author": "AI Agentopia Team",
-            "date": "2025-01-10",
-            "readTime": 8,
-            "categories": ["Tutorial", "Featured"],
-            "tags": ["AI Agents", "Getting Started", "Implementation", "Best Practices"],
-            "image": "",
-            "featured": true,
-            "url": "/blog/posts/getting-started-with-ai-agents.html",
-            "relatedPosts": ["future-of-ai-agents", "building-community-driven-ai"]
-        },
-        {
-            "id": "future-of-ai-agents",
-            "title": "The Future of AI Agents",
-            "description": "Exploring upcoming trends and innovations in the AI agent ecosystem. What's next for autonomous AI systems?",
-            "author": "AI Agentopia Team",
-            "date": "2025-01-08",
-            "readTime": 5,
-            "categories": ["News"],
-            "tags": ["Future", "Trends", "Innovation"],
-            "image": "",
-            "featured": false,
-            "url": "/blog/posts/future-of-ai-agents.html",
-            "relatedPosts": ["getting-started-with-ai-agents", "building-community-driven-ai"]
-        },
-        {
-            "id": "building-community-driven-ai",
-            "title": "Building Community-Driven AI",
-            "description": "How open-source collaboration is shaping the future of AI agent development. Join the movement!",
-            "author": "AI Agentopia Team",
-            "date": "2025-01-05",
-            "readTime": 6,
-            "categories": ["Community", "Open Source"],
-            "tags": ["Community", "Open Source", "Collaboration"],
-            "image": "",
-            "featured": false,
-            "url": "/blog/posts/building-community-driven-ai.html",
-            "relatedPosts": ["getting-started-with-ai-agents", "future-of-ai-agents"]
-        }
-    ]
+  "posts": [
+    {
+      "id": "getting-started-with-ai-agents",
+      "title": "Getting Started with AI Agents",
+      "description": "A comprehensive guide to understanding and implementing AI agents in your projects. Learn about the fundamentals, best practices, and real-world applications.",
+      "author": "AI Agentopia Team",
+      "date": "2025-01-10",
+      "readTime": 8,
+      "categories": ["Tutorial", "Featured"],
+      "tags": ["AI Agents", "Getting Started", "Implementation", "Best Practices"],
+      "image": "",
+      "featured": true,
+      "url": "/blog/posts/getting-started-with-ai-agents.html",
+      "relatedPosts": ["future-of-ai-agents", "building-community-driven-ai"]
+    },
+    {
+      "id": "future-of-ai-agents",
+      "title": "The Future of AI Agents",
+      "description": "Exploring upcoming trends and innovations in the AI agent ecosystem. What's next for autonomous AI systems?",
+      "author": "AI Agentopia Team",
+      "date": "2025-01-08",
+      "readTime": 5,
+      "categories": ["News"],
+      "tags": ["Future", "Trends", "Innovation"],
+      "image": "",
+      "featured": false,
+      "url": "/blog/posts/future-of-ai-agents.html",
+      "relatedPosts": ["getting-started-with-ai-agents", "building-community-driven-ai"]
+    },
+    {
+      "id": "building-community-driven-ai",
+      "title": "Building Community-Driven AI",
+      "description": "How open-source collaboration is shaping the future of AI agent development. Join the movement!",
+      "author": "AI Agentopia Team",
+      "date": "2025-01-05",
+      "readTime": 6,
+      "categories": ["Community", "Open Source"],
+      "tags": ["Community", "Open Source", "Collaboration"],
+      "image": "",
+      "featured": false,
+      "url": "/blog/posts/building-community-driven-ai.html",
+      "relatedPosts": ["getting-started-with-ai-agents", "future-of-ai-agents"]
+    }
+  ]
 }

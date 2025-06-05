@@ -1,247 +1,324 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Agentopia</title>
-    <meta name="description" content="Discover and explore AI agents in the Agentopia ecosystem. Find the perfect AI agent for your needs.">
-    
+    <meta
+      name="description"
+      content="Discover and explore AI agents in the Agentopia ecosystem. Find the perfect AI agent for your needs."
+    />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
-    <link rel="manifest" href="site.webmanifest">
-    
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <link rel="stylesheet" href="css/styles.css" />
     <!-- Add Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Add Animation Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    animation: {
-                        'gradient': 'gradient 8s linear infinite',
-                    },
-                    keyframes: {
-                        gradient: {
-                            '0%, 100%': {
-                                'background-size': '200% 200%',
-                                'background-position': 'left center'
-                            },
-                            '50%': {
-                                'background-size': '200% 200%',
-                                'background-position': 'right center'
-                            }
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            animation: {
+              gradient: "gradient 8s linear infinite",
+            },
+            keyframes: {
+              gradient: {
+                "0%, 100%": {
+                  "background-size": "200% 200%",
+                  "background-position": "left center",
+                },
+                "50%": {
+                  "background-size": "200% 200%",
+                  "background-position": "right center",
+                },
+              },
+            },
+          },
+        },
+      };
     </script>
     <style>
-        .tooltip {
-            visibility: hidden;
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 6px 12px;
-            background: rgba(31, 41, 55, 0.95);
-            color: #d1d5db;
-            font-size: 0.875rem;
-            white-space: nowrap;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 10;
-            margin-bottom: 8px;
-            pointer-events: none;
-        }
+      .tooltip {
+        visibility: hidden;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 6px 12px;
+        background: rgba(31, 41, 55, 0.95);
+        color: #d1d5db;
+        font-size: 0.875rem;
+        white-space: nowrap;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+        margin-bottom: 8px;
+        pointer-events: none;
+      }
 
-        .tooltip-container:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
+      .tooltip-container:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
     </style>
-</head>
-<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+  </head>
+  <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
     <!-- Navigation will be included via JavaScript -->
     <div id="nav-placeholder"></div>
 
     <!-- Hero Section with Animated Background -->
-    <section class="relative pt-16 md:pt-32 pb-12 md:pb-24 overflow-hidden bg-gradient-to-br from-gray-900 via-sky-900 to-gray-900 animate-gradient">
-        <div class="absolute inset-0 bg-[url('images/hero-pattern.svg')] opacity-10"></div>
-        <div class="container mx-auto px-4 relative">
-            <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold py-4 mb-8 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent animate__animated animate__fadeIn">
-                    AI Agents Gallery
-                </h1>
-                <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-8 md:mb-12 px-2 sm:px-4 animate__animated animate__fadeIn animate__delay-1s">
-                    Discover and explore our curated collection of AI agents. Find the perfect agent to enhance your workflow and boost productivity.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 px-4 sm:px-8 animate__animated animate__fadeIn animate__delay-2s">
-                    <a href="#featured-agents" class="w-full sm:w-auto px-8 py-4 bg-amber-500 hover:bg-amber-600 text-gray-900 font-semibold rounded-lg transition-all duration-300 text-center shadow-lg hover:shadow-xl">
-                        Browse Agents
-                    </a>
-                    <a href="#categories" class="w-full sm:w-auto px-8 py-4 border-2 border-amber-500 text-amber-500 hover:bg-amber-500/10 font-semibold rounded-lg transition-all duration-300 text-center">
-                        View Categories
-                    </a>
-                </div>
-            </div>
+    <section
+      id="mainHeroSection"
+      class="relative pt-16 md:pt-32 pb-12 md:pb-24 overflow-hidden bg-gradient-to-br from-gray-900 via-sky-900 to-gray-900 animate-gradient"
+    >
+      <div class="absolute inset-0 bg-[url('images/hero-pattern.svg')] opacity-10"></div>
+      <div class="container mx-auto px-4 relative">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl font-bold py-4 mb-8 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent animate__animated animate__fadeIn"
+          >
+            AI Agents Gallery
+          </h1>
+          <p
+            class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-8 md:mb-12 px-2 sm:px-4 animate__animated animate__fadeIn animate__delay-1s"
+          >
+            Discover and explore our curated collection of AI agents. Find the perfect agent to enhance your workflow
+            and boost productivity.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row justify-center gap-4 px-4 sm:px-8 animate__animated animate__fadeIn animate__delay-2s"
+          >
+            <a
+              href="#featured-agents"
+              class="w-full sm:w-auto px-8 py-4 bg-amber-500 hover:bg-amber-600 text-gray-900 font-semibold rounded-lg transition-all duration-300 text-center shadow-lg hover:shadow-xl"
+            >
+              Browse Agents
+            </a>
+            <a
+              href="#categories"
+              class="w-full sm:w-auto px-8 py-4 border-2 border-amber-500 text-amber-500 hover:bg-amber-500/10 font-semibold rounded-lg transition-all duration-300 text-center"
+            >
+              View Categories
+            </a>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Search and Filter Section -->
-    <section class="py-6 md:py-8 bg-gray-800/80 backdrop-blur-sm">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col items-center max-w-4xl mx-auto gap-8">
-                <!-- Search Bar -->
-                <div class="relative w-full">
-                    <input type="text" 
-                           id="searchInput"
-                           placeholder="Search agents..." 
-                           class="w-full px-12 py-3 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Dropdown Row -->
-                <div class="flex flex-wrap gap-4 justify-center w-full">
-                    <div class="relative">
-                        <select id="typeFilter" class="pl-6 pr-10 py-2 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300 appearance-none cursor-pointer min-w-[160px]">
-                            <option value="">All Types</option>
-                            <option value="regular">Regular</option>
-                            <option value="autonomous">Autonomous</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <select id="scaleFilter" class="pl-6 pr-10 py-2 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300 appearance-none cursor-pointer min-w-[160px]">
-                            <option value="">All Scales</option>
-                            <option value="single">Single</option>
-                            <option value="multiple">Multiple</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <select id="categoryFilter" class="pl-6 pr-10 py-2 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300 appearance-none cursor-pointer min-w-[160px]">
-                            <option value="">All Categories</option>
-                            <option value="productivity">Productivity</option>
-                            <option value="automation">Automation</option>
-                            <option value="analytics">Analytics</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <select id="sortFilter" class="pl-6 pr-10 py-2 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300 appearance-none cursor-pointer min-w-[160px]">
-                            <option value="">Sort By</option>
-                            <option value="popular">Most Popular</option>
-                            <option value="recent">Recently Added</option>
-                            <option value="rating">Highest Rated</option>
-                            <option value="visits">Most Visited</option>
-                            <option value="name">Alphabetical</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Search Button -->
-                <div class="flex items-center gap-4 justify-center">
-                    <button type="button" 
-                            id="searchButton"
-                            class="px-8 py-2.5 bg-amber-500 hover:bg-amber-600 text-gray-900 font-semibold rounded-lg transition-all duration-300 text-center text-base shadow-md hover:shadow-lg hover:-translate-y-0.5">
-                        Search Agents
-                    </button>
-                    <button type="button"
-                            id="clearFiltersButton"
-                            class="hidden px-8 py-2.5 bg-gray-700 hover:bg-gray-600 text-gray-300 font-medium rounded-lg transition-all duration-300 text-center text-base border border-gray-600">
-                        Clear Filters
-                    </button>
-                </div>
+    <section id="searchFilterSection" class="py-6 md:py-8 bg-gray-800/80 backdrop-blur-sm">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center max-w-4xl mx-auto gap-8">
+          <!-- Search Bar -->
+          <div class="relative w-full">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search agents..."
+              class="w-full px-12 py-3 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300"
+            />
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
             </div>
+          </div>
+
+          <!-- Dropdown Row -->
+          <div class="flex flex-wrap gap-4 justify-center w-full">
+            <div class="relative">
+              <select
+                id="typeFilter"
+                class="pl-6 pr-10 py-2 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300 appearance-none cursor-pointer min-w-[160px]"
+              >
+                <option value="">All Types</option>
+                <option value="regular">Regular</option>
+                <option value="autonomous">Autonomous</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="relative">
+              <select
+                id="scaleFilter"
+                class="pl-6 pr-10 py-2 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300 appearance-none cursor-pointer min-w-[160px]"
+              >
+                <option value="">All Scales</option>
+                <option value="single">Single</option>
+                <option value="multiple">Multiple</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="relative">
+              <select
+                id="categoryFilter"
+                class="pl-6 pr-10 py-2 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300 appearance-none cursor-pointer min-w-[160px]"
+              >
+                <option value="">All Categories</option>
+                <option value="data-analysis-research">Data Analysis & Research</option>
+                <option value="productivity-organization">Productivity & Organization</option>
+                <option value="automation-utilities">Automation & Utilities</option>
+                <option value="creative-content-design">Creative Content & Design</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="relative">
+              <select
+                id="sortFilter"
+                class="pl-6 pr-10 py-2 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300 appearance-none cursor-pointer min-w-[160px]"
+              >
+                <option value="">Sort By</option>
+                <option value="popular">Most Popular</option>
+                <option value="recent">Recently Added</option>
+                <option value="rating">Highest Rated</option>
+                <option value="visits">Most Visited</option>
+                <option value="name">Alphabetical</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search Button -->
+          <div class="flex items-center gap-4 justify-center">
+            <button
+              type="button"
+              id="searchButton"
+              class="px-8 py-2.5 bg-amber-500 hover:bg-amber-600 text-gray-900 font-semibold rounded-lg transition-all duration-300 text-center text-base shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            >
+              Search Agents
+            </button>
+            <button
+              type="button"
+              id="clearFiltersButton"
+              class="hidden px-8 py-2.5 bg-gray-700 hover:bg-gray-600 text-gray-300 font-medium rounded-lg transition-all duration-300 text-center text-base border border-gray-600"
+            >
+              Clear Filters <span id="activeFiltersCountBadge" class="ml-2 hidden bg-amber-500 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full"></span>
+            </button>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Featured Agents Section -->
     <section id="featured-agents" class="py-16 md:py-24">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent">
-                    Featured Agents
-                </h2>
-                <p class="text-gray-400">
-                    Discover our most popular and powerful AI agents, carefully curated to help you achieve more.
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="agentsGrid">
-                <!-- Agent cards will be dynamically populated -->
-            </div>
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <h2
+            id="featuredAgentsTitle"
+            class="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent"
+          >
+            Featured Agents
+          </h2>
+          <p id="featuredAgentsSubtitle" class="text-gray-400">
+            Discover our most popular and powerful AI agents, carefully curated to help you achieve more.
+          </p>
         </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="agentsGrid">
+          <!-- Agent cards will be dynamically populated -->
+        </div>
+      </div>
     </section>
 
     <!-- Categories Section -->
     <section id="categories" class="py-12 md:py-16 bg-gray-800">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-100">Browse by Category</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <!-- Productivity Card -->
-                <a href="coming-soon.html" class="group relative bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl">
-                    <div class="h-48 bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center transition-all duration-300 group-hover:from-gray-700 group-hover:to-gray-600">
-                        <span class="text-6xl transform transition-transform duration-300 group-hover:scale-110">🚀</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-100">Productivity</h3>
-                        <p class="text-gray-400">Boost your efficiency with AI-powered productivity tools and workflows.</p>
-                    </div>
-                </a>
-
-                <!-- Automation Card -->
-                <a href="coming-soon.html" class="group relative bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl">
-                    <div class="h-48 bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center transition-all duration-300 group-hover:from-gray-700 group-hover:to-gray-600">
-                        <span class="text-6xl transform transition-transform duration-300 group-hover:scale-110">⚡</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-100">Automation</h3>
-                        <p class="text-gray-400">Automate repetitive tasks and streamline your workflow with intelligent agents.</p>
-                    </div>
-                </a>
-
-                <!-- Analytics Card -->
-                <a href="coming-soon.html" class="group relative bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl">
-                    <div class="h-48 bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center transition-all duration-300 group-hover:from-gray-700 group-hover:to-gray-600">
-                        <span class="text-6xl transform transition-transform duration-300 group-hover:scale-110">📊</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-100">Analytics</h3>
-                        <p class="text-gray-400">Gain insights and make data-driven decisions with analytics agents.</p>
-                    </div>
-                </a>
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-100">Browse by Category</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <!-- Productivity & Organization Card -->
+          <a
+            href="agents.html?category=productivity-organization"
+            class="group relative bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center transition-all duration-300 group-hover:from-gray-700 group-hover:to-gray-600"
+            >
+              <span class="text-6xl transform transition-transform duration-300 group-hover:scale-110">🚀</span>
             </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-gray-100">Productivity & Organization</h3>
+              <p class="text-gray-400">Organize your work and boost efficiency with AI-powered tools.</p>
+            </div>
+          </a>
+
+          <!-- Automation & Utilities Card -->
+          <a
+            href="agents.html?category=automation-utilities"
+            class="group relative bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center transition-all duration-300 group-hover:from-gray-700 group-hover:to-gray-600"
+            >
+              <span class="text-6xl transform transition-transform duration-300 group-hover:scale-110">⚡</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-gray-100">Automation & Utilities</h3>
+              <p class="text-gray-400">Automate tasks, access helpful utilities, and streamline workflows.</p>
+            </div>
+          </a>
+
+          <!-- Data Analysis & Research Card -->
+          <a
+            href="agents.html?category=data-analysis-research"
+            class="group relative bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center transition-all duration-300 group-hover:from-gray-700 group-hover:to-gray-600"
+            >
+              <span class="text-6xl transform transition-transform duration-300 group-hover:scale-110">📊</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-gray-100">Data Analysis & Research</h3>
+              <p class="text-gray-400">Analyze data, conduct research, and gain valuable insights.</p>
+            </div>
+          </a>
+
+          <!-- Creative Content & Design Card -->
+          <a
+            href="agents.html?category=creative-content-design"
+            class="group relative bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center transition-all duration-300 group-hover:from-gray-700 group-hover:to-gray-600"
+            >
+              <span class="text-6xl transform transition-transform duration-300 group-hover:scale-110">🎨</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-gray-100">Creative Content & Design</h3>
+              <p class="text-gray-400">Unleash creativity with AI tools for design, writing, and content generation.</p>
+            </div>
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Footer will be included via JavaScript -->
@@ -251,61 +328,81 @@
     <script src="js/navigation.js"></script>
     <script src="js/theme.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let selectedType = '';
-            let selectedScale = '';
-            let selectedCategory = '';
-            const searchInput = document.getElementById('searchInput');
-            const typeFilter = document.getElementById('typeFilter');
-            const scaleFilter = document.getElementById('scaleFilter');
-            const categoryFilter = document.getElementById('categoryFilter');
-            const sortByFilter = document.getElementById('sortFilter');
-            const searchButton = document.getElementById('searchButton');
-            const clearFiltersButton = document.getElementById('clearFiltersButton');
+      document.addEventListener("DOMContentLoaded", function () {
+        let selectedType = "";
+        let selectedScale = "";
+        // selectedCategory is updated within filterAndRenderAgents
+        let initialCategoryFromUrl = ""; // Variable to hold category from URL
 
-            // Initialize visit counts from localStorage
-            function getVisitCount(agentId) {
-                const visits = JSON.parse(localStorage.getItem('agentVisits') || '{}');
-                return visits[agentId] || 0;
+        const searchInput = document.getElementById("searchInput");
+        const typeFilter = document.getElementById("typeFilter");
+        const scaleFilter = document.getElementById("scaleFilter");
+        const categoryFilter = document.getElementById("categoryFilter");
+        const sortByFilter = document.getElementById("sortFilter");
+        const searchButton = document.getElementById("searchButton");
+        const clearFiltersButton = document.getElementById("clearFiltersButton");
+
+        // Check for category query parameter and store it
+        const urlParams = new URLSearchParams(window.location.search);
+        const categorySlugFromUrl = urlParams.get('category');
+        if (categorySlugFromUrl) {
+          const categorySlugToNameMap = {
+            "data-analysis-research": "Data Analysis & Research",
+            "productivity-organization": "Productivity & Organization",
+            "automation-utilities": "Automation & Utilities",
+            "creative-content-design": "Creative Content & Design"
+          };
+          if (categorySlugToNameMap[categorySlugFromUrl]) {
+            initialCategoryFromUrl = categorySlugToNameMap[categorySlugFromUrl];
+          } else {
+            console.warn(`Category slug '${categorySlugFromUrl}' from URL is not a recognized category.`);
+          }
+        }
+
+        // Initialize visit counts from localStorage
+        function getVisitCount(agentId) {
+          const visits = JSON.parse(localStorage.getItem("agentVisits") || "{}");
+          return visits[agentId] || 0;
+        }
+
+        // Update visit count for an agent
+        function incrementVisitCount(agentId) {
+          const visits = JSON.parse(localStorage.getItem("agentVisits") || "{}");
+          visits[agentId] = (visits[agentId] || 0) + 1;
+          localStorage.setItem("agentVisits", JSON.stringify(visits));
+          return visits[agentId];
+        }
+
+        // Format visit count for display
+        function formatVisitCount(count) {
+          if (count >= 1000000) {
+            return (count / 1000000).toFixed(1) + "M";
+          } else if (count >= 1000) {
+            return (count / 1000).toFixed(1) + "K";
+          }
+          return count.toString();
+        }
+
+        // Create agent card with visit tracking
+        function createAgentCard(agent) {
+          const visitCount = getVisitCount(agent.id);
+          const card = document.createElement("div");
+          card.className =
+            "bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl";
+
+          // Add click handler for visit tracking
+          card.addEventListener("click", () => {
+            const newCount = incrementVisitCount(agent.id);
+            const countDisplay = card.querySelector(".visit-count");
+            if (countDisplay) {
+              countDisplay.textContent = formatVisitCount(newCount);
             }
+          });
 
-            // Update visit count for an agent
-            function incrementVisitCount(agentId) {
-                const visits = JSON.parse(localStorage.getItem('agentVisits') || '{}');
-                visits[agentId] = (visits[agentId] || 0) + 1;
-                localStorage.setItem('agentVisits', JSON.stringify(visits));
-                return visits[agentId];
-            }
-
-            // Format visit count for display
-            function formatVisitCount(count) {
-                if (count >= 1000000) {
-                    return (count / 1000000).toFixed(1) + 'M';
-                } else if (count >= 1000) {
-                    return (count / 1000).toFixed(1) + 'K';
-                }
-                return count.toString();
-            }
-
-            // Create agent card with visit tracking
-            function createAgentCard(agent) {
-                const visitCount = getVisitCount(agent.id);
-                const card = document.createElement('div');
-                card.className = 'bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl';
-                
-                // Add click handler for visit tracking
-                card.addEventListener('click', () => {
-                    const newCount = incrementVisitCount(agent.id);
-                    const countDisplay = card.querySelector('.visit-count');
-                    if (countDisplay) {
-                        countDisplay.textContent = formatVisitCount(newCount);
-                    }
-                });
-
-                card.innerHTML = `
-                    <a href="${agent.link || 'coming-soon.html'}" class="block">
+          card.innerHTML = `
+                    <a href="pages/agent-detail.html?name=${encodeURIComponent(agent.name)}" class="block">
                         <div class="h-48 bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center transition-all duration-300 group-hover:from-gray-700 group-hover:to-gray-600">
-                            <span class="text-6xl">${agent.emoji}</span>
+                            <span class="text-6xl">${agent.icon || agent.emoji || '🤖'}</span>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
@@ -317,233 +414,268 @@
                                     <span class="visit-count text-sm font-medium">${formatVisitCount(visitCount)}</span>
                                 </div>
                             </div>
-                            <p class="text-gray-400 text-sm mb-4">${agent.description}</p>
-                            <div class="flex flex-wrap gap-2">
-                                ${agent.tags.map(tag => `
-                                    <span class="px-2 py-1 text-xs font-medium bg-gray-700/50 text-gray-300 rounded-md">
-                                        ${tag}
-                                    </span>
-                                `).join('')}
+                            <p class="text-gray-400 text-sm mb-3">${agent.description}</p>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                ${agent.tags && agent.tags.length > 0
+                                  ? agent.tags.map(tag => `<span class="px-2 py-1 text-xs font-medium bg-gray-700/50 text-gray-300 rounded-md">${tag}</span>`).join("")
+                                  : '<span class="text-xs text-gray-500">No tags</span>'}
+                            </div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-2 py-1 bg-sky-700/50 text-sky-300 rounded-md">${agent.agentType || 'N/A'}</span>
+                                <span class="px-2 py-1 bg-teal-700/50 text-teal-300 rounded-md">${agent.agentScale || 'N/A'}</span>
+                                <span class="px-2 py-1 bg-indigo-700/50 text-indigo-300 rounded-md">${agent.category || 'N/A'}</span>
                             </div>
                         </div>
                     </a>
                 `;
-                return card;
+                // Fallback for icon: agent.icon then agent.emoji then default robot emoji
+                // Added agentType, agentScale, and category to the card display with distinct styling.
+          return card;
+        }
+
+        function renderAgents(agentsToRender) {
+          if (!agentsContainer) {
+            console.error("Agents container (agentsGrid) not found!");
+            return;
+          }
+          agentsContainer.innerHTML = ''; // Clear existing cards
+          if (agentsToRender.length === 0) {
+            agentsContainer.innerHTML = '<p class="col-span-full text-center text-gray-400">No agents found matching your criteria.</p>';
+          } else {
+            agentsToRender.forEach(agent => {
+              const card = createAgentCard(agent);
+              agentsContainer.appendChild(card);
+            });
+          }
+        }
+
+        let allAgents = []; // To store agents fetched from JSON
+        const agentsContainer = document.getElementById("agentsGrid");
+
+        function populateFilters(agents) {
+          const categories = new Set();
+          const agentTypes = new Set();
+          const agentScales = new Set();
+
+          agents.forEach(agent => {
+            if (agent.category) categories.add(agent.category);
+            if (agent.agentType) agentTypes.add(agent.agentType); // Use new field name
+            if (agent.agentScale) agentScales.add(agent.agentScale); // Use new field name
+          });
+
+          const populate = (selectElement, optionsSet, defaultValue) => {
+            selectElement.innerHTML = `<option value="">All ${defaultValue}</option>`;
+            optionsSet.forEach(option => {
+              const opt = document.createElement('option');
+              opt.value = option;
+              opt.textContent = option;
+              selectElement.appendChild(opt);
+            });
+          };
+
+          populate(categoryFilter, categories, 'Categories');
+          populate(typeFilter, agentTypes, 'Types');
+          populate(scaleFilter, agentScales, 'Scales');
+        }
+
+        async function fetchDataAndInitialize() {
+          try {
+            const response = await fetch('public/data/agents-data.json');
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            allAgents = await response.json();
+            populateFilters(allAgents); // This populates the dropdowns
+
+            // Now, set the category filter value if an initial category was determined from URL
+            if (initialCategoryFromUrl) {
+              // Check if the option actually exists to avoid errors if map/data mismatch
+              const optionExists = Array.from(categoryFilter.options).some(opt => opt.value === initialCategoryFromUrl);
+              if (optionExists) {
+                categoryFilter.value = initialCategoryFromUrl;
+              } else {
+                console.warn(`Initial category '${initialCategoryFromUrl}' from URL not found in filter options after populating.`);
+              }
             }
 
-            // Sample agents data
-            const agentsData = [
-                {
-                    id: 'agent1',
-                    name: 'Code Assistant Pro',
-                    description: 'AI-powered coding assistant that helps with code completion, bug fixing, and code reviews.',
-                    type: 'regular',
-                    scale: 'medium',
-                    category: 'Productivity',
-                    emoji: '🚀',
-                    tags: ['Coding', 'AI', 'Productivity']
-                },
-                {
-                    id: 'agent2',
-                    name: 'Data Analyzer Bot',
-                    description: 'Automated data analysis tool that processes large datasets and generates insights.',
-                    type: 'advanced',
-                    scale: 'large',
-                    category: 'Analytics',
-                    emoji: '📊',
-                    tags: ['Data', 'Analytics', 'Automation']
-                },
-                {
-                    id: 'agent3',
-                    name: 'Workflow Automator',
-                    description: 'Automates repetitive tasks and streamlines business processes.',
-                    type: 'regular',
-                    scale: 'small',
-                    category: 'Automation',
-                    emoji: '⚡',
-                    tags: ['Automation', 'Workflow', 'Productivity']
-                },
-                {
-                    id: 'agent4',
-                    name: 'Research Assistant',
-                    description: 'AI agent that helps with academic research, literature reviews, and paper summaries.',
-                    type: 'advanced',
-                    scale: 'medium',
-                    category: 'Productivity',
-                    emoji: '📚',
-                    tags: ['Research', 'Academic', 'AI']
-                },
-                {
-                    id: 'agent5',
-                    name: 'Social Media Manager',
-                    description: 'Automated social media management tool for content scheduling and analytics.',
-                    type: 'regular',
-                    scale: 'medium',
-                    category: 'Automation',
-                    emoji: '📱',
-                    tags: ['Social Media', 'Marketing', 'Automation']
-                },
-                {
-                    id: 'agent6',
-                    name: 'Market Analyzer',
-                    description: 'Advanced market analysis tool for financial insights and trend prediction.',
-                    type: 'advanced',
-                    scale: 'large',
-                    category: 'Analytics',
-                    emoji: '📈',
-                    tags: ['Finance', 'Analytics', 'AI']
-                },
-                {
-                    id: 'agent7',
-                    name: 'Content Writer',
-                    description: 'AI-powered content generation assistant for blogs, articles, and marketing copy.',
-                    type: 'regular',
-                    scale: 'medium',
-                    category: 'Productivity',
-                    emoji: '✍️',
-                    tags: ['Writing', 'Content', 'AI']
-                },
-                {
-                    id: 'agent8',
-                    name: 'Task Scheduler',
-                    description: 'Intelligent task scheduling and project management assistant.',
-                    type: 'regular',
-                    scale: 'small',
-                    category: 'Automation',
-                    emoji: '📅',
-                    tags: ['Project Management', 'Automation', 'Productivity']
-                },
-                {
-                    id: 'agent9',
-                    name: 'Customer Support Bot',
-                    description: 'AI customer service agent that handles inquiries and support tickets.',
-                    type: 'advanced',
-                    scale: 'large',
-                    category: 'Automation',
-                    emoji: '💬',
-                    tags: ['Customer Service', 'Support', 'AI']
-                }
-            ];
+            filterAndRenderAgents(); // Apply initial filters (now categoryFilter.value is correctly set) and render
+            updateFiltersVisibility(); // Update filter visibility based on loaded data and set filter value
+          } catch (error) {
+            console.error("Could not fetch or parse agents data:", error);
+            agentsContainer.innerHTML = '<p class="text-center text-red-400">Error loading agents. Please try again later.</p>';
+          }
+        }
 
-            // Search button click handler
-            searchButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                filterAgents();
-            });
+        function filterAndRenderAgents() {
+          selectedType = typeFilter.value;
+          selectedScale = scaleFilter.value;
+          selectedCategory = categoryFilter.value;
+          const searchTerm = searchInput.value.toLowerCase(); // Ensure searchTerm is defined here
+          const sortBy = sortByFilter.value; // Ensure sortBy is defined here
 
-            // Enter key handler for search input
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    filterAgents();
-                }
-            });
+          let filtered = allAgents.filter((agent) => {
+            const matchesType = selectedType ? agent.agentType === selectedType : true;
+            const matchesScale = selectedScale ? agent.agentScale === selectedScale : true;
+            const matchesCategory = selectedCategory ? agent.category === selectedCategory : true;
+            const matchesSearch = searchTerm
+              ? agent.name.toLowerCase().includes(searchTerm) ||
+                (agent.description && agent.description.toLowerCase().includes(searchTerm)) ||
+                (agent.tags && agent.tags.some(tag => tag.toLowerCase().includes(searchTerm))) ||
+                (agent.category && agent.category.toLowerCase().includes(searchTerm)) ||
+                (agent.agentType && agent.agentType.toLowerCase().includes(searchTerm)) ||
+                (agent.agentScale && agent.agentScale.toLowerCase().includes(searchTerm)) ||
+                (agent.subcategory && agent.subcategory.toLowerCase().includes(searchTerm))
+              : true;
+            return matchesType && matchesScale && matchesCategory && matchesSearch;
+          });
 
-            function filterAgents() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const agentsGrid = document.getElementById('agentsGrid');
-                agentsGrid.innerHTML = ''; // Clear existing cards
+          // Sort the filtered agents
+          if (sortBy === "name") {
+            filtered.sort((a, b) => a.name.localeCompare(b.name));
+          } else if (sortBy === "rating") {
+            filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+          } else if (sortBy === "visits") {
+            filtered.sort((a,b) => (getVisitCount(b.id) || 0) - (getVisitCount(a.id) || 0));
+          } else if (sortBy === "recent") {
+            filtered.sort((a,b) => (b.id || 0) - (a.id || 0)); 
+          } else if (sortBy === "popular") {
+            filtered.sort((a,b) => (getVisitCount(b.id) || 0) - (getVisitCount(a.id) || 0));
+          }
 
-                let filteredData = agentsData.filter(agent => {
-                    const matchesSearch = agent.name.toLowerCase().includes(searchTerm) ||
-                                       agent.description.toLowerCase().includes(searchTerm);
-                    const matchesType = !selectedType || agent.type === selectedType;
-                    const matchesScale = !selectedScale || agent.scale === selectedScale;
-                    const matchesCategory = !selectedCategory || agent.category === selectedCategory;
+          renderAgents(filtered);
+          updateFiltersVisibility();
+        }
 
-                    return matchesSearch && matchesType && matchesScale && matchesCategory;
-                });
-
-                // Sort the filtered data
-                const sortBy = sortByFilter.value;
-                if (sortBy === 'visits') {
-                    filteredData.sort((a, b) => getVisitCount(b.id) - getVisitCount(a.id));
-                } else if (sortBy === 'name') {
-                    filteredData.sort((a, b) => a.name.localeCompare(b.name));
-                }
-
-                // Display the filtered and sorted agents
-                if (filteredData.length === 0) {
-                    agentsGrid.innerHTML = `
-                        <div class="col-span-full text-center py-8">
-                            <p class="text-gray-400">No agents found matching your criteria.</p>
-                        </div>
-                    `;
-                } else {
-                    filteredData.forEach(agent => {
-                        const card = createAgentCard(agent);
-                        agentsGrid.appendChild(card);
-                    });
-                }
-
-                // Update active filters count
-                const activeFiltersCount = document.getElementById('activeFiltersCount');
-                const count = [selectedType, selectedScale, selectedCategory, sortBy].filter(Boolean).length;
-                if (count > 0) {
-                    activeFiltersCount.textContent = count;
-                    activeFiltersCount.parentElement.classList.remove('hidden');
-                } else {
-                    activeFiltersCount.parentElement.classList.add('hidden');
-                }
-            }
-
-            // Clear filters button click handler
-            clearFiltersButton.addEventListener('click', function() {
-                // Reset all filters
-                searchInput.value = '';
-                typeFilter.value = '';
-                scaleFilter.value = '';
-                categoryFilter.value = '';
-                sortByFilter.value = '';
-                
-                // Reset variables
-                selectedType = '';
-                selectedScale = '';
-                selectedCategory = '';
-
-                // Update UI
-                updateFiltersVisibility();
-                filterAgents();
-            });
-
-            // Add change listeners to all filters
-            [typeFilter, scaleFilter, categoryFilter, sortByFilter].forEach(filter => {
-                filter.addEventListener('change', function() {
-                    updateFiltersVisibility();
-                });
-            });
-
-            searchInput.addEventListener('input', function() {
-                updateFiltersVisibility();
-            });
-
-            function updateFiltersVisibility() {
-                const hasActiveFilters = 
-                    searchInput.value || 
-                    typeFilter.value || 
-                    scaleFilter.value || 
-                    categoryFilter.value || 
-                    sortByFilter.value;
-
-                if (hasActiveFilters) {
-                    clearFiltersButton.classList.remove('hidden');
-                } else {
-                    clearFiltersButton.classList.add('hidden');
-                }
-
-                // Add visual feedback for active dropdowns
-                [typeFilter, scaleFilter, categoryFilter, sortByFilter].forEach(filter => {
-                    if (filter.value) {
-                        filter.classList.add('border-amber-500');
-                    } else {
-                        filter.classList.remove('border-amber-500');
-                    }
-                });
-            }
-
-            // Initial load with no filters
-            filterAgents();
+        // Search button click handler
+        searchButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          filterAndRenderAgents();
         });
+
+        // Enter key handler for search input
+        searchInput.addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            filterAndRenderAgents(); // Call the main function
+          }
+        });
+
+        // Add change listeners to filters to call filterAndRenderAgents
+        [typeFilter, scaleFilter, categoryFilter, sortByFilter].forEach((filter) => {
+          filter.addEventListener("change", filterAndRenderAgents);
+        });
+
+        // Add change listeners to all filters
+        [typeFilter, scaleFilter, categoryFilter, sortByFilter].forEach((filter) => {
+          filter.addEventListener("change", function () {
+            updateFiltersVisibility();
+          });
+        });
+
+        searchInput.addEventListener("input", function () {
+          updateFiltersVisibility();
+        });
+
+        clearFiltersButton.addEventListener("click", function () {
+          searchInput.value = '';
+          typeFilter.value = '';
+          scaleFilter.value = '';
+          categoryFilter.value = '';
+          sortByFilter.value = ''; // Reset sort to default 'Sort By' (empty value)
+
+
+          filterAndRenderAgents(); // This will re-filter, re-render, and update visibility/counts
+        });
+
+        function updateFeaturedAgentsTitle() {
+          const titleElement = document.getElementById("featuredAgentsTitle");
+          const subtitleElement = document.getElementById("featuredAgentsSubtitle");
+          const categoryValue = categoryFilter.value;
+
+          // Map of category names to their descriptive subtitles
+          const categoryDescriptions = {
+            "Data Analysis & Research": "Analyze data, conduct research, and gain valuable insights.",
+            "Productivity & Organization": "Organize your work and boost efficiency with AI-powered tools.",
+            "Automation & Utilities": "Automate tasks, access helpful utilities, and streamline workflows.",
+            "Creative Content & Design": "Unleash creativity with AI tools for design, writing, and content generation.",
+            "default": "Discover our most popular and powerful AI agents, carefully curated to help you achieve more."
+          };
+
+          if (categoryValue) {
+            const selectedOption = Array.from(categoryFilter.options).find(option => option.value === categoryValue);
+            if (selectedOption) {
+              titleElement.textContent = `${selectedOption.text} Agents`;
+              subtitleElement.textContent = categoryDescriptions[selectedOption.text] || categoryDescriptions.default;
+            } else {
+              titleElement.textContent = "Filtered Agents"; // Fallback if option text not found
+              subtitleElement.textContent = categoryDescriptions.default;
+            }
+          } else {
+            titleElement.textContent = "Featured Agents";
+            subtitleElement.textContent = categoryDescriptions.default;
+          }
+        }
+
+        function updateActiveFiltersCount() {
+          const badge = document.getElementById('activeFiltersCountBadge');
+          if (!badge) return; // Exit if the badge element isn't found
+
+          // Count active filters
+
+          let activeCount = 0;
+          if (searchInput.value.trim() !== '') activeCount++;
+          if (typeFilter.value !== '') activeCount++;
+          if (scaleFilter.value !== '') activeCount++;
+          if (categoryFilter.value !== '') activeCount++;
+          // Assuming the default value for sortFilter is an empty string or a specific value like 'popular'
+          // If 'Sort By' (empty value) is not the default, adjust this condition
+          if (sortFilter.value !== '') activeCount++; 
+
+          // Update badge text and visibility
+          if (activeCount > 0) {
+            badge.textContent = activeCount;
+            badge.classList.remove('hidden');
+          } else {
+            badge.classList.add('hidden');
+          }
+        }
+
+        function updateFiltersVisibility() {
+          const mainHero = document.getElementById('mainHeroSection');
+          const searchFilterArea = document.getElementById('searchFilterSection');
+
+          if (categoryFilter.value) {
+            if (mainHero) mainHero.classList.add('hidden');
+            if (searchFilterArea) searchFilterArea.classList.add('hidden');
+          } else {
+            if (mainHero) mainHero.classList.remove('hidden');
+            if (searchFilterArea) searchFilterArea.classList.remove('hidden');
+          }
+
+          const hasActiveFilters =
+            searchInput.value || typeFilter.value || scaleFilter.value || categoryFilter.value || sortByFilter.value;
+
+          if (hasActiveFilters) {
+            clearFiltersButton.classList.remove("hidden");
+          } else {
+            clearFiltersButton.classList.add("hidden");
+          }
+
+          [typeFilter, scaleFilter, categoryFilter, sortByFilter].forEach((filter) => {
+            if (filter.value) {
+              filter.classList.add("border-amber-500"); // Highlight active filters
+            } else {
+              filter.classList.remove("border-amber-500");
+            }
+          });
+
+          updateFeaturedAgentsTitle();
+          updateActiveFiltersCount();
+        }
+
+        // Initial load: fetch data, populate filters, and render all agents
+        fetchDataAndInitialize();
+      });
     </script>
-</body>
+  </body>
 </html>

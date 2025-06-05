@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const navHTML = `
+document.addEventListener("DOMContentLoaded", function () {
+  const navHTML = `
     <header class="fixed w-full top-0 z-50 bg-gray-900/80 backdrop-blur-sm">
         <!-- Desktop Navigation -->
         <nav class="desktop-nav hidden md:flex max-w-6xl mx-auto justify-between items-center p-4">
@@ -42,23 +42,23 @@ document.addEventListener('DOMContentLoaded', function() {
     </header>
     `;
 
-    // Insert navigation
-    document.getElementById('nav-placeholder').innerHTML = navHTML;
+  // Insert navigation
+  document.getElementById("nav-placeholder").innerHTML = navHTML;
 
-    // Mobile menu toggle
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
+  // Mobile menu toggle
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuClose = document.getElementById("mobile-menu-close");
 
-    if (mobileMenuToggle && mobileMenu && mobileMenuClose) {
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+  if (mobileMenuToggle && mobileMenu && mobileMenuClose) {
+    mobileMenuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
 
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
-    }
+    mobileMenuClose.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
+  }
 });
 
 // Footer HTML template
@@ -111,4 +111,4 @@ const footerHTML = `
 `;
 
 // Insert footer
-document.getElementById('footer-placeholder').innerHTML = footerHTML;
+document.getElementById("footer-placeholder").innerHTML = footerHTML;

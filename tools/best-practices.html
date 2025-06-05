@@ -1,237 +1,289 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Best Practices - AI Agentopia</title>
-    <meta name="description" content="Best practices and guidelines for building effective AI agents">
-    <link rel="stylesheet" href="../css/styles.css">
+    <meta name="description" content="Best practices and guidelines for building effective AI agents" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="dark-mode">
+  </head>
+  <body class="dark-mode">
     <!-- Navigation will be included via JavaScript -->
     <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="relative pt-24 pb-16 mb-12 overflow-hidden bg-transparent">
-        <!-- Background layers -->
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800"></div>
-        <div class="absolute inset-0">
-            <svg class="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
-                <!-- Same SVG pattern -->
-                <defs>
-                    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                        <circle cx="2" cy="2" r="2" fill="rgba(251, 191, 36, 0.15)"/>
-                    </pattern>
-                    <pattern id="connections" width="100" height="100" patternUnits="userSpaceOnUse">
-                        <path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(251, 191, 36, 0.1)" stroke-width="1"/>
-                        <path d="M50 0 L50 100 M0 50 L100 50" stroke="rgba(251, 191, 36, 0.07)" stroke-width="1"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)"/>
-                <rect width="100%" height="100%" fill="url(#connections)"/>
-            </svg>
-        </div>
-        
-        <!-- Content -->
-        <div class="container relative mx-auto px-4 z-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200">
-                Best Practices
-            </h1>
-            <p class="text-xl text-center text-gray-300 max-w-3xl mx-auto mb-8">
-                Guidelines and recommendations for building effective AI agents
-            </p>
-        </div>
+      <!-- Background layers -->
+      <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800"></div>
+      <div class="absolute inset-0">
+        <svg class="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+          <!-- Same SVG pattern -->
+          <defs>
+            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="2" fill="rgba(251, 191, 36, 0.15)" />
+            </pattern>
+            <pattern id="connections" width="100" height="100" patternUnits="userSpaceOnUse">
+              <path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(251, 191, 36, 0.1)" stroke-width="1" />
+              <path d="M50 0 L50 100 M0 50 L100 50" stroke="rgba(251, 191, 36, 0.07)" stroke-width="1" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+          <rect width="100%" height="100%" fill="url(#connections)" />
+        </svg>
+      </div>
+
+      <!-- Content -->
+      <div class="container relative mx-auto px-4 z-10">
+        <h1
+          class="text-4xl md:text-5xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200"
+        >
+          Best Practices
+        </h1>
+        <p class="text-xl text-center text-gray-300 max-w-3xl mx-auto mb-8">
+          Guidelines and recommendations for building effective AI agents
+        </p>
+      </div>
     </section>
 
     <!-- Back to Resources Navigation -->
     <div class="container mx-auto px-6 pt-8">
-        <div class="max-w-4xl mx-auto">
-            <nav class="text-sm mb-4">
-                <a href="../resources.html" class="text-amber-400 hover:text-amber-300">← Back to Resources</a>
-            </nav>
-        </div>
+      <div class="max-w-4xl mx-auto">
+        <nav class="text-sm mb-4">
+          <a href="../resources.html" class="text-amber-400 hover:text-amber-300">← Back to Resources</a>
+        </nav>
+      </div>
     </div>
-    
+
     <!-- Table of Contents -->
     <div class="container mx-auto px-6 py-8">
-        <div class="max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-12">
-            <h2 class="text-2xl font-bold text-amber-400 mb-4">Table of Contents</h2>
-            <ul class="space-y-2">
-                <li>
-                    <a href="#design-principles" class="text-amber-400 hover:text-amber-300">Design Principles</a>
-                </li>
-                <li>
-                    <a href="#prompt-engineering" class="text-amber-400 hover:text-amber-300">Prompt Engineering</a>
-                </li>
-                <li>
-                    <a href="#tool-integration" class="text-amber-400 hover:text-amber-300">Tool Integration</a>
-                </li>
-                <li>
-                    <a href="#security" class="text-amber-400 hover:text-amber-300">Security Considerations</a>
-                </li>
-                <li>
-                    <a href="#testing" class="text-amber-400 hover:text-amber-300">Testing Strategies</a>
-                </li>
-                <li>
-                    <a href="#ethics" class="text-amber-400 hover:text-amber-300">Ethical Guidelines</a>
-                </li>
-                <li>
-                    <a href="#performance" class="text-amber-400 hover:text-amber-300">Performance Optimization</a>
-                </li>
-            </ul>
-        </div>
+      <div class="max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-12">
+        <h2 class="text-2xl font-bold text-amber-400 mb-4">Table of Contents</h2>
+        <ul class="space-y-2">
+          <li>
+            <a href="#design-principles" class="text-amber-400 hover:text-amber-300">Design Principles</a>
+          </li>
+          <li>
+            <a href="#prompt-engineering" class="text-amber-400 hover:text-amber-300">Prompt Engineering</a>
+          </li>
+          <li>
+            <a href="#tool-integration" class="text-amber-400 hover:text-amber-300">Tool Integration</a>
+          </li>
+          <li>
+            <a href="#security" class="text-amber-400 hover:text-amber-300">Security Considerations</a>
+          </li>
+          <li>
+            <a href="#testing" class="text-amber-400 hover:text-amber-300">Testing Strategies</a>
+          </li>
+          <li>
+            <a href="#ethics" class="text-amber-400 hover:text-amber-300">Ethical Guidelines</a>
+          </li>
+          <li>
+            <a href="#performance" class="text-amber-400 hover:text-amber-300">Performance Optimization</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <main class="container mx-auto px-6 py-12 flex-grow">
-        <div class="max-w-4xl mx-auto">
-            <article class="prose prose-lg prose-invert mx-auto">
-                <!-- Design Principles Section -->
-                <section id="design-principles">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Design Principles</h2>
-                    <p class="mb-6">Effective AI agents follow key design principles that ensure they provide value while maintaining reliability and usability. These principles serve as a foundation for all agent development in the Agentopia ecosystem.</p>
-                    
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <!-- Purpose-Driven Design -->
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h3 class="text-xl font-bold mb-4 text-amber-400">Purpose-Driven Design</h3>
-                            <p>Every agent should have a clear, well-defined purpose that addresses specific user needs.</p>
-                            <ul class="list-disc pl-5 space-y-2 mt-4">
-                                <li>Define a clear problem statement</li>
-                                <li>Focus on specific use cases</li>
-                                <li>Avoid feature creep</li>
-                                <li>Prioritize user outcomes</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- User-Centric Approach -->
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h3 class="text-xl font-bold mb-4 text-amber-400">User-Centric Approach</h3>
-                            <p>Design agents with the user's needs, expectations, and limitations in mind.</p>
-                            <ul class="list-disc pl-5 space-y-2 mt-4">
-                                <li>Conduct user research</li>
-                                <li>Create user personas</li>
-                                <li>Design intuitive interactions</li>
-                                <li>Provide clear feedback mechanisms</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <!-- Modularity -->
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h3 class="text-xl font-bold mb-4 text-amber-400">Modularity</h3>
-                            <p>Build agents with modular components that can be reused, replaced, or extended.</p>
-                            <ul class="list-disc pl-5 space-y-2 mt-4">
-                                <li>Separate concerns</li>
-                                <li>Create reusable components</li>
-                                <li>Design clean interfaces</li>
-                                <li>Enable easy integration</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Transparency -->
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h3 class="text-xl font-bold mb-4 text-amber-400">Transparency</h3>
-                            <p>Make agent behavior and decision-making processes transparent to users.</p>
-                            <ul class="list-disc pl-5 space-y-2 mt-4">
-                                <li>Explain agent capabilities</li>
-                                <li>Provide reasoning for decisions</li>
-                                <li>Disclose limitations</li>
-                                <li>Make data usage clear</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4">Design Principles Checklist</h3>
-                        <p class="mb-4">Use this checklist to evaluate your agent design:</p>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        <span>Does the agent have a clear purpose?</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        <span>Is the agent designed with users in mind?</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        <span>Is the architecture modular?</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        <span>Is the agent behavior transparent?</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        <span>Does the agent provide feedback?</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        <span>Can the agent be extended or modified?</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+      <div class="max-w-4xl mx-auto">
+        <article class="prose prose-lg prose-invert mx-auto">
+          <!-- Design Principles Section -->
+          <section id="design-principles">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Design Principles</h2>
+            <p class="mb-6">
+              Effective AI agents follow key design principles that ensure they provide value while maintaining
+              reliability and usability. These principles serve as a foundation for all agent development in the
+              Agentopia ecosystem.
+            </p>
 
-                <!-- Prompt Engineering Section -->
-                <section id="prompt-engineering" class="mt-12">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Prompt Engineering</h2>
-                    <p class="mb-6">Effective prompt engineering is crucial for creating AI agents that perform reliably and produce high-quality outputs. The following best practices will help you design prompts that maximize your agent's capabilities.</p>
-                    
-                    <h3 class="text-xl font-bold mb-4">Core Principles</h3>
-                    <div class="grid md:grid-cols-3 gap-4 mb-8">
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Be Specific</h4>
-                            <p>Provide clear, detailed instructions that leave no room for ambiguity.</p>
-                            <div class="mt-4 text-sm text-gray-400">
-                                <p>Example: Instead of "Generate a summary," use "Generate a 3-paragraph summary highlighting the key arguments, evidence, and conclusions."</p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Structure Matters</h4>
-                            <p>Organize prompts logically with clear sections and formatting.</p>
-                            <div class="mt-4 text-sm text-gray-400">
-                                <p>Example: Use numbered lists, sections with headers, and explicit markers for different parts of the prompt.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Provide Context</h4>
-                            <p>Include relevant background information and constraints.</p>
-                            <div class="mt-4 text-sm text-gray-400">
-                                <p>Example: "You are helping a beginner programmer understand Python. Use simple explanations and avoid advanced concepts."</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Prompt Templates</h3>
-                    <p class="mb-4">Using consistent prompt templates improves reliability and makes your agents easier to maintain. Here's a recommended structure:</p>
-                    
-                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                        <pre><code class="text-amber-400">### Role and Goal
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+              <!-- Purpose-Driven Design -->
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h3 class="text-xl font-bold mb-4 text-amber-400">Purpose-Driven Design</h3>
+                <p>Every agent should have a clear, well-defined purpose that addresses specific user needs.</p>
+                <ul class="list-disc pl-5 space-y-2 mt-4">
+                  <li>Define a clear problem statement</li>
+                  <li>Focus on specific use cases</li>
+                  <li>Avoid feature creep</li>
+                  <li>Prioritize user outcomes</li>
+                </ul>
+              </div>
+
+              <!-- User-Centric Approach -->
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h3 class="text-xl font-bold mb-4 text-amber-400">User-Centric Approach</h3>
+                <p>Design agents with the user's needs, expectations, and limitations in mind.</p>
+                <ul class="list-disc pl-5 space-y-2 mt-4">
+                  <li>Conduct user research</li>
+                  <li>Create user personas</li>
+                  <li>Design intuitive interactions</li>
+                  <li>Provide clear feedback mechanisms</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+              <!-- Modularity -->
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h3 class="text-xl font-bold mb-4 text-amber-400">Modularity</h3>
+                <p>Build agents with modular components that can be reused, replaced, or extended.</p>
+                <ul class="list-disc pl-5 space-y-2 mt-4">
+                  <li>Separate concerns</li>
+                  <li>Create reusable components</li>
+                  <li>Design clean interfaces</li>
+                  <li>Enable easy integration</li>
+                </ul>
+              </div>
+
+              <!-- Transparency -->
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h3 class="text-xl font-bold mb-4 text-amber-400">Transparency</h3>
+                <p>Make agent behavior and decision-making processes transparent to users.</p>
+                <ul class="list-disc pl-5 space-y-2 mt-4">
+                  <li>Explain agent capabilities</li>
+                  <li>Provide reasoning for decisions</li>
+                  <li>Disclose limitations</li>
+                  <li>Make data usage clear</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4">Design Principles Checklist</h3>
+              <p class="mb-4">Use this checklist to evaluate your agent design:</p>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>Does the agent have a clear purpose?</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>Is the agent designed with users in mind?</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>Is the architecture modular?</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>Is the agent behavior transparent?</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>Does the agent provide feedback?</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg class="h-6 w-6 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>Can the agent be extended or modified?</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Prompt Engineering Section -->
+          <section id="prompt-engineering" class="mt-12">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Prompt Engineering</h2>
+            <p class="mb-6">
+              Effective prompt engineering is crucial for creating AI agents that perform reliably and produce
+              high-quality outputs. The following best practices will help you design prompts that maximize your agent's
+              capabilities.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4">Core Principles</h3>
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Be Specific</h4>
+                <p>Provide clear, detailed instructions that leave no room for ambiguity.</p>
+                <div class="mt-4 text-sm text-gray-400">
+                  <p>
+                    Example: Instead of "Generate a summary," use "Generate a 3-paragraph summary highlighting the key
+                    arguments, evidence, and conclusions."
+                  </p>
+                </div>
+              </div>
+
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Structure Matters</h4>
+                <p>Organize prompts logically with clear sections and formatting.</p>
+                <div class="mt-4 text-sm text-gray-400">
+                  <p>
+                    Example: Use numbered lists, sections with headers, and explicit markers for different parts of the
+                    prompt.
+                  </p>
+                </div>
+              </div>
+
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Provide Context</h4>
+                <p>Include relevant background information and constraints.</p>
+                <div class="mt-4 text-sm text-gray-400">
+                  <p>
+                    Example: "You are helping a beginner programmer understand Python. Use simple explanations and avoid
+                    advanced concepts."
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Prompt Templates</h3>
+            <p class="mb-4">
+              Using consistent prompt templates improves reliability and makes your agents easier to maintain. Here's a
+              recommended structure:
+            </p>
+
+            <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+              <pre><code class="text-amber-400">### Role and Goal
 [Define the agent's role and primary objective]
 
 ### Constraints
@@ -245,12 +297,12 @@
 
 ### Examples
 [Include sample interactions to illustrate expected behavior]</code></pre>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">Example: Research Assistant Prompt</h3>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">### Role and Goal
+            </div>
+
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Example: Research Assistant Prompt</h3>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">### Role and Goal
 You are a Research Assistant specialized in environmental science. Your goal is to help users find, analyze, and summarize scientific information about climate change and sustainability.
 
 ### Constraints
@@ -275,120 +327,150 @@ Your responses should follow this structure:
 
 ### Examples
 [Example interaction showing question and properly formatted response]</code></pre>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Common Pitfalls to Avoid</h3>
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Vague Instructions:</span> Ambiguous prompts lead to inconsistent outputs. Be specific about what you want.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Contradictory Requirements:</span> Ensure your instructions don't contain conflicting demands.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Overloading:</span> Trying to make one prompt do too many different tasks reduces effectiveness.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Neglecting Edge Cases:</span> Failing to account for unusual inputs or scenarios.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
+              </div>
+            </div>
 
-                <!-- Tool Integration Section -->
-                <section id="tool-integration" class="mt-12">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Tool Integration</h2>
-                    <p class="mb-6">Integrating tools with your AI agents significantly expands their capabilities, allowing them to interact with external systems, access specialized knowledge, and perform actions in the real world. This section covers best practices for effective tool integration.</p>
-                    
-                    <h3 class="text-xl font-bold mb-4">Tool Selection Principles</h3>
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h3 class="text-xl font-bold mb-4 text-amber-400">Purpose Alignment</h3>
-                            <p>Select tools that directly support your agent's core purpose and user needs.</p>
-                            <ul class="list-disc pl-5 space-y-2 mt-4">
-                                <li>Identify key user tasks that require external capabilities</li>
-                                <li>Prioritize tools that address frequent use cases</li>
-                                <li>Avoid tool bloat that can confuse the agent</li>
-                                <li>Consider the value-to-complexity ratio</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h3 class="text-xl font-bold mb-4 text-amber-400">Reliability & Performance</h3>
-                            <p>Choose tools that are dependable, well-maintained, and performant.</p>
-                            <ul class="list-disc pl-5 space-y-2 mt-4">
-                                <li>Evaluate tool uptime and reliability history</li>
-                                <li>Consider response time requirements</li>
-                                <li>Test performance under varying load conditions</li>
-                                <li>Have fallback mechanisms for critical tools</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Tool Integration Patterns</h3>
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full">
-                                <thead>
-                                    <tr class="border-b border-gray-700">
-                                        <th class="py-2 px-4 text-left text-amber-400">Pattern</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">Description</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">Best For</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Function Calling</td>
-                                        <td class="py-2 px-4">Agent explicitly invokes tools as functions with structured inputs/outputs</td>
-                                        <td class="py-2 px-4">Precise control, complex workflows, data manipulation</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Retrieval Augmentation</td>
-                                        <td class="py-2 px-4">Tools retrieve information that augments the agent's knowledge</td>
-                                        <td class="py-2 px-4">Knowledge-intensive tasks, up-to-date information needs</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Autonomous Tool Selection</td>
-                                        <td class="py-2 px-4">Agent decides which tools to use based on the task</td>
-                                        <td class="py-2 px-4">Complex problem-solving, varied user requests</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 px-4 font-medium">Chained Tool Use</td>
-                                        <td class="py-2 px-4">Agent uses multiple tools in sequence to complete a task</td>
-                                        <td class="py-2 px-4">Multi-step workflows, complex data transformations</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Tool Documentation</h3>
-                    <p class="mb-4">Proper tool documentation is essential for effective integration. Each tool should have:</p>
-                    
-                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                        <pre><code class="text-amber-400">{
+            <h3 class="text-xl font-bold mb-4">Common Pitfalls to Avoid</h3>
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-red-500 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Vague Instructions:</span> Ambiguous prompts lead to inconsistent outputs.
+                    Be specific about what you want.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-red-500 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Contradictory Requirements:</span> Ensure your instructions don't contain
+                    conflicting demands.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-red-500 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Overloading:</span> Trying to make one prompt do too many different tasks
+                    reduces effectiveness.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-red-500 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Neglecting Edge Cases:</span> Failing to account for unusual inputs or
+                    scenarios.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Tool Integration Section -->
+          <section id="tool-integration" class="mt-12">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Tool Integration</h2>
+            <p class="mb-6">
+              Integrating tools with your AI agents significantly expands their capabilities, allowing them to interact
+              with external systems, access specialized knowledge, and perform actions in the real world. This section
+              covers best practices for effective tool integration.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4">Tool Selection Principles</h3>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h3 class="text-xl font-bold mb-4 text-amber-400">Purpose Alignment</h3>
+                <p>Select tools that directly support your agent's core purpose and user needs.</p>
+                <ul class="list-disc pl-5 space-y-2 mt-4">
+                  <li>Identify key user tasks that require external capabilities</li>
+                  <li>Prioritize tools that address frequent use cases</li>
+                  <li>Avoid tool bloat that can confuse the agent</li>
+                  <li>Consider the value-to-complexity ratio</li>
+                </ul>
+              </div>
+
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h3 class="text-xl font-bold mb-4 text-amber-400">Reliability & Performance</h3>
+                <p>Choose tools that are dependable, well-maintained, and performant.</p>
+                <ul class="list-disc pl-5 space-y-2 mt-4">
+                  <li>Evaluate tool uptime and reliability history</li>
+                  <li>Consider response time requirements</li>
+                  <li>Test performance under varying load conditions</li>
+                  <li>Have fallback mechanisms for critical tools</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Tool Integration Patterns</h3>
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <div class="overflow-x-auto">
+                <table class="min-w-full">
+                  <thead>
+                    <tr class="border-b border-gray-700">
+                      <th class="py-2 px-4 text-left text-amber-400">Pattern</th>
+                      <th class="py-2 px-4 text-left text-amber-400">Description</th>
+                      <th class="py-2 px-4 text-left text-amber-400">Best For</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Function Calling</td>
+                      <td class="py-2 px-4">
+                        Agent explicitly invokes tools as functions with structured inputs/outputs
+                      </td>
+                      <td class="py-2 px-4">Precise control, complex workflows, data manipulation</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Retrieval Augmentation</td>
+                      <td class="py-2 px-4">Tools retrieve information that augments the agent's knowledge</td>
+                      <td class="py-2 px-4">Knowledge-intensive tasks, up-to-date information needs</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Autonomous Tool Selection</td>
+                      <td class="py-2 px-4">Agent decides which tools to use based on the task</td>
+                      <td class="py-2 px-4">Complex problem-solving, varied user requests</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 px-4 font-medium">Chained Tool Use</td>
+                      <td class="py-2 px-4">Agent uses multiple tools in sequence to complete a task</td>
+                      <td class="py-2 px-4">Multi-step workflows, complex data transformations</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Tool Documentation</h3>
+            <p class="mb-4">Proper tool documentation is essential for effective integration. Each tool should have:</p>
+
+            <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+              <pre><code class="text-amber-400">{
   "name": "search_web",
   "description": "Search the web for current information on a specific topic",
   "parameters": {
@@ -424,129 +506,161 @@ Your responses should follow this structure:
     }
   ]
 }</code></pre>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4">Tool Integration Best Practices</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Clear Tool Boundaries:</span> Each tool should have a single, well-defined responsibility.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Error Handling:</span> Implement robust error handling for all tool interactions.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Versioning:</span> Maintain version compatibility between agents and tools.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Rate Limiting:</span> Implement rate limiting to prevent abuse and manage resource usage.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Monitoring:</span> Track tool usage, performance, and error rates.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
+            </div>
 
-                <!-- Security Considerations Section -->
-                <section id="security" class="mt-12">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Security Considerations</h2>
-                    <p class="mb-6">Security is a critical aspect of AI agent development. Implementing robust security measures protects users, their data, and the systems your agents interact with. This section outlines key security considerations and best practices.</p>
-                    
-                    <h3 class="text-xl font-bold mb-4">Key Security Principles</h3>
-                    <div class="grid md:grid-cols-3 gap-4 mb-8">
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Least Privilege</h4>
-                            <p>Grant agents only the minimum permissions needed to perform their functions.</p>
-                            <div class="mt-4 text-sm text-gray-400">
-                                <p>Example: If an agent only needs to read files, don't give it write permissions.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Defense in Depth</h4>
-                            <p>Implement multiple layers of security controls to protect against various threats.</p>
-                            <div class="mt-4 text-sm text-gray-400">
-                                <p>Example: Combine input validation, output sanitization, and runtime monitoring.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Secure by Default</h4>
-                            <p>Design systems to be secure in their default configuration.</p>
-                            <div class="mt-4 text-sm text-gray-400">
-                                <p>Example: All sensitive operations require explicit authorization by default.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Common Security Risks</h3>
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full">
-                                <thead>
-                                    <tr class="border-b border-gray-700">
-                                        <th class="py-2 px-4 text-left text-amber-400">Risk</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">Description</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">Mitigation</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Prompt Injection</td>
-                                        <td class="py-2 px-4">Malicious inputs that manipulate agent behavior</td>
-                                        <td class="py-2 px-4">Input validation, context boundaries, instruction filtering</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Data Leakage</td>
-                                        <td class="py-2 px-4">Unintended exposure of sensitive information</td>
-                                        <td class="py-2 px-4">Data minimization, output filtering, PII detection</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Unauthorized Actions</td>
-                                        <td class="py-2 px-4">Agent performing actions without proper authorization</td>
-                                        <td class="py-2 px-4">Permission systems, user confirmation, action logging</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 px-4 font-medium">Supply Chain Attacks</td>
-                                        <td class="py-2 px-4">Compromised dependencies or third-party tools</td>
-                                        <td class="py-2 px-4">Dependency scanning, vendor assessment, integrity verification</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Implementing Secure Authentication</h3>
-                    <p class="mb-4">Proper authentication is essential for securing agent interactions:</p>
-                    
-                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                        <pre><code class="text-amber-400">// Example: Secure API Key Management in Node.js
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4">Tool Integration Best Practices</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Clear Tool Boundaries:</span> Each tool should have a single, well-defined
+                    responsibility.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Error Handling:</span> Implement robust error handling for all tool
+                    interactions.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Versioning:</span> Maintain version compatibility between agents and tools.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Rate Limiting:</span> Implement rate limiting to prevent abuse and manage
+                    resource usage.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div><span class="font-bold">Monitoring:</span> Track tool usage, performance, and error rates.</div>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Security Considerations Section -->
+          <section id="security" class="mt-12">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">
+              Security Considerations
+            </h2>
+            <p class="mb-6">
+              Security is a critical aspect of AI agent development. Implementing robust security measures protects
+              users, their data, and the systems your agents interact with. This section outlines key security
+              considerations and best practices.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4">Key Security Principles</h3>
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Least Privilege</h4>
+                <p>Grant agents only the minimum permissions needed to perform their functions.</p>
+                <div class="mt-4 text-sm text-gray-400">
+                  <p>Example: If an agent only needs to read files, don't give it write permissions.</p>
+                </div>
+              </div>
+
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Defense in Depth</h4>
+                <p>Implement multiple layers of security controls to protect against various threats.</p>
+                <div class="mt-4 text-sm text-gray-400">
+                  <p>Example: Combine input validation, output sanitization, and runtime monitoring.</p>
+                </div>
+              </div>
+
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Secure by Default</h4>
+                <p>Design systems to be secure in their default configuration.</p>
+                <div class="mt-4 text-sm text-gray-400">
+                  <p>Example: All sensitive operations require explicit authorization by default.</p>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Common Security Risks</h3>
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <div class="overflow-x-auto">
+                <table class="min-w-full">
+                  <thead>
+                    <tr class="border-b border-gray-700">
+                      <th class="py-2 px-4 text-left text-amber-400">Risk</th>
+                      <th class="py-2 px-4 text-left text-amber-400">Description</th>
+                      <th class="py-2 px-4 text-left text-amber-400">Mitigation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Prompt Injection</td>
+                      <td class="py-2 px-4">Malicious inputs that manipulate agent behavior</td>
+                      <td class="py-2 px-4">Input validation, context boundaries, instruction filtering</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Data Leakage</td>
+                      <td class="py-2 px-4">Unintended exposure of sensitive information</td>
+                      <td class="py-2 px-4">Data minimization, output filtering, PII detection</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Unauthorized Actions</td>
+                      <td class="py-2 px-4">Agent performing actions without proper authorization</td>
+                      <td class="py-2 px-4">Permission systems, user confirmation, action logging</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 px-4 font-medium">Supply Chain Attacks</td>
+                      <td class="py-2 px-4">Compromised dependencies or third-party tools</td>
+                      <td class="py-2 px-4">Dependency scanning, vendor assessment, integrity verification</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Implementing Secure Authentication</h3>
+            <p class="mb-4">Proper authentication is essential for securing agent interactions:</p>
+
+            <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+              <pre><code class="text-amber-400">// Example: Secure API Key Management in Node.js
 const express = require('express');
 const app = express();
 
@@ -575,267 +689,333 @@ app.use('/agent/auth', rateLimit({
   max: 5, // 5 requests per window
   message: 'Too many authentication attempts, please try again later'
 }));</code></pre>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4">Security Checklist</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold mb-2">Input/Output Security</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Validate all user inputs</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Sanitize outputs to prevent information leakage</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Implement content filtering for harmful outputs</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Authentication & Authorization</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Use secure authentication methods</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Implement role-based access control</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Secure API keys and credentials</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-6">
-                            <h4 class="font-semibold mb-2">Monitoring & Incident Response</h4>
-                            <ul class="space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Implement comprehensive logging for all agent actions</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Set up alerts for suspicious behavior</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Develop an incident response plan for security breaches</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+            </div>
 
-                <!-- Testing Strategies Section -->
-                <section id="testing" class="mt-12">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Testing Strategies</h2>
-                    <p class="mb-6">Thorough testing is essential for developing reliable AI agents. This section outlines effective testing strategies and methodologies to ensure your agents perform as expected across various scenarios.</p>
-                    
-                    <h3 class="text-xl font-bold mb-4">Testing Pyramid for AI Agents</h3>
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <div class="flex justify-center mb-8">
-                            <div class="w-full max-w-md">
-                                <div class="relative">
-                                    <!-- Pyramid Level 1 (Top) -->
-                                    <div class="bg-amber-500/20 border border-amber-400 rounded-t-lg p-4 text-center mb-1 mx-auto" style="width: 50%">
-                                        <p class="font-bold">End-to-End Tests</p>
-                                        <p class="text-sm">10%</p>
-                                    </div>
-                                    <!-- Pyramid Level 2 (Middle) -->
-                                    <div class="bg-amber-500/20 border border-amber-400 p-4 text-center mb-1 mx-auto" style="width: 75%">
-                                        <p class="font-bold">Integration Tests</p>
-                                        <p class="text-sm">30%</p>
-                                    </div>
-                                    <!-- Pyramid Level 3 (Bottom) -->
-                                    <div class="bg-amber-500/20 border border-amber-400 rounded-b-lg p-4 text-center mx-auto" style="width: 100%">
-                                        <p class="font-bold">Unit Tests</p>
-                                        <p class="text-sm">60%</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="grid md:grid-cols-3 gap-4">
-                            <div>
-                                <h4 class="font-bold mb-2 text-amber-400">Unit Tests</h4>
-                                <p class="mb-2">Test individual components in isolation.</p>
-                                <ul class="list-disc pl-5 space-y-1 text-sm">
-                                    <li>Test prompt templates</li>
-                                    <li>Validate tool functions</li>
-                                    <li>Verify data processing</li>
-                                    <li>Fast and focused</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <h4 class="font-bold mb-2 text-amber-400">Integration Tests</h4>
-                                <p class="mb-2">Test interactions between components.</p>
-                                <ul class="list-disc pl-5 space-y-1 text-sm">
-                                    <li>Agent-tool interactions</li>
-                                    <li>Multi-step workflows</li>
-                                    <li>API integrations</li>
-                                    <li>Medium complexity</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <h4 class="font-bold mb-2 text-amber-400">End-to-End Tests</h4>
-                                <p class="mb-2">Test complete user scenarios.</p>
-                                <ul class="list-disc pl-5 space-y-1 text-sm">
-                                    <li>Full user journeys</li>
-                                    <li>Real-world scenarios</li>
-                                    <li>Performance validation</li>
-                                    <li>Complex but comprehensive</li>
-                                </ul>
-                            </div>
-                        </div>
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4">Security Checklist</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold mb-2">Input/Output Security</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Validate all user inputs</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Sanitize outputs to prevent information leakage</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Implement content filtering for harmful outputs</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Authentication & Authorization</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Use secure authentication methods</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Implement role-based access control</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Secure API keys and credentials</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="font-semibold mb-2">Monitoring & Incident Response</h4>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Implement comprehensive logging for all agent actions</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Set up alerts for suspicious behavior</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Develop an incident response plan for security breaches</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Testing Strategies Section -->
+          <section id="testing" class="mt-12">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Testing Strategies</h2>
+            <p class="mb-6">
+              Thorough testing is essential for developing reliable AI agents. This section outlines effective testing
+              strategies and methodologies to ensure your agents perform as expected across various scenarios.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4">Testing Pyramid for AI Agents</h3>
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <div class="flex justify-center mb-8">
+                <div class="w-full max-w-md">
+                  <div class="relative">
+                    <!-- Pyramid Level 1 (Top) -->
+                    <div
+                      class="bg-amber-500/20 border border-amber-400 rounded-t-lg p-4 text-center mb-1 mx-auto"
+                      style="width: 50%"
+                    >
+                      <p class="font-bold">End-to-End Tests</p>
+                      <p class="text-sm">10%</p>
                     </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Evaluation Metrics</h3>
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Functional Metrics</h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <div class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0">
-                                        <span class="text-sm font-bold">A</span>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">Accuracy:</span> Correctness of agent responses compared to ground truth
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0">
-                                        <span class="text-sm font-bold">P</span>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">Precision:</span> Proportion of relevant responses among all responses
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0">
-                                        <span class="text-sm font-bold">R</span>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">Recall:</span> Proportion of relevant items that are successfully retrieved
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0">
-                                        <span class="text-sm font-bold">F1</span>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">F1 Score:</span> Harmonic mean of precision and recall
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">User Experience Metrics</h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <div class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0">
-                                        <span class="text-sm font-bold">RT</span>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">Response Time:</span> Time taken to generate a response
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0">
-                                        <span class="text-sm font-bold">TC</span>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">Task Completion:</span> Percentage of tasks successfully completed
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0">
-                                        <span class="text-sm font-bold">US</span>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">User Satisfaction:</span> Subjective ratings from users
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0">
-                                        <span class="text-sm font-bold">ER</span>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">Error Rate:</span> Frequency of errors or failures
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                    <!-- Pyramid Level 2 (Middle) -->
+                    <div
+                      class="bg-amber-500/20 border border-amber-400 p-4 text-center mb-1 mx-auto"
+                      style="width: 75%"
+                    >
+                      <p class="font-bold">Integration Tests</p>
+                      <p class="text-sm">30%</p>
                     </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Testing Techniques</h3>
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full">
-                                <thead>
-                                    <tr class="border-b border-gray-700">
-                                        <th class="py-2 px-4 text-left text-amber-400">Technique</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">Description</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">When to Use</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Prompt Testing</td>
-                                        <td class="py-2 px-4">Systematically test different prompts with the same inputs</td>
-                                        <td class="py-2 px-4">When optimizing prompt templates</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Adversarial Testing</td>
-                                        <td class="py-2 px-4">Test with inputs designed to cause failures or unexpected behavior</td>
-                                        <td class="py-2 px-4">To identify security vulnerabilities</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">A/B Testing</td>
-                                        <td class="py-2 px-4">Compare two versions of an agent with real users</td>
-                                        <td class="py-2 px-4">When optimizing for user experience</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 px-4 font-medium">Simulation Testing</td>
-                                        <td class="py-2 px-4">Test agents in simulated environments</td>
-                                        <td class="py-2 px-4">For complex multi-step scenarios</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <!-- Pyramid Level 3 (Bottom) -->
+                    <div
+                      class="bg-amber-500/20 border border-amber-400 rounded-b-lg p-4 text-center mx-auto"
+                      style="width: 100%"
+                    >
+                      <p class="font-bold">Unit Tests</p>
+                      <p class="text-sm">60%</p>
                     </div>
-                    
-                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                        <pre><code class="text-amber-400">// Example: Unit Test for a Search Tool Function
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-3 gap-4">
+                <div>
+                  <h4 class="font-bold mb-2 text-amber-400">Unit Tests</h4>
+                  <p class="mb-2">Test individual components in isolation.</p>
+                  <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li>Test prompt templates</li>
+                    <li>Validate tool functions</li>
+                    <li>Verify data processing</li>
+                    <li>Fast and focused</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-bold mb-2 text-amber-400">Integration Tests</h4>
+                  <p class="mb-2">Test interactions between components.</p>
+                  <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li>Agent-tool interactions</li>
+                    <li>Multi-step workflows</li>
+                    <li>API integrations</li>
+                    <li>Medium complexity</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-bold mb-2 text-amber-400">End-to-End Tests</h4>
+                  <p class="mb-2">Test complete user scenarios.</p>
+                  <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li>Full user journeys</li>
+                    <li>Real-world scenarios</li>
+                    <li>Performance validation</li>
+                    <li>Complex but comprehensive</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Evaluation Metrics</h3>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Functional Metrics</h4>
+                <ul class="space-y-3">
+                  <li class="flex items-start">
+                    <div
+                      class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0"
+                    >
+                      <span class="text-sm font-bold">A</span>
+                    </div>
+                    <div>
+                      <span class="font-bold">Accuracy:</span> Correctness of agent responses compared to ground truth
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0"
+                    >
+                      <span class="text-sm font-bold">P</span>
+                    </div>
+                    <div>
+                      <span class="font-bold">Precision:</span> Proportion of relevant responses among all responses
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0"
+                    >
+                      <span class="text-sm font-bold">R</span>
+                    </div>
+                    <div>
+                      <span class="font-bold">Recall:</span> Proportion of relevant items that are successfully
+                      retrieved
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0"
+                    >
+                      <span class="text-sm font-bold">F1</span>
+                    </div>
+                    <div><span class="font-bold">F1 Score:</span> Harmonic mean of precision and recall</div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">User Experience Metrics</h4>
+                <ul class="space-y-3">
+                  <li class="flex items-start">
+                    <div
+                      class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0"
+                    >
+                      <span class="text-sm font-bold">RT</span>
+                    </div>
+                    <div><span class="font-bold">Response Time:</span> Time taken to generate a response</div>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0"
+                    >
+                      <span class="text-sm font-bold">TC</span>
+                    </div>
+                    <div>
+                      <span class="font-bold">Task Completion:</span> Percentage of tasks successfully completed
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0"
+                    >
+                      <span class="text-sm font-bold">US</span>
+                    </div>
+                    <div><span class="font-bold">User Satisfaction:</span> Subjective ratings from users</div>
+                  </li>
+                  <li class="flex items-start">
+                    <div
+                      class="bg-amber-500/20 text-amber-400 rounded-full h-6 w-6 flex items-center justify-center mr-2 flex-shrink-0"
+                    >
+                      <span class="text-sm font-bold">ER</span>
+                    </div>
+                    <div><span class="font-bold">Error Rate:</span> Frequency of errors or failures</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Testing Techniques</h3>
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <div class="overflow-x-auto">
+                <table class="min-w-full">
+                  <thead>
+                    <tr class="border-b border-gray-700">
+                      <th class="py-2 px-4 text-left text-amber-400">Technique</th>
+                      <th class="py-2 px-4 text-left text-amber-400">Description</th>
+                      <th class="py-2 px-4 text-left text-amber-400">When to Use</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Prompt Testing</td>
+                      <td class="py-2 px-4">Systematically test different prompts with the same inputs</td>
+                      <td class="py-2 px-4">When optimizing prompt templates</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Adversarial Testing</td>
+                      <td class="py-2 px-4">Test with inputs designed to cause failures or unexpected behavior</td>
+                      <td class="py-2 px-4">To identify security vulnerabilities</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">A/B Testing</td>
+                      <td class="py-2 px-4">Compare two versions of an agent with real users</td>
+                      <td class="py-2 px-4">When optimizing for user experience</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 px-4 font-medium">Simulation Testing</td>
+                      <td class="py-2 px-4">Test agents in simulated environments</td>
+                      <td class="py-2 px-4">For complex multi-step scenarios</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+              <pre><code class="text-amber-400">// Example: Unit Test for a Search Tool Function
 import { searchTool } from '../tools/search';
 import { expect, test, describe } from 'vitest';
 
@@ -877,185 +1057,225 @@ describe('Search Tool', () => {
     expect(results.length).toBeLessThanOrEqual(5);
   });
 });</code></pre>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4">Testing Best Practices</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Automate Testing:</span> Set up continuous integration pipelines to run tests automatically.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Test with Diverse Inputs:</span> Include edge cases, different languages, and various user personas.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Create Benchmark Datasets:</span> Develop standardized test sets for consistent evaluation.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Monitor in Production:</span> Implement logging and monitoring to catch issues in real-world use.
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div>
-                                    <span class="font-bold">Human Evaluation:</span> Combine automated tests with human review for subjective quality assessment.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
+            </div>
 
-                <!-- Ethical Guidelines Section -->
-                <section id="ethics" class="mt-12">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Ethical Guidelines</h2>
-                    <p class="mb-6">Building AI agents comes with significant ethical responsibilities. Following these guidelines helps ensure your agents have a positive impact and avoid potential harms.</p>
-                    
-                    <h3 class="text-xl font-bold mb-4">Core Ethical Principles</h3>
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Transparency</h4>
-                            <p class="mb-4">Users should understand when they're interacting with an AI agent and what its capabilities and limitations are.</p>
-                            <div class="border-t border-gray-700 pt-4">
-                                <h5 class="font-semibold mb-2">Implementation:</h5>
-                                <ul class="list-disc pl-5 space-y-1">
-                                    <li>Clearly disclose AI identity</li>
-                                    <li>Explain how data is used</li>
-                                    <li>Communicate limitations</li>
-                                    <li>Provide explanations for decisions</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Fairness & Inclusivity</h4>
-                            <p class="mb-4">AI agents should treat all users equitably and be designed to serve diverse populations.</p>
-                            <div class="border-t border-gray-700 pt-4">
-                                <h5 class="font-semibold mb-2">Implementation:</h5>
-                                <ul class="list-disc pl-5 space-y-1">
-                                    <li>Test for bias in responses</li>
-                                    <li>Use diverse training data</li>
-                                    <li>Consider accessibility needs</li>
-                                    <li>Support multiple languages</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Privacy & Data Protection</h4>
-                            <p class="mb-4">User data should be handled with care and protected from unauthorized access or misuse.</p>
-                            <div class="border-t border-gray-700 pt-4">
-                                <h5 class="font-semibold mb-2">Implementation:</h5>
-                                <ul class="list-disc pl-5 space-y-1">
-                                    <li>Minimize data collection</li>
-                                    <li>Implement strong encryption</li>
-                                    <li>Provide data deletion options</li>
-                                    <li>Obtain informed consent</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Safety & Harm Prevention</h4>
-                            <p class="mb-4">AI agents should be designed to prevent harm and prioritize user safety.</p>
-                            <div class="border-t border-gray-700 pt-4">
-                                <h5 class="font-semibold mb-2">Implementation:</h5>
-                                <ul class="list-disc pl-5 space-y-1">
-                                    <li>Filter harmful content</li>
-                                    <li>Implement content warnings</li>
-                                    <li>Provide emergency resources</li>
-                                    <li>Regular safety audits</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Ethical Decision Framework</h3>
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full">
-                                <thead>
-                                    <tr class="border-b border-gray-700">
-                                        <th class="py-2 px-4 text-left text-amber-400">Decision Stage</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">Key Questions</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">Considerations</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Design</td>
-                                        <td class="py-2 px-4">
-                                            <ul class="list-disc pl-5 space-y-1">
-                                                <li>Who is this agent for?</li>
-                                                <li>What values should it embody?</li>
-                                                <li>What harms could it cause?</li>
-                                            </ul>
-                                        </td>
-                                        <td class="py-2 px-4">Stakeholder analysis, value alignment, risk assessment</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Development</td>
-                                        <td class="py-2 px-4">
-                                            <ul class="list-disc pl-5 space-y-1">
-                                                <li>Is our data representative?</li>
-                                                <li>Are we testing for bias?</li>
-                                                <li>How do we handle edge cases?</li>
-                                            </ul>
-                                        </td>
-                                        <td class="py-2 px-4">Data diversity, bias testing, adversarial testing</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Deployment</td>
-                                        <td class="py-2 px-4">
-                                            <ul class="list-disc pl-5 space-y-1">
-                                                <li>Who has access to this agent?</li>
-                                                <li>How is user feedback incorporated?</li>
-                                                <li>What monitoring is in place?</li>
-                                            </ul>
-                                        </td>
-                                        <td class="py-2 px-4">Access controls, feedback loops, monitoring systems</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 px-4 font-medium">Maintenance</td>
-                                        <td class="py-2 px-4">
-                                            <ul class="list-disc pl-5 space-y-1">
-                                                <li>What new risks have emerged?</li>
-                                                <li>How has usage changed?</li>
-                                                <li>Are our safeguards still effective?</li>
-                                            </ul>
-                                        </td>
-                                        <td class="py-2 px-4">Regular audits, usage analysis, safeguard updates</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Content Moderation Guidelines</h3>
-                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                        <pre><code class="text-amber-400">// Example: Content Moderation Implementation
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4">Testing Best Practices</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Automate Testing:</span> Set up continuous integration pipelines to run
+                    tests automatically.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Test with Diverse Inputs:</span> Include edge cases, different languages,
+                    and various user personas.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Create Benchmark Datasets:</span> Develop standardized test sets for
+                    consistent evaluation.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Monitor in Production:</span> Implement logging and monitoring to catch
+                    issues in real-world use.
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div>
+                    <span class="font-bold">Human Evaluation:</span> Combine automated tests with human review for
+                    subjective quality assessment.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Ethical Guidelines Section -->
+          <section id="ethics" class="mt-12">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Ethical Guidelines</h2>
+            <p class="mb-6">
+              Building AI agents comes with significant ethical responsibilities. Following these guidelines helps
+              ensure your agents have a positive impact and avoid potential harms.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4">Core Ethical Principles</h3>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Transparency</h4>
+                <p class="mb-4">
+                  Users should understand when they're interacting with an AI agent and what its capabilities and
+                  limitations are.
+                </p>
+                <div class="border-t border-gray-700 pt-4">
+                  <h5 class="font-semibold mb-2">Implementation:</h5>
+                  <ul class="list-disc pl-5 space-y-1">
+                    <li>Clearly disclose AI identity</li>
+                    <li>Explain how data is used</li>
+                    <li>Communicate limitations</li>
+                    <li>Provide explanations for decisions</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Fairness & Inclusivity</h4>
+                <p class="mb-4">
+                  AI agents should treat all users equitably and be designed to serve diverse populations.
+                </p>
+                <div class="border-t border-gray-700 pt-4">
+                  <h5 class="font-semibold mb-2">Implementation:</h5>
+                  <ul class="list-disc pl-5 space-y-1">
+                    <li>Test for bias in responses</li>
+                    <li>Use diverse training data</li>
+                    <li>Consider accessibility needs</li>
+                    <li>Support multiple languages</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Privacy & Data Protection</h4>
+                <p class="mb-4">
+                  User data should be handled with care and protected from unauthorized access or misuse.
+                </p>
+                <div class="border-t border-gray-700 pt-4">
+                  <h5 class="font-semibold mb-2">Implementation:</h5>
+                  <ul class="list-disc pl-5 space-y-1">
+                    <li>Minimize data collection</li>
+                    <li>Implement strong encryption</li>
+                    <li>Provide data deletion options</li>
+                    <li>Obtain informed consent</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Safety & Harm Prevention</h4>
+                <p class="mb-4">AI agents should be designed to prevent harm and prioritize user safety.</p>
+                <div class="border-t border-gray-700 pt-4">
+                  <h5 class="font-semibold mb-2">Implementation:</h5>
+                  <ul class="list-disc pl-5 space-y-1">
+                    <li>Filter harmful content</li>
+                    <li>Implement content warnings</li>
+                    <li>Provide emergency resources</li>
+                    <li>Regular safety audits</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Ethical Decision Framework</h3>
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <div class="overflow-x-auto">
+                <table class="min-w-full">
+                  <thead>
+                    <tr class="border-b border-gray-700">
+                      <th class="py-2 px-4 text-left text-amber-400">Decision Stage</th>
+                      <th class="py-2 px-4 text-left text-amber-400">Key Questions</th>
+                      <th class="py-2 px-4 text-left text-amber-400">Considerations</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Design</td>
+                      <td class="py-2 px-4">
+                        <ul class="list-disc pl-5 space-y-1">
+                          <li>Who is this agent for?</li>
+                          <li>What values should it embody?</li>
+                          <li>What harms could it cause?</li>
+                        </ul>
+                      </td>
+                      <td class="py-2 px-4">Stakeholder analysis, value alignment, risk assessment</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Development</td>
+                      <td class="py-2 px-4">
+                        <ul class="list-disc pl-5 space-y-1">
+                          <li>Is our data representative?</li>
+                          <li>Are we testing for bias?</li>
+                          <li>How do we handle edge cases?</li>
+                        </ul>
+                      </td>
+                      <td class="py-2 px-4">Data diversity, bias testing, adversarial testing</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Deployment</td>
+                      <td class="py-2 px-4">
+                        <ul class="list-disc pl-5 space-y-1">
+                          <li>Who has access to this agent?</li>
+                          <li>How is user feedback incorporated?</li>
+                          <li>What monitoring is in place?</li>
+                        </ul>
+                      </td>
+                      <td class="py-2 px-4">Access controls, feedback loops, monitoring systems</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 px-4 font-medium">Maintenance</td>
+                      <td class="py-2 px-4">
+                        <ul class="list-disc pl-5 space-y-1">
+                          <li>What new risks have emerged?</li>
+                          <li>How has usage changed?</li>
+                          <li>Are our safeguards still effective?</li>
+                        </ul>
+                      </td>
+                      <td class="py-2 px-4">Regular audits, usage analysis, safeguard updates</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Content Moderation Guidelines</h3>
+            <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+              <pre><code class="text-amber-400">// Example: Content Moderation Implementation
 class ContentModerator {
   constructor() {
     this.sensitiveTopics = [
@@ -1125,199 +1345,283 @@ class ContentModerator {
       'Please consult a qualified professional for assistance with this topic.';
   }
 }</code></pre>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4">Ethical Checklist</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold mb-2">Before Launch</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Conduct bias assessment with diverse test data</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Implement content moderation systems</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Create clear terms of service and privacy policy</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Ongoing Monitoring</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Regularly review user feedback for ethical concerns</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Conduct periodic ethical audits</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Update safeguards as new risks emerge</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-6">
-                            <h4 class="font-semibold mb-2">Responsible Development</h4>
-                            <ul class="space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Establish an ethics committee or review process for major decisions</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Provide mechanisms for users to report ethical concerns</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Document ethical considerations and decisions throughout development</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+            </div>
 
-                <!-- Performance Optimization Section -->
-                <section id="performance" class="mt-12">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Performance Optimization</h2>
-                    <p class="mb-6">Optimizing your AI agents for performance ensures they provide a responsive, efficient experience while managing computational resources effectively.</p>
-                    
-                    <h3 class="text-xl font-bold mb-4">Performance Metrics to Monitor</h3>
-                    <div class="grid md:grid-cols-3 gap-4 mb-8">
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Latency</h4>
-                            <div class="flex items-center mb-4">
-                                <div class="bg-amber-500/20 text-amber-400 rounded-full h-8 w-8 flex items-center justify-center mr-2">
-                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div>
-                                <div class="text-sm text-gray-400">Target: <span class="text-white font-medium">< 1000ms</span></div>
-                            </div>
-                            <p class="text-sm">The time it takes for your agent to respond to a user request. Lower latency creates a more responsive user experience.</p>
-                        </div>
-                        
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Throughput</h4>
-                            <div class="flex items-center mb-4">
-                                <div class="bg-amber-500/20 text-amber-400 rounded-full h-8 w-8 flex items-center justify-center mr-2">
-                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                </div>
-                                <div class="text-sm text-gray-400">Measure: <span class="text-white font-medium">Requests/minute</span></div>
-                            </div>
-                            <p class="text-sm">The number of requests your agent can handle per unit of time. Higher throughput enables serving more users simultaneously.</p>
-                        </div>
-                        
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Resource Usage</h4>
-                            <div class="flex items-center mb-4">
-                                <div class="bg-amber-500/20 text-amber-400 rounded-full h-8 w-8 flex items-center justify-center mr-2">
-                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                    </svg>
-                                </div>
-                                <div class="text-sm text-gray-400">Monitor: <span class="text-white font-medium">CPU, Memory, Tokens</span></div>
-                            </div>
-                            <p class="text-sm">The computational resources consumed by your agent. Efficient resource usage reduces costs and environmental impact.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Optimization Strategies</h3>
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full">
-                                <thead>
-                                    <tr class="border-b border-gray-700">
-                                        <th class="py-2 px-4 text-left text-amber-400">Strategy</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">Description</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">Impact</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Prompt Optimization</td>
-                                        <td class="py-2 px-4">Refine prompts to be concise and focused</td>
-                                        <td class="py-2 px-4">Reduces token usage and improves response time</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Caching</td>
-                                        <td class="py-2 px-4">Store and reuse common responses</td>
-                                        <td class="py-2 px-4">Dramatically reduces latency for frequent queries</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Model Quantization</td>
-                                        <td class="py-2 px-4">Use reduced precision for model weights</td>
-                                        <td class="py-2 px-4">Reduces memory usage with minimal quality impact</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Batching</td>
-                                        <td class="py-2 px-4">Process multiple requests together</td>
-                                        <td class="py-2 px-4">Improves throughput for high-volume scenarios</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 px-4 font-medium">Streaming Responses</td>
-                                        <td class="py-2 px-4">Return partial results as they're generated</td>
-                                        <td class="py-2 px-4">Improves perceived responsiveness</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Prompt Optimization Techniques</h3>
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">Before Optimization</h4>
-                            <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                                <pre><code class="text-amber-400">// Inefficient prompt example
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4">Ethical Checklist</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold mb-2">Before Launch</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Conduct bias assessment with diverse test data</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Implement content moderation systems</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Create clear terms of service and privacy policy</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Ongoing Monitoring</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Regularly review user feedback for ethical concerns</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Conduct periodic ethical audits</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Update safeguards as new risks emerge</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="font-semibold mb-2">Responsible Development</h4>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Establish an ethics committee or review process for major decisions</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Provide mechanisms for users to report ethical concerns</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Document ethical considerations and decisions throughout development</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Performance Optimization Section -->
+          <section id="performance" class="mt-12">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">
+              Performance Optimization
+            </h2>
+            <p class="mb-6">
+              Optimizing your AI agents for performance ensures they provide a responsive, efficient experience while
+              managing computational resources effectively.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4">Performance Metrics to Monitor</h3>
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Latency</h4>
+                <div class="flex items-center mb-4">
+                  <div
+                    class="bg-amber-500/20 text-amber-400 rounded-full h-8 w-8 flex items-center justify-center mr-2"
+                  >
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="text-sm text-gray-400">Target: <span class="text-white font-medium">< 1000ms</span></div>
+                </div>
+                <p class="text-sm">
+                  The time it takes for your agent to respond to a user request. Lower latency creates a more responsive
+                  user experience.
+                </p>
+              </div>
+
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Throughput</h4>
+                <div class="flex items-center mb-4">
+                  <div
+                    class="bg-amber-500/20 text-amber-400 rounded-full h-8 w-8 flex items-center justify-center mr-2"
+                  >
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="text-sm text-gray-400">
+                    Measure: <span class="text-white font-medium">Requests/minute</span>
+                  </div>
+                </div>
+                <p class="text-sm">
+                  The number of requests your agent can handle per unit of time. Higher throughput enables serving more
+                  users simultaneously.
+                </p>
+              </div>
+
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Resource Usage</h4>
+                <div class="flex items-center mb-4">
+                  <div
+                    class="bg-amber-500/20 text-amber-400 rounded-full h-8 w-8 flex items-center justify-center mr-2"
+                  >
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="text-sm text-gray-400">
+                    Monitor: <span class="text-white font-medium">CPU, Memory, Tokens</span>
+                  </div>
+                </div>
+                <p class="text-sm">
+                  The computational resources consumed by your agent. Efficient resource usage reduces costs and
+                  environmental impact.
+                </p>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Optimization Strategies</h3>
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <div class="overflow-x-auto">
+                <table class="min-w-full">
+                  <thead>
+                    <tr class="border-b border-gray-700">
+                      <th class="py-2 px-4 text-left text-amber-400">Strategy</th>
+                      <th class="py-2 px-4 text-left text-amber-400">Description</th>
+                      <th class="py-2 px-4 text-left text-amber-400">Impact</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Prompt Optimization</td>
+                      <td class="py-2 px-4">Refine prompts to be concise and focused</td>
+                      <td class="py-2 px-4">Reduces token usage and improves response time</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Caching</td>
+                      <td class="py-2 px-4">Store and reuse common responses</td>
+                      <td class="py-2 px-4">Dramatically reduces latency for frequent queries</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Model Quantization</td>
+                      <td class="py-2 px-4">Use reduced precision for model weights</td>
+                      <td class="py-2 px-4">Reduces memory usage with minimal quality impact</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Batching</td>
+                      <td class="py-2 px-4">Process multiple requests together</td>
+                      <td class="py-2 px-4">Improves throughput for high-volume scenarios</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 px-4 font-medium">Streaming Responses</td>
+                      <td class="py-2 px-4">Return partial results as they're generated</td>
+                      <td class="py-2 px-4">Improves perceived responsiveness</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Prompt Optimization Techniques</h3>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">Before Optimization</h4>
+                <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                  <pre><code class="text-amber-400">// Inefficient prompt example
 const inefficientPrompt = `
 You are an AI assistant that helps users with customer support for our e-commerce platform that sells various products including electronics, clothing, home goods, and more. The platform allows users to browse products, add them to cart, checkout, track orders, and manage their account settings. Users can pay with credit cards, PayPal, or store credit. We ship to most countries worldwide with varying shipping options including standard, express, and next-day delivery where available. Please help the user with their question below:
 
 ${userQuestion}
 `;</code></pre>
-                            </div>
-                            <div class="mt-4">
-                                <p class="text-sm text-gray-400">Issues:</p>
-                                <ul class="list-disc pl-5 space-y-1 text-sm mt-2">
-                                    <li>Excessive context</li>
-                                    <li>Irrelevant information</li>
-                                    <li>Inefficient token usage</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                            <h4 class="font-bold mb-2 text-amber-400">After Optimization</h4>
-                            <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                                <pre><code class="text-amber-400">// Optimized prompt example
+                </div>
+                <div class="mt-4">
+                  <p class="text-sm text-gray-400">Issues:</p>
+                  <ul class="list-disc pl-5 space-y-1 text-sm mt-2">
+                    <li>Excessive context</li>
+                    <li>Irrelevant information</li>
+                    <li>Inefficient token usage</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+                <h4 class="font-bold mb-2 text-amber-400">After Optimization</h4>
+                <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                  <pre><code class="text-amber-400">// Optimized prompt example
 const optimizedPrompt = `
 You are a customer support assistant for our e-commerce platform.
 
@@ -1325,21 +1629,21 @@ ${userQuestion}
 
 ${relevantContextForQuestion}
 `;</code></pre>
-                            </div>
-                            <div class="mt-4">
-                                <p class="text-sm text-gray-400">Improvements:</p>
-                                <ul class="list-disc pl-5 space-y-1 text-sm mt-2">
-                                    <li>Concise role description</li>
-                                    <li>Only relevant context included</li>
-                                    <li>Dynamic context based on question</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Caching Implementation</h3>
-                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                        <pre><code class="text-amber-400">// Example: Implementing a response cache
+                </div>
+                <div class="mt-4">
+                  <p class="text-sm text-gray-400">Improvements:</p>
+                  <ul class="list-disc pl-5 space-y-1 text-sm mt-2">
+                    <li>Concise role description</li>
+                    <li>Only relevant context included</li>
+                    <li>Dynamic context based on question</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Caching Implementation</h3>
+            <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+              <pre><code class="text-amber-400">// Example: Implementing a response cache
 const NodeCache = require('node-cache');
 
 class AgentResponseCache {
@@ -1410,107 +1714,168 @@ class AgentResponseCache {
     };
   }
 }</code></pre>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4">Performance Optimization Best Practices</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold mb-2">Development Phase</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Establish performance benchmarks and targets</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Profile your code to identify bottlenecks</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Choose the right model size for your use case</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Production Phase</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Implement load balancing for high-traffic scenarios</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Set up monitoring and alerting for performance metrics</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span>Implement graceful degradation for high-load situations</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-6">
-                            <h4 class="font-semibold mb-2">Continuous Improvement</h4>
-                            <ul class="space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Regularly analyze performance data to identify optimization opportunities</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>A/B test different optimization strategies to measure real-world impact</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Balance performance optimization with other requirements like accuracy and safety</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6">
-                        <h3 class="text-xl font-bold mb-4">Conclusion</h3>
-                        <p class="mb-4">Building effective AI agents requires a thoughtful approach to design, security, testing, ethics, and performance. By following the best practices outlined in this guide, you can create agents that are not only powerful and capable, but also secure, ethical, and efficient.</p>
-                        <p class="mb-4">Remember that agent development is an iterative process. Continuously gather feedback, monitor performance, and refine your agents to better serve your users' needs while adhering to the highest standards of quality and responsibility.</p>
-                        <p>For more resources and to join the Agentopia community, visit our <a href="../community.html" class="text-amber-400 hover:underline">Community page</a> or check out our <a href="../blog.html" class="text-amber-400 hover:underline">Blog</a> for the latest updates and insights.</p>
-                    </div>
-                </section>
-                
-                <!-- Back to Resources Link -->
-                <div class="mt-12 text-center">
-                    <a href="../resources.html" class="inline-flex items-center text-amber-400 hover:text-amber-300 transition-colors">
-                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                        </svg>
-                        Back to Resources
-                    </a>
+            </div>
+
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4">Performance Optimization Best Practices</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold mb-2">Development Phase</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Establish performance benchmarks and targets</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Profile your code to identify bottlenecks</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Choose the right model size for your use case</span>
+                    </li>
+                  </ul>
                 </div>
-            </article>
-        </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Production Phase</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Implement load balancing for high-traffic scenarios</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Set up monitoring and alerting for performance metrics</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Implement graceful degradation for high-load situations</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="font-semibold mb-2">Continuous Improvement</h4>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Regularly analyze performance data to identify optimization opportunities</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>A/B test different optimization strategies to measure real-world impact</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-6 w-6 text-amber-400 mr-2 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Balance performance optimization with other requirements like accuracy and safety</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4">Conclusion</h3>
+              <p class="mb-4">
+                Building effective AI agents requires a thoughtful approach to design, security, testing, ethics, and
+                performance. By following the best practices outlined in this guide, you can create agents that are not
+                only powerful and capable, but also secure, ethical, and efficient.
+              </p>
+              <p class="mb-4">
+                Remember that agent development is an iterative process. Continuously gather feedback, monitor
+                performance, and refine your agents to better serve your users' needs while adhering to the highest
+                standards of quality and responsibility.
+              </p>
+              <p>
+                For more resources and to join the Agentopia community, visit our
+                <a href="../community.html" class="text-amber-400 hover:underline">Community page</a> or check out our
+                <a href="../blog.html" class="text-amber-400 hover:underline">Blog</a> for the latest updates and
+                insights.
+              </p>
+            </div>
+          </section>
+
+          <!-- Back to Resources Link -->
+          <div class="mt-12 text-center">
+            <a
+              href="../resources.html"
+              class="inline-flex items-center text-amber-400 hover:text-amber-300 transition-colors"
+            >
+              <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to Resources
+            </a>
+          </div>
+        </article>
+      </div>
     </main>
 
     <!-- Footer will be included via JavaScript -->
     <div id="footer-placeholder"></div>
 
     <script src="../js/navigation.js"></script>
-</body>
+  </body>
 </html>

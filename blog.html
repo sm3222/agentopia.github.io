@@ -1,131 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog - AI Agentopia</title>
-    <meta name="description" content="Stay updated with the latest news, insights, and developments in the AI agent ecosystem.">
-    
+    <meta
+      name="description"
+      content="Stay updated with the latest news, insights, and developments in the AI agent ecosystem."
+    />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
-    <link rel="manifest" href="site.webmanifest">
-    
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/blog.css">
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/blog.css" />
     <!-- Add Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class'
-        }
+      tailwind.config = {
+        darkMode: "class",
+      };
     </script>
-</head>
-<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+  </head>
+  <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
     <!-- Navigation will be included via JavaScript -->
     <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="relative pt-32 pb-24 mb-12 overflow-hidden bg-gradient-to-br from-gray-900 via-sky-900 to-gray-900">
-        <div class="absolute inset-0" style="background-image: url('images/hero-pattern.svg'); opacity: 0.1;"></div>
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-5xl font-bold mb-8 leading-relaxed bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent">AI Agentopia Blog</h1>
-                <p class="text-xl text-gray-300 mb-12">Stay updated with the latest insights, developments, and stories from the AI agent ecosystem</p>
-            </div>
+      <div
+        class="absolute inset-0"
+        style="background-image: url(&quot;images/hero-pattern.svg&quot;); opacity: 0.1"
+      ></div>
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1
+            class="text-5xl font-bold mb-8 leading-relaxed bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent"
+          >
+            AI Agentopia Blog
+          </h1>
+          <p class="text-xl text-gray-300 mb-12">
+            Stay updated with the latest insights, developments, and stories from the AI agent ecosystem
+          </p>
         </div>
+      </div>
     </section>
 
     <main class="container mx-auto px-6 py-12 flex-grow">
-        <!-- Search and Filter Section -->
-        <div class="max-w-4xl mx-auto mb-12">
-            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                <div class="flex flex-col space-y-6">
-                    <div class="flex gap-2">
-                        <input type="search" 
-                               id="blog-search"
-                               class="blog-search flex-grow bg-gray-900 text-gray-100 px-4 py-2 rounded-lg border border-gray-700 focus:border-amber-400 focus:outline-none"
-                               placeholder="Search articles...">
-                        <button id="search-button"
-                                class="px-6 py-2 bg-amber-400 text-gray-900 rounded-lg hover:bg-amber-300 transition-colors">
-                            Search
-                        </button>
-                    </div>
-                    <div class="flex flex-wrap justify-center gap-2">
-                        <button class="category-filter active">All</button>
-                        <button class="category-filter">Tutorial</button>
-                        <button class="category-filter">News</button>
-                        <button class="category-filter">Community</button>
-                        <button class="category-filter">Open Source</button>
-                    </div>
-                </div>
+      <!-- Search and Filter Section -->
+      <div class="max-w-4xl mx-auto mb-12">
+        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+          <div class="flex flex-col space-y-6">
+            <div class="flex gap-2">
+              <input
+                type="search"
+                id="blog-search"
+                class="blog-search flex-grow bg-gray-900 text-gray-100 px-4 py-2 rounded-lg border border-gray-700 focus:border-amber-400 focus:outline-none"
+                placeholder="Search articles..."
+              />
+              <button
+                id="search-button"
+                class="px-6 py-2 bg-amber-400 text-gray-900 rounded-lg hover:bg-amber-300 transition-colors"
+              >
+                Search
+              </button>
             </div>
-        </div>
-
-        <!-- Featured Post -->
-        <div class="max-w-4xl mx-auto mb-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-amber-400/50 transition-colors duration-300">
-            <div class="flex gap-2 mb-4">
-                <span class="blog-category">Featured</span>
-                <span class="blog-category">Tutorial</span>
+            <div class="flex flex-wrap justify-center gap-2">
+              <button class="category-filter active">All</button>
+              <button class="category-filter">Tutorial</button>
+              <button class="category-filter">News</button>
+              <button class="category-filter">Community</button>
+              <button class="category-filter">Open Source</button>
             </div>
-            <h2 class="text-3xl font-bold mb-4 hover:text-amber-400">Getting Started with AI Agents</h2>
-            <p class="text-gray-400 mb-4">A comprehensive guide to understanding and implementing AI agents in your projects. Learn about the fundamentals, best practices, and real-world applications.</p>
-            <div class="flex items-center gap-4 text-sm text-gray-500">
-                <span>January 10, 2025</span>
-                <span class="read-time">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    8 min read
-                </span>
-                <a href="posts/getting-started-with-ai-agents.html" class="text-amber-400 hover:text-amber-300">Read More →</a>
-            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Blog Grid -->
-        <div class="blog-grid grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <!-- Blog Post 1 -->
-            <article class="blog-card bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-amber-400/50 transition-colors duration-300">
-                <div class="flex gap-2 mb-4">
-                    <span class="blog-category">News</span>
-                </div>
-                <h2 class="text-2xl font-bold mb-4 hover:text-amber-400">The Future of AI Agents</h2>
-                <p class="text-gray-400 mb-4">Exploring upcoming trends and innovations in the AI agent ecosystem. What's next for autonomous AI systems?</p>
-                <div class="flex items-center gap-4 text-sm text-gray-500">
-                    <span>January 8, 2025</span>
-                    <span class="read-time">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        5 min read
-                    </span>
-                    <a href="posts/future-of-ai-agents.html" class="text-amber-400 hover:text-amber-300">Read More →</a>
-                </div>
-            </article>
-
-            <!-- Blog Post 2 -->
-            <article class="blog-card bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-amber-400/50 transition-colors duration-300">
-                <div class="flex gap-2 mb-4">
-                    <span class="blog-category">Community</span>
-                </div>
-                <h2 class="text-2xl font-bold mb-4 hover:text-amber-400">Building Community-Driven AI</h2>
-                <p class="text-gray-400 mb-4">How open-source collaboration is shaping the future of AI agent development. Join the movement!</p>
-                <div class="flex items-center gap-4 text-sm text-gray-500">
-                    <span>January 5, 2025</span>
-                    <span class="read-time">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        6 min read
-                    </span>
-                    <a href="posts/building-community-driven-ai.html" class="text-amber-400 hover:text-amber-300">Read More →</a>
-                </div>
-            </article>
+      <!-- Featured Post -->
+      <div
+        class="max-w-4xl mx-auto mb-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-amber-400/50 transition-colors duration-300"
+      >
+        <div class="flex gap-2 mb-4">
+          <span class="blog-category">Featured</span>
+          <span class="blog-category">Tutorial</span>
         </div>
-
-        <!-- Pagination -->
-        <div class="pagination flex justify-center gap-2 mt-8">
-            <a href="#" class="pagination-item active">1</a>
+        <h2 class="text-3xl font-bold mb-4 hover:text-amber-400">Getting Started with AI Agents</h2>
+        <p class="text-gray-400 mb-4">
+          A comprehensive guide to understanding and implementing AI agents in your projects. Learn about the
+          fundamentals, best practices, and real-world applications.
+        </p>
+        <div class="flex items-center gap-4 text-sm text-gray-500">
+          <span>January 10, 2025</span>
+          <span class="read-time">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            8 min read
+          </span>
+          <a href="posts/getting-started-with-ai-agents.html" class="text-amber-400 hover:text-amber-300"
+            >Read More →</a
+          >
         </div>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="blog-grid grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- Blog Post 1 -->
+        <article
+          class="blog-card bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-amber-400/50 transition-colors duration-300"
+        >
+          <div class="flex gap-2 mb-4">
+            <span class="blog-category">News</span>
+          </div>
+          <h2 class="text-2xl font-bold mb-4 hover:text-amber-400">The Future of AI Agents</h2>
+          <p class="text-gray-400 mb-4">
+            Exploring upcoming trends and innovations in the AI agent ecosystem. What's next for autonomous AI systems?
+          </p>
+          <div class="flex items-center gap-4 text-sm text-gray-500">
+            <span>January 8, 2025</span>
+            <span class="read-time">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              5 min read
+            </span>
+            <a href="posts/future-of-ai-agents.html" class="text-amber-400 hover:text-amber-300">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article
+          class="blog-card bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-amber-400/50 transition-colors duration-300"
+        >
+          <div class="flex gap-2 mb-4">
+            <span class="blog-category">Community</span>
+          </div>
+          <h2 class="text-2xl font-bold mb-4 hover:text-amber-400">Building Community-Driven AI</h2>
+          <p class="text-gray-400 mb-4">
+            How open-source collaboration is shaping the future of AI agent development. Join the movement!
+          </p>
+          <div class="flex items-center gap-4 text-sm text-gray-500">
+            <span>January 5, 2025</span>
+            <span class="read-time">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              6 min read
+            </span>
+            <a href="posts/building-community-driven-ai.html" class="text-amber-400 hover:text-amber-300"
+              >Read More →</a
+            >
+          </div>
+        </article>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination flex justify-center gap-2 mt-8">
+        <a href="#" class="pagination-item active">1</a>
+      </div>
     </main>
 
     <!-- Footer will be included via JavaScript -->
@@ -133,5 +181,5 @@
 
     <script src="js/navigation.js"></script>
     <script src="js/blog.js"></script>
-</body>
+  </body>
 </html>

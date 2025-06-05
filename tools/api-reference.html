@@ -1,232 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Reference - AI Agentopia</title>
-    <meta name="description" content="Complete API documentation for the Agentopia ecosystem">
-    <link rel="stylesheet" href="../css/styles.css">
+    <meta name="description" content="Complete API documentation for the Agentopia ecosystem" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="dark-mode">
+  </head>
+  <body class="dark-mode">
     <!-- Navigation will be included via JavaScript -->
     <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="relative pt-24 pb-16 mb-12 overflow-hidden bg-transparent">
-        <!-- Background layers -->
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800"></div>
-        <div class="absolute inset-0">
-            <svg class="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
-                <!-- Same SVG pattern -->
-                <defs>
-                    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                        <circle cx="2" cy="2" r="2" fill="rgba(251, 191, 36, 0.15)"/>
-                    </pattern>
-                    <pattern id="connections" width="100" height="100" patternUnits="userSpaceOnUse">
-                        <path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(251, 191, 36, 0.1)" stroke-width="1"/>
-                        <path d="M50 0 L50 100 M0 50 L100 50" stroke="rgba(251, 191, 36, 0.07)" stroke-width="1"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)"/>
-                <rect width="100%" height="100%" fill="url(#connections)"/>
-            </svg>
-        </div>
-        
-        <!-- Content -->
-        <div class="container relative mx-auto px-4 z-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200">
-                API Reference
-            </h1>
-            <p class="text-xl text-center text-gray-300 max-w-3xl mx-auto mb-8">
-                Complete documentation of Agentopia's APIs and integrations
-            </p>
-        </div>
+      <!-- Background layers -->
+      <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800"></div>
+      <div class="absolute inset-0">
+        <svg class="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+          <!-- Same SVG pattern -->
+          <defs>
+            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="2" fill="rgba(251, 191, 36, 0.15)" />
+            </pattern>
+            <pattern id="connections" width="100" height="100" patternUnits="userSpaceOnUse">
+              <path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(251, 191, 36, 0.1)" stroke-width="1" />
+              <path d="M50 0 L50 100 M0 50 L100 50" stroke="rgba(251, 191, 36, 0.07)" stroke-width="1" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+          <rect width="100%" height="100%" fill="url(#connections)" />
+        </svg>
+      </div>
+
+      <!-- Content -->
+      <div class="container relative mx-auto px-4 z-10">
+        <h1
+          class="text-4xl md:text-5xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200"
+        >
+          API Reference
+        </h1>
+        <p class="text-xl text-center text-gray-300 max-w-3xl mx-auto mb-8">
+          Complete documentation of Agentopia's APIs and integrations
+        </p>
+      </div>
     </section>
 
     <!-- Back to Resources Navigation -->
     <div class="container mx-auto px-6 pt-8">
-        <div class="max-w-4xl mx-auto">
-            <nav class="text-sm mb-4">
-                <a href="../resources.html" class="text-amber-400 hover:text-amber-300">← Back to Resources</a>
-            </nav>
-        </div>
+      <div class="max-w-4xl mx-auto">
+        <nav class="text-sm mb-4">
+          <a href="../resources.html" class="text-amber-400 hover:text-amber-300">← Back to Resources</a>
+        </nav>
+      </div>
     </div>
-    
+
     <!-- Table of Contents -->
     <div class="container mx-auto px-6 py-8">
-        <div class="max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-12">
-            <h2 class="text-2xl font-bold text-amber-400 mb-4">Table of Contents</h2>
-            <ul class="space-y-2">
-                <li>
-                    <a href="#overview" class="text-amber-400 hover:text-amber-300">API Overview</a>
-                </li>
-                <li>
-                    <a href="#authentication" class="text-amber-400 hover:text-amber-300">Authentication</a>
-                </li>
-                <li>
-                    <a href="#rate-limits" class="text-amber-400 hover:text-amber-300">Rate Limits</a>
-                </li>
-                <li>
-                    <a href="#agent-endpoints" class="text-amber-400 hover:text-amber-300">Agent Endpoints</a>
-                </li>
-                <li>
-                    <a href="#tool-endpoints" class="text-amber-400 hover:text-amber-300">Tool Endpoints</a>
-                </li>
-                <li>
-                    <a href="#data-endpoints" class="text-amber-400 hover:text-amber-300">Data Endpoints</a>
-                </li>
-                <li>
-                    <a href="#webhooks" class="text-amber-400 hover:text-amber-300">Webhooks</a>
-                </li>
-                <li>
-                    <a href="#sdks" class="text-amber-400 hover:text-amber-300">SDKs & Client Libraries</a>
-                </li>
-                <li>
-                    <a href="#error-handling" class="text-amber-400 hover:text-amber-300">Error Handling</a>
-                </li>
-            </ul>
-        </div>
+      <div class="max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-12">
+        <h2 class="text-2xl font-bold text-amber-400 mb-4">Table of Contents</h2>
+        <ul class="space-y-2">
+          <li>
+            <a href="#overview" class="text-amber-400 hover:text-amber-300">API Overview</a>
+          </li>
+          <li>
+            <a href="#authentication" class="text-amber-400 hover:text-amber-300">Authentication</a>
+          </li>
+          <li>
+            <a href="#rate-limits" class="text-amber-400 hover:text-amber-300">Rate Limits</a>
+          </li>
+          <li>
+            <a href="#agent-endpoints" class="text-amber-400 hover:text-amber-300">Agent Endpoints</a>
+          </li>
+          <li>
+            <a href="#tool-endpoints" class="text-amber-400 hover:text-amber-300">Tool Endpoints</a>
+          </li>
+          <li>
+            <a href="#data-endpoints" class="text-amber-400 hover:text-amber-300">Data Endpoints</a>
+          </li>
+          <li>
+            <a href="#webhooks" class="text-amber-400 hover:text-amber-300">Webhooks</a>
+          </li>
+          <li>
+            <a href="#sdks" class="text-amber-400 hover:text-amber-300">SDKs & Client Libraries</a>
+          </li>
+          <li>
+            <a href="#error-handling" class="text-amber-400 hover:text-amber-300">Error Handling</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <main class="container mx-auto px-6 py-12 flex-grow">
-        <div class="max-w-4xl mx-auto">
-            <article class="prose prose-lg prose-invert mx-auto">
-                <!-- API Overview Section -->
-                <section id="overview">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">API Overview</h2>
-                    <p class="mb-6">The Agentopia API provides a comprehensive set of endpoints for creating, managing, and deploying AI agents. Our RESTful API allows developers to integrate agent capabilities into their applications and services.</p>
-                    
-                    <h3 class="text-xl font-bold mb-4">Base URL</h3>
-                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                        <code class="text-amber-400">https://api.agentopia.org/v1</code>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">API Versioning</h3>
-                    <p class="mb-6">The Agentopia API uses versioning to ensure backward compatibility. The current version is <code class="text-amber-400">v1</code>. We recommend always specifying the version in your API calls.</p>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4">API Design Principles</h3>
-                        <ul class="space-y-2">
-                            <li><strong>RESTful:</strong> Our API follows REST principles for predictable resource-oriented URLs</li>
-                            <li><strong>JSON:</strong> All requests and responses use JSON format</li>
-                            <li><strong>HTTPS:</strong> All API requests must use HTTPS for security</li>
-                            <li><strong>Stateless:</strong> Each request contains all information needed to complete the operation</li>
-                        </ul>
-                    </div>
-                </section>
+      <div class="max-w-4xl mx-auto">
+        <article class="prose prose-lg prose-invert mx-auto">
+          <!-- API Overview Section -->
+          <section id="overview">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">API Overview</h2>
+            <p class="mb-6">
+              The Agentopia API provides a comprehensive set of endpoints for creating, managing, and deploying AI
+              agents. Our RESTful API allows developers to integrate agent capabilities into their applications and
+              services.
+            </p>
 
-                <!-- Authentication Section -->
-                <section id="authentication" class="mt-12">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Authentication</h2>
-                    <p class="mb-6">The Agentopia API uses API keys for authentication. You can obtain an API key from your Agentopia dashboard.</p>
-                    
-                    <h3 class="text-xl font-bold mb-4">API Keys</h3>
-                    <p class="mb-4">Include your API key in the request header:</p>
-                    
-                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                        <pre><code class="text-amber-400">Authorization: Bearer YOUR_API_KEY</code></pre>
-                    </div>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h4 class="font-bold mb-2 text-amber-400">Example Request with Authentication</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">curl -X GET \
+            <h3 class="text-xl font-bold mb-4">Base URL</h3>
+            <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+              <code class="text-amber-400">https://api.agentopia.org/v1</code>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">API Versioning</h3>
+            <p class="mb-6">
+              The Agentopia API uses versioning to ensure backward compatibility. The current version is
+              <code class="text-amber-400">v1</code>. We recommend always specifying the version in your API calls.
+            </p>
+
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-amber-400/30 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4">API Design Principles</h3>
+              <ul class="space-y-2">
+                <li>
+                  <strong>RESTful:</strong> Our API follows REST principles for predictable resource-oriented URLs
+                </li>
+                <li><strong>JSON:</strong> All requests and responses use JSON format</li>
+                <li><strong>HTTPS:</strong> All API requests must use HTTPS for security</li>
+                <li>
+                  <strong>Stateless:</strong> Each request contains all information needed to complete the operation
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Authentication Section -->
+          <section id="authentication" class="mt-12">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Authentication</h2>
+            <p class="mb-6">
+              The Agentopia API uses API keys for authentication. You can obtain an API key from your Agentopia
+              dashboard.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4">API Keys</h3>
+            <p class="mb-4">Include your API key in the request header:</p>
+
+            <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+              <pre><code class="text-amber-400">Authorization: Bearer YOUR_API_KEY</code></pre>
+            </div>
+
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h4 class="font-bold mb-2 text-amber-400">Example Request with Authentication</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">curl -X GET \
   https://api.agentopia.org/v1/agents \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json"</code></pre>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">API Key Management</h3>
-                    <p class="mb-4">Best practices for managing your API keys:</p>
-                    
-                    <ul class="list-disc pl-5 space-y-2 mb-6">
-                        <li>Never expose your API key in client-side code</li>
-                        <li>Use environment variables to store your API key</li>
-                        <li>Rotate your API keys periodically</li>
-                        <li>Use different API keys for development and production</li>
-                    </ul>
-                </section>
+              </div>
+            </div>
 
-                <!-- Rate Limits Section -->
-                <section id="rate-limits" class="mt-12">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Rate Limits</h2>
-                    <p class="mb-6">To ensure fair usage and system stability, the Agentopia API implements rate limiting. Rate limits vary based on your subscription tier.</p>
-                    
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full">
-                                <thead>
-                                    <tr class="border-b border-gray-700">
-                                        <th class="py-2 px-4 text-left text-amber-400">Tier</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">Requests per Minute</th>
-                                        <th class="py-2 px-4 text-left text-amber-400">Requests per Day</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Free</td>
-                                        <td class="py-2 px-4">60</td>
-                                        <td class="py-2 px-4">10,000</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-700">
-                                        <td class="py-2 px-4 font-medium">Developer</td>
-                                        <td class="py-2 px-4">300</td>
-                                        <td class="py-2 px-4">50,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 px-4 font-medium">Enterprise</td>
-                                        <td class="py-2 px-4">1,000+</td>
-                                        <td class="py-2 px-4">Custom</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-4">Rate Limit Headers</h3>
-                    <p class="mb-4">Each API response includes headers to help you track your rate limit usage:</p>
-                    
-                    <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                        <pre><code class="text-amber-400">X-RateLimit-Limit: 60
+            <h3 class="text-xl font-bold mb-4">API Key Management</h3>
+            <p class="mb-4">Best practices for managing your API keys:</p>
+
+            <ul class="list-disc pl-5 space-y-2 mb-6">
+              <li>Never expose your API key in client-side code</li>
+              <li>Use environment variables to store your API key</li>
+              <li>Rotate your API keys periodically</li>
+              <li>Use different API keys for development and production</li>
+            </ul>
+          </section>
+
+          <!-- Rate Limits Section -->
+          <section id="rate-limits" class="mt-12">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Rate Limits</h2>
+            <p class="mb-6">
+              To ensure fair usage and system stability, the Agentopia API implements rate limiting. Rate limits vary
+              based on your subscription tier.
+            </p>
+
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <div class="overflow-x-auto">
+                <table class="min-w-full">
+                  <thead>
+                    <tr class="border-b border-gray-700">
+                      <th class="py-2 px-4 text-left text-amber-400">Tier</th>
+                      <th class="py-2 px-4 text-left text-amber-400">Requests per Minute</th>
+                      <th class="py-2 px-4 text-left text-amber-400">Requests per Day</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Free</td>
+                      <td class="py-2 px-4">60</td>
+                      <td class="py-2 px-4">10,000</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                      <td class="py-2 px-4 font-medium">Developer</td>
+                      <td class="py-2 px-4">300</td>
+                      <td class="py-2 px-4">50,000</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 px-4 font-medium">Enterprise</td>
+                      <td class="py-2 px-4">1,000+</td>
+                      <td class="py-2 px-4">Custom</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">Rate Limit Headers</h3>
+            <p class="mb-4">Each API response includes headers to help you track your rate limit usage:</p>
+
+            <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+              <pre><code class="text-amber-400">X-RateLimit-Limit: 60
 X-RateLimit-Remaining: 59
 X-RateLimit-Reset: 1622119200</code></pre>
-                    </div>
-                    
-                    <p class="mb-6">When you exceed your rate limit, you'll receive a <code class="text-amber-400">429 Too Many Requests</code> response. The response will include a <code class="text-amber-400">Retry-After</code> header indicating how long to wait before making another request.</p>
-                </section>
+            </div>
 
-                <!-- Agent Endpoints Section -->
-                <section id="agent-endpoints" class="mt-12">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Agent Endpoints</h2>
-                    <p class="mb-6">The following endpoints allow you to create, manage, and interact with AI agents in the Agentopia ecosystem.</p>
-                    
-                    <!-- List Agents -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">List Agents</h3>
-                        <p class="mb-4">Returns a list of all agents associated with your account.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">GET /agents</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Query Parameters</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">limit</code>: Maximum number of results (default: 20)</li>
-                                    <li><code class="text-amber-400">offset</code>: Pagination offset (default: 0)</li>
-                                    <li><code class="text-amber-400">category</code>: Filter by agent category</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+            <p class="mb-6">
+              When you exceed your rate limit, you'll receive a
+              <code class="text-amber-400">429 Too Many Requests</code> response. The response will include a
+              <code class="text-amber-400">Retry-After</code> header indicating how long to wait before making another
+              request.
+            </p>
+          </section>
+
+          <!-- Agent Endpoints Section -->
+          <section id="agent-endpoints" class="mt-12">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Agent Endpoints</h2>
+            <p class="mb-6">
+              The following endpoints allow you to create, manage, and interact with AI agents in the Agentopia
+              ecosystem.
+            </p>
+
+            <!-- List Agents -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">List Agents</h3>
+              <p class="mb-4">Returns a list of all agents associated with your account.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">GET /agents</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Query Parameters</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">limit</code>: Maximum number of results (default: 20)</li>
+                    <li><code class="text-amber-400">offset</code>: Pagination offset (default: 0)</li>
+                    <li><code class="text-amber-400">category</code>: Filter by agent category</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "data": [
     {
       "id": "agt_123456789",
@@ -251,35 +278,35 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "offset": 0
   }
 }</code></pre>
-                        </div>
-                    </div>
-                    
-                    <!-- Create Agent -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">Create Agent</h3>
-                        <p class="mb-4">Creates a new agent with the specified configuration.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">POST /agents</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Request Body</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">name</code>: Agent name (required)</li>
-                                    <li><code class="text-amber-400">description</code>: Agent description</li>
-                                    <li><code class="text-amber-400">category</code>: Agent category (required)</li>
-                                    <li><code class="text-amber-400">config</code>: Agent configuration object</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Request</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
-                            <pre><code class="text-amber-400">{
+              </div>
+            </div>
+
+            <!-- Create Agent -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Create Agent</h3>
+              <p class="mb-4">Creates a new agent with the specified configuration.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">POST /agents</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Request Body</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">name</code>: Agent name (required)</li>
+                    <li><code class="text-amber-400">description</code>: Agent description</li>
+                    <li><code class="text-amber-400">category</code>: Agent category (required)</li>
+                    <li><code class="text-amber-400">config</code>: Agent configuration object</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Request</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
+                <pre><code class="text-amber-400">{
   "name": "Data Analyst",
   "description": "AI assistant for data analysis tasks",
   "category": "autonomous_single",
@@ -290,11 +317,11 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "memory_capacity": 10
   }
 }</code></pre>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "id": "agt_567890123",
   "name": "Data Analyst",
   "description": "AI assistant for data analysis tasks",
@@ -308,32 +335,32 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "memory_capacity": 10
   }
 }</code></pre>
-                        </div>
-                    </div>
-                    
-                    <!-- Get Agent -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">Get Agent</h3>
-                        <p class="mb-4">Retrieves details for a specific agent.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">GET /agents/{agent_id}</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Path Parameters</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">agent_id</code>: Unique identifier for the agent</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+              </div>
+            </div>
+
+            <!-- Get Agent -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Get Agent</h3>
+              <p class="mb-4">Retrieves details for a specific agent.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">GET /agents/{agent_id}</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Path Parameters</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">agent_id</code>: Unique identifier for the agent</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "id": "agt_123456789",
   "name": "Research Buddy",
   "description": "AI assistant for academic research",
@@ -352,43 +379,43 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "last_active": "2025-05-28T18:30:00Z"
   }
 }</code></pre>
-                        </div>
-                    </div>
-                    
-                    <!-- Update Agent -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">Update Agent</h3>
-                        <p class="mb-4">Updates an existing agent's configuration.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">PATCH /agents/{agent_id}</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Path Parameters</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">agent_id</code>: Unique identifier for the agent</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Request</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
-                            <pre><code class="text-amber-400">{
+              </div>
+            </div>
+
+            <!-- Update Agent -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Update Agent</h3>
+              <p class="mb-4">Updates an existing agent's configuration.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">PATCH /agents/{agent_id}</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Path Parameters</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">agent_id</code>: Unique identifier for the agent</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Request</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
+                <pre><code class="text-amber-400">{
   "name": "Advanced Research Buddy",
   "config": {
     "temperature": 0.7,
     "tools": ["search", "document_retrieval", "citation_generator"]
   }
 }</code></pre>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "id": "agt_123456789",
   "name": "Advanced Research Buddy",
   "description": "AI assistant for academic research",
@@ -403,61 +430,61 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "memory_capacity": 5
   }
 }</code></pre>
-                        </div>
-                    </div>
-                    
-                    <!-- Delete Agent -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">Delete Agent</h3>
-                        <p class="mb-4">Deletes an agent. This action cannot be undone.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">DELETE /agents/{agent_id}</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Path Parameters</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">agent_id</code>: Unique identifier for the agent</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+              </div>
+            </div>
+
+            <!-- Delete Agent -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Delete Agent</h3>
+              <p class="mb-4">Deletes an agent. This action cannot be undone.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">DELETE /agents/{agent_id}</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Path Parameters</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">agent_id</code>: Unique identifier for the agent</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "success": true,
   "message": "Agent successfully deleted"
 }</code></pre>
-                        </div>
-                    </div>
-                    
-                    <!-- Interact with Agent -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">Interact with Agent</h3>
-                        <p class="mb-4">Sends a message to an agent and receives a response.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">POST /agents/{agent_id}/interact</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Path Parameters</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">agent_id</code>: Unique identifier for the agent</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Request</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
-                            <pre><code class="text-amber-400">{
+              </div>
+            </div>
+
+            <!-- Interact with Agent -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Interact with Agent</h3>
+              <p class="mb-4">Sends a message to an agent and receives a response.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">POST /agents/{agent_id}/interact</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Path Parameters</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">agent_id</code>: Unique identifier for the agent</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Request</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
+                <pre><code class="text-amber-400">{
   "message": "What are the latest developments in quantum computing?",
   "conversation_id": "conv_987654321",  // Optional, for continuing a conversation
   "context": {  // Optional, additional context
@@ -465,11 +492,11 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "preferred_sources": ["academic", "news"]
   }
 }</code></pre>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "response": "Recent developments in quantum computing include Google's achievement of quantum supremacy, IBM's 127-qubit processor, and advances in error correction. Researchers are now focusing on creating more stable qubits and developing practical quantum algorithms...",
   "conversation_id": "conv_987654321",
   "message_id": "msg_456789012",
@@ -486,40 +513,42 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "Summarizing key advancements"
   ]
 }</code></pre>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Tool Endpoints Section -->
-                <section id="tool-endpoints" class="mt-12">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Tool Endpoints</h2>
-                    <p class="mb-6">The following endpoints allow you to manage and use tools that can be integrated with your AI agents.</p>
-                    
-                    <!-- List Available Tools -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">List Available Tools</h3>
-                        <p class="mb-4">Returns a list of all tools available for integration with agents.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">GET /tools</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Query Parameters</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">category</code>: Filter by tool category</li>
-                                    <li><code class="text-amber-400">limit</code>: Maximum number of results</li>
-                                    <li><code class="text-amber-400">offset</code>: Pagination offset</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+              </div>
+            </div>
+          </section>
+
+          <!-- Tool Endpoints Section -->
+          <section id="tool-endpoints" class="mt-12">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Tool Endpoints</h2>
+            <p class="mb-6">
+              The following endpoints allow you to manage and use tools that can be integrated with your AI agents.
+            </p>
+
+            <!-- List Available Tools -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">List Available Tools</h3>
+              <p class="mb-4">Returns a list of all tools available for integration with agents.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">GET /tools</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Query Parameters</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">category</code>: Filter by tool category</li>
+                    <li><code class="text-amber-400">limit</code>: Maximum number of results</li>
+                    <li><code class="text-amber-400">offset</code>: Pagination offset</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "data": [
     {
       "id": "tool_search",
@@ -563,32 +592,32 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "offset": 0
   }
 }</code></pre>
-                        </div>
-                    </div>
-                    
-                    <!-- Get Tool Details -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">Get Tool Details</h3>
-                        <p class="mb-4">Retrieves detailed information about a specific tool.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">GET /tools/{tool_id}</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Path Parameters</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">tool_id</code>: Unique identifier for the tool</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+              </div>
+            </div>
+
+            <!-- Get Tool Details -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Get Tool Details</h3>
+              <p class="mb-4">Retrieves detailed information about a specific tool.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">GET /tools/{tool_id}</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Path Parameters</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">tool_id</code>: Unique identifier for the tool</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "id": "tool_search",
   "name": "Web Search",
   "description": "Search the web for information",
@@ -636,43 +665,43 @@ X-RateLimit-Reset: 1622119200</code></pre>
   },
   "documentation_url": "https://docs.agentopia.org/tools/search"
 }</code></pre>
-                        </div>
-                    </div>
-                    
-                    <!-- Execute Tool -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">Execute Tool</h3>
-                        <p class="mb-4">Executes a tool with the provided parameters.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">POST /tools/{tool_id}/execute</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Path Parameters</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">tool_id</code>: Unique identifier for the tool</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Request (Web Search)</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
-                            <pre><code class="text-amber-400">{
+              </div>
+            </div>
+
+            <!-- Execute Tool -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Execute Tool</h3>
+              <p class="mb-4">Executes a tool with the provided parameters.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">POST /tools/{tool_id}/execute</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Path Parameters</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">tool_id</code>: Unique identifier for the tool</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Request (Web Search)</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
+                <pre><code class="text-amber-400">{
   "parameters": {
     "query": "latest advancements in renewable energy",
     "limit": 3,
     "filter": "news"
   }
 }</code></pre>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "results": [
     {
       "title": "Breakthrough in Solar Panel Efficiency Reaches 32%",
@@ -702,40 +731,42 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "query": "latest advancements in renewable energy"
   }
 }</code></pre>
-                        </div>
-                    </div>
-                </section>
+              </div>
+            </div>
+          </section>
 
-                <!-- Data Endpoints Section -->
-                <section id="data-endpoints" class="mt-12">
-                    <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Data Endpoints</h2>
-                    <p class="mb-6">The following endpoints allow you to manage data sources and knowledge bases for your AI agents.</p>
-                    
-                    <!-- List Data Sources -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">List Data Sources</h3>
-                        <p class="mb-4">Returns a list of all data sources associated with your account.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">GET /data/sources</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Query Parameters</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">type</code>: Filter by source type</li>
-                                    <li><code class="text-amber-400">limit</code>: Maximum number of results</li>
-                                    <li><code class="text-amber-400">offset</code>: Pagination offset</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+          <!-- Data Endpoints Section -->
+          <section id="data-endpoints" class="mt-12">
+            <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Data Endpoints</h2>
+            <p class="mb-6">
+              The following endpoints allow you to manage data sources and knowledge bases for your AI agents.
+            </p>
+
+            <!-- List Data Sources -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">List Data Sources</h3>
+              <p class="mb-4">Returns a list of all data sources associated with your account.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">GET /data/sources</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Query Parameters</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">type</code>: Filter by source type</li>
+                    <li><code class="text-amber-400">limit</code>: Maximum number of results</li>
+                    <li><code class="text-amber-400">offset</code>: Pagination offset</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "data": [
     {
       "id": "src_123456789",
@@ -760,34 +791,34 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "offset": 0
   }
 }</code></pre>
-                        </div>
-                    </div>
-                    
-                    <!-- Create Data Source -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">Create Data Source</h3>
-                        <p class="mb-4">Creates a new data source for use with your agents.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">POST /data/sources</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Request Body</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">name</code>: Source name (required)</li>
-                                    <li><code class="text-amber-400">type</code>: Source type (required)</li>
-                                    <li><code class="text-amber-400">config</code>: Source configuration</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Request (Document Collection)</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
-                            <pre><code class="text-amber-400">{
+              </div>
+            </div>
+
+            <!-- Create Data Source -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Create Data Source</h3>
+              <p class="mb-4">Creates a new data source for use with your agents.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">POST /data/sources</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Request Body</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">name</code>: Source name (required)</li>
+                    <li><code class="text-amber-400">type</code>: Source type (required)</li>
+                    <li><code class="text-amber-400">config</code>: Source configuration</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Request (Document Collection)</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
+                <pre><code class="text-amber-400">{
   "name": "Research Papers",
   "type": "document_collection",
   "config": {
@@ -796,11 +827,11 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "embedding_model": "text-embedding-3-large"
   }
 }</code></pre>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "id": "src_567890123",
   "name": "Research Papers",
   "type": "document_collection",
@@ -813,41 +844,41 @@ X-RateLimit-Reset: 1622119200</code></pre>
   },
   "upload_url": "https://upload.agentopia.org/data/sources/src_567890123/documents"
 }</code></pre>
-                        </div>
-                    </div>
-                    
-                    <!-- Query Data Source -->
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">Query Data Source</h3>
-                        <p class="mb-4">Performs a semantic search query against a data source.</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Endpoint</h4>
-                                <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                                    <code class="text-amber-400">POST /data/sources/{source_id}/query</code>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2">Path Parameters</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li><code class="text-amber-400">source_id</code>: Unique identifier for the data source</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Request</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
-                            <pre><code class="text-amber-400">{
+              </div>
+            </div>
+
+            <!-- Query Data Source -->
+            <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 mb-8">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Query Data Source</h3>
+              <p class="mb-4">Performs a semantic search query against a data source.</p>
+
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Endpoint</h4>
+                  <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                    <code class="text-amber-400">POST /data/sources/{source_id}/query</code>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Path Parameters</h4>
+                  <ul class="text-sm space-y-1">
+                    <li><code class="text-amber-400">source_id</code>: Unique identifier for the data source</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Request</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto mb-4">
+                <pre><code class="text-amber-400">{
   "query": "What are the environmental impacts of quantum computing?",
   "limit": 5,
   "similarity_threshold": 0.75
 }</code></pre>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Response</h4>
-                        <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                            <pre><code class="text-amber-400">{
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Response</h4>
+              <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+                <pre><code class="text-amber-400">{
   "results": [
     {
       "document_id": "doc_123456789",
@@ -880,77 +911,80 @@ X-RateLimit-Reset: 1622119200</code></pre>
     "query_time_ms": 125
   }
 }</code></pre>
-                        </div>
-                    </div>
-                </section>
-            </article>
-        </div>
+              </div>
+            </div>
+          </section>
+        </article>
+      </div>
     </main>
 
     <!-- Additional Information Section -->
     <div class="container mx-auto px-6 py-12">
-        <div class="max-w-4xl mx-auto">
-            <!-- Webhooks Section -->
-            <section id="webhooks" class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 mb-12">
-                <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Webhooks</h2>
-                <p class="mb-6">Webhooks allow your application to receive real-time notifications about events in the Agentopia ecosystem. This enables you to build event-driven integrations with your AI agents.</p>
-                
-                <h3 class="text-xl font-bold mb-4">Available Events</h3>
-                <div class="overflow-x-auto mb-8">
-                    <table class="min-w-full">
-                        <thead>
-                            <tr class="border-b border-gray-700">
-                                <th class="py-2 px-4 text-left text-amber-400">Event Type</th>
-                                <th class="py-2 px-4 text-left text-amber-400">Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">agent.created</td>
-                                <td class="py-2 px-4">Triggered when a new agent is created</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">agent.updated</td>
-                                <td class="py-2 px-4">Triggered when an agent is updated</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">agent.deleted</td>
-                                <td class="py-2 px-4">Triggered when an agent is deleted</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">interaction.completed</td>
-                                <td class="py-2 px-4">Triggered when an agent interaction is completed</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 font-medium">data.processed</td>
-                                <td class="py-2 px-4">Triggered when a data source is fully processed</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-4">Setting Up Webhooks</h3>
-                <p class="mb-4">To register a webhook, use the following endpoint:</p>
-                
-                <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                    <pre><code class="text-amber-400">POST /webhooks</code></pre>
-                </div>
-                
-                <h4 class="font-semibold mb-2">Example Request</h4>
-                <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                    <pre><code class="text-amber-400">{
+      <div class="max-w-4xl mx-auto">
+        <!-- Webhooks Section -->
+        <section id="webhooks" class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 mb-12">
+          <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Webhooks</h2>
+          <p class="mb-6">
+            Webhooks allow your application to receive real-time notifications about events in the Agentopia ecosystem.
+            This enables you to build event-driven integrations with your AI agents.
+          </p>
+
+          <h3 class="text-xl font-bold mb-4">Available Events</h3>
+          <div class="overflow-x-auto mb-8">
+            <table class="min-w-full">
+              <thead>
+                <tr class="border-b border-gray-700">
+                  <th class="py-2 px-4 text-left text-amber-400">Event Type</th>
+                  <th class="py-2 px-4 text-left text-amber-400">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">agent.created</td>
+                  <td class="py-2 px-4">Triggered when a new agent is created</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">agent.updated</td>
+                  <td class="py-2 px-4">Triggered when an agent is updated</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">agent.deleted</td>
+                  <td class="py-2 px-4">Triggered when an agent is deleted</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">interaction.completed</td>
+                  <td class="py-2 px-4">Triggered when an agent interaction is completed</td>
+                </tr>
+                <tr>
+                  <td class="py-2 px-4 font-medium">data.processed</td>
+                  <td class="py-2 px-4">Triggered when a data source is fully processed</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-xl font-bold mb-4">Setting Up Webhooks</h3>
+          <p class="mb-4">To register a webhook, use the following endpoint:</p>
+
+          <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+            <pre><code class="text-amber-400">POST /webhooks</code></pre>
+          </div>
+
+          <h4 class="font-semibold mb-2">Example Request</h4>
+          <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+            <pre><code class="text-amber-400">{
   "url": "https://example.com/webhook",
   "events": ["agent.created", "interaction.completed"],
   "secret": "whsec_abcdefghijklmnopqrstuvwxyz",  // Optional, but recommended
   "description": "Notification webhook for my application"
 }</code></pre>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-4">Webhook Payload Format</h3>
-                <p class="mb-4">All webhook payloads follow this general structure:</p>
-                
-                <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                    <pre><code class="text-amber-400">{
+          </div>
+
+          <h3 class="text-xl font-bold mb-4">Webhook Payload Format</h3>
+          <p class="mb-4">All webhook payloads follow this general structure:</p>
+
+          <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+            <pre><code class="text-amber-400">{
   "id": "evt_123456789",
   "type": "agent.created",
   "created_at": "2025-05-29T22:55:00Z",
@@ -962,13 +996,17 @@ X-RateLimit-Reset: 1622119200</code></pre>
     }
   }
 }</code></pre>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-4">Security</h3>
-                <p class="mb-4">To verify that webhooks are sent by Agentopia, we include a signature in the <code class="text-amber-400">X-Agentopia-Signature</code> header. The signature is an HMAC SHA-256 hash of the payload, using your webhook secret as the key.</p>
-                
-                <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                    <pre><code class="text-amber-400">// Example verification in Node.js
+          </div>
+
+          <h3 class="text-xl font-bold mb-4">Security</h3>
+          <p class="mb-4">
+            To verify that webhooks are sent by Agentopia, we include a signature in the
+            <code class="text-amber-400">X-Agentopia-Signature</code> header. The signature is an HMAC SHA-256 hash of
+            the payload, using your webhook secret as the key.
+          </p>
+
+          <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+            <pre><code class="text-amber-400">// Example verification in Node.js
 const crypto = require('crypto');
 
 function verifyWebhookSignature(payload, signature, secret) {
@@ -982,28 +1020,33 @@ function verifyWebhookSignature(payload, signature, secret) {
     Buffer.from(expectedSignature)
   );
 }</code></pre>
-                </div>
-            </section>
-            
-            <!-- SDKs & Client Libraries Section -->
-            <section id="sdks" class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 mb-12">
-                <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">SDKs & Client Libraries</h2>
-                <p class="mb-6">To simplify integration with the Agentopia API, we provide official client libraries for several programming languages.</p>
-                
-                <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <!-- Python SDK -->
-                    <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">Python</h3>
-                        <p class="mb-4">Our Python SDK provides a convenient way to interact with the Agentopia API.</p>
-                        
-                        <h4 class="font-semibold mb-2">Installation</h4>
-                        <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto mb-4">
-                            <code class="text-amber-400">pip install agentopia</code>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Usage</h4>
-                        <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                            <pre><code class="text-amber-400">import agentopia
+          </div>
+        </section>
+
+        <!-- SDKs & Client Libraries Section -->
+        <section id="sdks" class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 mb-12">
+          <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">
+            SDKs & Client Libraries
+          </h2>
+          <p class="mb-6">
+            To simplify integration with the Agentopia API, we provide official client libraries for several programming
+            languages.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <!-- Python SDK -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Python</h3>
+              <p class="mb-4">Our Python SDK provides a convenient way to interact with the Agentopia API.</p>
+
+              <h4 class="font-semibold mb-2">Installation</h4>
+              <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto mb-4">
+                <code class="text-amber-400">pip install agentopia</code>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Usage</h4>
+              <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                <pre><code class="text-amber-400">import agentopia
 
 # Initialize the client
 client = agentopia.Client(api_key="YOUR_API_KEY")
@@ -1030,27 +1073,38 @@ response = client.agents.interact(
         "dataset_url": "https://example.com/data.csv"
     }
 )</code></pre>
-                        </div>
-                        
-                        <p class="mt-4 text-sm text-gray-400">
-                            <a href="https://github.com/Agentopia/agentopia-python" class="text-amber-400 hover:text-amber-300" target="_blank">View on GitHub</a> | 
-                            <a href="https://agentopia.org/docs/python-sdk" class="text-amber-400 hover:text-amber-300" target="_blank">Documentation</a>
-                        </p>
-                    </div>
-                    
-                    <!-- JavaScript SDK -->
-                    <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                        <h3 class="text-xl font-bold mb-4 text-amber-400">JavaScript</h3>
-                        <p class="mb-4">Our JavaScript SDK works in both Node.js and browser environments.</p>
-                        
-                        <h4 class="font-semibold mb-2">Installation</h4>
-                        <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto mb-4">
-                            <code class="text-amber-400">npm install agentopia</code>
-                        </div>
-                        
-                        <h4 class="font-semibold mb-2">Example Usage</h4>
-                        <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
-                            <pre><code class="text-amber-400">import { Agentopia } from 'agentopia';
+              </div>
+
+              <p class="mt-4 text-sm text-gray-400">
+                <a
+                  href="https://github.com/Agentopia/agentopia-python"
+                  class="text-amber-400 hover:text-amber-300"
+                  target="_blank"
+                  >View on GitHub</a
+                >
+                |
+                <a
+                  href="https://agentopia.org/docs/python-sdk"
+                  class="text-amber-400 hover:text-amber-300"
+                  target="_blank"
+                  >Documentation</a
+                >
+              </p>
+            </div>
+
+            <!-- JavaScript SDK -->
+            <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4 text-amber-400">JavaScript</h3>
+              <p class="mb-4">Our JavaScript SDK works in both Node.js and browser environments.</p>
+
+              <h4 class="font-semibold mb-2">Installation</h4>
+              <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto mb-4">
+                <code class="text-amber-400">npm install agentopia</code>
+              </div>
+
+              <h4 class="font-semibold mb-2">Example Usage</h4>
+              <div class="bg-gray-900 rounded-md p-3 text-sm overflow-x-auto">
+                <pre><code class="text-amber-400">import { Agentopia } from 'agentopia';
 
 // Initialize the client
 const agentopia = new Agentopia({
@@ -1083,84 +1137,135 @@ async function interactWithAgent(agentId) {
   
   console.log('Agent response:', response.response);
 }</code></pre>
-                        </div>
-                        
-                        <p class="mt-4 text-sm text-gray-400">
-                            <a href="https://github.com/Agentopia/agentopia-js" class="text-amber-400 hover:text-amber-300" target="_blank">View on GitHub</a> | 
-                            <a href="https://agentopia.org/docs/js-sdk" class="text-amber-400 hover:text-amber-300" target="_blank">Documentation</a>
-                        </p>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-4">Additional Libraries</h3>
-                <p class="mb-4">We also provide libraries for the following languages:</p>
-                
-                <ul class="list-disc pl-5 space-y-2 mb-6">
-                    <li><a href="https://github.com/Agentopia/agentopia-java" class="text-amber-400 hover:text-amber-300" target="_blank">Java</a></li>
-                    <li><a href="https://github.com/Agentopia/agentopia-go" class="text-amber-400 hover:text-amber-300" target="_blank">Go</a></li>
-                    <li><a href="https://github.com/Agentopia/agentopia-ruby" class="text-amber-400 hover:text-amber-300" target="_blank">Ruby</a></li>
-                    <li><a href="https://github.com/Agentopia/agentopia-dotnet" class="text-amber-400 hover:text-amber-300" target="_blank">.NET</a></li>
-                </ul>
-                
-                <p class="text-sm text-gray-400">If you need a library for a language not listed here, please <a href="https://github.com/Agentopia/api/issues/new" class="text-amber-400 hover:text-amber-300" target="_blank">open an issue</a> on our GitHub repository.</p>
-            </section>
-            
-            <!-- Error Handling Section -->
-            <section id="error-handling" class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 mb-12">
-                <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Error Handling</h2>
-                <p class="mb-6">The Agentopia API uses standard HTTP status codes to indicate the success or failure of an API request. Here's how to handle errors when using our API.</p>
-                
-                <h3 class="text-xl font-bold mb-4">HTTP Status Codes</h3>
-                <div class="overflow-x-auto mb-8">
-                    <table class="min-w-full">
-                        <thead>
-                            <tr class="border-b border-gray-700">
-                                <th class="py-2 px-4 text-left text-amber-400">Status Code</th>
-                                <th class="py-2 px-4 text-left text-amber-400">Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">200 - OK</td>
-                                <td class="py-2 px-4">The request was successful</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">201 - Created</td>
-                                <td class="py-2 px-4">The resource was successfully created</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">400 - Bad Request</td>
-                                <td class="py-2 px-4">The request was invalid or could not be understood</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">401 - Unauthorized</td>
-                                <td class="py-2 px-4">Authentication failed or was not provided</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">403 - Forbidden</td>
-                                <td class="py-2 px-4">The authenticated user doesn't have permission</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">404 - Not Found</td>
-                                <td class="py-2 px-4">The requested resource was not found</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">429 - Too Many Requests</td>
-                                <td class="py-2 px-4">Rate limit exceeded</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 font-medium">500 - Internal Server Error</td>
-                                <td class="py-2 px-4">An error occurred on the server</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-4">Error Response Format</h3>
-                <p class="mb-4">When an error occurs, the API returns a JSON object with the following structure:</p>
-                
-                <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
-                    <pre><code class="text-amber-400">{
+              </div>
+
+              <p class="mt-4 text-sm text-gray-400">
+                <a
+                  href="https://github.com/Agentopia/agentopia-js"
+                  class="text-amber-400 hover:text-amber-300"
+                  target="_blank"
+                  >View on GitHub</a
+                >
+                |
+                <a href="https://agentopia.org/docs/js-sdk" class="text-amber-400 hover:text-amber-300" target="_blank"
+                  >Documentation</a
+                >
+              </p>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-bold mb-4">Additional Libraries</h3>
+          <p class="mb-4">We also provide libraries for the following languages:</p>
+
+          <ul class="list-disc pl-5 space-y-2 mb-6">
+            <li>
+              <a
+                href="https://github.com/Agentopia/agentopia-java"
+                class="text-amber-400 hover:text-amber-300"
+                target="_blank"
+                >Java</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/Agentopia/agentopia-go"
+                class="text-amber-400 hover:text-amber-300"
+                target="_blank"
+                >Go</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/Agentopia/agentopia-ruby"
+                class="text-amber-400 hover:text-amber-300"
+                target="_blank"
+                >Ruby</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/Agentopia/agentopia-dotnet"
+                class="text-amber-400 hover:text-amber-300"
+                target="_blank"
+                >.NET</a
+              >
+            </li>
+          </ul>
+
+          <p class="text-sm text-gray-400">
+            If you need a library for a language not listed here, please
+            <a
+              href="https://github.com/Agentopia/api/issues/new"
+              class="text-amber-400 hover:text-amber-300"
+              target="_blank"
+              >open an issue</a
+            >
+            on our GitHub repository.
+          </p>
+        </section>
+
+        <!-- Error Handling Section -->
+        <section
+          id="error-handling"
+          class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 mb-12"
+        >
+          <h2 class="text-3xl font-bold text-amber-400 mb-6 border-b border-amber-400/30 pb-2">Error Handling</h2>
+          <p class="mb-6">
+            The Agentopia API uses standard HTTP status codes to indicate the success or failure of an API request.
+            Here's how to handle errors when using our API.
+          </p>
+
+          <h3 class="text-xl font-bold mb-4">HTTP Status Codes</h3>
+          <div class="overflow-x-auto mb-8">
+            <table class="min-w-full">
+              <thead>
+                <tr class="border-b border-gray-700">
+                  <th class="py-2 px-4 text-left text-amber-400">Status Code</th>
+                  <th class="py-2 px-4 text-left text-amber-400">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">200 - OK</td>
+                  <td class="py-2 px-4">The request was successful</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">201 - Created</td>
+                  <td class="py-2 px-4">The resource was successfully created</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">400 - Bad Request</td>
+                  <td class="py-2 px-4">The request was invalid or could not be understood</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">401 - Unauthorized</td>
+                  <td class="py-2 px-4">Authentication failed or was not provided</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">403 - Forbidden</td>
+                  <td class="py-2 px-4">The authenticated user doesn't have permission</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">404 - Not Found</td>
+                  <td class="py-2 px-4">The requested resource was not found</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">429 - Too Many Requests</td>
+                  <td class="py-2 px-4">Rate limit exceeded</td>
+                </tr>
+                <tr>
+                  <td class="py-2 px-4 font-medium">500 - Internal Server Error</td>
+                  <td class="py-2 px-4">An error occurred on the server</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-xl font-bold mb-4">Error Response Format</h3>
+          <p class="mb-4">When an error occurs, the API returns a JSON object with the following structure:</p>
+
+          <div class="bg-gray-900 rounded-md p-4 mb-6 overflow-x-auto">
+            <pre><code class="text-amber-400">{
   "error": {
     "type": "invalid_request_error",
     "message": "The agent ID is invalid or does not exist",
@@ -1169,57 +1274,57 @@ async function interactWithAgent(agentId) {
     "request_id": "req_123456789"
   }
 }</code></pre>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-4">Common Error Codes</h3>
-                <div class="overflow-x-auto mb-8">
-                    <table class="min-w-full">
-                        <thead>
-                            <tr class="border-b border-gray-700">
-                                <th class="py-2 px-4 text-left text-amber-400">Error Code</th>
-                                <th class="py-2 px-4 text-left text-amber-400">Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">invalid_request_error</td>
-                                <td class="py-2 px-4">The request was invalid or malformed</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">authentication_error</td>
-                                <td class="py-2 px-4">Authentication failed or was not provided</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">permission_error</td>
-                                <td class="py-2 px-4">The authenticated user doesn't have permission</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">resource_not_found</td>
-                                <td class="py-2 px-4">The requested resource was not found</td>
-                            </tr>
-                            <tr class="border-b border-gray-700">
-                                <td class="py-2 px-4 font-medium">rate_limit_error</td>
-                                <td class="py-2 px-4">Rate limit exceeded</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 font-medium">server_error</td>
-                                <td class="py-2 px-4">An error occurred on the server</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-4">Error Handling Best Practices</h3>
-                <ul class="list-disc pl-5 space-y-2 mb-6">
-                    <li>Always check the HTTP status code of API responses</li>
-                    <li>Parse the error response to get detailed information</li>
-                    <li>Implement retry logic with exponential backoff for rate limit errors</li>
-                    <li>Log the <code class="text-amber-400">request_id</code> for troubleshooting</li>
-                    <li>Handle different error types appropriately in your application</li>
-                </ul>
-                
-                <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
-                    <pre><code class="text-amber-400">// Example error handling in JavaScript
+          </div>
+
+          <h3 class="text-xl font-bold mb-4">Common Error Codes</h3>
+          <div class="overflow-x-auto mb-8">
+            <table class="min-w-full">
+              <thead>
+                <tr class="border-b border-gray-700">
+                  <th class="py-2 px-4 text-left text-amber-400">Error Code</th>
+                  <th class="py-2 px-4 text-left text-amber-400">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">invalid_request_error</td>
+                  <td class="py-2 px-4">The request was invalid or malformed</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">authentication_error</td>
+                  <td class="py-2 px-4">Authentication failed or was not provided</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">permission_error</td>
+                  <td class="py-2 px-4">The authenticated user doesn't have permission</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">resource_not_found</td>
+                  <td class="py-2 px-4">The requested resource was not found</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-2 px-4 font-medium">rate_limit_error</td>
+                  <td class="py-2 px-4">Rate limit exceeded</td>
+                </tr>
+                <tr>
+                  <td class="py-2 px-4 font-medium">server_error</td>
+                  <td class="py-2 px-4">An error occurred on the server</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-xl font-bold mb-4">Error Handling Best Practices</h3>
+          <ul class="list-disc pl-5 space-y-2 mb-6">
+            <li>Always check the HTTP status code of API responses</li>
+            <li>Parse the error response to get detailed information</li>
+            <li>Implement retry logic with exponential backoff for rate limit errors</li>
+            <li>Log the <code class="text-amber-400">request_id</code> for troubleshooting</li>
+            <li>Handle different error types appropriately in your application</li>
+          </ul>
+
+          <div class="bg-gray-900 rounded-md p-4 overflow-x-auto">
+            <pre><code class="text-amber-400">// Example error handling in JavaScript
 async function createAgent() {
   try {
     const agent = await agentopia.agents.create({
@@ -1243,14 +1348,14 @@ async function createAgent() {
     throw error;
   }
 }</code></pre>
-                </div>
-            </section>
-        </div>
+          </div>
+        </section>
+      </div>
     </div>
 
     <!-- Footer will be included via JavaScript -->
     <div id="footer-placeholder"></div>
 
     <script src="../js/navigation.js"></script>
-</body>
+  </body>
 </html>
