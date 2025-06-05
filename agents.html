@@ -75,6 +75,7 @@
 
     <!-- Hero Section with Animated Background -->
     <section
+      id="mainHeroSection"
       class="relative pt-16 md:pt-32 pb-12 md:pb-24 overflow-hidden bg-gradient-to-br from-gray-900 via-sky-900 to-gray-900 animate-gradient"
     >
       <div class="absolute inset-0 bg-[url('images/hero-pattern.svg')] opacity-10"></div>
@@ -112,7 +113,7 @@
     </section>
 
     <!-- Search and Filter Section -->
-    <section class="py-6 md:py-8 bg-gray-800/80 backdrop-blur-sm">
+    <section id="searchFilterSection" class="py-6 md:py-8 bg-gray-800/80 backdrop-blur-sm">
       <div class="container mx-auto px-4">
         <div class="flex flex-col items-center max-w-4xl mx-auto gap-8">
           <!-- Search Bar -->
@@ -221,7 +222,7 @@
               id="clearFiltersButton"
               class="hidden px-8 py-2.5 bg-gray-700 hover:bg-gray-600 text-gray-300 font-medium rounded-lg transition-all duration-300 text-center text-base border border-gray-600"
             >
-              Clear Filters
+              Clear Filters <span id="activeFiltersCountBadge" class="ml-2 hidden bg-amber-500 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full"></span>
             </button>
           </div>
         </div>
@@ -233,11 +234,12 @@
       <div class="container mx-auto px-4">
         <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <h2
+            id="featuredAgentsTitle"
             class="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent"
           >
             Featured Agents
           </h2>
-          <p class="text-gray-400">
+          <p id="featuredAgentsSubtitle" class="text-gray-400">
             Discover our most popular and powerful AI agents, carefully curated to help you achieve more.
           </p>
         </div>
@@ -329,7 +331,9 @@
       document.addEventListener("DOMContentLoaded", function () {
         let selectedType = "";
         let selectedScale = "";
-        let selectedCategory = "";
+        // selectedCategory is updated within filterAndRenderAgents
+        let initialCategoryFromUrl = ""; // Variable to hold category from URL
+
         const searchInput = document.getElementById("searchInput");
         const typeFilter = document.getElementById("typeFilter");
         const scaleFilter = document.getElementById("scaleFilter");
@@ -338,19 +342,20 @@
         const searchButton = document.getElementById("searchButton");
         const clearFiltersButton = document.getElementById("clearFiltersButton");
 
-        // Check for category query parameter and set filter
+        // Check for category query parameter and store it
         const urlParams = new URLSearchParams(window.location.search);
-        const categoryFromUrl = urlParams.get('category');
-        if (categoryFromUrl) {
-          // Ensure the category from URL is a valid option before setting
-          // This check can be more robust if options are dynamically populated before this script runs
-          // For now, we assume categoryFilter might not have its options yet, 
-          // but populateFilters will run soon. The value will be picked up by filterAndRenderAgents.
-          const validCategories = ["data-analysis-research", "productivity-organization", "automation-utilities", "creative-content-design"];
-          if (validCategories.includes(categoryFromUrl)) {
-            categoryFilter.value = categoryFromUrl;
+        const categorySlugFromUrl = urlParams.get('category');
+        if (categorySlugFromUrl) {
+          const categorySlugToNameMap = {
+            "data-analysis-research": "Data Analysis & Research",
+            "productivity-organization": "Productivity & Organization",
+            "automation-utilities": "Automation & Utilities",
+            "creative-content-design": "Creative Content & Design"
+          };
+          if (categorySlugToNameMap[categorySlugFromUrl]) {
+            initialCategoryFromUrl = categorySlugToNameMap[categorySlugFromUrl];
           } else {
-            console.warn(`Category '${categoryFromUrl}' from URL is not a valid filter option.`);
+            console.warn(`Category slug '${categorySlugFromUrl}' from URL is not a recognized category.`);
           }
         }
 
@@ -480,9 +485,21 @@
               throw new Error(`HTTP error! status: ${response.status}`);
             }
             allAgents = await response.json();
-            populateFilters(allAgents);
-            filterAndRenderAgents(); // Apply initial filters (including from URL) and render
-            updateFiltersVisibility(); // Update filter visibility based on loaded data
+            populateFilters(allAgents); // This populates the dropdowns
+
+            // Now, set the category filter value if an initial category was determined from URL
+            if (initialCategoryFromUrl) {
+              // Check if the option actually exists to avoid errors if map/data mismatch
+              const optionExists = Array.from(categoryFilter.options).some(opt => opt.value === initialCategoryFromUrl);
+              if (optionExists) {
+                categoryFilter.value = initialCategoryFromUrl;
+              } else {
+                console.warn(`Initial category '${initialCategoryFromUrl}' from URL not found in filter options after populating.`);
+              }
+            }
+
+            filterAndRenderAgents(); // Apply initial filters (now categoryFilter.value is correctly set) and render
+            updateFiltersVisibility(); // Update filter visibility based on loaded data and set filter value
           } catch (error) {
             console.error("Could not fetch or parse agents data:", error);
             agentsContainer.innerHTML = '<p class="text-center text-red-400">Error loading agents. Please try again later.</p>';
@@ -559,7 +576,82 @@
           updateFiltersVisibility();
         });
 
+        clearFiltersButton.addEventListener("click", function () {
+          searchInput.value = '';
+          typeFilter.value = '';
+          scaleFilter.value = '';
+          categoryFilter.value = '';
+          sortByFilter.value = ''; // Reset sort to default 'Sort By' (empty value)
+
+
+          filterAndRenderAgents(); // This will re-filter, re-render, and update visibility/counts
+        });
+
+        function updateFeaturedAgentsTitle() {
+          const titleElement = document.getElementById("featuredAgentsTitle");
+          const subtitleElement = document.getElementById("featuredAgentsSubtitle");
+          const categoryValue = categoryFilter.value;
+
+          // Map of category names to their descriptive subtitles
+          const categoryDescriptions = {
+            "Data Analysis & Research": "Analyze data, conduct research, and gain valuable insights.",
+            "Productivity & Organization": "Organize your work and boost efficiency with AI-powered tools.",
+            "Automation & Utilities": "Automate tasks, access helpful utilities, and streamline workflows.",
+            "Creative Content & Design": "Unleash creativity with AI tools for design, writing, and content generation.",
+            "default": "Discover our most popular and powerful AI agents, carefully curated to help you achieve more."
+          };
+
+          if (categoryValue) {
+            const selectedOption = Array.from(categoryFilter.options).find(option => option.value === categoryValue);
+            if (selectedOption) {
+              titleElement.textContent = `${selectedOption.text} Agents`;
+              subtitleElement.textContent = categoryDescriptions[selectedOption.text] || categoryDescriptions.default;
+            } else {
+              titleElement.textContent = "Filtered Agents"; // Fallback if option text not found
+              subtitleElement.textContent = categoryDescriptions.default;
+            }
+          } else {
+            titleElement.textContent = "Featured Agents";
+            subtitleElement.textContent = categoryDescriptions.default;
+          }
+        }
+
+        function updateActiveFiltersCount() {
+          const badge = document.getElementById('activeFiltersCountBadge');
+          if (!badge) return; // Exit if the badge element isn't found
+
+          // Count active filters
+
+          let activeCount = 0;
+          if (searchInput.value.trim() !== '') activeCount++;
+          if (typeFilter.value !== '') activeCount++;
+          if (scaleFilter.value !== '') activeCount++;
+          if (categoryFilter.value !== '') activeCount++;
+          // Assuming the default value for sortFilter is an empty string or a specific value like 'popular'
+          // If 'Sort By' (empty value) is not the default, adjust this condition
+          if (sortFilter.value !== '') activeCount++; 
+
+          // Update badge text and visibility
+          if (activeCount > 0) {
+            badge.textContent = activeCount;
+            badge.classList.remove('hidden');
+          } else {
+            badge.classList.add('hidden');
+          }
+        }
+
         function updateFiltersVisibility() {
+          const mainHero = document.getElementById('mainHeroSection');
+          const searchFilterArea = document.getElementById('searchFilterSection');
+
+          if (categoryFilter.value) {
+            if (mainHero) mainHero.classList.add('hidden');
+            if (searchFilterArea) searchFilterArea.classList.add('hidden');
+          } else {
+            if (mainHero) mainHero.classList.remove('hidden');
+            if (searchFilterArea) searchFilterArea.classList.remove('hidden');
+          }
+
           const hasActiveFilters =
             searchInput.value || typeFilter.value || scaleFilter.value || categoryFilter.value || sortByFilter.value;
 
@@ -569,14 +661,16 @@
             clearFiltersButton.classList.add("hidden");
           }
 
-          // Add visual feedback for active dropdowns
           [typeFilter, scaleFilter, categoryFilter, sortByFilter].forEach((filter) => {
             if (filter.value) {
-              filter.classList.add("border-amber-500");
+              filter.classList.add("border-amber-500"); // Highlight active filters
             } else {
               filter.classList.remove("border-amber-500");
             }
           });
+
+          updateFeaturedAgentsTitle();
+          updateActiveFiltersCount();
         }
 
         // Initial load: fetch data, populate filters, and render all agents
