@@ -4,91 +4,51 @@
 
 This document defines the standards and requirements for each agent category in the AI Agentopia platform. These standards ensure consistency, quality, and clear differentiation between agent types.
 
-## Core Categories Matrix
+## Core Classification Fields
 
-### 1. Regular Single Agent
+The Agentopia platform uses a multi-faceted approach to classify agents, primarily through the following fields in the `agent.json` manifest:
 
-#### Definition
+### 1. `category` (Functional Domain)
 
-- Single autonomous unit with direct user interaction
-- Operates under explicit user commands
-- Focused on specific tasks or domains
+*   **Definition**: Primary functional or domain-oriented category for the agent. This field helps users find agents relevant to their general area of interest.
+*   **Type**: `string`
+*   **Requirement**: Required
+*   **Allowed Values** (as defined in `agent-manifest.schema.json`):
+    *   `"Productivity & Organization"`
+    *   `"Content Creation & Design"`
+    *   `"Data Analysis & Research"`
+    *   `"Automation & Utilities"`
+    *   `"Education & Learning"`
+    *   `"Business & Finance"`
+*   **Example**: `"Data Analysis & Research"`
 
-#### Requirements
+### 2. `subcategory` (Granular Function)
 
-- Clear input/output interface
-- Direct command handling
-- Task-specific capabilities
-- User feedback mechanisms
+*   **Definition**: An optional field for a more granular functional classification within the main `category`.
+*   **Type**: `string`
+*   **Requirement**: Optional
+*   **Example**: If `category` is `"Productivity & Organization"`, a `subcategory` could be `"Task Management"` or `"Note Taking"`.
 
-#### Examples
+### 3. `agentType` (Operational Mode)
 
-- Chat assistants
-- Task-specific helpers
-- Specialized tools
+*   **Definition**: Describes the agent's primary operational mode, indicating how it interacts with users and makes decisions.
+*   **Type**: `string`
+*   **Requirement**: Required
+*   **Allowed Values** (as defined in `agent-manifest.schema.json`):
+    *   `"Assistant"`: User-directed; typically requires explicit commands or prompts to perform tasks.
+    *   `"Autonomous"`: Self-directed; capable of pursuing goals and making decisions independently once initiated.
+    *   `"Hybrid"`: Mixed-initiative; combines aspects of both Assistant and Autonomous modes, potentially taking some actions autonomously while still allowing for user direction.
+*   **Example**: `"Autonomous"`
 
-### 2. Regular Multi-Agent
+### 4. `agentScale` (Structural Complexity)
 
-#### Definition
-
-- Multiple coordinated agents
-- User-directed collaboration
-- Shared task execution
-
-#### Requirements
-
-- Inter-agent communication protocol
-- Role definition for each agent
-- Coordination mechanisms
-- Task distribution system
-
-#### Examples
-
-- Team-based assistants
-- Workflow systems
-- Distributed task handlers
-
-### 3. Autonomous Single Agent
-
-#### Definition
-
-- Self-directed single agent
-- Goal-oriented behavior
-- Independent decision-making
-
-#### Requirements
-
-- Goal setting mechanism
-- Self-monitoring capabilities
-- Decision-making framework
-- Safety constraints
-
-#### Examples
-
-- Research agents
-- Data analysis agents
-- Autonomous task executors
-
-### 4. Autonomous Multi-Agent
-
-#### Definition
-
-- Self-organizing agent network
-- Emergent behavior
-- Collective decision-making
-
-#### Requirements
-
-- Swarm coordination
-- Distributed decision-making
-- Collective goal alignment
-- Network safety protocols
-
-#### Examples
-
-- Market analysis systems
-- Distributed problem solvers
-- Collaborative researchers
+*   **Definition**: Describes the structural complexity of the agent, particularly whether it operates alone or as part of a larger system.
+*   **Type**: `string`
+*   **Requirement**: Required
+*   **Allowed Values** (as defined in `agent-manifest.schema.json`):
+    *   `"Single-Agent"`: The agent operates as an individual, self-contained unit.
+    *   `"Multi-Agent"`: The agent is designed to be part of a coordinated team or system of multiple agents working together.
+*   **Example**: `"Single-Agent"`
 
 ## Quality Standards
 
@@ -102,33 +62,33 @@ This document defines the standards and requirements for each agent category in 
 
 ### 2. Category-Specific Standards
 
-#### Regular Agents
+#### For `agentType: "Assistant"` (and relevant aspects of `"Hybrid"`)
 
-- Response time
-- Command accuracy
-- User interaction quality
-- Task completion rate
+- Response time to user commands/prompts
+- Accuracy in interpreting and executing commands
+- Quality of user interaction and feedback mechanisms
+- Task completion rate based on user direction
 
-#### Autonomous Agents
+#### For `agentType: "Autonomous"` (and relevant aspects of `"Hybrid"`)
 
-- Decision quality
-- Goal achievement rate
-- Resource efficiency
-- Safety compliance
+- Quality and soundness of independent decisions
+- Rate of successful goal achievement
+- Efficiency in resource utilization during autonomous operation
+- Adherence to safety protocols and operational constraints
 
-#### Single Agents
+#### For `agentScale: "Single-Agent"`
 
-- Task focus
-- Resource usage
-- Individual performance
-- Reliability metrics
+- Clarity of task focus and domain specificity
+- Efficient use of resources as an individual unit
+- Robustness and reliability of individual performance
+- Clear metrics for individual capability assessment
 
-#### Multi-Agents
+#### For `agentScale: "Multi-Agent"`
 
-- Coordination efficiency
-- Communication overhead
-- Collective performance
-- Scalability metrics
+- Efficiency of inter-agent coordination and communication
+- Minimized communication overhead relative to task complexity
+- Effectiveness of collective performance towards shared goals
+- Scalability of the multi-agent system (e.g., adding more agents)
 
 ## Implementation Guidelines
 

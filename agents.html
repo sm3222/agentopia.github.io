@@ -366,7 +366,7 @@
           card.innerHTML = `
                     <a href="pages/agent-detail.html?name=${encodeURIComponent(agent.name)}" class="block">
                         <div class="h-48 bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center transition-all duration-300 group-hover:from-gray-700 group-hover:to-gray-600">
-                            <span class="text-6xl">${agent.emoji}</span>
+                            <span class="text-6xl">${agent.icon || agent.emoji || '🤖'}</span>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
@@ -378,197 +378,143 @@
                                     <span class="visit-count text-sm font-medium">${formatVisitCount(visitCount)}</span>
                                 </div>
                             </div>
-                            <p class="text-gray-400 text-sm mb-4">${agent.description}</p>
-                            <div class="flex flex-wrap gap-2">
-                                ${agent.tags
-                                  .map(
-                                    (tag) => `
-                                    <span class="px-2 py-1 text-xs font-medium bg-gray-700/50 text-gray-300 rounded-md">
-                                        ${tag}
-                                    </span>
-                                `,
-                                  )
-                                  .join("")}
+                            <p class="text-gray-400 text-sm mb-3">${agent.description}</p>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                ${agent.tags && agent.tags.length > 0
+                                  ? agent.tags.map(tag => `<span class="px-2 py-1 text-xs font-medium bg-gray-700/50 text-gray-300 rounded-md">${tag}</span>`).join("")
+                                  : '<span class="text-xs text-gray-500">No tags</span>'}
+                            </div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-2 py-1 bg-sky-700/50 text-sky-300 rounded-md">${agent.agentType || 'N/A'}</span>
+                                <span class="px-2 py-1 bg-teal-700/50 text-teal-300 rounded-md">${agent.agentScale || 'N/A'}</span>
+                                <span class="px-2 py-1 bg-indigo-700/50 text-indigo-300 rounded-md">${agent.category || 'N/A'}</span>
                             </div>
                         </div>
                     </a>
                 `;
+                // Fallback for icon: agent.icon then agent.emoji then default robot emoji
+                // Added agentType, agentScale, and category to the card display with distinct styling.
           return card;
         }
 
-        // Sample agents data
-        const agentsData = [
-          {
-            id: "agent1",
-            name: "Code Assistant Pro",
-            description: "AI-powered coding assistant that helps with code completion, bug fixing, and code reviews.",
-            type: "regular",
-            scale: "medium",
-            category: "Productivity",
-            emoji: "🚀",
-            tags: ["Coding", "AI", "Productivity"],
-          },
-          {
-            id: "agent2",
-            name: "Data Analyzer Bot",
-            description: "Automated data analysis tool that processes large datasets and generates insights.",
-            type: "advanced",
-            scale: "large",
-            category: "Analytics",
-            emoji: "📊",
-            tags: ["Data", "Analytics", "Automation"],
-          },
-          {
-            id: "agent3",
-            name: "Workflow Automator",
-            description: "Automates repetitive tasks and streamlines business processes.",
-            type: "regular",
-            scale: "small",
-            category: "Automation",
-            emoji: "⚡",
-            tags: ["Automation", "Workflow", "Productivity"],
-          },
-          {
-            id: "agent4",
-            name: "Research Assistant",
-            description: "AI agent that helps with academic research, literature reviews, and paper summaries.",
-            type: "advanced",
-            scale: "medium",
-            category: "Productivity",
-            emoji: "📚",
-            tags: ["Research", "Academic", "AI"],
-          },
-          {
-            id: "agent5",
-            name: "Social Media Manager",
-            description: "Automated social media management tool for content scheduling and analytics.",
-            type: "regular",
-            scale: "medium",
-            category: "Automation",
-            emoji: "📱",
-            tags: ["Social Media", "Marketing", "Automation"],
-          },
-          {
-            id: "agent6",
-            name: "Market Analyzer",
-            description: "Advanced market analysis tool for financial insights and trend prediction.",
-            type: "advanced",
-            scale: "large",
-            category: "Analytics",
-            emoji: "📈",
-            tags: ["Finance", "Analytics", "AI"],
-          },
-          {
-            id: "agent7",
-            name: "Content Writer",
-            description: "AI-powered content generation assistant for blogs, articles, and marketing copy.",
-            type: "regular",
-            scale: "medium",
-            category: "Productivity",
-            emoji: "✍️",
-            tags: ["Writing", "Content", "AI"],
-          },
-          {
-            id: "agent8",
-            name: "Task Scheduler",
-            description: "Intelligent task scheduling and project management assistant.",
-            type: "regular",
-            scale: "small",
-            category: "Automation",
-            emoji: "📅",
-            tags: ["Project Management", "Automation", "Productivity"],
-          },
-          {
-            id: "agent9",
-            name: "Customer Support Bot",
-            description: "AI customer service agent that handles inquiries and support tickets.",
-            type: "advanced",
-            scale: "large",
-            category: "Automation",
-            emoji: "💬",
-            tags: ["Customer Service", "Support", "AI"],
-          },
-        ];
+        function renderAgents(agentsToRender) {
+          if (!agentsContainer) {
+            console.error("Agents container (agentsGrid) not found!");
+            return;
+          }
+          agentsContainer.innerHTML = ''; // Clear existing cards
+          if (agentsToRender.length === 0) {
+            agentsContainer.innerHTML = '<p class="col-span-full text-center text-gray-400">No agents found matching your criteria.</p>';
+          } else {
+            agentsToRender.forEach(agent => {
+              const card = createAgentCard(agent);
+              agentsContainer.appendChild(card);
+            });
+          }
+        }
+
+        let allAgents = []; // To store agents fetched from JSON
+        const agentsContainer = document.getElementById("agentsGrid");
+
+        function populateFilters(agents) {
+          const categories = new Set();
+          const agentTypes = new Set();
+          const agentScales = new Set();
+
+          agents.forEach(agent => {
+            if (agent.category) categories.add(agent.category);
+            if (agent.agentType) agentTypes.add(agent.agentType); // Use new field name
+            if (agent.agentScale) agentScales.add(agent.agentScale); // Use new field name
+          });
+
+          const populate = (selectElement, optionsSet, defaultValue) => {
+            selectElement.innerHTML = `<option value="">All ${defaultValue}</option>`;
+            optionsSet.forEach(option => {
+              const opt = document.createElement('option');
+              opt.value = option;
+              opt.textContent = option;
+              selectElement.appendChild(opt);
+            });
+          };
+
+          populate(categoryFilter, categories, 'Categories');
+          populate(typeFilter, agentTypes, 'Types');
+          populate(scaleFilter, agentScales, 'Scales');
+        }
+
+        async function fetchDataAndInitialize() {
+          try {
+            const response = await fetch('public/data/agents-data.json');
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            allAgents = await response.json();
+            populateFilters(allAgents);
+            renderAgents(allAgents); // Initial render of all agents
+            updateFiltersVisibility(); // Update filter visibility based on loaded data
+          } catch (error) {
+            console.error("Could not fetch or parse agents data:", error);
+            agentsContainer.innerHTML = '<p class="text-center text-red-400">Error loading agents. Please try again later.</p>';
+          }
+        }
+
+        function filterAndRenderAgents() {
+          selectedType = typeFilter.value;
+          selectedScale = scaleFilter.value;
+          selectedCategory = categoryFilter.value;
+          const searchTerm = searchInput.value.toLowerCase(); // Ensure searchTerm is defined here
+          const sortBy = sortByFilter.value; // Ensure sortBy is defined here
+
+          let filtered = allAgents.filter((agent) => {
+            const matchesType = selectedType ? agent.agentType === selectedType : true;
+            const matchesScale = selectedScale ? agent.agentScale === selectedScale : true;
+            const matchesCategory = selectedCategory ? agent.category === selectedCategory : true;
+            const matchesSearch = searchTerm
+              ? agent.name.toLowerCase().includes(searchTerm) ||
+                (agent.description && agent.description.toLowerCase().includes(searchTerm)) ||
+                (agent.tags && agent.tags.some(tag => tag.toLowerCase().includes(searchTerm))) ||
+                (agent.category && agent.category.toLowerCase().includes(searchTerm)) ||
+                (agent.agentType && agent.agentType.toLowerCase().includes(searchTerm)) ||
+                (agent.agentScale && agent.agentScale.toLowerCase().includes(searchTerm)) ||
+                (agent.subcategory && agent.subcategory.toLowerCase().includes(searchTerm))
+              : true;
+            return matchesType && matchesScale && matchesCategory && matchesSearch;
+          });
+
+          // Sort the filtered agents
+          if (sortBy === "name") {
+            filtered.sort((a, b) => a.name.localeCompare(b.name));
+          } else if (sortBy === "rating") {
+            filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+          } else if (sortBy === "visits") {
+            filtered.sort((a,b) => (getVisitCount(b.id) || 0) - (getVisitCount(a.id) || 0));
+          } else if (sortBy === "recent") {
+            filtered.sort((a,b) => (b.id || 0) - (a.id || 0)); 
+          } else if (sortBy === "popular") {
+            filtered.sort((a,b) => (getVisitCount(b.id) || 0) - (getVisitCount(a.id) || 0));
+          }
+
+          renderAgents(filtered);
+          updateFiltersVisibility();
+        }
 
         // Search button click handler
         searchButton.addEventListener("click", function (e) {
           e.preventDefault();
-          filterAgents();
+          filterAndRenderAgents();
         });
 
         // Enter key handler for search input
         searchInput.addEventListener("keypress", function (e) {
           if (e.key === "Enter") {
             e.preventDefault();
-            filterAgents();
+            filterAndRenderAgents(); // Call the main function
           }
         });
 
-        function filterAgents() {
-          const searchTerm = searchInput.value.toLowerCase();
-          const agentsGrid = document.getElementById("agentsGrid");
-          agentsGrid.innerHTML = ""; // Clear existing cards
-
-          let filteredData = agentsData.filter((agent) => {
-            const matchesSearch =
-              agent.name.toLowerCase().includes(searchTerm) || agent.description.toLowerCase().includes(searchTerm);
-            const matchesType = !selectedType || agent.type === selectedType;
-            const matchesScale = !selectedScale || agent.scale === selectedScale;
-            const matchesCategory = !selectedCategory || agent.category === selectedCategory;
-
-            return matchesSearch && matchesType && matchesScale && matchesCategory;
-          });
-
-          // Sort the filtered data
-          const sortBy = sortByFilter.value;
-          if (sortBy === "visits") {
-            filteredData.sort((a, b) => getVisitCount(b.id) - getVisitCount(a.id));
-          } else if (sortBy === "name") {
-            filteredData.sort((a, b) => a.name.localeCompare(b.name));
-          }
-
-          // Display the filtered and sorted agents
-          if (filteredData.length === 0) {
-            agentsGrid.innerHTML = `
-                        <div class="col-span-full text-center py-8">
-                            <p class="text-gray-400">No agents found matching your criteria.</p>
-                        </div>
-                    `;
-          } else {
-            filteredData.forEach((agent) => {
-              const card = createAgentCard(agent);
-              agentsGrid.appendChild(card);
-            });
-          }
-
-          // Update active filters count
-          const activeFiltersCount = document.getElementById("activeFiltersCount");
-          const count = [selectedType, selectedScale, selectedCategory, sortBy].filter(Boolean).length;
-          if (count > 0) {
-            activeFiltersCount.textContent = count;
-            activeFiltersCount.parentElement.classList.remove("hidden");
-          } else {
-            activeFiltersCount.parentElement.classList.add("hidden");
-          }
-        }
-
-        // Clear filters button click handler
-        clearFiltersButton.addEventListener("click", function () {
-          // Reset all filters
-          searchInput.value = "";
-          typeFilter.value = "";
-          scaleFilter.value = "";
-          categoryFilter.value = "";
-          sortByFilter.value = "";
-
-          // Reset variables
-          selectedType = "";
-          selectedScale = "";
-          selectedCategory = "";
-
-          // Update UI
-          updateFiltersVisibility();
-          filterAgents();
+        // Add change listeners to filters to call filterAndRenderAgents
+        [typeFilter, scaleFilter, categoryFilter, sortByFilter].forEach((filter) => {
+          filter.addEventListener("change", filterAndRenderAgents);
         });
 
         // Add change listeners to all filters
@@ -602,8 +548,8 @@
           });
         }
 
-        // Initial load with no filters
-        filterAgents();
+        // Initial load: fetch data, populate filters, and render all agents
+        fetchDataAndInitialize();
       });
     </script>
   </body>

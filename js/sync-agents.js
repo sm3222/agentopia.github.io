@@ -30,7 +30,7 @@ const path = require("path");
 // Path to AIAgentopia repo's agents directory (adjust if needed)
 const AGENTS_DIR = path.resolve(__dirname, "../../AIAgentopia/agents");
 // Output path for agents-data.json in portal repo
-const OUTPUT_JSON = path.resolve(__dirname, "../js/agents-data.json");
+const OUTPUT_JSON = path.resolve(__dirname, "../public/data/agents-data.json");
 
 function getAgentManifests(agentsDir) {
   const agents = [];
@@ -48,23 +48,29 @@ function getAgentManifests(agentsDir) {
         agents.push({
           id: idx + 1, // This ID might get overridden if a manual entry with same name exists
           name: manifest.name || folder,
-          emoji: manifest.emoji || "🤖", // Added emoji
-          version: manifest.version || "0.1.0", // Added version
-          author: manifest.author || "Agentopia Team", // Added author
+          // Prioritize icon, then emoji
+          icon: manifest.icon || manifest.emoji || "🤖", 
+          emoji: manifest.emoji || manifest.icon || "🤖", // Keep emoji for compatibility if icon not present
+          version: manifest.version || "0.1.0",
+          author: manifest.author || "Agentopia Team",
           category: manifest.category || "Uncategorized",
-          type: manifest.type || "regular",
-          scale: manifest.scale || "single",
+          agentType: manifest.agentType || manifest.type || "Assistant", 
+          agentScale: manifest.agentScale || manifest.scale || "Single-Agent", 
+          subcategory: manifest.subcategory || "",
+          developmentFrameworks: manifest.developmentFrameworks || [],
+          intendedAudience: manifest.intendedAudience || [],
+          dataModalities: manifest.dataModalities || [],
+          integrationType: manifest.integrationType || "",
           description: manifest.description || "",
-          // setupInstructions is handled below to prioritize structured 'setup_instructions'
-          configFields: manifest.configFields || [], // Added configFields
+          configFields: manifest.config_fields || [], // Use snake_case from source
           features: manifest.features || ["Demo Agent"],
           tags: manifest.tags || ["demo"],
-          demoUrl: manifest.demoUrl || "#", // Added demoUrl
-          sourceUrl: manifest.sourceUrl || "#", // Added sourceUrl
-          // Default rating and reviews, can be overridden by manual entries if needed
+          // Use snake_case from source manifest, fallback to camelCase if old manifest, then placeholder
+          demoUrl: manifest.demo_url || manifest.demoUrl || "", // Output key is demoUrl (camelCase)
+          sourceUrl: manifest.source_url || manifest.sourceUrl || "", // Output key is sourceUrl (camelCase)
+
           rating: manifest.rating !== undefined ? manifest.rating : 5.0,
           reviews: manifest.reviews !== undefined ? manifest.reviews : 0,
-          // New fields from comprehensive schema (preserving snake_case from source manifest)
           long_description: manifest.long_description || manifest.description || "",
           entry_point: manifest.entry_point || null,
           deployment_status: manifest.deployment_status || "N/A",
@@ -73,12 +79,11 @@ function getAgentManifests(agentsDir) {
           roadmap_features: manifest.roadmap_features || [],
           llm_dependency: manifest.llm_dependency || null,
           privacy_considerations: manifest.privacy_considerations || "",
-          docker_info: manifest.docker_info || null,
-          // Ensure setup_instructions (if structured) is carried over correctly
-          // The agent-detail.js expects 'setupInstructions' (camelCase) if it's a simple string from older manifests
-          // or a structured object (which might be snake_case 'setup_instructions' in source manifest)
-          // For now, let's assume source manifest uses 'setup_instructions' for the structured object
-          setup_instructions: manifest.setup_instructions || manifest.setupInstructions || "", // Prioritize structured, fallback to simple
+          // Correctly map individual Docker fields from snake_case source
+          docker_image_name: manifest.docker_image_name || null,
+          docker_pull_instructions: manifest.docker_pull_instructions || null,
+          docker_run_instructions: manifest.docker_run_instructions || null,
+          setup_instructions: manifest.setup_instructions || manifest.setupInstructions || "", 
         });
       } catch (e) {
         console.warn("Could not parse", manifestPath, e);
@@ -100,13 +105,37 @@ function main() {
   }
   // Get real agents from AIAgentopia
   const realAgents = getAgentManifests(AGENTS_DIR);
-  // Merge: replace manual entry if name matches, otherwise keep manual
-  const merged = [...realAgents];
-  existingAgents.forEach((manualAgent) => {
-    if (!realAgents.find((a) => a.name === manualAgent.name)) {
-      merged.push(manualAgent);
+  // Merge: Prioritize existing manual agents. Update them if a match is found in realAgents, 
+  // or add new realAgents if no match is found in existingAgents.
+  const mergedAgents = [...existingAgents]; // Start with all existing manual agents
+
+  realAgents.forEach((realAgent) => {
+    const existingAgentIndex = mergedAgents.findIndex(manual => manual.name === realAgent.name);
+    if (existingAgentIndex !== -1) {
+      // Agent with the same name exists, update it with data from realAgent
+      // This simple merge overwrites existing fields with realAgent fields.
+      // For more granular control (e.g., only updating specific fields), this would need to be more complex.
+      mergedAgents[existingAgentIndex] = { ...mergedAgents[existingAgentIndex], ...realAgent };
+      console.log(`Updated existing agent: ${realAgent.name}`);
+    } else {
+      // Agent does not exist, add it
+      mergedAgents.push(realAgent);
+      console.log(`Added new agent from AIAgentopia: ${realAgent.name}`);
     }
   });
+
+  // The 'merged' variable for writing to file should be 'mergedAgents'
+  // We need to ensure the console log and writeFileSync use the correct variable name.
+  // The original script used 'merged', so we'll adjust the variable name for the final output to match.
+  const merged = mergedAgents; // Use 'merged' for consistency with the rest of the original script's output logic
+
+  // Ensure output directory exists
+  const outputDir = path.dirname(OUTPUT_JSON);
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+    console.log(`Created output directory: ${outputDir}`);
+  }
+
   fs.writeFileSync(OUTPUT_JSON, JSON.stringify(merged, null, 4));
   console.log(
     `Merged ${realAgents.length} real agents with ${existingAgents.length} manual agents. Wrote ${merged.length} agents to`,

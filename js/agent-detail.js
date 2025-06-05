@@ -153,6 +153,32 @@ function getScaleColor(scale) {
   }
 }
 
+// Helper function to create a generic attribute badge
+function createAttributeBadge(text, baseClasses, iconSvg = '') {
+  const badge = document.createElement('span');
+  badge.className = `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${baseClasses} mr-2 mb-2`;
+  let iconHtml = '';
+  if (iconSvg) {
+    iconHtml = `<svg class="w-3 h-3 mr-1.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">${iconSvg}</svg>`;
+  }
+  badge.innerHTML = `${iconHtml}${text}`;
+  return badge;
+}
+
+// Helper function to populate a list of items as badges
+function populateBadgesList(containerElement, itemsArray, badgeBaseClasses, emptyMessageElement, itemIconSvg = '') {
+  containerElement.innerHTML = ''; // Clear existing badges
+  if (itemsArray && itemsArray.length > 0) {
+    itemsArray.forEach(item => {
+      const badge = createAttributeBadge(item, badgeBaseClasses, itemIconSvg);
+      containerElement.appendChild(badge);
+    });
+    if (emptyMessageElement) emptyMessageElement.classList.add('hidden');
+  } else {
+    if (emptyMessageElement) emptyMessageElement.classList.remove('hidden');
+  }
+}
+
 /**
  * Generate star rating HTML
  * @param {number} rating - The rating value (0-5)
@@ -270,7 +296,7 @@ async function loadAgentData() {
     console.log("Fetching agent data for:", agentName);
     try {
       // Try with relative path first
-      const paths = ["../js/agents-data.json", "/js/agents-data.json", "./js/agents-data.json"];
+      const paths = ["/public/data/agents-data.json"]; // Use root-relative path
       let response;
       let error;
 
@@ -297,21 +323,7 @@ async function loadAgentData() {
       }
     } catch (error) {
       console.error("Error fetching agent data with relative path:", error);
-      try {
-        // Try with absolute path as fallback
-        const absoluteResponse = await fetch("/js/agents-data.json");
-        if (!absoluteResponse.ok) {
-          throw new Error(`Failed to fetch agent data: ${absoluteResponse.status} ${absoluteResponse.statusText}`);
-        }
-        const agent = await handleAgentDataResponse(absoluteResponse, agentName);
-        if (agent) {
-          populateAgentDetails(agent);
-        }
-      } catch (fallbackError) {
-        console.error("Error fetching agent data with absolute path:", fallbackError);
-        displayErrorMessage(fallbackError);
-        throw fallbackError;
-      }
+      // Fallback logic removed as we are now confident in the primary path or expect it to fail clearly.
     }
   } catch (error) {
     console.error("Error loading agent data:", error);
@@ -381,7 +393,7 @@ function populateAgentDetails(agent) {
           </div>
           <div class="mt-8 flex flex-wrap justify-center gap-3">
             ${
-              agent.demoUrl && agent.demoUrl !== "#"
+              agent.demoUrl
                 ? `
             <a id="demo-link" href="${agent.demoUrl}" target="_blank" class="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg shadow-md transition-colors duration-200 flex items-center text-sm">
               <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -392,7 +404,7 @@ function populateAgentDetails(agent) {
             ${
               agent.sourceUrl && agent.sourceUrl !== "#"
                 ? `
-            <a id="source-link" href="${agent.sourceUrl}" target="_blank" class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg shadow-md transition-colors duration-200 flex items-center text-sm">
+            <a id="agent-source-link" href="${agent.sourceUrl}" target="_blank" class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg shadow-md transition-colors duration-200 flex items-center text-sm">
               <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
               View Source
             </a>`
@@ -409,6 +421,8 @@ function populateAgentDetails(agent) {
       mainContent.classList.remove("loading");
       mainContent.classList.add("loaded");
     }
+
+
 
     // Helper to set text or rendered markdown, handling N/A cases
     const setText = (id, text, isMarkdown = false) => {
@@ -458,301 +472,157 @@ function populateAgentDetails(agent) {
     }
 
     // Populate Key Details Section
-    setText("detail-agent-author", agent.author);
+    // Category, Subcategory, AgentType, AgentScale Badges in Hero
+    const attributesBadgesContainer = document.getElementById('agent-attributes-badges');
+    if (attributesBadgesContainer) {
+      attributesBadgesContainer.innerHTML = ''; // Clear previous badges
+
+      if (agent.category) {
+        const categoryBadge = createAttributeBadge(agent.category, 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300 border border-amber-300 dark:border-amber-700');
+        attributesBadgesContainer.appendChild(categoryBadge);
+      }
+      if (agent.subcategory) {
+        const subCategoryBadge = createAttributeBadge(agent.subcategory, 'bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-300 border border-sky-300 dark:border-sky-700');
+        attributesBadgesContainer.appendChild(subCategoryBadge);
+      }
+      if (agent.agentType) {
+        const typeIcon = '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 100-12 6 6 0 000 12zM9 9a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm1-5a1 1 0 011 1v2a1 1 0 11-2 0V5a1 1 0 011-1z" clip-rule="evenodd"></path>';
+        const agentTypeBadge = createAttributeBadge(agent.agentType, `${getTypeColor(agent.agentType)} bg-opacity-10 border ${getTypeColor(agent.agentType).replace('text-', 'border-')}`, typeIcon);
+        attributesBadgesContainer.appendChild(agentTypeBadge);
+      }
+      if (agent.agentScale) {
+        const scaleIcon = '<path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2-2a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V5a1 1 0 00-1-1H5zM7 8a1 1 0 011-1h4a1 1 0 110 2H8a1 1 0 01-1-1z" clip-rule="evenodd"></path>';
+        const agentScaleBadge = createAttributeBadge(agent.agentScale, `${getScaleColor(agent.agentScale)} bg-opacity-10 border ${getScaleColor(agent.agentScale).replace('text-', 'border-')}`, scaleIcon);
+        attributesBadgesContainer.appendChild(agentScaleBadge);
+      }
+    }
     setText("detail-agent-version", agent.version ? `${agent.version}` : null);
     setText("detail-agent-deployment-status", agent.deployment_status);
     setText("detail-agent-type", agent.type);
     setText("detail-agent-scale", agent.scale);
     setText("detail-agent-entry-point", agent.entry_point ? `<code>${agent.entry_point}</code>` : null);
 
-    // Features
-    const featuresList = document.getElementById("agent-features");
-    if (featuresList && agent.features && Array.isArray(agent.features) && agent.features.length > 0) {
-      featuresList.innerHTML = agent.features
-        .map((feature) => {
-          const title = typeof feature === "string" ? feature : feature.title;
-          const description = typeof feature === "string" ? "" : feature.description;
-          return `
-          <li class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg shadow-sm">
-            <h4 class="font-semibold text-gray-800 dark:text-gray-100">${renderMarkdown(title, true)}</h4>
-            ${description ? `<div class="text-sm text-gray-600 dark:text-gray-400 mt-1">${renderMarkdown(description)}</div>` : ""}
-          </li>
-        `;
-        })
-        .join("");
-    } else if (featuresList) {
-      featuresList.innerHTML = '<li class="text-gray-500 dark:text-gray-400">No specific features listed.</li>';
+    // Populate Roadmap Features
+    const roadmapUl = document.getElementById("roadmap-features-list");
+    const roadmapEmpty = document.getElementById("roadmap-features-empty");
+    populateList("roadmap-features-list", agent.roadmap_features || [], "No roadmap features listed yet.");
+    if (agent.roadmap_features && agent.roadmap_features.length > 0) {
+      if(roadmapEmpty) roadmapEmpty.classList.add("hidden");
+    } else {
+      if(roadmapEmpty) roadmapEmpty.classList.remove("hidden");
     }
 
-    // Setup Instructions
-    const setupSection = document.getElementById("setup-section");
-    if (setupSection) {
-      let setupContent = "";
-      if (agent.setup_instructions) {
-        if (typeof agent.setup_instructions === "object" && agent.setup_instructions !== null) {
-          if (agent.setup_instructions.docker) {
-            setupContent +=
-              "<h3>Docker Setup</h3>\n" + renderMarkdown(agent.setup_instructions.docker) + '\n<hr class="my-4">\n';
-          }
-          if (agent.setup_instructions.python) {
-            setupContent += "<h3>Python Setup</h3>\n" + renderMarkdown(agent.setup_instructions.python);
-          }
-          if (
-            Object.keys(agent.setup_instructions).length === 0 ||
-            (!agent.setup_instructions.docker && !agent.setup_instructions.python && agent.setup_instructions.general)
-          ) {
-            setupContent = renderMarkdown(
-              agent.setup_instructions.general || "No specific setup instructions provided.",
-            );
-          } else if (!agent.setup_instructions.docker && !agent.setup_instructions.python) {
-            setupContent = renderMarkdown("No Docker or Python setup instructions provided.");
-          }
-        } else if (typeof agent.setup_instructions === "string") {
-          setupContent = renderMarkdown(agent.setup_instructions);
-        } else {
-          setupContent = renderMarkdown("Setup instructions are in an unexpected format.");
-        }
-      } else if (agent.setupInstructions) {
-        setupContent = renderMarkdown(agent.setupInstructions);
+    // Populate Technical Details
+    const devFrameworksContainer = document.getElementById('development-frameworks-list');
+    const devFrameworksEmpty = document.getElementById('development-frameworks-empty');
+    if (devFrameworksContainer) populateBadgesList(devFrameworksContainer, agent.developmentFrameworks, 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600', devFrameworksEmpty);
+
+    const intendedAudienceContainer = document.getElementById('intended-audience-list');
+    const intendedAudienceEmpty = document.getElementById('intended-audience-empty');
+    if (intendedAudienceContainer) populateBadgesList(intendedAudienceContainer, agent.intendedAudience, 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-700', intendedAudienceEmpty);
+
+    const dataModalitiesContainer = document.getElementById('data-modalities-list');
+    const dataModalitiesEmpty = document.getElementById('data-modalities-empty');
+    if (dataModalitiesContainer) populateBadgesList(dataModalitiesContainer, agent.dataModalities, 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300 border border-purple-300 dark:border-purple-700', dataModalitiesEmpty);
+
+    const integrationTypeElement = document.getElementById('integration-type-text');
+    const integrationTypeEmpty = document.getElementById('integration-type-empty');
+    if (integrationTypeElement) {
+      if (agent.integrationType) {
+        integrationTypeElement.textContent = agent.integrationType;
+        if (integrationTypeEmpty) integrationTypeEmpty.classList.add('hidden');
+        integrationTypeElement.classList.remove('hidden');
       } else {
-        setupContent = renderMarkdown("No setup instructions provided.");
+        integrationTypeElement.classList.add('hidden');
+        if (integrationTypeEmpty) integrationTypeEmpty.classList.remove('hidden');
       }
-      setupSection.innerHTML = setupContent;
-    } else {
-      console.warn("[Agent Details] Setup section element not found.");
     }
 
-    // Use Cases, Requirements, Roadmap Features (Lists)
-    populateList("agent-use-cases", agent.use_cases, "No use cases listed.");
-    populateList("agent-requirements", agent.requirements, "No requirements listed.");
-    populateList("agent-roadmap-features", agent.roadmap_features, "No roadmap features listed.");
+    const demoLink = document.getElementById("demo-link");
+    const agentSourceLink = document.getElementById("agent-source-link"); // New ID for the source code button in hero
 
-    // LLM Dependency
-    if (agent.llm_dependency) {
-      setText("llm-type", agent.llm_dependency.type);
-      setText(
-        "llm-api-key-env-var",
-        agent.llm_dependency.api_key_env_var ? `<code>${agent.llm_dependency.api_key_env_var}</code>` : null,
-      );
-      setText("llm-model-recommendation", agent.llm_dependency.model_recommendation);
-      setText("llm-notes-content", agent.llm_dependency.notes, true);
-    } else {
-      setText("llm-type", "N/A");
-      setText("llm-api-key-env-var", "N/A");
-      setText("llm-model-recommendation", "N/A");
-      setText("llm-notes-content", "No LLM dependency information provided.", true);
-    }
-
-    // Privacy Considerations
-    setText("privacy-considerations-content", agent.privacy_considerations, true);
-
-    // Docker Information
-    if (agent.docker_info) {
-      setText(
-        "docker-image-name",
-        agent.docker_info.image_name ? `<code>${agent.docker_info.image_name}</code>` : null,
-      );
-      setText("docker-pull-instructions-content", agent.docker_info.pull_instructions, true);
-      setText("docker-run-instructions-content", agent.docker_info.run_instructions, true);
-    } else {
-      setText("docker-image-name", "N/A");
-      setText("docker-pull-instructions-content", "No Docker pull instructions provided.", true);
-      setText("docker-run-instructions-content", "No Docker run instructions provided.", true);
-    }
-
-    // Configuration Form
-    const configForm = document.getElementById("config-form");
-    if (configForm && agent.configFields && Array.isArray(agent.configFields) && agent.configFields.length > 0) {
-      let savedConfig = {};
-      try {
-        const stored = localStorage.getItem(`agent-config-${agent.id}`);
-        if (stored) {
-          savedConfig = JSON.parse(stored);
-        }
-      } catch (storageError) {
-        console.warn("Could not access localStorage:", storageError);
-      }
-
-      const formHtml = agent.configFields
-        .map((field) => {
-          const value = savedConfig[field.name] || field.default || "";
-          let inputHtml = "";
-
-          switch (field.type) {
-            case "select":
-              inputHtml = `
-              <select id="${field.name}" name="${field.name}" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-amber-500 focus:border-amber-500 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"${field.required ? " required" : ""}>
-                ${field.options
-                  .map(
-                    (option) => `
-                  <option value="${option}"${option === value ? " selected" : ""}>${option}</option>
-                `,
-                  )
-                  .join("")}
-              </select>
-            `;
-              break;
-
-            case "password":
-              inputHtml = `
-              <input type="password" id="${field.name}" name="${field.name}" value="${value}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"${field.required ? " required" : ""}>
-            `;
-              break;
-
-            default: // text
-              inputHtml = `
-              <input type="text" id="${field.name}" name="${field.name}" value="${value}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"${field.required ? " required" : ""}>
-            `;
-          }
-
-          return `
-          <div>
-            <label for="${field.name}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">${field.label}</label>
-            ${inputHtml}
-          </div>
-        `;
-        })
-        .join("");
-
-      configForm.innerHTML = formHtml;
-
-      // Add form submission handling
-      configForm.onsubmit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData(configForm);
-        const config = {};
-        for (const [key, value] of formData.entries()) {
-          config[key] = value;
-        }
-
-        try {
-          localStorage.setItem(`agent-config-${agent.id}`, JSON.stringify(config));
-          alert("Configuration saved successfully!");
-        } catch (error) {
-          console.error("Error saving configuration:", error);
-          alert("Failed to save configuration. Please try again.");
-        }
-      };
-    }
-
-    // Use Cases
-    if (Array.isArray(agent.use_cases)) {
-      populateList(
-        "agent-use-cases",
-        agent.use_cases,
-        '<svg class="h-5 w-5 text-sky-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>',
-      );
-    } else {
-      const el = document.getElementById("agent-use-cases");
-      if (el)
-        el.innerHTML =
-          '<li><span class="text-gray-400 dark:text-gray-500">Use cases not available or in unexpected format.</span></li>';
-    }
-
-    // Requirements
-    if (Array.isArray(agent.requirements)) {
-      populateList(
-        "agent-requirements",
-        agent.requirements,
-        '<svg class="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
-      );
-    } else {
-      const el = document.getElementById("agent-requirements");
-      if (el)
-        el.innerHTML =
-          '<li><span class="text-gray-400 dark:text-gray-500">Requirements not available or in unexpected format.</span></li>';
-    }
-
-    // Roadmap Features
-    if (Array.isArray(agent.roadmap_features)) {
-      populateList(
-        "agent-roadmap-features",
-        agent.roadmap_features,
-        '<svg class="h-5 w-5 text-purple-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13V7m0 13a1 1 0 001.447.894L15 20M9 7a1 1 0 011.447-.894L15 4m6 9v1.382a1 1 0 01-.553.894L15 18m-6-4l6-4"></path></svg>',
-      );
-    } else {
-      const el = document.getElementById("agent-roadmap-features");
-      if (el)
-        el.innerHTML =
-          '<li><span class="text-gray-400 dark:text-gray-500">Roadmap features not available or in unexpected format.</span></li>';
-    }
-
-    // LLM Dependency
-    if (agent.llm_dependency) {
-      setText("llm-type", agent.llm_dependency.type);
-      setText(
-        "llm-api-key-env-var",
-        agent.llm_dependency.api_key_env_var ? `<code>${agent.llm_dependency.api_key_env_var}</code>` : null,
-      );
-      setText("llm-model-recommendation", agent.llm_dependency.model_recommendation);
-      setText("llm-notes-content", agent.llm_dependency.notes, true);
-    } else {
-      setText("llm-type", null);
-      setText("llm-api-key-env-var", null);
-      setText("llm-model-recommendation", null);
-      setText("llm-notes-content", '<p class="text-gray-400 dark:text-gray-500">No LLM dependency specified.</p>');
-    }
-
-    // Privacy Considerations
-    setText("privacy-considerations-content", agent.privacy_considerations, true);
-
-    // Docker Information
-    if (agent.docker_info) {
-      setText(
-        "docker-image-name",
-        agent.docker_info.image_name ? `<code>${agent.docker_info.image_name}</code>` : null,
-      );
-      setText("docker-pull-instructions-content", agent.docker_info.pull_instructions, true);
-      setText("docker-run-instructions-content", agent.docker_info.run_instructions, true);
-    } else {
-      setText("docker-image-name", null);
-      setText(
-        "docker-pull-instructions-content",
-        '<p class="text-gray-400 dark:text-gray-500">No Docker pull instructions provided.</p>',
-      );
-      setText(
-        "docker-run-instructions-content",
-        '<p class="text-gray-400 dark:text-gray-500">No Docker run instructions provided.</p>',
-      );
-    }
-
-    /* 
-    // Demo and Source Links (This block is now handled by the hero template literal)
-    console.log(`[Agent Details] Populating for agent: ${agent.name}`);
-    console.log(`[Agent Details] From agent object -- demoUrl (camel): ${agent.demoUrl}, sourceUrl (camel): ${agent.sourceUrl}`);
-    console.log(`[Agent Details] From agent object -- demo_url (snake): ${agent.demo_url}, source_url (snake): ${agent.source_url}`);
-
-    const demoLink = document.getElementById('demo-link');
-    console.log('[Agent Details] demoLink element:', demoLink);
-    const sourceLink = document.getElementById('source-link');
-    console.log('[Agent Details] sourceLink element:', sourceLink);
-    
     if (demoLink) {
       if (agent.demoUrl) {
         demoLink.href = agent.demoUrl;
         demoLink.style.display = 'inline-flex';
-        console.log('[Agent Details] Demo link SHOULD be visible.');
-        console.log('[Agent Details] demoLink.style.display AFTER set:', demoLink.style.display);
       } else {
         demoLink.style.display = 'none';
-        console.log('[Agent Details] Demo link explicitly hidden.');
-        console.log('[Agent Details] demoLink.style.display AFTER set to none:', demoLink.style.display);
       }
     }
-    
-    if (sourceLink) {
+
+    if (agentSourceLink) {
       if (agent.sourceUrl) {
-        sourceLink.href = agent.sourceUrl;
-        sourceLink.style.display = 'inline-flex';
-        console.log('[Agent Details] Source link SHOULD be visible.');
-        console.log('[Agent Details] sourceLink.style.display AFTER set:', sourceLink.style.display);
+        agentSourceLink.href = agent.sourceUrl;
+        agentSourceLink.style.display = 'inline-flex';
       } else {
-        sourceLink.style.display = 'none';
-        console.log('[Agent Details] Source link explicitly hidden.');
-        console.log('[Agent Details] sourceLink.style.display AFTER set to none:', sourceLink.style.display);
+        agentSourceLink.style.display = 'none';
       }
     }
-    */
+
+    // Keep the old sourceLink logic for the main content button if it's still used elsewhere, or remove if fully deprecated.
+    // For now, assuming the hero 'agent-source-link' is the primary one for source code.
+    const oldSourceLink = document.getElementById("source-link"); 
+    if (oldSourceLink) {
+        if (agent.sourceUrl) { // Or a different field if this button serves another purpose
+            oldSourceLink.href = agent.sourceUrl;
+            oldSourceLink.style.display = 'inline-flex'; 
+        } else {
+            oldSourceLink.style.display = 'none';
+        }
+    }
+
+    // --- Additions for Missing Sections ---
+
+    // Key Details (Author)
+    setText('detail-agent-author', agent.author);
+
+    // Features Tab
+    populateList('agent-features', agent.features, 'No features listed.');
+
+    // Setup Tab
+    setText('setup-section', agent.setup_instructions, true);
+
+    // Configuration Tab (Placeholder - generateConfigForm call and definition are missing)
+    const configFormContainer = document.getElementById('config-form');
+    if (configFormContainer) {
+      if (typeof generateConfigForm === 'function') {
+        generateConfigForm(agent.configFields || [], 'config-form');
+      } else {
+        // console.warn('[Agent Details] generateConfigForm function not found or not implemented yet.');
+        setText('config-form', '<p class="text-gray-500 dark:text-gray-400">Configuration form is not available at this time.</p>');
+      }
+    }
+
+    // Use Cases Tab
+    populateList('agent-use-cases', agent.use_cases, 'No use cases listed.');
+
+    // Requirements Tab
+    populateList('agent-requirements', agent.requirements, 'No requirements listed.');
+
+    // More Info Tab - LLM Dependency
+    if (agent.llm_dependency) {
+        setText('llm-dependency-type', agent.llm_dependency.type);
+        setText('llm-dependency-api-key-env', agent.llm_dependency.apiKeyEnvVar);
+        setText('llm-dependency-endpoint-env', agent.llm_dependency.apiEndpointEnvVar);
+        setText('llm-dependency-model', agent.llm_dependency.modelRecommendation);
+        setText('llm-dependency-notes', agent.llm_dependency.notes, true);
+    } else {
+        setText('llm-dependency-type', 'N/A');
+        setText('llm-dependency-api-key-env', 'N/A');
+        setText('llm-dependency-endpoint-env', 'N/A');
+        setText('llm-dependency-model', 'N/A');
+        setText('llm-dependency-notes', 'No specific LLM dependency information provided.');
+    }
+
+    // More Info Tab - Privacy Considerations
+    setText('privacy-considerations', agent.privacy_considerations, true);
+
+    // More Info Tab - Docker Information
+    setText('docker-image-name', agent.docker_image_name);
+    setText('docker-pull-instructions', agent.docker_pull_instructions, true);
+    setText('docker-run-instructions', agent.docker_run_instructions, true);
+    // --- End of Additions ---
+
   } catch (error) {
     console.error("Error populating agent details:", error);
     displayErrorMessage(error);
