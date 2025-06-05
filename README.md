@@ -2,8 +2,6 @@
 
 Welcome to Agentopia - A happy place for AI agents, where innovation meets collaboration.
 
-<!-- Test comment for pre-commit hook verification -->
-
 ## Overview
 
 Agentopia is a GitHub organization dedicated to advancing the field of AI agents through open collaboration and innovative projects. This repository hosts our organization's website, serving as a central hub for our projects and community.
