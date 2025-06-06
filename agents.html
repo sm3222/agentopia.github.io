@@ -144,8 +144,9 @@
                 class="pl-6 pr-10 py-2 bg-gray-700/80 border border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 transition-colors duration-300 appearance-none cursor-pointer min-w-[160px]"
               >
                 <option value="">All Types</option>
-                <option value="regular">Regular</option>
-                <option value="autonomous">Autonomous</option>
+                <option value="Assistant">Assistant</option>
+                <option value="Autonomous">Autonomous</option>
+                <option value="Hybrid">Hybrid</option>
               </select>
               <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -454,18 +455,23 @@
 
         function populateFilters(agents) {
           const categories = new Set();
-          const agentTypes = new Set();
           const agentScales = new Set();
+          
+          // Define allowed agent types based on schema
+          const allowedAgentTypes = ['Assistant', 'Autonomous', 'Hybrid'];
 
           agents.forEach(agent => {
             if (agent.category) categories.add(agent.category);
-            if (agent.agentType) agentTypes.add(agent.agentType); // Use new field name
-            if (agent.agentScale) agentScales.add(agent.agentScale); // Use new field name
+            if (agent.agentScale) agentScales.add(agent.agentScale);
           });
 
-          const populate = (selectElement, optionsSet, defaultValue) => {
+          const populate = (selectElement, options, defaultValue, isAgentType = false) => {
             selectElement.innerHTML = `<option value="">All ${defaultValue}</option>`;
-            optionsSet.forEach(option => {
+            
+            // If it's the agent type filter, use the predefined list
+            const optionsToUse = isAgentType ? allowedAgentTypes : Array.from(options);
+            
+            optionsToUse.forEach(option => {
               const opt = document.createElement('option');
               opt.value = option;
               opt.textContent = option;
@@ -474,7 +480,7 @@
           };
 
           populate(categoryFilter, categories, 'Categories');
-          populate(typeFilter, agentTypes, 'Types');
+          populate(typeFilter, [], 'Types', true); // Pass true to indicate this is the agent type filter
           populate(scaleFilter, agentScales, 'Scales');
         }
 
