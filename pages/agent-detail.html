@@ -196,6 +196,40 @@
         <!-- Key Details Section -->
         <section id="key-details" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
           <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+            Key Details
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-sm">
+            <div class="flex justify-between border-b border-gray-200 dark:border-gray-700 py-2">
+              <span class="font-medium text-gray-500 dark:text-gray-400">Author</span>
+              <span id="agent-author" class="text-gray-800 dark:text-gray-200"></span>
+            </div>
+            <div class="flex justify-between border-b border-gray-200 dark:border-gray-700 py-2">
+              <span class="font-medium text-gray-500 dark:text-gray-400">Last Updated</span>
+              <span id="agent-last-updated" class="text-gray-800 dark:text-gray-200"></span>
+            </div>
+            <div class="flex justify-between border-b border-gray-200 dark:border-gray-700 py-2">
+              <span class="font-medium text-gray-500 dark:text-gray-400">Repository</span>
+              <span id="agent-repo-url" class="text-gray-800 dark:text-gray-200"></span>
+            </div>
+            <div class="flex justify-between border-b border-gray-200 dark:border-gray-700 py-2">
+              <span class="font-medium text-gray-500 dark:text-gray-400">License</span>
+              <span id="agent-license" class="text-gray-800 dark:text-gray-200"></span>
+            </div>
+            <div class="flex justify-between border-b border-gray-200 dark:border-gray-700 py-2">
+              <span class="font-medium text-gray-500 dark:text-gray-400">Category</span>
+              <span id="agent-category-alt" class="text-gray-800 dark:text-gray-200"></span>
+            </div>
+            <div class="flex justify-between border-b border-gray-200 dark:border-gray-700 py-2">
+              <span class="font-medium text-gray-500 dark:text-gray-400">Type</span>
+              <span id="agent-type-alt" class="text-gray-800 dark:text-gray-200"></span>
+            </div>
+            <div class="flex justify-between border-b border-gray-200 dark:border-gray-700 py-2">
+              <span class="font-medium text-gray-500 dark:text-gray-400">Scale</span>
+              <span id="agent-scale-alt" class="text-gray-800 dark:text-gray-200"></span>
+            </div>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
             <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
             Key Details
           </h2>
@@ -357,19 +391,23 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg">
               <div>
                 <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Type:</p>
-                <p id="llm-type" class="text-gray-800 dark:text-gray-200"></p>
+                <p id="llm-dependency-type" class="text-gray-800 dark:text-gray-200"></p>
               </div>
               <div>
                 <p class="text-sm font-medium text-gray-500 dark:text-gray-400">API Key Env Var:</p>
-                <p id="llm-api-key-env-var" class="text-gray-800 dark:text-gray-200"></p>
+                <p id="llm-dependency-api-key-env" class="text-gray-800 dark:text-gray-200"></p>
               </div>
-              <div class="md:col-span-2">
+              <div>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">API Endpoint Env Var:</p>
+                  <p id="llm-dependency-endpoint-env" class="text-gray-800 dark:text-gray-200"></p>
+              </div>
+              <div>
                 <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Model Recommendation:</p>
-                <p id="llm-model-recommendation" class="text-gray-800 dark:text-gray-200"></p>
+                <p id="llm-dependency-model" class="text-gray-800 dark:text-gray-200"></p>
               </div>
               <div class="md:col-span-2">
                 <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Notes:</p>
-                <div id="llm-notes-content" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1">
+                <div id="llm-dependency-notes" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1">
                   <!-- JS will populate this -->
                 </div>
               </div>
@@ -377,7 +415,7 @@
           </div>
           <div id="privacy-considerations-details">
             <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">Privacy Considerations</h3>
-            <div id="privacy-considerations-content" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg">
+            <div id="privacy-considerations" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg">
               <!-- JS will populate this -->
             </div>
           </div>
@@ -396,18 +434,19 @@
             </div>
             <div>
               <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Pull Instructions:</p>
-              <div id="docker-pull-instructions-content" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1">
+              <div id="docker-pull-instructions" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1">
                 <!-- JS will populate this -->
               </div>
             </div>
             <div>
               <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Run Instructions:</p>
-              <div id="docker-run-instructions-content" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1">
+              <div id="docker-run-instructions" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1">
                 <!-- JS will populate this -->
               </div>
             </div>
           </div>
         </section>
+
       </div>
     </div>
   </div>
