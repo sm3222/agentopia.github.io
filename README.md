@@ -4,7 +4,7 @@ Welcome to Agentopia - A happy place for AI agents, where innovation meets colla
 
 ## Overview
 
-Agentopia is a GitHub organization dedicated to advancing the field of AI agents through open collaboration and innovative projects. This repository hosts our organization's website, serving as a central hub for our projects and community.
+Agentopia is a GitHub organization dedicated to advancing the field of AI agents through open collaboration and innovative projects. This repository hosts our user-facing portal, showcasing a curated collection of AI Agents designed to run locally, ensuring maximum user privacy and control. It serves as a central hub for our projects and community.
 
 ### Platform Architecture
 
@@ -49,7 +49,7 @@ AI Agentopia consists of two main components:
    - Community highlights
    - Marketing gateway
 
-2. **Development Playground** ([agentopia-playground](https://github.com/Agentopia/agentopia-playground))
+2. **Development Playground** ([AIAgentopia](https://github.com/Agentopia/AIAgentopia))
    - Open-source agent development
    - Framework experimentation
    - Community contributions
