@@ -47,6 +47,9 @@ yarn-error.log*
 .eslintcache
 
 # Coverage directory
+
+# IDE / Tooling
+.windsurf/
 coverage/
 
 # Temporary files
