@@ -362,6 +362,57 @@ async function handleAgentDataResponse(response, agentName) {
  * Populate the agent details in the UI
  * @param {Object} agent - The agent data
  */
+function setupRunLocallyModal(agent) {
+  const runButton = document.getElementById('run-locally-button');
+  const modal = document.getElementById('docker-run-modal');
+  const closeModalButton = document.getElementById('close-modal-button');
+  const closeModalButtonBottom = document.getElementById('modal-close-button-bottom');
+  const commandTextElement = document.getElementById('docker-command-text');
+  const copyButton = document.getElementById('copy-command-button');
+
+  if (!runButton || !modal || !agent.docker_run_instructions) {
+    if (runButton) runButton.style.display = 'none';
+    return;
+  }
+
+  // Use a more robust regex to find the first code block, handling optional language and whitespace.
+  const commandRegex = /```(?:bash)?\s*([\s\S]*?)```/;
+  const match = agent.docker_run_instructions.match(commandRegex);
+  const commandText = match ? match[1].trim() : "Could not extract command.";
+
+  const openModal = () => {
+    commandTextElement.textContent = commandText;
+    modal.classList.remove('hidden');
+    setTimeout(() => modal.classList.remove('opacity-0'), 10); // For transition
+  };
+
+  const closeModal = () => {
+    modal.classList.add('opacity-0');
+    setTimeout(() => modal.classList.add('hidden'), 300);
+  };
+
+  runButton.addEventListener('click', openModal);
+  closeModalButton.addEventListener('click', closeModal);
+  closeModalButtonBottom.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  copyButton.addEventListener('click', () => {
+    // Fix: Use the correct variable 'commandText'
+    navigator.clipboard.writeText(commandText).then(() => {
+      copyButton.textContent = 'Copied!';
+      setTimeout(() => {
+        copyButton.textContent = 'Copy';
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy command: ', err);
+    });
+  });
+}
+
 function populateAgentDetails(agent) {
   try {
     // Basic Agent Info
@@ -372,11 +423,8 @@ function populateAgentDetails(agent) {
             <span class="text-4xl">${agent.emoji || "🤖"}</span>
             <h1 class="text-3xl font-bold text-white">${agent.name}</h1>
           </div>
-          <div class="flex flex-wrap justify-center items-center gap-2 mb-3">
-            <span class="${getTypeColor(agent.type)} px-3 py-1 rounded-full text-xs font-medium capitalize">${agent.type}</span>
-            <span class="${getScaleColor(agent.scale)} px-3 py-1 rounded-full text-xs font-medium capitalize">${agent.scale}</span>
-            ${agent.category ? `<span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300 px-3 py-1 rounded-full text-xs font-medium capitalize">${agent.category}</span>` : ""}
-            ${agent.version ? `<span class="bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300 px-3 py-1 rounded-full text-xs font-medium">v${agent.version}</span>` : ""}
+          <div id="agent-attributes-badges" class="flex flex-wrap justify-center items-center gap-2 mb-3">
+            <!-- Badges were moved to Key Details section -->
           </div>
           ${
             agent.tags && agent.tags.length > 0
@@ -393,12 +441,15 @@ function populateAgentDetails(agent) {
           </div>
           <div class="mt-8 flex flex-wrap justify-center gap-3">
             ${
-              agent.demoUrl
+              agent.docker_run_instructions
                 ? `
-            <a id="demo-link" href="${agent.demoUrl}" target="_blank" class="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg shadow-md transition-colors duration-200 flex items-center text-sm">
-              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              Try Demo
-            </a>`
+            <button id="run-locally-button" 
+              class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg shadow-md transition-colors duration-200 flex items-center text-sm">
+              <svg class="-ml-1 mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+              Run Locally
+            </button>`
                 : ""
             }
             ${
@@ -472,30 +523,7 @@ function populateAgentDetails(agent) {
     }
 
     // Populate Key Details Section
-    // Category, Subcategory, AgentType, AgentScale Badges in Hero
-    const attributesBadgesContainer = document.getElementById('agent-attributes-badges');
-    if (attributesBadgesContainer) {
-      attributesBadgesContainer.innerHTML = ''; // Clear previous badges
-
-      if (agent.category) {
-        const categoryBadge = createAttributeBadge(agent.category, 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300 border border-amber-300 dark:border-amber-700');
-        attributesBadgesContainer.appendChild(categoryBadge);
-      }
-      if (agent.subcategory) {
-        const subCategoryBadge = createAttributeBadge(agent.subcategory, 'bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-300 border border-sky-300 dark:border-sky-700');
-        attributesBadgesContainer.appendChild(subCategoryBadge);
-      }
-      if (agent.agentType) {
-        const typeIcon = '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 100-12 6 6 0 000 12zM9 9a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm1-5a1 1 0 011 1v2a1 1 0 11-2 0V5a1 1 0 011-1z" clip-rule="evenodd"></path>';
-        const agentTypeBadge = createAttributeBadge(agent.agentType, `${getTypeColor(agent.agentType)} bg-opacity-10 border ${getTypeColor(agent.agentType).replace('text-', 'border-')}`, typeIcon);
-        attributesBadgesContainer.appendChild(agentTypeBadge);
-      }
-      if (agent.agentScale) {
-        const scaleIcon = '<path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2-2a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V5a1 1 0 00-1-1H5zM7 8a1 1 0 011-1h4a1 1 0 110 2H8a1 1 0 01-1-1z" clip-rule="evenodd"></path>';
-        const agentScaleBadge = createAttributeBadge(agent.agentScale, `${getScaleColor(agent.agentScale)} bg-opacity-10 border ${getScaleColor(agent.agentScale).replace('text-', 'border-')}`, scaleIcon);
-        attributesBadgesContainer.appendChild(agentScaleBadge);
-      }
-    }
+    setText("detail-agent-author", agent.author);
     setText("detail-agent-version", agent.version ? `${agent.version}` : null);
     setText("detail-agent-deployment-status", agent.deployment_status);
     setText("detail-agent-type", agent.type);
@@ -621,6 +649,9 @@ function populateAgentDetails(agent) {
     setText('docker-image-name', agent.docker_image_name);
     setText('docker-pull-instructions', agent.docker_pull_instructions, true);
     setText('docker-run-instructions', agent.docker_run_instructions, true);
+
+    // Setup the "Run Locally" modal
+    setupRunLocallyModal(agent);
     // --- End of Additions ---
 
   } catch (error) {

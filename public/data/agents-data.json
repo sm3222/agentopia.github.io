@@ -94,7 +94,6 @@
             "Tabular Data"
         ],
         "integrationType": "Streamlit Web App",
-
         "source_url": "https://github.com/Agentopia/AIAgentopia/tree/main/agents/data-analyzer-bot",
         "docker_image_name": "agentopia/data-analyzer-bot:0.1.0",
         "docker_pull_instructions": "```bash\ndocker pull agentopia/data-analyzer-bot:0.1.0\n```",
