@@ -4,9 +4,41 @@ Welcome to Agentopia - A happy place for AI agents, where innovation meets colla
 
 ## Overview
 
-Agentopia is a GitHub organization dedicated to advancing the field of AI agents through open collaboration and innovative projects. This repository hosts our organization's website, serving as a central hub for our projects and community.
+Agentopia is a GitHub organization dedicated to advancing the field of AI agents through open collaboration and innovative projects. This repository hosts our user-facing portal, showcasing a curated collection of AI Agents designed to run locally, ensuring maximum user privacy and control. It serves as a central hub for our projects and community.
 
 ### Platform Architecture
+
+## Running Locally
+
+This is a static website that uses TailwindCSS for styling. You will need Node.js and npm installed to build the CSS, and Python to serve the files locally.
+
+1.  **Install Dependencies:**
+    First, install the necessary Node.js packages (which is just TailwindCSS):
+    ```bash
+    npm install
+    ```
+
+2.  **Build the CSS:**
+    Compile the CSS files once using the build script:
+    ```bash
+    npm run build
+    ```
+    Alternatively, you can watch for changes and automatically rebuild the CSS:
+    ```bash
+    npm run watch
+    ```
+
+3.  **Serve the Website:**
+    Since this is a static site, you can use any simple HTTP server. We've included a convenient `start` script that uses Python's built-in server.
+    ```bash
+    npm start
+    ```
+    This will start a server on `http://localhost:8000`.
+
+    Alternatively, you can run the Python command directly:
+    ```bash
+    python -m http.server 8000
+    ```
 
 AI Agentopia consists of two main components:
 
@@ -17,7 +49,7 @@ AI Agentopia consists of two main components:
    - Community highlights
    - Marketing gateway
 
-2. **Development Playground** ([agentopia-playground](https://github.com/Agentopia/agentopia-playground))
+2. **Development Playground** ([AIAgentopia](https://github.com/Agentopia/AIAgentopia))
    - Open-source agent development
    - Framework experimentation
    - Community contributions

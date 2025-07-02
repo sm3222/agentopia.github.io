@@ -5,7 +5,8 @@
   "description": "AI Agentopia Website",
   "scripts": {
     "build": "tailwindcss -i ./css/input.css -o ./css/styles.css",
-    "watch": "tailwindcss -i ./css/input.css -o ./css/styles.css --watch"
+    "watch": "tailwindcss -i ./css/input.css -o ./css/styles.css --watch",
+    "start": "python -m http.server 8000"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.1"
