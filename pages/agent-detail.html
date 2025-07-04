@@ -160,6 +160,7 @@
             <a href="#use-cases" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Use Cases</a>
             <a href="#technical-guide" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Technical Guide</a>
             <a href="#run-locally" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Run Locally</a>
+            <a href="#privacy" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Privacy</a>
             <a href="#roadmap" class="nav-link px-4 py-3 border-l-4 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Roadmap</a>
           </nav>
         </div>
@@ -236,7 +237,7 @@
         <!-- Use Cases Section -->
         <section id="use-cases" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
           <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
-            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
             Use Cases
           </h2>
           <ul id="agent-use-cases" class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
@@ -289,64 +290,63 @@
                 <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.828a4 4 0 010-5.656m5.656 0a4 4 0 010 5.656m-8.485 2.828L6 20m12-1.636l-1.06-1.06M9 17l-2 2m6-16l2-2m-8 2l-2-2"></path></svg>
                 Run Locally
             </h2>
-            <div class="space-y-8">
-                <!-- LLM & Privacy -->
-                <div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                        LLM & Privacy
-                    </h3>
-                    <div id="llm-dependency-details" class="mb-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg">
-                          <div>
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Type:</p>
-                            <p id="llm-dependency-type" class="text-gray-800 dark:text-gray-200"></p>
-                          </div>
-                          <div>
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">API Key Env Var:</p>
-                            <p id="llm-dependency-api-key-env" class="text-gray-800 dark:text-gray-200"></p>
-                          </div>
-                          <div>
-                              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">API Endpoint Env Var:</p>
-                              <p id="llm-dependency-endpoint-env" class="text-gray-800 dark:text-gray-200"></p>
-                          </div>
-                          <div>
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Model Recommendation:</p>
-                            <p id="llm-dependency-model" class="text-gray-800 dark:text-gray-200"></p>
-                          </div>
-                          <div class="md:col-span-2">
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Notes:</p>
-                            <div id="llm-dependency-notes" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1"></div>
-                          </div>
-                        </div>
+            
+
+
+            <!-- LLM Dependency -->
+            <div class="border-b border-gray-200 dark:border-gray-700 pb-6 mb-6">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">LLM Dependency</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-sm">
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-gray-700 dark:text-gray-300">LLM Provider:</span>
+                        <span id="llm-dependency-type" class="text-gray-600 dark:text-gray-400"></span>
                     </div>
-                    <div id="privacy-considerations-details">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-3">Privacy Considerations</h4>
-                        <div id="privacy-considerations" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg"></div>
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-gray-700 dark:text-gray-300">Recommended Model:</span>
+                        <span id="llm-dependency-model" class="text-gray-600 dark:text-gray-400"></span>
                     </div>
-                </div>
-                <!-- Docker Info -->
-                <div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
-                        Docker Information
-                    </h3>
-                    <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg space-y-4">
-                        <div>
-                          <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Image Name:</p>
-                          <p id="docker-image-name" class="text-gray-800 dark:text-gray-200 font-mono"></p>
-                        </div>
-                        <div>
-                          <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Pull Instructions:</p>
-                          <div id="docker-pull-instructions" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1"></div>
-                        </div>
-                        <div>
-                          <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Run Instructions:</p>
-                          <div id="docker-run-instructions" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1"></div>
-                        </div>
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-gray-700 dark:text-gray-300">API Key Environment Variable:</span>
+                        <code id="llm-dependency-api-key-env" class="text-xs bg-gray-100 dark:bg-gray-700 text-pink-600 dark:text-pink-400 rounded px-2 py-1"></code>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-gray-700 dark:text-gray-300">API Endpoint Env Variable:</span>
+                        <code id="llm-dependency-endpoint-env" class="text-xs bg-gray-100 dark:bg-gray-700 text-pink-600 dark:text-pink-400 rounded px-2 py-1"></code>
+                    </div>
+                    <div class="md:col-span-2">
+                        <span class="font-semibold text-gray-700 dark:text-gray-300">Notes:</span>
+                        <p id="llm-dependency-notes" class="text-gray-600 dark:text-gray-400 mt-1"></p>
                     </div>
                 </div>
             </div>
+
+            <!-- Docker Information -->
+            <div>
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Docker Information</h3>
+                <div class="space-y-4 text-sm">
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-gray-700 dark:text-gray-300">Docker Image:</span>
+                        <code id="docker-image-name" class="text-xs bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-blue-400 rounded px-2 py-1 mt-1 self-start"></code>
+                    </div>
+                    <div>
+                      <span class="font-semibold text-gray-700 dark:text-gray-300">Pull Command:</span>
+                      <div id="docker-pull-instructions" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1"></div>
+                    </div>
+                    <div>
+                      <span class="font-semibold text-gray-700 dark:text-gray-300">Run Instructions:</span>
+                      <div id="docker-run-instructions" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300 mt-1"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Section -->
+        <section id="privacy" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                Privacy
+            </h2>
+            <div id="privacy-considerations" class="prose dark:prose-dark max-w-none text-gray-700 dark:text-gray-300"></div>
         </section>
 
         <!-- Roadmap Features Section -->

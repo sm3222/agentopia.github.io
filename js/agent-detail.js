@@ -531,9 +531,9 @@ function populateAgentDetails(agent) {
     setText("detail-agent-entry-point", agent.entry_point ? `<code>${agent.entry_point}</code>` : null);
 
     // Populate Roadmap Features
-    const roadmapUl = document.getElementById("roadmap-features-list");
+    const roadmapUl = document.getElementById("agent-roadmap-features");
     const roadmapEmpty = document.getElementById("roadmap-features-empty");
-    populateList("roadmap-features-list", agent.roadmap_features || [], "No roadmap features listed yet.");
+    populateList("agent-roadmap-features", agent.roadmap_features || [], "No roadmap features listed yet.");
     if (agent.roadmap_features && agent.roadmap_features.length > 0) {
       if(roadmapEmpty) roadmapEmpty.classList.add("hidden");
     } else {
