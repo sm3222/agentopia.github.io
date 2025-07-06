@@ -17,12 +17,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Validate HTML
+      - name: Validate HTML (report only)
         run: |
-          echo "Add HTML validation steps here"
-          # Future: Add html5validator or similar tool
+          pip install html5validator
+          html5validator --root . --ignore-re=".*(node_modules|dist|vendor).*"
+        continue-on-error: true
 
-      - name: Check Links
-        run: |
-          echo "Add link checking steps here"
-          # Future: Add link checker
+      - name: Check Links (report only)
+        uses: lycheeverse/lychee-action@v1.8.0
+        with:
+          args: --verbose --no-progress './**/*.html'
+        continue-on-error: true
