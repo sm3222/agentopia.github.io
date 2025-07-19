@@ -1,6 +1,113 @@
 [
     {
         "id": 1,
+        "name": "AI Music Agent",
+        "icon": "🎵",
+        "emoji": "🎵",
+        "version": "1.1.0",
+        "author": "Agentopia Community",
+        "category": "Content Creation & Design",
+        "agentType": "Assistant",
+        "agentScale": "Single-Agent",
+        "subcategory": "Music Generation",
+        "developmentFrameworks": [
+            "Streamlit",
+            "Agno",
+            "OpenAI API",
+            "ModelsLab API"
+        ],
+        "intendedAudience": [
+            "Content Creators",
+            "Musicians",
+            "Educators",
+            "Developers",
+            "Creative Professionals"
+        ],
+        "dataModalities": [
+            "Text",
+            "Audio",
+            "Natural Language"
+        ],
+        "integrationType": "Standalone Web Application",
+        "description": "An AI-powered music generation agent with standardized Agentopia UI/UX, comprehensive configuration management, and robust error handling. Creates custom music tracks from natural language prompts using ModelsLab API and OpenAI GPT-4.",
+        "configFields": [],
+        "features": [
+            "Text-to-music generation with AI-enhanced prompts",
+            "MP3 audio output with high-quality generation",
+            "Real-time audio playback and streaming",
+            "Audio file download and local storage",
+            "Custom prompt engineering and optimization",
+            "Comprehensive error handling and validation",
+            "Standardized Agentopia UI/UX with responsive design",
+            "Environment variable configuration management",
+            "API key validation with user-friendly feedback",
+            "Fallback configuration system (.env + manual input)",
+            "Cross-platform compatibility and accessibility",
+            "Privacy-first local file storage"
+        ],
+        "tags": [
+            "music",
+            "generation",
+            "ai",
+            "creative",
+            "audio",
+            "streamlit",
+            "agentopia"
+        ],
+        "demoUrl": "https://huggingface.co/spaces/agentopia/ai-music-agent",
+        "sourceUrl": "https://github.com/Agentopia/AIAgentopia/tree/main/agents/ai-music-agent",
+        "rating": 5,
+        "reviews": 0,
+        "long_description": "The AI Music Agent is a comprehensive Streamlit-based application that democratizes music creation through artificial intelligence. Built with Agentopia's standardized UI/UX patterns, this agent combines the power of OpenAI's GPT-4 for intelligent prompt enhancement with ModelsLab's advanced music generation API to create high-quality MP3 audio tracks from natural language descriptions.\n\n**Key Features:**\n- **Intelligent Prompt Engineering**: Uses GPT-4 to enhance user prompts with detailed musical specifications including genre, instruments, tempo, and structure\n- **High-Quality Audio Generation**: Leverages ModelsLab's API to produce professional-grade MP3 music files\n- **User-Friendly Interface**: Features Agentopia's standardized UI with responsive design, clear navigation, and accessibility considerations\n- **Secure Configuration Management**: Supports both environment variable loading and manual API key input with comprehensive validation\n- **Privacy-First Approach**: All generated music is stored locally on the user's machine, ensuring complete data privacy\n- **Cross-Platform Compatibility**: Works seamlessly on Windows, Linux, and macOS\n\nThe agent is designed for content creators, musicians, educators, and anyone interested in exploring AI-powered music generation. Whether you need background music for videos, inspiration for compositions, or educational demonstrations of AI capabilities, this agent provides an intuitive and powerful solution.",
+        "entry_point": "app/music_generator.py",
+        "deployment_status": "development",
+        "use_cases": [
+            "Creative music composition for content creators",
+            "Background music generation for videos and presentations",
+            "Musical inspiration and experimentation for musicians",
+            "Educational tool for understanding AI music generation",
+            "Rapid prototyping of musical ideas and concepts"
+        ],
+        "requirements": [
+            "Python >=3.8",
+            "agno==1.2.8",
+            "requests==2.32.3",
+            "streamlit==1.44.1",
+            "openai",
+            "python-dotenv==1.0.0"
+        ],
+        "roadmap_features": [
+            "Complete testing framework implementation",
+            "Add inline code documentation and comments",
+            "Implement local LLM support (Ollama integration)",
+            "Add batch music generation capabilities",
+            "Create music style templates and presets",
+            "Implement Docker containerization",
+            "Add advanced audio format support (WAV, FLAC)",
+            "Create comprehensive user documentation"
+        ],
+        "llm_dependency": {
+            "required": true,
+            "type": "openai",
+            "apiKeyEnvVar": "OPENAI_API_KEY",
+            "providers": [
+                "openai"
+            ],
+            "models": [
+                "gpt-4o"
+            ],
+            "purpose": "Enhanced prompt engineering for music generation"
+        },
+        "privacy_considerations": "This agent prioritizes user privacy by storing all generated music files locally on your machine. API keys are managed through secure environment variables or manual input with validation. No user data or generated content is shared with third parties beyond the necessary API calls to OpenAI and ModelsLab for music generation. All audio files remain under your complete control and ownership.",
+        "docker_image_name": "agentopia/ai-music-agent",
+        "docker_pull_instructions": "docker pull agentopia/ai-music-agent:latest",
+        "docker_run_instructions": "```bash\ndocker run -d --name ai-music-agent -p 8501:8501 agentopia/ai-music-agent:latest\n```",
+        "setup_instructions": "1. Clone the repository\n2. Install Python 3.8+ and pip\n3. Install dependencies: pip install -r requirements.txt\n4. Create .env file with API keys (see .env.example)\n5. Run: streamlit run app/music_generator.py\n6. Open http://localhost:8501 in your browser\n7. Enter your API keys and start generating music!",
+        "priority": 100,
+        "lastModified": "2025-07-19T02:58:03.546Z"
+    },
+    {
+        "id": 2,
         "name": "Data Analyzer Bot",
         "emoji": "📊",
         "version": "1.0.0",
@@ -103,233 +210,181 @@
         "docker_run_instructions": "### Easiest Way to Run (Recommended)\n\n1.  **Run the Docker command:**\n    *   Open your terminal and run the following command. Docker will automatically download the image if you don't have it locally.\n\n    ```bash\n    docker run -it --rm -p 8501:8501 agentopia/data-analyzer-bot:1.0.0\n    ```\n\n2.  **Access the Web Interface:**\n    *   Open your web browser and navigate to `http://localhost:8501`.\n    *   You can now upload your data files directly through the interface.\n    *   If you wish to use the AI features, you can paste your API keys into the fields in the sidebar.\n\n### Advanced: Mounting a Local Data Directory\n\nIf you prefer to have your local data files automatically available to the agent, you can mount a directory.\n\n1.  **Prepare your data directory:**\n    *   Place your data files (CSV, Excel) in a folder on your computer (e.g., `C:\\Users\\YourUser\\data`).\n\n2.  **Run the Docker command with a volume mount:**\n\n    ```bash\n    # Replace '/path/to/your/data_dir' with your actual folder path\n    docker run -it --rm -p 8501:8501 -v /path/to/your/data_dir:/app/data agentopia/data-analyzer-bot:1.0.0\n    ```\n\n    *Note for Windows users: Use a path format like `C:/Users/YourUser/data`.*\n\n3.  **(Optional) Using a `.env` file for API Keys:**\n    *   For convenience, you can create a `.env` file in the directory where you run the command and add your keys:\n      ```\n      OPENAI_API_KEY=\"your_key\"\n      ANTHROPIC_API_KEY=\"your_key\"\n      ```\n    *   Then, add `--env-file ./.env` to your `docker run` command.",
         "agentType": "Autonomous",
         "agentScale": "Single-Agent",
-        "icon": "📊"
+        "icon": "📊",
+        "priority": 0,
+        "lastModified": "2025-07-04T17:56:10.705Z"
+    },
+    {
+        "id": 5,
+        "name": "FocusForge",
+        "icon": "🎯",
+        "version": "0.1.0",
+        "author": "Agentopia Core Team",
+        "agentType": "Utility",
+        "agentScale": "Single-Agent",
+        "category": "Productivity & Organization",
+        "subcategory": "Time & Task Management",
+        "description": "An AI-powered assistant to help you maintain focus, manage tasks effectively, and optimize your work/study sessions using techniques like Pomodoro and smart break scheduling.",
+        "long_description": "### Overview\nFocusForge is your personal productivity companion designed to help you combat distractions and enhance concentration. It integrates proven time management techniques with intelligent suggestions to create an optimal work environment. Whether you're studying for exams, working on a big project, or just trying to manage daily tasks, FocusForge helps you stay on track and make the most of your time.\n\n### Key Features:\n*   **Intelligent Pomodoro Timer:** Customizable work and break intervals with smart suggestions based on your activity patterns (Future).\n*   **Task Management:** Simple to-do list integration to organize your tasks for each focus session.\n*   **Distraction Blocking (Future):** Integration with website/app blockers during focus sessions.\n*   **Ambient Sounds & Focus Music:** Curated audio to help maintain concentration.\n*   **Progress Tracking & Analytics:** Visualize your focused work time and productivity trends.",
+        "configFields": [],
+        "features": [
+            "Customizable Pomodoro timer.",
+            "Integrated task list for focus sessions.",
+            "Selection of ambient sounds and focus music.",
+            "Basic progress tracking for focused work.",
+            "Smart break scheduling suggestions (planned)."
+        ],
+        "tags": [
+            "productivity",
+            "focus",
+            "time management",
+            "pomodoro",
+            "task management",
+            "concentration",
+            "study aid"
+        ],
+        "demoUrl": "#",
+        "sourceUrl": "#",
+        "rating": 0,
+        "reviews": 0,
+        "entry_point": "focus_app.py",
+        "deployment_status": "planning",
+        "use_cases": [
+            "Improving focus during work or study sessions.",
+            "Managing daily tasks more effectively.",
+            "Reducing procrastination and distractions.",
+            "Building consistent work habits.",
+            "Tracking time spent on different activities."
+        ],
+        "requirements": [
+            "python"
+        ],
+        "roadmap_features": [
+            "AI-driven personalized focus plans.",
+            "Integration with calendar and to-do list apps.",
+            "Advanced distraction blocking features.",
+            "Gamification and rewards for achieving focus goals.",
+            "Team-based focus sessions (optional)."
+        ],
+        "llm_dependency": {
+            "type": "minimal",
+            "notes": "LLM might be used for future features like smart scheduling suggestions or summarizing productivity patterns, but not core to basic functionality."
+        },
+        "privacy_considerations": "All task and productivity data is stored locally by default. No personal data is transmitted unless explicitly configured for cloud sync (future feature).",
+        "docker_info": null,
+        "setup_instructions": "### Prerequisites:\n*   Python 3.8+ installed.\n\n### Running Locally (Example - Actual setup TBD)\n1.  Clone the FocusForge repository.\n2.  Install dependencies: `pip install -r requirements.txt` (if any).\n3.  Run the application: `python focus_app.py`.",
+        "developmentFrameworks": [
+            "Python",
+            "GUI Framework (e.g., Tkinter, PyQt, Kivy - TBD)"
+        ],
+        "intendedAudience": [
+            "Students",
+            "Professionals",
+            "Freelancers",
+            "Anyone looking to improve focus"
+        ],
+        "dataModalities": [
+            "User Input (Tasks)"
+        ],
+        "integrationType": "Desktop Application / Web Application (Future)",
+        "emoji": "🎯",
+        "docker_image_name": null,
+        "docker_pull_instructions": null,
+        "docker_run_instructions": null,
+        "priority": 0,
+        "lastModified": "2025-06-05T10:43:56.938Z"
     },
     {
         "id": 6,
-        "name": "Task Assistant",
-        "icon": "📝",
-        "version": "0.1.0",
-        "author": "Agentopia Core Team",
-        "agentType": "Assistant",
-        "agentScale": "Single-Agent",
-        "category": "Productivity & Organization",
-        "subcategory": "Task Management",
-        "description": "A personal assistant to help you manage tasks, organize your schedule, and boost your daily productivity.",
-        "long_description": "### Overview\nThe Task Assistant is your go-to digital helper for staying on top of your commitments. It allows you to create, track, and prioritize tasks, set reminders, and manage your calendar effectively. Whether you're a busy professional, a student, or anyone looking to improve personal organization, this agent aims to simplify your daily planning.\n\n### Key Features:\n*   **Task Creation & Management:** Easily add new tasks, set due dates, and categorize them.\n*   **Prioritization:** Helps you identify and focus on your most important tasks.\n*   **Reminders:** Set up notifications so you never miss a deadline.\n*   **Calendar Integration (Future):** Seamlessly sync with your existing calendar applications.\n*   **Simple Interface:** Designed for quick and intuitive interaction.",
-        "configFields": [],
-        "features": [
-            "Create and manage to-do lists.",
-            "Set task priorities and due dates.",
-            "Receive reminders for upcoming tasks.",
-            "Simple and intuitive user interface."
-        ],
-        "tags": [
-            "task management",
-            "to-do list",
-            "organizer",
-            "productivity",
-            "personal assistant",
-            "scheduling"
-        ],
-        "demoUrl": "#",
-        "sourceUrl": "#",
-        "rating": 0,
-        "reviews": 0,
-        "entry_point": "main.py",
-        "deployment_status": "planning",
-        "use_cases": [
-            "Managing daily personal tasks.",
-            "Organizing work projects and deadlines.",
-            "Keeping track of study assignments.",
-            "Planning events and appointments."
-        ],
-        "requirements": [
-            "python"
-        ],
-        "roadmap_features": [
-            "Calendar integration (Google Calendar, Outlook).",
-            "Recurring tasks.",
-            "Sub-tasks.",
-            "Collaboration features for shared task lists.",
-            "Natural Language Processing for task input."
-        ],
-        "llm_dependency": null,
-        "privacy_considerations": "This agent is intended for local execution or secure cloud deployment. Task data is stored locally by default. If cloud services are used for features like calendar sync, data handling will be subject to the privacy policies of those services.",
-        "docker_info": null,
-        "setup_instructions": "### Prerequisites:\n*   Python 3.8+ installed.\n\n### Running Locally with Python (Example - Actual setup TBD)\n1.  Clone the agent's source code repository.\n2.  Navigate to the agent's root directory (`AIAgentopia/agents/task-assistant`).\n3.  Create and activate a Python virtual environment.\n4.  Install dependencies: `pip install -r requirements.txt` (once defined).\n5.  Run the agent: `python main.py` (actual command TBD).",
-        "developmentFrameworks": [
-            "Python"
-        ],
-        "intendedAudience": [
-            "General Users",
-            "Students",
-            "Professionals"
-        ],
-        "dataModalities": [
-            "Text"
-        ],
-        "integrationType": "CLI tool / Local Application",
-        "emoji": "📝",
-        "docker_image_name": null,
-        "docker_pull_instructions": null,
-        "docker_run_instructions": null
-    },
-    {
-        "id": 7,
-        "name": "Workflow Automator",
-        "icon": "⚙️",
-        "version": "0.1.0",
-        "author": "Agentopia Core Team",
-        "agentType": "Autonomous",
-        "agentScale": "Single-Agent",
-        "category": "Automation & Utilities",
-        "subcategory": "Process Automation",
-        "description": "An autonomous agent that learns your workflows and automates repetitive digital tasks across applications.",
-        "long_description": "### Overview\nThe Workflow Automator is designed to observe, learn, and execute repetitive digital tasks, freeing you up for more complex and creative work. It can interact with various applications, APIs, and system processes to streamline your daily operations. Ideal for automating data entry, report generation, file management, and other routine business processes.\n\n### Key Features:\n*   **Task Recording & Learning (Future):** Ability to learn workflows by observing user actions.\n*   **Cross-Application Automation:** Can interact with web browsers, desktop applications, and APIs.\n*   **Scheduled & Triggered Execution:** Run automations on a schedule or based on specific events.\n*   **Customizable Scripts:** Define automation logic using a simple scripting interface or visual builder (Future).\n*   **Error Handling & Reporting:** Robust error handling and logging for reliable automation.",
-        "configFields": [],
-        "features": [
-            "Automates repetitive digital tasks.",
-            "Integrates with multiple applications and systems (planned).",
-            "Supports scheduled and event-triggered automations.",
-            "Provides logging and monitoring for automated processes."
-        ],
-        "tags": [
-            "automation",
-            "rpa",
-            "workflow",
-            "process automation",
-            "efficiency",
-            "digital assistant"
-        ],
-        "demoUrl": "#",
-        "sourceUrl": "#",
-        "rating": 0,
-        "reviews": 0,
-        "entry_point": "main.py",
-        "deployment_status": "planning",
-        "use_cases": [
-            "Automating data entry from emails to spreadsheets.",
-            "Generating daily/weekly reports from various sources.",
-            "Automated file organization and backups.",
-            "Synchronizing data between different applications.",
-            "Automating software testing routines."
-        ],
-        "requirements": [
-            "python"
-        ],
-        "roadmap_features": [
-            "Visual workflow designer.",
-            "AI-powered workflow suggestion and optimization.",
-            "Expanded library of pre-built integrations.",
-            "Secure credential management.",
-            "User interface for managing and monitoring automations."
-        ],
-        "llm_dependency": null,
-        "privacy_considerations": "Workflow automation scripts may interact with sensitive data and applications. Ensure scripts are reviewed for security. Credentials should be managed securely, ideally not hardcoded. Local execution is prioritized for data privacy.",
-        "docker_info": null,
-        "setup_instructions": "### Prerequisites:\n*   Python 3.8+ installed.\n\n### Running Locally with Python (Example - Actual setup TBD)\n1.  Clone the agent's source code repository.\n2.  Navigate to the agent's root directory (`AIAgentopia/agents/workflow-automator`).\n3.  Create and activate a Python virtual environment.\n4.  Install dependencies: `pip install -r requirements.txt` (once defined).\n5.  Configure your automation script(s).\n6.  Run the agent: `python main.py --script_path /path/to/your/script.json` (actual command TBD).",
-        "developmentFrameworks": [
-            "Python"
-        ],
-        "intendedAudience": [
-            "Business Users",
-            "IT Professionals",
-            "Developers"
-        ],
-        "dataModalities": [
-            "Text",
-            "Files",
-            "API Data"
-        ],
-        "integrationType": "CLI tool / Background Service",
-        "emoji": "⚙️",
-        "docker_image_name": null,
-        "docker_pull_instructions": null,
-        "docker_run_instructions": null
-    },
-    {
-        "id": 2,
-        "name": "Data Insights Team",
-        "icon": "👥",
+        "name": "MarketMind Analytics",
+        "icon": "📈",
         "version": "0.1.0",
         "author": "Agentopia Core Team",
         "agentType": "Specialized",
-        "agentScale": "Multi-Agent",
+        "agentScale": "Single-Agent",
         "category": "Data Analysis & Research",
-        "subcategory": "Collaborative Analytics",
-        "description": "A coordinated team of specialized AI agents that collaboratively analyze complex datasets, generate insights, and produce comprehensive visual reports.",
-        "long_description": "### Overview\nThe Data Insights Team is a multi-agent system designed for tackling complex data analysis challenges. It comprises several specialized agents, each contributing unique skills (e.g., data cleaning, statistical modeling, visualization, natural language reporting). Together, they provide a deeper and more nuanced understanding of your data than a single agent might achieve. This team is ideal for organizations looking to extract actionable intelligence from large or multifaceted datasets.\n\n### Key Features:\n*   **Multi-Agent Collaboration:** Agents coordinate tasks and share intermediate results.\n*   **Specialized Roles:** Includes agents for data ingestion, preprocessing, advanced analytics, visualization, and insight communication.\n*   **Scalable Analysis:** Capable of handling larger and more complex datasets by distributing workloads.\n*   **Comprehensive Reporting:** Generates integrated reports combining statistical findings, visualizations, and narrative explanations.\n*   **Customizable Team Composition (Future):** Adapt the team's skills by adding or configuring individual agents.",
+        "subcategory": "Market & Trend Analysis",
+        "description": "An AI agent that continuously monitors market trends, financial news, social sentiment, and competitor activities to deliver actionable insights and predictive analytics.",
+        "long_description": "### Overview\nMarketMind Analytics is a specialized agent designed for market researchers, financial analysts, and business strategists. It leverages advanced data scraping, natural language processing, and machine learning techniques to gather and interpret vast amounts of market-related data from diverse sources. The agent identifies emerging trends, assesses market sentiment, tracks competitor movements, and can provide forecasts to support strategic decision-making.\n\n### Key Features:\n*   **Real-time Data Aggregation:** Collects data from news APIs, social media platforms, financial forums, and public company filings.\n*   **Sentiment Analysis:** Gauges public and market sentiment towards specific stocks, products, or brands.\n*   **Trend Identification:** Uses statistical models to detect emerging market trends and patterns.\n*   **Competitor Tracking:** Monitors competitor announcements, product launches, and strategic shifts.\n*   **Customizable Dashboards & Alerts:** Provides personalized dashboards and real-time alerts for critical market events.",
         "configFields": [],
         "features": [
-            "Collaborative analysis by a team of specialized AI agents.",
-            "Advanced statistical modeling and machine learning capabilities.",
-            "Generation of interactive dashboards and detailed reports.",
-            "Natural language explanations of complex findings."
+            "Automated collection and analysis of market data.",
+            "Sentiment analysis for brands, products, and market topics.",
+            "Identification of emerging trends and investment opportunities.",
+            "Competitor intelligence gathering.",
+            "Customizable alerts and reporting."
         ],
         "tags": [
-            "multi-agent",
-            "data analysis",
-            "business intelligence",
-            "machine learning",
-            "data visualization",
-            "team analytics",
-            "collaborative AI"
+            "market research",
+            "financial analysis",
+            "sentiment analysis",
+            "trend analysis",
+            "competitor analysis",
+            "investment insights",
+            "data mining"
         ],
         "demoUrl": "#",
         "sourceUrl": "#",
         "rating": 0,
         "reviews": 0,
-        "entry_point": "coordinator.py",
+        "entry_point": "analyzer_main.py",
         "deployment_status": "planning",
         "use_cases": [
-            "In-depth market research and competitive analysis.",
-            "Financial forecasting and risk assessment.",
-            "Scientific research data analysis.",
-            "Customer segmentation and behavior analysis.",
-            "Operational efficiency optimization."
+            "Identifying promising investment opportunities.",
+            "Tracking brand perception and managing reputation.",
+            "Understanding consumer behavior and market dynamics.",
+            "Performing due diligence for mergers and acquisitions.",
+            "Developing data-driven marketing strategies."
         ],
         "requirements": [
             "python",
-            "pandas",
-            "scikit-learn",
-            "numpy"
+            "beautifulsoup4",
+            "requests",
+            "nltk",
+            "pandas"
         ],
         "roadmap_features": [
-            "User interface for defining analysis projects and team configurations.",
-            "Real-time collaboration monitoring.",
-            "Integration with data warehousing solutions.",
-            "Automated insight discovery and hypothesis generation."
+            "Predictive modeling for stock prices or market movements.",
+            "Integration with brokerage APIs for automated trading (experimental).",
+            "Advanced anomaly detection in market data.",
+            "Natural language query interface for insights.",
+            "Comparative analysis tools for multiple stocks or products."
         ],
         "llm_dependency": {
-            "type": "multiple",
-            "notes": "Individual agents within the team may have their own LLM dependencies for tasks like natural language processing or report generation. Refer to individual agent manifests for details."
+            "type": "core",
+            "notes": "LLMs are crucial for advanced NLP tasks like summarization of news articles, nuanced sentiment analysis, and generating insight reports."
         },
-        "privacy_considerations": "Data handling depends on the configuration of individual agents and data sources. Ensure compliance with data privacy regulations. Secure communication channels between agents are critical if deployed in a distributed environment.",
-        "docker_info": null,
-        "setup_instructions": "### Prerequisites:\n*   Python 3.8+ installed.\n*   Potentially Docker for managing individual agent services.\n\n### Running Locally (Example - Actual setup TBD)\n1.  Clone the main repository containing the team's coordinator and individual agent modules.\n2.  Set up and run each specialized agent (details TBD, might involve individual Docker containers or Python processes).\n3.  Configure the `coordinator.py` with data sources and analysis goals.\n4.  Run the coordinator: `python coordinator.py --config /path/to/project_config.json`.",
+        "privacy_considerations": "Relies on publicly available data. Users should be mindful of the terms of service of data sources. No personal user data is stored beyond configuration preferences. API keys for data sources should be managed securely.",
+        "docker_info": {
+            "image_name_pattern": "agentopia/marketmind-analytics:<version>",
+            "notes": "Can be run as a standalone Docker container."
+        },
+        "setup_instructions": "### Prerequisites:\n*   Python 3.8+ installed.\n*   API keys for any premium news or social media data sources.\n\n### Running Locally (Example - Actual setup TBD)\n1.  Clone the MarketMind Analytics repository.\n2.  Install dependencies: `pip install -r requirements.txt`.\n3.  Configure API keys and keywords in a `config.yaml` file.\n4.  Run the agent: `python analyzer_main.py --config config.yaml`.",
         "developmentFrameworks": [
             "Python",
-            "Agent Communication Framework (e.g., gRPC, REST)"
+            "Scrapy (optional)",
+            "NLTK/spaCy"
         ],
         "intendedAudience": [
-            "Data Science Teams",
-            "Large Enterprises",
-            "Research Institutions"
+            "Financial Analysts",
+            "Market Researchers",
+            "Investors",
+            "Business Strategists"
         ],
         "dataModalities": [
-            "Tabular Data",
-            "Text Data",
-            "Time Series Data"
+            "Text",
+            "Numerical Data (Stock Prices)"
         ],
-        "integrationType": "Distributed System / API-driven",
-        "emoji": "👥",
+        "integrationType": "Standalone Application / API Service",
+        "emoji": "📈",
         "docker_image_name": null,
         "docker_pull_instructions": null,
-        "docker_run_instructions": null
+        "docker_run_instructions": null,
+        "priority": 0,
+        "lastModified": "2025-06-05T10:42:00.340Z"
     },
     {
-        "id": 3,
+        "id": 4,
         "name": "DevOps Squad",
         "icon": "🚀",
         "version": "0.1.0",
@@ -414,171 +469,237 @@
         "emoji": "🚀",
         "docker_image_name": null,
         "docker_pull_instructions": null,
-        "docker_run_instructions": null
+        "docker_run_instructions": null,
+        "priority": 0,
+        "lastModified": "2025-06-05T10:41:15.501Z"
     },
     {
-        "id": 5,
-        "name": "MarketMind Analytics",
-        "icon": "📈",
+        "id": 3,
+        "name": "Data Insights Team",
+        "icon": "👥",
         "version": "0.1.0",
         "author": "Agentopia Core Team",
         "agentType": "Specialized",
-        "agentScale": "Single-Agent",
+        "agentScale": "Multi-Agent",
         "category": "Data Analysis & Research",
-        "subcategory": "Market & Trend Analysis",
-        "description": "An AI agent that continuously monitors market trends, financial news, social sentiment, and competitor activities to deliver actionable insights and predictive analytics.",
-        "long_description": "### Overview\nMarketMind Analytics is a specialized agent designed for market researchers, financial analysts, and business strategists. It leverages advanced data scraping, natural language processing, and machine learning techniques to gather and interpret vast amounts of market-related data from diverse sources. The agent identifies emerging trends, assesses market sentiment, tracks competitor movements, and can provide forecasts to support strategic decision-making.\n\n### Key Features:\n*   **Real-time Data Aggregation:** Collects data from news APIs, social media platforms, financial forums, and public company filings.\n*   **Sentiment Analysis:** Gauges public and market sentiment towards specific stocks, products, or brands.\n*   **Trend Identification:** Uses statistical models to detect emerging market trends and patterns.\n*   **Competitor Tracking:** Monitors competitor announcements, product launches, and strategic shifts.\n*   **Customizable Dashboards & Alerts:** Provides personalized dashboards and real-time alerts for critical market events.",
+        "subcategory": "Collaborative Analytics",
+        "description": "A coordinated team of specialized AI agents that collaboratively analyze complex datasets, generate insights, and produce comprehensive visual reports.",
+        "long_description": "### Overview\nThe Data Insights Team is a multi-agent system designed for tackling complex data analysis challenges. It comprises several specialized agents, each contributing unique skills (e.g., data cleaning, statistical modeling, visualization, natural language reporting). Together, they provide a deeper and more nuanced understanding of your data than a single agent might achieve. This team is ideal for organizations looking to extract actionable intelligence from large or multifaceted datasets.\n\n### Key Features:\n*   **Multi-Agent Collaboration:** Agents coordinate tasks and share intermediate results.\n*   **Specialized Roles:** Includes agents for data ingestion, preprocessing, advanced analytics, visualization, and insight communication.\n*   **Scalable Analysis:** Capable of handling larger and more complex datasets by distributing workloads.\n*   **Comprehensive Reporting:** Generates integrated reports combining statistical findings, visualizations, and narrative explanations.\n*   **Customizable Team Composition (Future):** Adapt the team's skills by adding or configuring individual agents.",
         "configFields": [],
         "features": [
-            "Automated collection and analysis of market data.",
-            "Sentiment analysis for brands, products, and market topics.",
-            "Identification of emerging trends and investment opportunities.",
-            "Competitor intelligence gathering.",
-            "Customizable alerts and reporting."
+            "Collaborative analysis by a team of specialized AI agents.",
+            "Advanced statistical modeling and machine learning capabilities.",
+            "Generation of interactive dashboards and detailed reports.",
+            "Natural language explanations of complex findings."
         ],
         "tags": [
-            "market research",
-            "financial analysis",
-            "sentiment analysis",
-            "trend analysis",
-            "competitor analysis",
-            "investment insights",
-            "data mining"
+            "multi-agent",
+            "data analysis",
+            "business intelligence",
+            "machine learning",
+            "data visualization",
+            "team analytics",
+            "collaborative AI"
         ],
         "demoUrl": "#",
         "sourceUrl": "#",
         "rating": 0,
         "reviews": 0,
-        "entry_point": "analyzer_main.py",
+        "entry_point": "coordinator.py",
         "deployment_status": "planning",
         "use_cases": [
-            "Identifying promising investment opportunities.",
-            "Tracking brand perception and managing reputation.",
-            "Understanding consumer behavior and market dynamics.",
-            "Performing due diligence for mergers and acquisitions.",
-            "Developing data-driven marketing strategies."
+            "In-depth market research and competitive analysis.",
+            "Financial forecasting and risk assessment.",
+            "Scientific research data analysis.",
+            "Customer segmentation and behavior analysis.",
+            "Operational efficiency optimization."
         ],
         "requirements": [
             "python",
-            "beautifulsoup4",
-            "requests",
-            "nltk",
-            "pandas"
+            "pandas",
+            "scikit-learn",
+            "numpy"
         ],
         "roadmap_features": [
-            "Predictive modeling for stock prices or market movements.",
-            "Integration with brokerage APIs for automated trading (experimental).",
-            "Advanced anomaly detection in market data.",
-            "Natural language query interface for insights.",
-            "Comparative analysis tools for multiple stocks or products."
+            "User interface for defining analysis projects and team configurations.",
+            "Real-time collaboration monitoring.",
+            "Integration with data warehousing solutions.",
+            "Automated insight discovery and hypothesis generation."
         ],
         "llm_dependency": {
-            "type": "core",
-            "notes": "LLMs are crucial for advanced NLP tasks like summarization of news articles, nuanced sentiment analysis, and generating insight reports."
+            "type": "multiple",
+            "notes": "Individual agents within the team may have their own LLM dependencies for tasks like natural language processing or report generation. Refer to individual agent manifests for details."
         },
-        "privacy_considerations": "Relies on publicly available data. Users should be mindful of the terms of service of data sources. No personal user data is stored beyond configuration preferences. API keys for data sources should be managed securely.",
-        "docker_info": {
-            "image_name_pattern": "agentopia/marketmind-analytics:<version>",
-            "notes": "Can be run as a standalone Docker container."
-        },
-        "setup_instructions": "### Prerequisites:\n*   Python 3.8+ installed.\n*   API keys for any premium news or social media data sources.\n\n### Running Locally (Example - Actual setup TBD)\n1.  Clone the MarketMind Analytics repository.\n2.  Install dependencies: `pip install -r requirements.txt`.\n3.  Configure API keys and keywords in a `config.yaml` file.\n4.  Run the agent: `python analyzer_main.py --config config.yaml`.",
+        "privacy_considerations": "Data handling depends on the configuration of individual agents and data sources. Ensure compliance with data privacy regulations. Secure communication channels between agents are critical if deployed in a distributed environment.",
+        "docker_info": null,
+        "setup_instructions": "### Prerequisites:\n*   Python 3.8+ installed.\n*   Potentially Docker for managing individual agent services.\n\n### Running Locally (Example - Actual setup TBD)\n1.  Clone the main repository containing the team's coordinator and individual agent modules.\n2.  Set up and run each specialized agent (details TBD, might involve individual Docker containers or Python processes).\n3.  Configure the `coordinator.py` with data sources and analysis goals.\n4.  Run the coordinator: `python coordinator.py --config /path/to/project_config.json`.",
         "developmentFrameworks": [
             "Python",
-            "Scrapy (optional)",
-            "NLTK/spaCy"
+            "Agent Communication Framework (e.g., gRPC, REST)"
         ],
         "intendedAudience": [
-            "Financial Analysts",
-            "Market Researchers",
-            "Investors",
-            "Business Strategists"
+            "Data Science Teams",
+            "Large Enterprises",
+            "Research Institutions"
         ],
         "dataModalities": [
-            "Text",
-            "Numerical Data (Stock Prices)"
+            "Tabular Data",
+            "Text Data",
+            "Time Series Data"
         ],
-        "integrationType": "Standalone Application / API Service",
-        "emoji": "📈",
+        "integrationType": "Distributed System / API-driven",
+        "emoji": "👥",
         "docker_image_name": null,
         "docker_pull_instructions": null,
-        "docker_run_instructions": null
+        "docker_run_instructions": null,
+        "priority": 0,
+        "lastModified": "2025-06-05T10:40:29.561Z"
     },
     {
-        "id": 4,
-        "name": "FocusForge",
-        "icon": "🎯",
+        "id": 9,
+        "name": "Workflow Automator",
+        "icon": "⚙️",
         "version": "0.1.0",
         "author": "Agentopia Core Team",
-        "agentType": "Utility",
+        "agentType": "Autonomous",
         "agentScale": "Single-Agent",
-        "category": "Productivity & Organization",
-        "subcategory": "Time & Task Management",
-        "description": "An AI-powered assistant to help you maintain focus, manage tasks effectively, and optimize your work/study sessions using techniques like Pomodoro and smart break scheduling.",
-        "long_description": "### Overview\nFocusForge is your personal productivity companion designed to help you combat distractions and enhance concentration. It integrates proven time management techniques with intelligent suggestions to create an optimal work environment. Whether you're studying for exams, working on a big project, or just trying to manage daily tasks, FocusForge helps you stay on track and make the most of your time.\n\n### Key Features:\n*   **Intelligent Pomodoro Timer:** Customizable work and break intervals with smart suggestions based on your activity patterns (Future).\n*   **Task Management:** Simple to-do list integration to organize your tasks for each focus session.\n*   **Distraction Blocking (Future):** Integration with website/app blockers during focus sessions.\n*   **Ambient Sounds & Focus Music:** Curated audio to help maintain concentration.\n*   **Progress Tracking & Analytics:** Visualize your focused work time and productivity trends.",
+        "category": "Automation & Utilities",
+        "subcategory": "Process Automation",
+        "description": "An autonomous agent that learns your workflows and automates repetitive digital tasks across applications.",
+        "long_description": "### Overview\nThe Workflow Automator is designed to observe, learn, and execute repetitive digital tasks, freeing you up for more complex and creative work. It can interact with various applications, APIs, and system processes to streamline your daily operations. Ideal for automating data entry, report generation, file management, and other routine business processes.\n\n### Key Features:\n*   **Task Recording & Learning (Future):** Ability to learn workflows by observing user actions.\n*   **Cross-Application Automation:** Can interact with web browsers, desktop applications, and APIs.\n*   **Scheduled & Triggered Execution:** Run automations on a schedule or based on specific events.\n*   **Customizable Scripts:** Define automation logic using a simple scripting interface or visual builder (Future).\n*   **Error Handling & Reporting:** Robust error handling and logging for reliable automation.",
         "configFields": [],
         "features": [
-            "Customizable Pomodoro timer.",
-            "Integrated task list for focus sessions.",
-            "Selection of ambient sounds and focus music.",
-            "Basic progress tracking for focused work.",
-            "Smart break scheduling suggestions (planned)."
+            "Automates repetitive digital tasks.",
+            "Integrates with multiple applications and systems (planned).",
+            "Supports scheduled and event-triggered automations.",
+            "Provides logging and monitoring for automated processes."
         ],
         "tags": [
-            "productivity",
-            "focus",
-            "time management",
-            "pomodoro",
-            "task management",
-            "concentration",
-            "study aid"
+            "automation",
+            "rpa",
+            "workflow",
+            "process automation",
+            "efficiency",
+            "digital assistant"
         ],
         "demoUrl": "#",
         "sourceUrl": "#",
         "rating": 0,
         "reviews": 0,
-        "entry_point": "focus_app.py",
+        "entry_point": "main.py",
         "deployment_status": "planning",
         "use_cases": [
-            "Improving focus during work or study sessions.",
-            "Managing daily tasks more effectively.",
-            "Reducing procrastination and distractions.",
-            "Building consistent work habits.",
-            "Tracking time spent on different activities."
+            "Automating data entry from emails to spreadsheets.",
+            "Generating daily/weekly reports from various sources.",
+            "Automated file organization and backups.",
+            "Synchronizing data between different applications.",
+            "Automating software testing routines."
         ],
         "requirements": [
             "python"
         ],
         "roadmap_features": [
-            "AI-driven personalized focus plans.",
-            "Integration with calendar and to-do list apps.",
-            "Advanced distraction blocking features.",
-            "Gamification and rewards for achieving focus goals.",
-            "Team-based focus sessions (optional)."
+            "Visual workflow designer.",
+            "AI-powered workflow suggestion and optimization.",
+            "Expanded library of pre-built integrations.",
+            "Secure credential management.",
+            "User interface for managing and monitoring automations."
         ],
-        "llm_dependency": {
-            "type": "minimal",
-            "notes": "LLM might be used for future features like smart scheduling suggestions or summarizing productivity patterns, but not core to basic functionality."
-        },
-        "privacy_considerations": "All task and productivity data is stored locally by default. No personal data is transmitted unless explicitly configured for cloud sync (future feature).",
+        "llm_dependency": null,
+        "privacy_considerations": "Workflow automation scripts may interact with sensitive data and applications. Ensure scripts are reviewed for security. Credentials should be managed securely, ideally not hardcoded. Local execution is prioritized for data privacy.",
         "docker_info": null,
-        "setup_instructions": "### Prerequisites:\n*   Python 3.8+ installed.\n\n### Running Locally (Example - Actual setup TBD)\n1.  Clone the FocusForge repository.\n2.  Install dependencies: `pip install -r requirements.txt` (if any).\n3.  Run the application: `python focus_app.py`.",
+        "setup_instructions": "### Prerequisites:\n*   Python 3.8+ installed.\n\n### Running Locally with Python (Example - Actual setup TBD)\n1.  Clone the agent's source code repository.\n2.  Navigate to the agent's root directory (`AIAgentopia/agents/workflow-automator`).\n3.  Create and activate a Python virtual environment.\n4.  Install dependencies: `pip install -r requirements.txt` (once defined).\n5.  Configure your automation script(s).\n6.  Run the agent: `python main.py --script_path /path/to/your/script.json` (actual command TBD).",
         "developmentFrameworks": [
-            "Python",
-            "GUI Framework (e.g., Tkinter, PyQt, Kivy - TBD)"
+            "Python"
         ],
         "intendedAudience": [
-            "Students",
-            "Professionals",
-            "Freelancers",
-            "Anyone looking to improve focus"
+            "Business Users",
+            "IT Professionals",
+            "Developers"
         ],
         "dataModalities": [
-            "User Input (Tasks)"
+            "Text",
+            "Files",
+            "API Data"
         ],
-        "integrationType": "Desktop Application / Web Application (Future)",
-        "emoji": "🎯",
+        "integrationType": "CLI tool / Background Service",
+        "emoji": "⚙️",
         "docker_image_name": null,
         "docker_pull_instructions": null,
-        "docker_run_instructions": null
+        "docker_run_instructions": null,
+        "priority": 0,
+        "lastModified": "2025-06-05T10:38:43.895Z"
+    },
+    {
+        "id": 7,
+        "name": "Task Assistant",
+        "icon": "📝",
+        "version": "0.1.0",
+        "author": "Agentopia Core Team",
+        "agentType": "Assistant",
+        "agentScale": "Single-Agent",
+        "category": "Productivity & Organization",
+        "subcategory": "Task Management",
+        "description": "A personal assistant to help you manage tasks, organize your schedule, and boost your daily productivity.",
+        "long_description": "### Overview\nThe Task Assistant is your go-to digital helper for staying on top of your commitments. It allows you to create, track, and prioritize tasks, set reminders, and manage your calendar effectively. Whether you're a busy professional, a student, or anyone looking to improve personal organization, this agent aims to simplify your daily planning.\n\n### Key Features:\n*   **Task Creation & Management:** Easily add new tasks, set due dates, and categorize them.\n*   **Prioritization:** Helps you identify and focus on your most important tasks.\n*   **Reminders:** Set up notifications so you never miss a deadline.\n*   **Calendar Integration (Future):** Seamlessly sync with your existing calendar applications.\n*   **Simple Interface:** Designed for quick and intuitive interaction.",
+        "configFields": [],
+        "features": [
+            "Create and manage to-do lists.",
+            "Set task priorities and due dates.",
+            "Receive reminders for upcoming tasks.",
+            "Simple and intuitive user interface."
+        ],
+        "tags": [
+            "task management",
+            "to-do list",
+            "organizer",
+            "productivity",
+            "personal assistant",
+            "scheduling"
+        ],
+        "demoUrl": "#",
+        "sourceUrl": "#",
+        "rating": 0,
+        "reviews": 0,
+        "entry_point": "main.py",
+        "deployment_status": "planning",
+        "use_cases": [
+            "Managing daily personal tasks.",
+            "Organizing work projects and deadlines.",
+            "Keeping track of study assignments.",
+            "Planning events and appointments."
+        ],
+        "requirements": [
+            "python"
+        ],
+        "roadmap_features": [
+            "Calendar integration (Google Calendar, Outlook).",
+            "Recurring tasks.",
+            "Sub-tasks.",
+            "Collaboration features for shared task lists.",
+            "Natural Language Processing for task input."
+        ],
+        "llm_dependency": null,
+        "privacy_considerations": "This agent is intended for local execution or secure cloud deployment. Task data is stored locally by default. If cloud services are used for features like calendar sync, data handling will be subject to the privacy policies of those services.",
+        "docker_info": null,
+        "setup_instructions": "### Prerequisites:\n*   Python 3.8+ installed.\n\n### Running Locally with Python (Example - Actual setup TBD)\n1.  Clone the agent's source code repository.\n2.  Navigate to the agent's root directory (`AIAgentopia/agents/task-assistant`).\n3.  Create and activate a Python virtual environment.\n4.  Install dependencies: `pip install -r requirements.txt` (once defined).\n5.  Run the agent: `python main.py` (actual command TBD).",
+        "developmentFrameworks": [
+            "Python"
+        ],
+        "intendedAudience": [
+            "General Users",
+            "Students",
+            "Professionals"
+        ],
+        "dataModalities": [
+            "Text"
+        ],
+        "integrationType": "CLI tool / Local Application",
+        "emoji": "📝",
+        "docker_image_name": null,
+        "docker_pull_instructions": null,
+        "docker_run_instructions": null,
+        "priority": 0,
+        "lastModified": "2025-06-05T10:33:42.912Z"
     }
 ]
