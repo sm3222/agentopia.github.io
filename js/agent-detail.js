@@ -526,8 +526,8 @@ function populateAgentDetails(agent) {
     setText("detail-agent-author", agent.author);
     setText("detail-agent-version", agent.version ? `${agent.version}` : null);
     setText("detail-agent-deployment-status", agent.deployment_status);
-    setText("detail-agent-type", agent.type);
-    setText("detail-agent-scale", agent.scale);
+    setText("detail-agent-type", agent.agentType);
+    setText("detail-agent-scale", agent.agentScale);
     setText("detail-agent-entry-point", agent.entry_point ? `<code>${agent.entry_point}</code>` : null);
 
     // Populate Roadmap Features

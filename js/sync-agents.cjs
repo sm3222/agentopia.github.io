@@ -44,6 +44,7 @@ function getAgentManifests(agentsDir) {
     if (fs.existsSync(manifestPath)) {
       try {
         const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+        const stats = fs.statSync(manifestPath);
         // Map manifest fields to portal format
         agents.push({
           id: idx + 1, // This ID might get overridden if a manual entry with same name exists
@@ -76,14 +77,15 @@ function getAgentManifests(agentsDir) {
           deployment_status: manifest.deployment_status || "N/A",
           use_cases: manifest.use_cases || [],
           requirements: manifest.requirements || [],
-          roadmap_features: manifest.roadmap_features || [],
+          roadmap_features: manifest.roadmap_features || manifest.roadmap || [],
           llm_dependency: manifest.llm_dependency || null,
           privacy_considerations: manifest.privacy_considerations || "",
           // Correctly map individual Docker fields from snake_case source
           docker_image_name: manifest.docker_image_name || null,
           docker_pull_instructions: manifest.docker_pull_instructions || null,
           docker_run_instructions: manifest.docker_run_instructions || null,
-          setup_instructions: manifest.setup_instructions || manifest.setupInstructions || "", 
+          setup_instructions: manifest.setup_instructions || manifest.setupInstructions || "",
+          lastModified: stats.mtime, // File modification time for sorting
         });
       } catch (e) {
         console.warn("Could not parse", manifestPath, e);
@@ -122,6 +124,16 @@ function main() {
       mergedAgents.push(realAgent);
       console.log(`Added new agent from AIAgentopia: ${realAgent.name}`);
     }
+  });
+
+  // Sort agents by last modified time (newest first), then by name for consistent ordering
+  mergedAgents.sort((a, b) => {
+    const timeA = a.lastModified ? new Date(a.lastModified) : new Date(0);
+    const timeB = b.lastModified ? new Date(b.lastModified) : new Date(0);
+    if (timeA.getTime() !== timeB.getTime()) {
+      return timeB.getTime() - timeA.getTime(); // Newest first
+    }
+    return a.name.localeCompare(b.name); // Alphabetical by name as secondary sort
   });
 
   // The 'merged' variable for writing to file should be 'mergedAgents'
