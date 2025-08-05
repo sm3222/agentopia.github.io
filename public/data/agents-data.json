@@ -1,5 +1,119 @@
 [
     {
+        "id": 9,
+        "name": "Web Scraper Agent",
+        "icon": "🕵️‍♂️",
+        "emoji": "🕵️‍♂️",
+        "version": "1.1.0",
+        "author": "Agentopia Team",
+        "category": "Data Analysis & Research",
+        "agentType": "Assistant",
+        "agentScale": "Single-Agent",
+        "subcategory": "Web Scraping",
+        "developmentFrameworks": [],
+        "intendedAudience": [],
+        "dataModalities": [],
+        "integrationType": "",
+        "description": "A unified intelligent web scraping agent with dual LLM support that extracts specific information from websites using natural language prompts.",
+        "configFields": [],
+        "features": [
+            "Unified application with dynamic LLM provider selection",
+            "Dual LLM support (OpenAI API and local Ollama)",
+            "Professional Agentopia branding and UI",
+            "Natural language scraping prompts",
+            "Intelligent content extraction with direct Ollama integration",
+            "Memory-efficient model support (llama3.2:1b)",
+            "Smart error handling and troubleshooting guidance",
+            "Auto-loading of API keys from environment",
+            "Clean Streamlit web interface",
+            "Environment-based configuration",
+            "Privacy-focused local deployment option"
+        ],
+        "tags": [
+            "web-scraping",
+            "data-extraction",
+            "ai-powered",
+            "streamlit",
+            "openai",
+            "ollama",
+            "playwright",
+            "scrapegraphai"
+        ],
+        "demoUrl": "",
+        "sourceUrl": "https://github.com/Agentopia/AIAgentopia/tree/main/agents/web-scraper",
+        "rating": 5,
+        "reviews": 0,
+        "long_description": "The Web Scraper Agent is a production-ready, unified application that combines AI language models with advanced web scraping capabilities. It features a clean Streamlit interface with dynamic provider selection between cloud-based OpenAI and privacy-focused local Ollama deployments. The agent uses intelligent error handling, memory-efficient model support, and professional Agentopia branding to deliver enterprise-grade web scraping functionality.",
+        "entry_point": "app/web_scraper.py",
+        "deployment_status": "production",
+        "use_cases": [
+            "Extract product information from e-commerce websites",
+            "Gather news articles and content from media sites",
+            "Collect research data from academic or professional websites",
+            "Monitor competitor pricing and product details",
+            "Scrape job listings from career websites",
+            "Extract contact information from business directories"
+        ],
+        "requirements": [
+            "Python >=3.8",
+            "512MB RAM minimum",
+            "100MB storage space",
+            "Internet connection for web scraping and API access",
+            "OpenAI API key (for cloud LLM) or Ollama installation (for local LLM)"
+        ],
+        "roadmap_features": {
+            "current_phase": "Phase 1: Complete - Production Ready",
+            "completed_milestones": [
+                "✅ Merged dual LLM implementations into unified app",
+                "✅ Implemented Agentopia UI standards and branding",
+                "✅ Added comprehensive error handling and UX improvements",
+                "✅ Direct Ollama integration for reliability",
+                "✅ Memory-efficient model support",
+                "✅ Docker containerization"
+            ],
+            "next_milestones": [
+                "Documentation finalization",
+                "Advanced anti-bot measures",
+                "Automated testing suite"
+            ]
+        },
+        "llm_dependency": {
+            "required": true,
+            "type": "openai",
+            "apiKeyEnvVar": "OPENAI_API_KEY",
+            "providers": [
+                {
+                    "name": "OpenAI",
+                    "models": [
+                        "gpt-3.5-turbo",
+                        "gpt-4"
+                    ],
+                    "api_key_required": true,
+                    "local": false
+                },
+                {
+                    "name": "Ollama",
+                    "models": [
+                        "llama3.2:1b",
+                        "llama3.2",
+                        "llama3.1:8b",
+                        "gemma2:2b"
+                    ],
+                    "api_key_required": false,
+                    "local": true,
+                    "setup_url": "https://ollama.ai/"
+                }
+            ],
+            "fallback_strategy": "User can switch between OpenAI API and local Ollama deployment"
+        },
+        "privacy_considerations": "The Web Scraper Agent prioritizes user privacy by offering local Ollama deployment options that keep all data processing on the user's machine. When using OpenAI, API keys are handled securely and users maintain full control over their credentials. If an API key is not provided via an environment variable, the agent will prompt the user to enter it in the application, ensuring keys are never stored in the container. The agent respects robots.txt files and website terms of service. All scraped data remains under user control and is not stored or transmitted beyond the user's specified configuration.",
+        "docker_image_name": "agentopia/web-scraper-agent",
+        "docker_pull_instructions": null,
+        "docker_run_instructions": "```bash\ndocker run -d --name web-scraper-agent -p 8501:8501 agentopia/web-scraper-agent:latest\n```",
+        "setup_instructions": "1. Clone the repository.\n2. Navigate to the `AIAgentopia/agents/web-scraper` directory.\n3. Install dependencies: `pip install -r requirements.txt`\n4. Create a `.env` file and add your `OPENAI_API_KEY` if you plan to use the OpenAI provider.\n5. Run the agent: `streamlit run app/web_scraper.py`\n6. Open http://localhost:8501 in your browser to use the agent.",
+        "lastModified": "2025-08-05T18:49:53.283Z"
+    },
+    {
         "id": 1,
         "name": "AI Music Agent",
         "icon": "🎵",
@@ -104,7 +218,7 @@
         "docker_run_instructions": "```bash\ndocker run -d --name ai-music-agent -p 8501:8501 agentopia/ai-music-agent:latest\n```",
         "setup_instructions": "1. Clone the repository\n2. Install Python 3.8+ and pip\n3. Install dependencies: pip install -r requirements.txt\n4. Create .env file with API keys (see .env.example)\n5. Run: streamlit run app/music_generator.py\n6. Open http://localhost:8501 in your browser\n7. Enter your API keys and start generating music!",
         "priority": 100,
-        "lastModified": "2025-07-19T02:58:03.546Z"
+        "lastModified": "2025-08-05T09:33:06.774Z"
     },
     {
         "id": 2,
@@ -556,7 +670,7 @@
         "lastModified": "2025-06-05T10:40:29.561Z"
     },
     {
-        "id": 9,
+        "id": 10,
         "name": "Workflow Automator",
         "icon": "⚙️",
         "version": "0.1.0",

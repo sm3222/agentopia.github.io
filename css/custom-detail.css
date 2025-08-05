@@ -1,0 +1,21 @@
+/* Custom styles for agent-detail page dark mode fixes */
+.dark #setup-section.prose {
+  color: #d1d5db; /* text-gray-300 */
+}
+
+.dark #setup-section.prose code {
+  color: #f98c06; /* primary-500 */
+}
+
+.dark #setup-section.prose strong {
+  color: #f9fafb; /* text-gray-50 */
+}
+
+.dark .sidebar-nav .nav-link {
+  color: #9ca3af !important; /* text-gray-400, using !important to override conflicting styles */
+}
+
+.dark .sidebar-nav .nav-link.active,
+.dark .sidebar-nav .nav-link:hover {
+  color: #f98c06 !important; /* primary-500 */
+}
