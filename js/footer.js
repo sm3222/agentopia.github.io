@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <ul class="space-y-2">
                         <li><a href="/agents.html" class="text-gray-400 hover:text-amber-400">Agents</a></li>
                         <li><a href="/resources.html" class="text-gray-400 hover:text-amber-400">Resources</a></li>
+                        <li><a href="/contributing.html" class="text-gray-400 hover:text-amber-400">Contributing</a></li>
                         <li><a href="https://github.com/Agentopia" class="text-gray-400 hover:text-amber-400">GitHub</a></li>
                     </ul>
                 </div>
